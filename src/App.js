@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import './App.css';
 
 const Wrapper = styled.div`
-  display: flex;
+  display: flex; 
   width: 100%;
 `;
 

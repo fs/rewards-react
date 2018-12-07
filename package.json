@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src --ext .js,.jsx",
-    "lint:css": "stylelint './src/**/*.jsx'"
+    "lint:css": "stylelint './src/*.js'"
   },
   "eslintConfig": {
     "extends": "react-app"
