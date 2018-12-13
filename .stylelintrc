@@ -6,7 +6,6 @@
       "no-duplicate-selectors": true,
       "color-hex-case": "lower",
       "color-hex-length": "short",
-      "color-no-hex": true,
       "selector-max-id": 0,
       "selector-combinator-space-after": "always",
       "selector-attribute-operator-space-before": "always",
