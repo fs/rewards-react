@@ -1,0 +1,11 @@
+language: node_js
+sudo: false
+cache: yarn
+node_js: 9
+script: yarn lint && yarn lint:css && yarn build
+deploy:
+  provider: heroku
+  api_key:
+    secure: TJLC3qrcBn3zjz8y0OGUyvphIfziqW2l3bdK3pUJZGkRuRiKXZX04hW9TORtR+LuDavHdUBE3cO7WJVjhTa0Wx+qE5+emYwXgIhOIx3tlYyGjq6YoIyVrz4HLFnQ8oscd1jSLjU+MPrUnylUc8mW/8bVARpwhIpjliuWeg4eFL+B6CFUAIdScq3JWqjRasjTM6zc/tkcoMqm3M7gZ6g3RQ+6fur+pcXnZPu7KuUkzS0tYmVouHKLS9hJ3KiqaoK8jLhKdC0FUV9UA3XmCVQF2Z9WmSBW092vmnKvrDZhlQo1/ipq9lIIr80sPJutYPGaVSEEPHNhJk7IN66qhu0QiuHSjjjXqsxTcmQgF9PgQiiCbjyXrwQbJ5E4sYILIVcaMD+F03RBE7WkcUVL+f1/AaROG0CYymmyiDJgXmfNkwvNnC6SCJUcMD1p1vDKmbzhhqxAi+6y8tOTB9U95lm1kGN6HE5zf70zeXQi1t7PhRaIUJhUbVJLm4lIJEWBC65QxwpetGfeyjUihSfEyVTffI9cCAb/QFc6EVXtFwPjq4dOxaPAX54mrkRlSAFBdWbHp93FooY5p3lvHRhFQJ2v4/YdtN1NwLJ4O75zl/7U0ieKbAnKp4oW83q0kyG8B9CFN2q0SUoeENhfgSk6lGRmSfIKsv5TVadQ5veaaYktEMQ=
+  app:
+    master: rewards-react-staging
