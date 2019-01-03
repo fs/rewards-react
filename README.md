@@ -1,4 +1,7 @@
 # rewards-react
+
+[![Build Status](https://travis-ci.org/fs/rewards-react.svg?branch=master)](https://travis-ci.org/fs/rewards-react)
+
 FE app for AWESOME project called REWARDS
 
 ## Setting up
