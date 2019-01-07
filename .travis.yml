@@ -2,7 +2,7 @@ language: node_js
 sudo: false
 cache: yarn
 node_js: 11
-script: yarn lint && yarn lint:css && yarn build
+script: yarn test && yarn lint && yarn lint:css && yarn build
 deploy:
   provider: heroku
   api_key:
