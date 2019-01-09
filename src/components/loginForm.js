@@ -18,73 +18,84 @@ const Form = styled.form`
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
   color: #000;
 `;
-const LoginForm = () => {
-  return (
-    <div>
-      <Formik
-        initialValues={{ email: '' }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 500);
-        }}
-        validationSchema={Yup.object().shape({
-          email: Yup.string()
-            .email()
-            .required('Required'),
-        })}
-      >
-        {props => {
-          const {
-            values,
-            touched,
-            errors,
-            dirty,
-            isSubmitting,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            handleReset,
-          } = props;
-          return (
-            <Form onSubmit={handleSubmit}>
-              <Label htmlFor="email" style={{ display: 'block' }}>
+const LoginForm = () => (
+  <div>
+    <Formik
+      initialValues={{ email: '' }}
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }, 500);
+      }}
+      validationSchema={Yup.object().shape({
+        email: Yup.string()
+          .email()
+          .required('Required'),
+        password: Yup.string().required('Password is required'),
+      })}
+    >
+      {(props) => {
+        const {
+          values,
+          touched,
+          errors,
+          dirty,
+          isSubmitting,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          handleReset,
+        } = props;
+        return (
+          <Form onSubmit={handleSubmit}>
+            <Label htmlFor="email" style={{ display: 'block' }}>
                 Email
-              </Label>
-              <input
-                id="email"
-                placeholder="Enter your email"
-                type="text"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={
+            </Label>
+            <input
+              id="email"
+              placeholder="Enter your email"
+              type="text"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={
                   errors.email && touched.email ? 'text-input error' : 'text-input'
                 }
-              />
-              {errors.email &&
-              touched.email && <div className="input-feedback">{errors.email}</div>}
-
-              <button
-                type="button"
-                className="outline"
-                onClick={handleReset}
-                disabled={!dirty || isSubmitting}
-              >
+            />
+            {errors.email
+              && touched.email && <div className="input-feedback">{errors.email}</div>}
+            <input
+              id="password"
+              type="password"
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={
+                errors.password && touched.password ? 'text-input error' : 'text-input'
+              }
+            />
+            {errors.password
+            && touched.password && <div className="input-feedback">{errors.password}</div>}
+            <button
+              type="button"
+              className="outline"
+              onClick={handleReset}
+              disabled={!dirty || isSubmitting}
+            >
                 Reset
-              </button>
-              <button type="submit" disabled={isSubmitting}>
+            </button>
+            <button type="submit" disabled={isSubmitting}>
                 Submit
-              </button>
+            </button>
 
 
-            </Form>
-          );
-        }}
-      </Formik>
+          </Form>
+        );
+      }}
+    </Formik>
 
-    </div>
-      );
-};
+  </div>
+);
+
 export default LoginForm;
