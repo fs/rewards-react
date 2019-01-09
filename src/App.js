@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from './images/logo.png';
+import LoginForm from './components/loginForm';
 
 const Wrapper = styled.div`
   display: flex;
@@ -49,6 +50,7 @@ const App = () => (
         <LogoText>Rewards</LogoText>
       </LogoWrapper>
     </Header>
+    <LoginForm />
   </Wrapper>
 );
 

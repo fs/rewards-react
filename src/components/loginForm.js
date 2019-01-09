@@ -1,0 +1,90 @@
+import React from 'react';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import styled from 'styled-components';
+
+const Label = styled.label`
+  color: red;
+`;
+const Form = styled.form`
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding: 40px;
+  margin-bottom: 1.25rem;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+  color: #000;
+`;
+const LoginForm = () => {
+  return (
+    <div>
+      <Formik
+        initialValues={{ email: '' }}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+          }, 500);
+        }}
+        validationSchema={Yup.object().shape({
+          email: Yup.string()
+            .email()
+            .required('Required'),
+        })}
+      >
+        {props => {
+          const {
+            values,
+            touched,
+            errors,
+            dirty,
+            isSubmitting,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            handleReset,
+          } = props;
+          return (
+            <Form onSubmit={handleSubmit}>
+              <Label htmlFor="email" style={{ display: 'block' }}>
+                Email
+              </Label>
+              <input
+                id="email"
+                placeholder="Enter your email"
+                type="text"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  errors.email && touched.email ? 'text-input error' : 'text-input'
+                }
+              />
+              {errors.email &&
+              touched.email && <div className="input-feedback">{errors.email}</div>}
+
+              <button
+                type="button"
+                className="outline"
+                onClick={handleReset}
+                disabled={!dirty || isSubmitting}
+              >
+                Reset
+              </button>
+              <button type="submit" disabled={isSubmitting}>
+                Submit
+              </button>
+
+
+            </Form>
+          );
+        }}
+      </Formik>
+
+    </div>
+      );
+};
+export default LoginForm;
