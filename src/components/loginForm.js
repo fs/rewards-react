@@ -35,6 +35,7 @@ const LoginForm = () => (
         password: Yup.string().required('Password is required'),
       })}
     >
+      {/* eslint-disable */}
       {(props) => {
         const {
           values,
@@ -47,6 +48,7 @@ const LoginForm = () => (
           handleSubmit,
           handleReset,
         } = props;
+        /* eslint-enable */
         return (
           <Form onSubmit={handleSubmit}>
             <Label htmlFor="email" style={{ display: 'block' }}>
@@ -97,5 +99,4 @@ const LoginForm = () => (
 
   </div>
 );
-
 export default LoginForm;

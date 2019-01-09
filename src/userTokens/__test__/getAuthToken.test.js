@@ -1,5 +1,4 @@
 describe('getToken', () => {
-
   beforeEach(() => {
     jest.resetModules();
   });
@@ -30,7 +29,7 @@ describe('getToken', () => {
             password: expectedPassword,
           },
         },
-      }
+      },
     };
     const mockAxios = {
       post: jest.fn(() => new Promise((resolve) => {
@@ -46,9 +45,6 @@ describe('getToken', () => {
     expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams);
   });
 
-
-
-
   test('getToken WrongEmail', async () => {
     // Arrange
     const expectedEmail = 'leyla.khamidullina1@flatstack.com';
@@ -58,11 +54,11 @@ describe('getToken', () => {
       errors: [
         {
           source: {
-            pointer: "/data/attributes/base"
+            pointer: '/data/attributes/base',
           },
-          detail: "Invalid credentials."
-        }
-      ]
+          detail: 'Invalid credentials.',
+        },
+      ],
     };
     const expectedPath = 'https://rewards.flatstack.com/api/v1/user/tokens';
     const expectedParams = {
@@ -74,12 +70,12 @@ describe('getToken', () => {
             password: expectedPassword,
           },
         },
-      }
+      },
     };
     const expectedError = new Error();
     expectedError.response = {
       status: expectedResponseStatus,
-      data: expectedResponseData
+      data: expectedResponseData,
     };
     const mockAxios = {
       post: jest.fn(() => new Promise((resolve, reject) => {
@@ -92,7 +88,7 @@ describe('getToken', () => {
     try {
       // Act
       await getToken(expectedEmail, expectedPassword);
-    } catch(error) {
+    } catch (error) {
       actualError = error;
     }
     // Assert
