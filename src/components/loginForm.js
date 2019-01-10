@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
+import getToken from '../userTokens/getToken';
 
 const Label = styled.label`
   display: block;
@@ -14,47 +15,66 @@ const Form = styled.form`
   top: 50%;
   padding: 40px;
   margin-bottom: 1.25rem;
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  max-width: 100%;
+  border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 1px 10px rgba(0,0,0,0.2);
   color: #000;
 `;
 
-const Input = styled.input`
-  width: 100%;
-  padding: 5px 8px;
+const FormGroup = styled.div`
   margin: 0 0 15px;
 `;
 
+const Input = styled.input`
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 12px;
+`;
+
+const ErrorContainer = styled.div`
+  margin-top: 5px;
+  color: red;
+  font-size: 12px;
+`;
+
 const Button = styled.button`
+  margin-top: 10px;
+  padding: 10px 30px;
+  align-self: center;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
   color: #fff;
   background-color: #63bc36;
-  border-radius: 100px;
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: bold;
-  padding: 13px 30px;
-  -webkit-transition: color 0.2s, background-color 0.2s;
-  transition: color 0.2s, background-color 0.2s;
   border: none;
   outline: 0;
-  box-shadow: none;
+  border-radius: 100px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  -webkit-transition: color 0.2s, background-color 0.2s;
+  transition: color 0.2s, background-color 0.2s;
 `;
 
 const LoginForm = () => (
   <div>
     <Formik
-      initialValues={{ email: '' }}
+      initialValues={{ email: '', password: '' }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+          // alert(JSON.stringify(values, null, 2));
+          getToken(values.email, values.password);
           setSubmitting(false);
         }, 500);
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string()
           .email()
-          .required('Required'),
+          .required('Email is required'),
         password: Yup.string().required('Password is required'),
       })}
     >
@@ -69,50 +89,50 @@ const LoginForm = () => (
           handleChange,
           handleBlur,
           handleSubmit,
-          handleReset,
         } = props;
         /* eslint-enable */
         return (
           <Form onSubmit={handleSubmit}>
-            <Label htmlFor="email" style={{ display: 'block' }}>
+            <FormGroup>
+              <Label htmlFor="email">
                 Email
             </Label>
-            <Input
-              id="email"
-              placeholder="Enter your email"
-              type="text"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
+              <Input
+                id="email"
+                placeholder="Enter your email"
+                type="text"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
                   errors.email && touched.email ? 'text-input error' : 'text-input'
                 }
-            />
-            {errors.email
-              && touched.email && <div className="input-feedback">{errors.email}</div>}
-            <Input
-              id="password"
-              type="password"
-              placeholder="Password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                errors.password && touched.password ? 'text-input error' : 'text-input'
-              }
-            />
-            {errors.password
-            && touched.password && <div className="input-feedback">{errors.password}</div>}
-            <button
-              type="button"
-              className="outline"
-              onClick={handleReset}
-              disabled={!dirty || isSubmitting}
-            >
-                Reset
-            </button>
+              />
+              {errors.email
+                && touched.email && <ErrorContainer>{errors.email}</ErrorContainer>}
+            </FormGroup>
+
+            <FormGroup>
+              <Label htmlFor="password">
+                Password
+            </Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="Password"
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  errors.password && touched.password ? 'text-input error' : 'text-input'
+                }
+              />
+              {errors.password
+                && touched.password && <ErrorContainer>{errors.password}</ErrorContainer>}
+            </FormGroup>
+
             <Button type="submit" disabled={isSubmitting}>
-                Submit
+              Login
             </Button>
 
 
