@@ -4,7 +4,8 @@ import * as Yup from 'yup';
 import styled from 'styled-components';
 
 const Label = styled.label`
-  color: red;
+  display: block;
+  padding: 0 0 10px;
 `;
 const Form = styled.form`
   transform: translate(-50%, -50%);
@@ -18,6 +19,22 @@ const Form = styled.form`
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
   color: #000;
 `;
+
+const Button = styled.button`
+  color: #fff;
+  background-color: #63bc36;
+  border-radius: 100px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: bold;
+  padding: 13px 30px;
+  -webkit-transition: color 0.2s, background-color 0.2s;
+  transition: color 0.2s, background-color 0.2s;
+  border: none;
+  outline: 0;
+  box-shadow: none;
+`;
+
 const LoginForm = () => (
   <div>
     <Formik
@@ -70,6 +87,7 @@ const LoginForm = () => (
             <input
               id="password"
               type="password"
+              placeholder="Password"
               value={values.password}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -87,9 +105,9 @@ const LoginForm = () => (
             >
                 Reset
             </button>
-            <button type="submit" disabled={isSubmitting}>
+            <Button type="submit" disabled={isSubmitting}>
                 Submit
-            </button>
+            </Button>
 
 
           </Form>
