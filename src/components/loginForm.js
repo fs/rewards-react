@@ -20,6 +20,12 @@ const Form = styled.form`
   color: #000;
 `;
 
+const Input = styled.input`
+  width: 100%;
+  padding: 5px 8px;
+  margin: 0 0 15px;
+`;
+
 const Button = styled.button`
   color: #fff;
   background-color: #63bc36;
@@ -71,7 +77,7 @@ const LoginForm = () => (
             <Label htmlFor="email" style={{ display: 'block' }}>
                 Email
             </Label>
-            <input
+            <Input
               id="email"
               placeholder="Enter your email"
               type="text"
@@ -84,7 +90,7 @@ const LoginForm = () => (
             />
             {errors.email
               && touched.email && <div className="input-feedback">{errors.email}</div>}
-            <input
+            <Input
               id="password"
               type="password"
               placeholder="Password"
