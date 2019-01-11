@@ -22,12 +22,10 @@ describe('getToken', () => {
     const expectedPath = 'https://rewards.flatstack.com/api/v1/user/tokens';
     const expectedParams = {
       data: {
-        data: {
-          type: 'user-token-requests',
-          attributes: {
-            email: expectedEmail,
-            password: expectedPassword,
-          },
+        type: 'user-token-requests',
+        attributes: {
+          email: expectedEmail,
+          password: expectedPassword,
         },
       },
     };
@@ -63,12 +61,10 @@ describe('getToken', () => {
     const expectedPath = 'https://rewards.flatstack.com/api/v1/user/tokens';
     const expectedParams = {
       data: {
-        data: {
-          type: 'user-token-requests',
-          attributes: {
-            email: expectedEmail,
-            password: expectedPassword,
-          },
+        type: 'user-token-requests',
+        attributes: {
+          email: expectedEmail,
+          password: expectedPassword,
         },
       },
     };
