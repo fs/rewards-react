@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
-import getToken from '../userTokens/getToken';
+import getToken from '../services/authService';
 
 const Label = styled.label`
   display: block;
