@@ -15,6 +15,18 @@ export const getToken = async (email, password) => {
   return response.data.data.attributes.token;
 };
 
-export const authenticate = (email, password) => {
-
+export const authenticate = async (email, password) => {
+  try {
+    const token = await authService.getToken(email, password);
+    localStorage.setItem('authToken', token);
+  } catch (error) {
+    console.log(error);
+  }
 };
+
+const authService = {
+  getToken,
+  authenticate,
+};
+
+export default authService;

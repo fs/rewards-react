@@ -1,11 +1,13 @@
+import authService from '../authService';
+
 describe('authService', () => {
   beforeEach(() => {
     jest.resetModules();
 
     localStorage.clear();
-    localStorage.__STORE__ = {};
+    // localStorage.__STORE__ = {};
     jest.resetAllMocks();
-    //localStorage.setItem.mockClear();
+    localStorage.setItem.mockClear();
   });
 
   test('getToken HappyPath', async () => {
@@ -97,19 +99,19 @@ describe('authService', () => {
     expect(actualError).toEqual(expectedError);
   });
 
-  test('authenticate NewUser', () => {
+  test('authenticate NewUser', async () => {
     // Arrange
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
     const expectedPassword = '123456';
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
     const expectedKey = 'authToken';
-    const mockGetToken = jest.fn();
-    const authService = require('../authService');
-    authService.getToken = mockGetToken;
+
+    authService.getToken = jest.fn().mockResolvedValue((() => new Promise.resolve(resolve)));
     // Act
-    authService.authenticate(expectedEmail, expectedPassword);
+    await authService.authenticate(expectedEmail, expectedPassword);
     // Assert
     expect(authService.getToken).toBeCalledWith(expectedEmail, expectedPassword);
+    // dispatch(action.update(expectedKey, expectedToken));
     expect(localStorage.setItem).toHaveBeenLastCalledWith(expectedKey, expectedToken);
     expect(localStorage.__STORE__[expectedKey]).toBe(expectedToken);
     expect(Object.keys(localStorage.__STORE__).length).toBe(1);
