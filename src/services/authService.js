@@ -15,6 +15,12 @@ export const getToken = async (email, password) => {
   return response.data.data.attributes.token;
 };
 
-export const authenticate = (email, password) => {
-
+export const authenticate = async (email, password) => {
+  try {
+    const token = await getToken(email, password);
+    console.log(token);
+    localStorage.setItem('authToken', token);
+  } catch (error) {
+    console.log(error);
+  }
 };

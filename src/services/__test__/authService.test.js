@@ -97,7 +97,7 @@ describe('authService', () => {
     expect(actualError).toEqual(expectedError);
   });
 
-  test('authenticate NewUser', () => {
+  test('authenticate NewUser', async () => {
     // Arrange
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
     const expectedPassword = '123456';
@@ -107,7 +107,7 @@ describe('authService', () => {
     const authService = require('../authService');
     authService.getToken = mockGetToken;
     // Act
-    authService.authenticate(expectedEmail, expectedPassword);
+    await authService.authenticate(expectedEmail, expectedPassword);
     // Assert
     expect(authService.getToken).toBeCalledWith(expectedEmail, expectedPassword);
     expect(localStorage.setItem).toHaveBeenLastCalledWith(expectedKey, expectedToken);
