@@ -20,8 +20,8 @@ describe('authService', () => {
     await authenticate(expectedEmail, expectedPassword);
     // Assert
     expect(mockGetToken).toBeCalledWith(expectedEmail, expectedPassword);
-    // dispatch(action.update(expectedKey, expectedToken));
     expect(localStorage.setItem).toHaveBeenLastCalledWith(expectedKey, expectedToken);
+
     expect(localStorage.__STORE__[expectedKey]).toBe(expectedToken);
     expect(Object.keys(localStorage.__STORE__).length).toBe(1);
   });

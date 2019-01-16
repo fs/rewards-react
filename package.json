@@ -18,7 +18,8 @@
     "stylelint-config-standard": "^18.2.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.5.1",
-    "yup": "^0.26.6"
+    "yup": "^0.26.6",
+    "jest-localstorage-mock": "^2.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,8 +38,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "jest-localstorage-mock": "^2.4.0"
-  }
+  ]
 }

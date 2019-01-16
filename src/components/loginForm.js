@@ -96,7 +96,7 @@ const LoginForm = () => (
             <FormGroup>
               <Label htmlFor="email">
                 Email
-            </Label>
+              </Label>
               <Input
                 id="email"
                 placeholder="Enter your email"
@@ -115,7 +115,7 @@ const LoginForm = () => (
             <FormGroup>
               <Label htmlFor="password">
                 Password
-            </Label>
+              </Label>
               <Input
                 id="password"
                 type="password"
@@ -134,8 +134,6 @@ const LoginForm = () => (
             <Button type="submit" disabled={isSubmitting}>
               Login
             </Button>
-
-
           </Form>
         );
       }}
