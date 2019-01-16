@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
-import getToken from '../services/authService';
+import authenticate from '../services/authService';
 
 const Label = styled.label`
   display: block;
@@ -67,7 +67,7 @@ const LoginForm = () => (
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           // alert(JSON.stringify(values, null, 2));
-          getToken(values.email, values.password);
+          authenticate(values.email, values.password);
           setSubmitting(false);
         }, 500);
       }}
