@@ -1,4 +1,4 @@
-import getToken from '../adapters/getToken';
+import getToken from './getTokenService';
 
 const authenticate = async (email, password) => {
   try {

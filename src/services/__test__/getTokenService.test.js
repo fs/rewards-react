@@ -1,4 +1,4 @@
-describe('getToken', () => {
+describe('getTokenService', () => {
   beforeEach(() => {
     jest.resetModules();
   });
@@ -35,7 +35,7 @@ describe('getToken', () => {
       })),
     };
     jest.mock('axios', () => mockAxios);
-    const getToken = require('../getToken').default;
+    const getToken = require('../getTokenService').default;
     // Act
     const actualToken = await getToken(expectedEmail, expectedPassword);
     // Assert
@@ -79,7 +79,7 @@ describe('getToken', () => {
       })),
     };
     jest.mock('axios', () => mockAxios);
-    const getToken = require('../getToken').default;
+    const getToken = require('../getTokenService').default;
     let actualError;
     try {
       // Act

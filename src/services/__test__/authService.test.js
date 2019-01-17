@@ -14,7 +14,7 @@ describe('authService', () => {
     const expectedKey = 'authToken';
 
     const mockGetToken = jest.fn(() => new Promise((resolve) => { resolve(expectedToken); }));
-    jest.mock('../../adapters/getToken', () => mockGetToken);
+    jest.mock('../getTokenService', () => mockGetToken);
     const authenticate = require('../authService').default;
     // Act
     await authenticate(expectedEmail, expectedPassword);
