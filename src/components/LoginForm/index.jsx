@@ -61,13 +61,7 @@ const Button = styled.button`
 `;
 
 class LoginForm extends Component {
-  handleSubmit = (values, { setSubmitting }) => {
-    console.log(this);
-    setTimeout(() => {
-      // alert(JSON.stringify(values, null, 2));
-      authenticate(values.email, values.password);
-      setSubmitting(false);
-    }, 500);
+  handleSubmit = (values) => {
   }
   render() {
     return (
@@ -137,7 +131,7 @@ class LoginForm extends Component {
 
                 <Button type="submit" disabled={isSubmitting}>
                   Login
-            </Button>
+                </Button>
               </Form>
             );
           }}
