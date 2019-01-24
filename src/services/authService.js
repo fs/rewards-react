@@ -1,6 +1,6 @@
 import getToken from './getTokenService';
 
-const authenticate = async (email, password) => {
+export default async (email, password) => {
   try {
     const token = await getToken(email, password);
     localStorage.setItem('authToken', token);
@@ -8,5 +8,3 @@ const authenticate = async (email, password) => {
     console.log(error);
   }
 };
-
-export default authenticate;

@@ -94,7 +94,7 @@ class LoginForm extends Component {
                 <FormGroup>
                   <Label htmlFor="email">
                     Email
-              </Label>
+                  </Label>
                   <Input
                     id="email"
                     placeholder="Enter your email"
@@ -113,7 +113,7 @@ class LoginForm extends Component {
                 <FormGroup>
                   <Label htmlFor="password">
                     Password
-              </Label>
+                  </Label>
                   <Input
                     id="password"
                     type="password"
