@@ -4,7 +4,8 @@ import { mount } from 'enzyme';
 describe('LoginForm test', () => {
     test('should call authenticate onSubmit LoginForm', async () => {
         // Arrange
-        const mockAuth = jest.fn();
+        const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
+        const mockAuth = jest.fn(() => new Promise((resolve) => { resolve(expectedToken); }));
         jest.mock('../../services/authService', () => mockAuth);
         const LoginForm = require('./index').default;
 
@@ -18,9 +19,11 @@ describe('LoginForm test', () => {
         inputPassword.simulate('change', { target: { value: expectedPassword, name: "password" } });
 
         // Act
-        wrapper.find('button').simulate('click');
+        wrapper.find('form').simulate('submit');
 
         // Assert
-        expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
+        setTimeout(() => {
+            expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
+        }, 0);
     });
 });
