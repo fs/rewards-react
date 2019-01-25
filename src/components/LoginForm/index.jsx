@@ -62,10 +62,11 @@ const Button = styled.button`
 
 class LoginForm extends Component {
   handleSubmit = async (values) => {
-      console.log(values);
-      const token = await authenticate(values.email, values.password);
-      console.log(token);
+    console.log(values);
+    const token = await authenticate(values.email, values.password);
+    console.log(token);
   };
+
   render() {
     return (
       <div>
@@ -143,7 +144,7 @@ class LoginForm extends Component {
         </Formik>
 
       </div>
-    )
+    );
   }
 }
 export default LoginForm;
