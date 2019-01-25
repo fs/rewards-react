@@ -61,8 +61,10 @@ const Button = styled.button`
 `;
 
 class LoginForm extends Component {
-  handleSubmit = (values) => {
-  }
+  handleSubmit = async (values) => {
+      console.log(1);
+      await authenticate(values.email, values.password);
+  };
   render() {
     return (
       <div>
@@ -97,6 +99,7 @@ class LoginForm extends Component {
                   </Label>
                   <Input
                     id="email"
+                    name="email"
                     placeholder="Enter your email"
                     type="text"
                     value={values.email}
@@ -116,6 +119,7 @@ class LoginForm extends Component {
                   </Label>
                   <Input
                     id="password"
+                    name="password"
                     type="password"
                     placeholder="Password"
                     value={values.password}
