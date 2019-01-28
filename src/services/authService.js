@@ -6,5 +6,6 @@ export default async (email, password) => {
     localStorage.setItem('authToken', token);
   } catch (error) {
     console.log(error);
+    // return error;
   }
 };
