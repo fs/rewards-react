@@ -22,6 +22,6 @@ describe('LoginForm test', () => {
     wrapper.find('form').simulate('submit');
 
     // Assert
-      expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
+    expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
   });
 });

@@ -34,10 +34,10 @@ describe('authService', () => {
     const expectedResponse = {
       errors: [{
         source: {
-          pointer: "/data/attributes/base"
+          pointer: '/data/attributes/base',
         },
-        detail: "Invalid credentials."
-      }]
+        detail: 'Invalid credentials.',
+      }],
     };
 
     const mockGetToken = jest.fn(() => new Promise((resolve, reject) => {
@@ -53,7 +53,7 @@ describe('authService', () => {
     // Assert
     expect(insertInvalidCredentials).not.toThrow(expectedResponse);
     expect(mockGetToken).toBeCalledWith(expectedEmail, expectedPassword);
-    expect(localStorage.setItem).not.toHaveBeenLastCalled();
+    expect(localStorage.setItem).not.toHaveBeenLastCalledWith(expectedEmail, expectedPassword);
     expect(Object.keys(localStorage.__STORE__).length).toBe(0);
   });
 });
