@@ -1,9 +1,11 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "globals": {
+    "localStorage": true
+  },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "no-undef": "off",
     "global-require": "warn",
     "no-underscore-dangle": [2, { "allow": [ "__STORE__" ] }],
     "jsx-a11y/label-has-for": [ 1, {

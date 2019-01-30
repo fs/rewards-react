@@ -29,8 +29,8 @@ describe('authService', () => {
 
   test('authenticate Wrong credentials', async () => {
     // Arrange
-    const expectedEmail = 'wrong.email@flatstack.com';
-    const expectedPassword = '123456';
+    const expectedEmail = 'your.mom@mail.ru';
+    const expectedPassword = 'daddy1900';
     const expectedResponse = {
       errors: [{
         source: {
@@ -47,11 +47,10 @@ describe('authService', () => {
     const authenticate = require('../authService').default;
 
     // Act
-    async function insertInvalidCredentials() {
-      await authenticate(expectedEmail, expectedPassword);
-    }
+    const actualAuthenticatePromise = authenticate(expectedEmail, expectedPassword);
+
     // Assert
-    expect(insertInvalidCredentials).not.toThrow(expectedResponse);
+    await expect(actualAuthenticatePromise).rejects.toEqual(expectedResponse);
     expect(mockGetToken).toBeCalledWith(expectedEmail, expectedPassword);
     expect(localStorage.setItem).not.toHaveBeenLastCalledWith(expectedEmail, expectedPassword);
     expect(Object.keys(localStorage.__STORE__).length).toBe(0);
