@@ -62,7 +62,6 @@ const Button = styled.button`
 
 class LoginForm extends Component {
   handleSubmit = async (values) => {
-    console.log(1);
     await authenticate(values.email, values.password);
   };
 
