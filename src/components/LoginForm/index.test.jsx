@@ -5,7 +5,9 @@ describe('LoginForm test', () => {
   test('should call authenticate onSubmit LoginForm', async () => {
     // Arrange
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
-    const mockAuth = jest.fn(() => new Promise((resolve) => { resolve(expectedToken); }));
+    const mockAuth = jest.fn(() => new Promise((resolve) => {
+      console.log(3); resolve(expectedToken);
+    }));
     jest.mock('../../services/authService', () => mockAuth);
     const LoginForm = require('./index').default;
 
@@ -22,6 +24,7 @@ describe('LoginForm test', () => {
     wrapper.find('form').simulate('submit');
 
     // Assert
-    expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
+    // await expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
+    await expect(mockAuth()).resolves.toBe('peanut butter');
   });
 });
