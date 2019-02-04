@@ -61,11 +61,20 @@ const Button = styled.button`
 `;
 
 class LoginForm extends Component {
-  handleSubmit = async (values) => {
+  state = { errorMessage: '' }
+
+  constructor(props) {
+    super(props);
+  }
+
+  handleSubmit = async (values, actions) => {
     try {
       await authenticate(values.email, values.password);
     } catch (error) {
-      this.errorMessage = error;
+      console.log(error.errors[0].detail);
+      this.setState({ errorMessage: error.errors[0].detail });
+      // actions.setErrors(error);
+      // TODO: add Formik errors instead of state errors
     }
   };
 
@@ -133,9 +142,10 @@ class LoginForm extends Component {
                       errors.password && touched.password ? 'text-input error' : 'text-input'
                     }
                   />
-                  {errors.password
+                  {
+                    errors.password
                     && touched.password && <ErrorContainer>{errors.password}</ErrorContainer>}
-                  <div className='error-message'>{this.errorMessage}</div>
+                  <div className='error-message'>{this.state.errorMessage}</div>
                 </FormGroup>
 
                 <Button type="submit" disabled={isSubmitting}>

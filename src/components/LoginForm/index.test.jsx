@@ -34,12 +34,19 @@ describe('LoginForm test', () => {
     }, 0);
   });
 
-  test('should call authenticate onSubmit LoginForm and show Error Message', async () => {
+  test('should call authenticate onSubmit LoginForm and show Error Message', async (done) => {
     // Arrange
     const expectedErrorMessage = 'Invalid credentials.';
+    const expectedResponse = {
+      errors: [{
+        source: {
+          pointer: '/data/attributes/base',
+        },
+        detail: expectedErrorMessage,
+      }],
+    };
     const mockAuth = jest.fn(() => new Promise((resolve, reject) => {
-      console.log(1);
-      reject();
+      reject(expectedResponse);
     }));
     jest.mock('../../services/authService', () => mockAuth);
     const LoginForm = require('./index').default;
@@ -57,11 +64,10 @@ describe('LoginForm test', () => {
     wrapper.find('form').simulate('submit');
 
     // Assert
-    expect(wrapper.find('.error-message').text()).toEqual(expectedErrorMessage);
-    // setTimeout(() => {
-    //   expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
-      
-    //   done();
-    // }, 0);
+    setTimeout(() => {
+      expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
+      expect(wrapper.find('.error-message').text()).toEqual(expectedErrorMessage);
+      done();
+    }, 0);
   });
 });
