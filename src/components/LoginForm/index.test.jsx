@@ -51,7 +51,7 @@ describe('LoginForm test', () => {
     jest.mock('../../services/authService', () => mockAuth);
     const LoginForm = require('./index').default;
 
-    const expectedEmail = 'test@flatstack.com'
+    const expectedEmail = 'test@flatstack.com';
     const expectedPassword = '123456';
 
     const wrapper = mount(<LoginForm />);

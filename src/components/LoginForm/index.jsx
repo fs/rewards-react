@@ -61,11 +61,7 @@ const Button = styled.button`
 `;
 
 class LoginForm extends Component {
-  state = { errorMessage: '' }
-
-  constructor(props) {
-    super(props);
-  }
+  state = { errorMessage: '' };
 
   handleSubmit = async (values, actions) => {
     try {
@@ -145,8 +141,9 @@ class LoginForm extends Component {
                   {
                     errors.password
                     && touched.password && <ErrorContainer>{errors.password}</ErrorContainer>}
-                  <div className='error-message'>{this.state.errorMessage}</div>
                 </FormGroup>
+
+                <div className="error-message">{this.state.errorMessage}</div>
 
                 <Button type="submit" disabled={isSubmitting}>
                   Login
