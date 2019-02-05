@@ -37,16 +37,10 @@ describe('LoginForm test', () => {
   test('should call authenticate onSubmit LoginForm and show Error Message', async (done) => {
     // Arrange
     const expectedErrorMessage = 'Invalid credentials.';
-    const expectedResponse = {
-      errors: [{
-        source: {
-          pointer: '/data/attributes/base',
-        },
-        detail: expectedErrorMessage,
-      }],
-    };
+    const expectedResponse = `{"errors":[{"source":{"pointer":"/data/attributes/base"},"detail":"${expectedErrorMessage}"}]}`;
+    const expectedError = { response: { request: { response: expectedResponse } } };
     const mockAuth = jest.fn(() => new Promise((resolve, reject) => {
-      reject(expectedResponse);
+      reject(expectedError);
     }));
     jest.mock('../../services/authService', () => mockAuth);
     const LoginForm = require('./index').default;
@@ -67,6 +61,7 @@ describe('LoginForm test', () => {
     setTimeout(() => {
       expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
       expect(wrapper.find('.error-message').text()).toEqual(expectedErrorMessage);
+      expect(wrapper.find('button').prop('disabled')).toBeUndefined();
       done();
     }, 0);
   });
