@@ -59,9 +59,10 @@ describe('LoginForm test', () => {
 
     // Assert
     setTimeout(() => {
+      wrapper.update();
       expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
       expect(wrapper.find('.error-message').text()).toEqual(expectedErrorMessage);
-      expect(wrapper.find('input[type="submit"]').disabled).toBeFalsy();
+      expect(wrapper.find('button').prop('disabled')).toBe(false);
       done();
     }, 0);
   });
