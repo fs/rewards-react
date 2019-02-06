@@ -89,7 +89,6 @@ class LoginForm extends Component {
               values,
               touched,
               errors,
-              dirty,
               isSubmitting,
               handleChange,
               handleBlur,
