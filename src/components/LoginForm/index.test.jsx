@@ -61,7 +61,7 @@ describe('LoginForm test', () => {
     setTimeout(() => {
       expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
       expect(wrapper.find('.error-message').text()).toEqual(expectedErrorMessage);
-      expect(wrapper.find('button').prop('disabled')).toBeUndefined();
+      expect(wrapper.find('input[type="submit"]').disabled).toBeFalsy();
       done();
     }, 0);
   });

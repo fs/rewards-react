@@ -61,10 +61,6 @@ const Button = styled.button`
 `;
 
 class LoginForm extends Component {
-  state = {
-    errorMessage: '',
-  };
-
   handleSubmit = async (values, actions) => {
     try {
       await authenticate(values.email, values.password);
@@ -76,7 +72,6 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { errorMessage } = this.state;
     return (
       <div>
         <Formik
