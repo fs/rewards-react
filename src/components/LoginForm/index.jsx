@@ -65,7 +65,6 @@ class LoginForm extends Component {
     try {
       await authenticate(values.email, values.password);
     } catch (error) {
-     // this.setState({ errorMessage: JSON.parse(error.response.request.response).errors[0].detail });
       actions.setErrors({ auth: JSON.parse(error.response.request.response).errors[0].detail });
       actions.setSubmitting(false);
     }
