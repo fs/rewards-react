@@ -3,10 +3,9 @@ import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import LoginForm from '../LoginForm';
 import Bonuses from '../Bonuses';
-import AppRouter from '../AppRouter';
+import AppRouter from '.';
 
 describe('Router test', () => {
-
   test('should show LoginForm', () => {
     // Arrange
     // Act
@@ -44,4 +43,4 @@ describe('Router test', () => {
       done();
     }, 0);
   });
-})
+});

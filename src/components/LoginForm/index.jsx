@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter,
+} from 'react-router-dom';
 import authenticate from '../../services/authService';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 const Label = styled.label`
   display: block;
   padding: 0 0 10px;
 `;
+
 const Form = styled.form`
   transform: translate(-50%, -50%);
   position: absolute;
@@ -81,7 +88,7 @@ class LoginForm extends Component {
     const { redirectToReferrer } = this.state;
 
     if (redirectToReferrer) {
-      return <Redirect to={'/bonuses'} />;
+      return <Redirect to="/bonuses" />;
     }
 
     return (
