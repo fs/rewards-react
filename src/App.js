@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from './images/logo.png';
-import LoginForm from './components/LoginForm';
 import AppRouter from './components/AppRouter';
 
 const Wrapper = styled.div`

@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
 import authenticate from '../../services/authService';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 const Label = styled.label`
   display: block;
@@ -61,16 +62,28 @@ const Button = styled.button`
 `;
 
 class LoginForm extends Component {
+  state = {
+    redirectToReferrer: false
+  };
+
   handleSubmit = async (values, actions) => {
     try {
       await authenticate(values.email, values.password);
+      this.setState({ redirectToReferrer: true });
     } catch (error) {
+      console.log(error);
       actions.setErrors({ auth: JSON.parse(error.response.request.response).errors[0].detail });
       actions.setSubmitting(false);
     }
   };
 
   render() {
+    const { redirectToReferrer } = this.state;
+
+    if (redirectToReferrer) {
+      return <Redirect to={'/bonuses'} />;
+    }
+
     return (
       <div>
         <Formik
