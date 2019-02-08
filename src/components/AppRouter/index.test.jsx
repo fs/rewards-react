@@ -1,4 +1,5 @@
 import React from 'react';
+import createRouterContext from 'react-router-test-context'
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import LoginForm from '../LoginForm';
@@ -8,6 +9,7 @@ import AppRouter from '.';
 describe('Router test', () => {
   test('should show LoginForm', () => {
     // Arrange
+
     // Act
     const wrapper = mount(
       <MemoryRouter initialEntries={['/']}>
@@ -23,11 +25,9 @@ describe('Router test', () => {
     // Arrange
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
     const expectedPassword = '123456';
-    const wrapper = mount(
-      <MemoryRouter initialEntries={['/']}>
-        <AppRouter />
-      </MemoryRouter>
-    );
+    const context = createRouterContext();
+    const wrapper = mount(<AppRouter />, { context });
+    
     const inputEmail = wrapper.find('input#email');
     inputEmail.simulate('change', { target: { value: expectedEmail, name: 'email' } });
     const inputPassword = wrapper.find('input#password');
