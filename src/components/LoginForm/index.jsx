@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter,
-} from 'react-router-dom';
 import authenticate from '../../services/authService';
 
 const Label = styled.label`
@@ -69,15 +62,10 @@ const Button = styled.button`
 `;
 
 class LoginForm extends Component {
-  state = {
-    redirectToReferrer: false,
-  };
-
   handleSubmit = async (values, actions) => {
     try {
       console.log('loginForm');
       await authenticate(values.email, values.password);
-      this.setState({ redirectToReferrer: true });
     } catch (error) {
       console.log(error);
       actions.setErrors({ auth: JSON.parse(error.response.request.response).errors[0].detail });
@@ -86,12 +74,6 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { redirectToReferrer } = this.state;
-
-    if (redirectToReferrer) {
-      return <Redirect to="/bonuses" />;
-    }
-
     return (
       <div>
         <Formik
