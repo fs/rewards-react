@@ -29,7 +29,6 @@ describe('Router test', () => {
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
     const mockAuth = jest.fn(() => new Promise((resolve) => {
       resolve(expectedToken);
-      console.log("mockAuth");
     }));
     jest.mock('../../services/authService', () => mockAuth);
     const AppRouter = require('./index').default;
