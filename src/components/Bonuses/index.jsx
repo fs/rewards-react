@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+
 class Bonuses extends Component {
   render() {
     return (

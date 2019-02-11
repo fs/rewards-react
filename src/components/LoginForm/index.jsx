@@ -70,11 +70,12 @@ const Button = styled.button`
 
 class LoginForm extends Component {
   state = {
-    redirectToReferrer: false
+    redirectToReferrer: false,
   };
 
   handleSubmit = async (values, actions) => {
     try {
+      console.log('loginForm');
       await authenticate(values.email, values.password);
       this.setState({ redirectToReferrer: true });
     } catch (error) {
