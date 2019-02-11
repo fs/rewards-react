@@ -2,8 +2,6 @@ import React from 'react';
 import createRouterContext from 'react-router-test-context';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
-import LoginForm from '../LoginForm';
-import Bonuses from '../Bonuses';
 
 
 describe('Router test', () => {
@@ -21,7 +19,7 @@ describe('Router test', () => {
     );
 
     // Assert
-    expect(wrapper.find(LoginForm)).toHaveLength(1);
+    expect(wrapper.find('form')).toHaveLength(1);
   });
 
   test('should redirect after logged in', (done) => {
