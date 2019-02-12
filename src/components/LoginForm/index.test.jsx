@@ -18,7 +18,7 @@ describe('LoginForm test', () => {
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
     const expectedPassword = '123456';
 
-    const wrapper = mount(<LoginForm />);
+    const wrapper = mount(<LoginForm onLogin={() => {}} />);
     const inputEmail = wrapper.find('input#email');
     inputEmail.simulate('change', { target: { value: expectedEmail, name: 'email' } });
     const inputPassword = wrapper.find('input#password');

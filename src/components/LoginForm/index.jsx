@@ -64,10 +64,10 @@ const Button = styled.button`
 class LoginForm extends Component {
   handleSubmit = async (values, actions) => {
     try {
-      console.log('loginForm');
       await authenticate(values.email, values.password);
+      const { onLogin } = this.props;
+      onLogin();
     } catch (error) {
-      console.log(error);
       actions.setErrors({ auth: JSON.parse(error.response.request.response).errors[0].detail });
       actions.setSubmitting(false);
     }

@@ -3,9 +3,9 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
-import LoginForm from '../LoginForm';
+import LoginRouter from '../LoginRouter';
 
-const Index = () => <LoginForm />;
+const Index = () => <LoginRouter />;
 const Bonuses = () => <h2>Bonuses</h2>;
 
 const AppRouter = () => (

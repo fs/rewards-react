@@ -1,9 +1,6 @@
 import React from 'react';
-import createRouterContext from 'react-router-test-context';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
-import Bonuses from '../Bonuses';
-
 
 describe('Router test', () => {
   beforeEach(() => {
@@ -34,8 +31,11 @@ describe('Router test', () => {
 
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
     const expectedPassword = '123456';
-    const context = createRouterContext();
-    const wrapper = mount(<AppRouter />, { context });
+    const wrapper = mount(
+      <MemoryRouter initialEntries={['/']}>
+        <AppRouter />
+      </MemoryRouter>,
+    );
     const inputEmail = wrapper.find('input#email');
     inputEmail.simulate('change', { target: { value: expectedEmail, name: 'email' } });
     const inputPassword = wrapper.find('input#password');
@@ -47,7 +47,7 @@ describe('Router test', () => {
     // Assert
     setTimeout(() => {
       wrapper.update();
-      expect(wrapper.find(Bonuses)).toHaveLength(1);
+      expect(wrapper.find('h2')).toHaveLength(1);
       done();
     }, 0);
   });
