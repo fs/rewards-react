@@ -2,6 +2,7 @@ import React from 'react';
 import createRouterContext from 'react-router-test-context';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
+import Bonuses from '../Bonuses';
 
 
 describe('Router test', () => {
