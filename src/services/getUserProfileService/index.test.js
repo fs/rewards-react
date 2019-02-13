@@ -13,7 +13,7 @@ describe('user profile service', () => {
       )
     };
     jest.mock('axios', () => mockAxios);
-    const getUserProfile = require('../getUserProfileService').default;
+    const getUserProfile = require('./index').default;
     const expectedPath = 'https://rewards.flatstack.com/api/v1/user/profile';
     const expectedParams = {
       data: {
