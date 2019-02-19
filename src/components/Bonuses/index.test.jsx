@@ -1,12 +1,9 @@
-import React from 'react';
-
 describe('Bonuses test', () => {
+  test('should ', () => {
+    // Arrange
 
-    test('should ', () => {
-        // Arrange
+    // Act
 
-        // Act
-
-        // Assert
-    });
-})
+    // Assert
+  });
+});

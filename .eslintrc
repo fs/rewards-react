@@ -13,6 +13,7 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": [2, { "ignore": ["children"] }],
     "global-require": "warn",
     "no-underscore-dangle": [2, { "allow": [ "__STORE__" ] }],
     "jsx-a11y/label-has-for": [ 1, {

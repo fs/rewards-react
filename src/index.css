@@ -12,21 +12,6 @@ body {
   box-sizing: border-box;
 }
 
-body::before {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  height: 430px;
-  background-image: url(images/bg.png);
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  z-index: -1;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

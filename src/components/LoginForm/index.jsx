@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
 import authenticate from '../../services/authService';
+import LoginTemplate from '../templates/LoginTemplate';
 
 const Label = styled.label`
   display: block;
@@ -75,7 +76,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
+      <LoginTemplate>
         <Formik
           initialValues={{ email: '', password: '' }}
           onSubmit={this.handleSubmit}
@@ -151,7 +152,7 @@ class LoginForm extends Component {
           }}
         </Formik>
 
-      </div>
+      </LoginTemplate>
     );
   }
 }
