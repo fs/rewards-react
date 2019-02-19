@@ -35,7 +35,7 @@ describe('getTokenService', () => {
       })),
     };
     jest.mock('axios', () => mockAxios);
-    const getToken = require('../getTokenService').default;
+    const getToken = require('./index').default;
     // Act
     const actualToken = await getToken(expectedEmail, expectedPassword);
     // Assert
@@ -79,7 +79,7 @@ describe('getTokenService', () => {
       })),
     };
     jest.mock('axios', () => mockAxios);
-    const getToken = require('../getTokenService').default;
+    const getToken = require('./index').default;
     let actualError;
     try {
       // Act
