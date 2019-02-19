@@ -20,7 +20,9 @@ const DashboardForm = styled.div`
 const Bonuses = () => (
   <MainTemplate>
     <BonusMainWrap>
-      <DashboardForm />
+      <DashboardForm>
+        <h2>Bonuses</h2>
+      </DashboardForm>
     </BonusMainWrap>
   </MainTemplate>
 );
