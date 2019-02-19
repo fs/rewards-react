@@ -5,12 +5,7 @@ import LoginForm from '../LoginForm';
 export default class LoginRouter extends Component {
   state = { loggedIn: false };
 
-  constructor(...args) {
-    super(...args);
-    this.onLogin = this.onLogin.bind(this);
-  }
-
-  onLogin() {
+  onLogin = () => {
     this.setState({ loggedIn: true });
   }
 
