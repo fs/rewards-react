@@ -3,15 +3,15 @@ import axios from 'axios';
 const apiUrl = 'http://rewards-staging.flatstack.com/api/v1/user/bonuses';
 
 export default async (token, text) => {
-  var config = {
-    headers: { Authorization: 'bearer ' + token },
+  const config = {
+    headers: { Authorization: `bearer ${token}` },
   };
 
-  var bodyParameters = {
+  const bodyParameters = {
     data: {
       type: 'bonus-texts',
       attributes: {
-        text: text,
+        text,
       },
     },
   };

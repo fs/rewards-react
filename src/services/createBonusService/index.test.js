@@ -1,8 +1,7 @@
 describe('createBonusService', () => {
   test('createBonus HappyPath', async () => {
     // Arrange
-    const expectedToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
     const expectedBonusText = '+1 to @albert.fazullin #create-awesomeness Thank you!';
     const expectedPath = 'http://rewards-staging.flatstack.com/api/v1/user/bonuses';
     const expectedParams = {
@@ -14,7 +13,7 @@ describe('createBonusService', () => {
       },
     };
     const config = {
-      headers: { Authorization: 'bearer ' + expectedToken },
+      headers: { Authorization: `bearer ${expectedToken}` },
     };
 
     const expectedResponse = {
@@ -43,16 +42,17 @@ describe('createBonusService', () => {
 
     const mockAxios = {
       post: jest.fn(
-        () =>
-          new Promise(resolve => {
-            resolve(expectedResponse);
-          }),
+        () => new Promise((resolve) => {
+          resolve(expectedResponse);
+        }),
       ),
     };
     jest.mock('axios', () => mockAxios);
     const createBonus = require('./index').default;
+
     // Act
     const actualResponse = await createBonus(expectedToken, expectedBonusText);
+
     // Assert
     expect(actualResponse).toEqual(expectedResponse);
     expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams, config);
