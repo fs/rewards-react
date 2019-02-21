@@ -13,6 +13,9 @@ describe('createBonusService', () => {
         },
       },
     };
+    const config = {
+      headers: { Authorization: 'bearer ' + expectedToken },
+    };
 
     const expectedResponse = {
       data: {
@@ -52,6 +55,6 @@ describe('createBonusService', () => {
     const actualResponse = await createBonus(expectedToken, expectedBonusText);
     // Assert
     expect(actualResponse).toEqual(expectedResponse);
-    expect(mockAxios).toBeCalledWith(expectedPath, expectedParams);
+    expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 });
