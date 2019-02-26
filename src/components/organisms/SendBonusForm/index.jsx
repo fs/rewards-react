@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Form = styled.form`
@@ -33,17 +33,11 @@ const Button = styled.button`
   font-weight: bold;
 `;
 
-class SendBonusForm extends Component {
-  render() {
-    return (
-      <Form>
-        <Textarea placeholder="+100 @person add description for #create_awesomness">
-
-        </Textarea>
-        <Button>Give</Button>
-      </Form>
-    );
-  }
-}
+const SendBonusForm = () => (
+  <Form>
+    <Textarea placeholder="+100 @person add description for #create_awesomness" />
+    <Button>Give</Button>
+  </Form>
+);
 
 export default SendBonusForm;
