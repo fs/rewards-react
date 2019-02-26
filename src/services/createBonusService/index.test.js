@@ -7,8 +7,7 @@ describe('createBonusService', () => {
 
   test('createBonus HappyPath', async () => {
     // Arrange
-    const expectedToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
 
     const expectedBonusCount = '+1';
     const expectedReceiver = '@albert.fazullin';
@@ -53,10 +52,9 @@ describe('createBonusService', () => {
 
     const mockAxios = {
       post: jest.fn(
-        () =>
-          new Promise(resolve => {
-            resolve(expectedResponse);
-          }),
+        () => new Promise((resolve) => {
+          resolve(expectedResponse);
+        }),
       ),
     };
     jest.mock('axios', () => mockAxios);
@@ -103,10 +101,9 @@ describe('createBonusService', () => {
 
     const mockAxios = {
       post: jest.fn(
-        () =>
-          new Promise((resolve, reject) => {
-            reject(expectedError);
-          }),
+        () => new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
       ),
     };
     jest.mock('axios', () => mockAxios);
@@ -127,8 +124,7 @@ describe('createBonusService', () => {
 
   test('createBonus NotEnoughBonuses', async () => {
     // Arrange
-    const expectedToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
 
     const expectedBonusCount = '+1000000';
     const expectedReceiver = '@albert.fazullin';
@@ -161,10 +157,9 @@ describe('createBonusService', () => {
 
     const mockAxios = {
       post: jest.fn(
-        () =>
-          new Promise((resolve, reject) => {
-            reject(expectedError);
-          }),
+        () => new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
       ),
     };
     jest.mock('axios', () => mockAxios);
@@ -185,8 +180,7 @@ describe('createBonusService', () => {
 
   test('createBonus InvalidBonusText', async () => {
     // Arrange
-    const expectedToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
 
     const expectedBonusCount = '';
     const expectedReceiver = '';
@@ -237,10 +231,65 @@ describe('createBonusService', () => {
 
     const mockAxios = {
       post: jest.fn(
-        () =>
-          new Promise((resolve, reject) => {
-            reject(expectedError);
-          }),
+        () => new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
+      ),
+    };
+    jest.mock('axios', () => mockAxios);
+    const createBonus = require('./index').default;
+
+    let actualError;
+    try {
+      // Act
+      await createBonus(expectedToken, expectedBonusText);
+    } catch (error) {
+      actualError = error;
+    }
+
+    // Assert
+    expect(actualError).toEqual(expectedError);
+    expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams, config);
+  });
+
+  test('createBonus SendBonusToYourself', async () => {
+    // Arrange
+    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+
+    const expectedBonusCount = '+1';
+    const expectedMyEmail = 'nadezhda.kharchuk@flatstack.com';
+    const expectedTag = '#create-awesomeness';
+    const expectedBonusText = `${expectedBonusCount} ${expectedMyEmail} ${expectedTag}`;
+
+    const expectedParams = {
+      data: {
+        type: 'bonus-texts',
+        attributes: {
+          text: expectedBonusText,
+        },
+      },
+    };
+    const config = {
+      headers: { Authorization: `bearer ${expectedToken}` },
+    };
+
+    const expectedError = new Error();
+    expectedError.response = {
+      errors: [
+        {
+          source: {
+            pointer: '/data/attributes/base',
+          },
+          detail: "You can't give bonus to yourself. Nice try.",
+        },
+      ],
+    };
+
+    const mockAxios = {
+      post: jest.fn(
+        () => new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
       ),
     };
     jest.mock('axios', () => mockAxios);
