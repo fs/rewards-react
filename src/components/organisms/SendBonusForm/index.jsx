@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import Button from '../../atoms/Button';
+import createBonus from '../../../services/createBonusService';
 
 const Form = styled.form`
   width: 100%;
@@ -9,6 +11,8 @@ const Form = styled.form`
 `;
 
 const Textarea = styled.textarea`
+  display: block;
+  width: 100%;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.75rem;
@@ -17,27 +21,30 @@ const Textarea = styled.textarea`
   outline: none;
   padding: 0;
   height: 3.5rem;
-  margin: 0 0 0.625rem 0;
+  margin: 0 0 30px 0;
   resize: none;
   box-shadow: none;
 `;
 
-const Button = styled.button`
-  background-color: #63bc36;
-  color: #fff;
-  border-radius: 100px;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 20px;
-  font-size: 16px;
-  font-weight: bold;
-`;
+class SendBonusForm extends Component {
+  state = { bonusText: '' };
 
-const SendBonusForm = () => (
-  <Form>
-    <Textarea placeholder="+100 @person add description for #create_awesomness" />
-    <Button>Give</Button>
-  </Form>
-);
+  handleChange = (event) => {
+    this.setState({ bonusText: event.target.value });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  render() {
+    return (
+      <Form onSubmit={this.handleSubmit}>
+        <Textarea onChange={this.handleChange} placeholder="+100 @person add description for #create_awesomness" />
+        <Button text="Give" />
+      </Form>
+    );
+  }
+}
 
 export default SendBonusForm;
