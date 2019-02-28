@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
-import authenticate from '../../services/authService';
+import AuthService from '../../services/authService';
 import LoginTemplate from '../templates/LoginTemplate';
 
 const Label = styled.label`
@@ -65,7 +65,7 @@ const Button = styled.button`
 class LoginForm extends Component {
   handleSubmit = async (values, actions) => {
     try {
-      await authenticate(values.email, values.password);
+      await AuthService.authenticate(values.email, values.password);
       const { onLogin } = this.props;
       onLogin();
     } catch (error) {

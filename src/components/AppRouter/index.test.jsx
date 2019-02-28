@@ -23,9 +23,15 @@ describe('Router test', () => {
   test('should redirect after logged in', (done) => {
     // Arrange
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
-    const mockAuth = jest.fn(() => new Promise((resolve) => {
-      resolve(expectedToken);
-    }));
+    const mockAuth = (
+      class {
+        static authenticate = jest.fn(() => (
+          new Promise((resolve) => {
+            resolve(expectedToken);
+          })
+        ));
+      }
+    );
     jest.mock('../../services/authService', () => mockAuth);
     const AppRouter = require('./index').default;
 

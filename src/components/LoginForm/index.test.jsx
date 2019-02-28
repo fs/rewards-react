@@ -9,9 +9,15 @@ describe('LoginForm test', () => {
   test('should call authenticate onSubmit LoginForm', async (done) => {
     // Arrange
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
-    const mockAuth = jest.fn(() => new Promise((resolve) => {
-      resolve(expectedToken);
-    }));
+    const mockAuth = (
+      class {
+        static authenticate = jest.fn(() => (
+          new Promise((resolve) => {
+            resolve(expectedToken);
+          })
+        ));
+      }
+    );
     jest.mock('../../services/authService', () => mockAuth);
     const LoginForm = require('./index').default;
 
@@ -29,7 +35,7 @@ describe('LoginForm test', () => {
 
     // Assert
     setTimeout(() => {
-      expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
+      expect(mockAuth.authenticate).toBeCalledWith(expectedEmail, expectedPassword);
       done();
     }, 0);
   });
@@ -39,9 +45,15 @@ describe('LoginForm test', () => {
     const expectedErrorMessage = 'Invalid credentials.';
     const expectedResponse = `{"errors":[{"source":{"pointer":"/data/attributes/base"},"detail":"${expectedErrorMessage}"}]}`;
     const expectedError = { response: { request: { response: expectedResponse } } };
-    const mockAuth = jest.fn(() => new Promise((resolve, reject) => {
-      reject(expectedError);
-    }));
+    const mockAuth = (
+      class {
+        static authenticate = jest.fn(() => (
+          new Promise((resolve, reject) => {
+            reject(expectedError);
+          })
+        ));
+      }
+    );
     jest.mock('../../services/authService', () => mockAuth);
     const LoginForm = require('./index').default;
 
@@ -60,7 +72,7 @@ describe('LoginForm test', () => {
     // Assert
     setTimeout(() => {
       wrapper.update();
-      expect(mockAuth).toBeCalledWith(expectedEmail, expectedPassword);
+      expect(mockAuth.authenticate).toBeCalledWith(expectedEmail, expectedPassword);
       expect(wrapper.find('.error-message').text()).toEqual(expectedErrorMessage);
       expect(wrapper.find('button').prop('disabled')).toBe(false);
       done();
