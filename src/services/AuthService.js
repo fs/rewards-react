@@ -1,6 +1,7 @@
-import axios from 'axios';
+import ApiService from './ApiService';
 
-const apiUrl = 'http://rewards-staging.flatstack.com/api/v1/user/tokens';
+const apiUrl = '/user/tokens';
+const api = ApiService.getInstance();
 
 export default class AuthService {
   static TOKEN_KEY = 'authToken';
@@ -11,7 +12,7 @@ export default class AuthService {
   }
 
   static async fetchToken(email, password) {
-    const response = await axios.post(apiUrl, {
+    const response = await api.post(apiUrl, {
       data: {
         type: 'user-token-requests',
         attributes: {

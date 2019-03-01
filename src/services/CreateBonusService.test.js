@@ -58,7 +58,7 @@ describe('createBonusService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const createBonus = require('./index').default;
+    const createBonus = require('./CreateBonusService').default;
 
     // Act
     const actualResponse = await createBonus(expectedToken, expectedBonusText);
@@ -107,7 +107,7 @@ describe('createBonusService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const createBonus = require('./index').default;
+    const createBonus = require('./CreateBonusService').default;
 
     let actualError;
     try {
@@ -163,7 +163,7 @@ describe('createBonusService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const createBonus = require('./index').default;
+    const createBonus = require('./CreateBonusService').default;
 
     let actualError;
     try {
@@ -237,7 +237,7 @@ describe('createBonusService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const createBonus = require('./index').default;
+    const createBonus = require('./CreateBonusService').default;
 
     let actualError;
     try {
@@ -293,7 +293,7 @@ describe('createBonusService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const createBonus = require('./index').default;
+    const createBonus = require('./CreateBonusService').default;
 
     let actualError;
     try {

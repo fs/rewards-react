@@ -14,7 +14,7 @@ describe('authService', () => {
     const mockFetchToken = jest.fn(() => new Promise((resolve) => {
       resolve(expectedToken);
     }));
-    const AuthService = require('../authService').default;
+    const AuthService = require('./AuthService').default;
     AuthService.fetchToken = mockFetchToken;
     // Act
     await AuthService.authenticate(expectedEmail, expectedPassword);
@@ -42,7 +42,7 @@ describe('authService', () => {
     const mockFetchToken = jest.fn(() => new Promise((resolve, reject) => {
       reject(expectedResponse);
     }));
-    const AuthService = require('../authService').default;
+    const AuthService = require('./AuthService').default;
     AuthService.fetchToken = mockFetchToken;
 
     // Act
@@ -89,7 +89,7 @@ describe('authService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const AuthService = require('./index').default;
+    const AuthService = require('./AuthService').default;
     // Act
     const actualToken = await AuthService.fetchToken(expectedEmail, expectedPassword);
     // Assert
@@ -135,7 +135,7 @@ describe('authService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const AuthService = require('./index').default;
+    const AuthService = require('./AuthService').default;
     let actualError;
     try {
       // Act
@@ -151,7 +151,7 @@ describe('authService', () => {
   test('getToken HappyPath', async () => {
     // Arrange
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
-    const AuthService = require('./index').default;
+    const AuthService = require('./AuthService').default;
     localStorage.setItem(AuthService.TOKEN_KEY, expectedToken);
     // Act
     const actualToken = AuthService.getToken();

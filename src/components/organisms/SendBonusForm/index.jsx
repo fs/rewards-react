@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from '../../atoms/Button';
-import createBonus from '../../../services/createBonusService';
+import createBonus from '../../../services/CreateBonusService';
 
 const Form = styled.form`
   width: 100%;
