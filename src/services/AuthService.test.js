@@ -112,7 +112,7 @@ describe('authService', () => {
         },
       ],
     };
-    const expectedPath = 'http://rewards-staging.flatstack.com/api/v1/user/tokens';
+    const expectedPath = '/user/tokens';
     const expectedParams = {
       data: {
         type: 'user-token-requests',
@@ -127,14 +127,16 @@ describe('authService', () => {
       status: expectedResponseStatus,
       data: expectedResponseData,
     };
-    const mockAxios = {
-      post: jest.fn(
-        () => new Promise((resolve, reject) => {
-          reject(expectedError);
-        }),
-      ),
-    };
-    jest.mock('axios', () => mockAxios);
+    const mockApiService = (
+      class {
+        static getInstance = () => ({
+          post: jest.fn(() => new Promise((resolve, reject) => {
+            reject(expectedError);
+          })),
+        })
+      }
+    );
+    jest.mock('./ApiService', () => mockApiService);
     const AuthService = require('./AuthService').default;
     let actualError;
     try {
@@ -144,7 +146,7 @@ describe('authService', () => {
       actualError = error;
     }
     // Assert
-    expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams);
+    expect(mockApiService.getInstance().post).toBeCalledWith(expectedPath, expectedParams);
     expect(actualError).toEqual(expectedError);
   });
 

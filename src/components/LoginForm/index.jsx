@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
-import AuthService from '../../services/authService';
+import AuthService from '../../services/AuthService';
 import LoginTemplate from '../templates/LoginTemplate';
 
 const Label = styled.label`

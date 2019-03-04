@@ -18,7 +18,7 @@ describe('LoginForm test', () => {
         ));
       }
     );
-    jest.mock('../../services/authService', () => mockAuth);
+    jest.mock('../../services/AuthService', () => mockAuth);
     const LoginForm = require('./index').default;
 
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
@@ -54,7 +54,7 @@ describe('LoginForm test', () => {
         ));
       }
     );
-    jest.mock('../../services/authService', () => mockAuth);
+    jest.mock('../../services/AuthService', () => mockAuth);
     const LoginForm = require('./index').default;
 
     const expectedEmail = 'test@flatstack.com';

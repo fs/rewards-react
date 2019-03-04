@@ -32,7 +32,7 @@ describe('Router test', () => {
         ));
       }
     );
-    jest.mock('../../services/authService', () => mockAuth);
+    jest.mock('../../services/AuthService', () => mockAuth);
     const AppRouter = require('./index').default;
 
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
