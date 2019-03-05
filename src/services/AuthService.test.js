@@ -11,9 +11,11 @@ describe('authService', () => {
     const expectedPassword = '123456';
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
 
-    const mockFetchToken = jest.fn(() => new Promise((resolve) => {
-      resolve(expectedToken);
-    }));
+    const mockFetchToken = jest.fn(
+      () => new Promise((resolve) => {
+        resolve(expectedToken);
+      }),
+    );
     const AuthService = require('./AuthService').default;
     AuthService.fetchToken = mockFetchToken;
     // Act
@@ -31,17 +33,21 @@ describe('authService', () => {
     const expectedEmail = 'your.mom@mail.ru';
     const expectedPassword = 'daddy1900';
     const expectedResponse = {
-      errors: [{
-        source: {
-          pointer: '/data/attributes/base',
+      errors: [
+        {
+          source: {
+            pointer: '/data/attributes/base',
+          },
+          detail: 'Invalid credentials.',
         },
-        detail: 'Invalid credentials.',
-      }],
+      ],
     };
 
-    const mockFetchToken = jest.fn(() => new Promise((resolve, reject) => {
-      reject(expectedResponse);
-    }));
+    const mockFetchToken = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedResponse);
+      }),
+    );
     const AuthService = require('./AuthService').default;
     AuthService.fetchToken = mockFetchToken;
 
@@ -81,20 +87,22 @@ describe('authService', () => {
         },
       },
     };
-    const mockAxios = {
-      post: jest.fn(
-        () => new Promise((resolve) => {
-          resolve(expectedResponse);
-        }),
-      ),
+    const mockApiService = class {
+      static getInstance = () => ({
+        post: jest.fn(
+          () => new Promise((resolve) => {
+            resolve(expectedResponse);
+          }),
+        ),
+      });
     };
-    jest.mock('axios', () => mockAxios);
+    jest.mock('./ApiService', () => mockApiService);
     const AuthService = require('./AuthService').default;
     // Act
     const actualToken = await AuthService.fetchToken(expectedEmail, expectedPassword);
     // Assert
     expect(actualToken).toEqual(expectedToken);
-    expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams);
+    expect(mockApiService.getInstance().post).toBeCalledWith(expectedPath, expectedParams);
   });
 
   test('fetchToken WrongEmail', async () => {
@@ -127,15 +135,15 @@ describe('authService', () => {
       status: expectedResponseStatus,
       data: expectedResponseData,
     };
-    const mockApiService = (
-      class {
-        static getInstance = () => ({
-          post: jest.fn(() => new Promise((resolve, reject) => {
+    const mockApiService = class {
+      static getInstance = () => ({
+        post: jest.fn(
+          () => new Promise((resolve, reject) => {
             reject(expectedError);
-          })),
-        })
-      }
-    );
+          }),
+        ),
+      });
+    };
     jest.mock('./ApiService', () => mockApiService);
     const AuthService = require('./AuthService').default;
     let actualError;
