@@ -1,5 +1,5 @@
 describe('createBonusService', () => {
-  const expectedPath = 'http://rewards-staging.flatstack.com/api/v1/user/bonuses';
+  const expectedPath = '/user/bonuses';
 
   beforeEach(() => {
     jest.resetModules();

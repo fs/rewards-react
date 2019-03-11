@@ -40,8 +40,8 @@ class SendBonusForm extends Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Textarea onChange={this.handleChange} placeholder="+100 @person add description for #create_awesomness" />
-        <Button text="Give" />
+        <Textarea name='bonustext' onChange={this.handleChange} placeholder='+100 @person add description for #create_awesomness' />
+        <Button text='Give' />
       </Form>
     );
   }

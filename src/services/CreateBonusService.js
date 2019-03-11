@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = 'http://rewards-staging.flatstack.com/api/v1/user/bonuses';
+const apiUrl = '/user/bonuses';
 
 export default async (token, text) => {
   const config = {
