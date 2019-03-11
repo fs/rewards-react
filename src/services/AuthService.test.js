@@ -77,7 +77,7 @@ describe('authService', () => {
         },
       },
     };
-    const expectedPath = 'http://rewards-staging.flatstack.com/api/v1/user/tokens';
+    const expectedPath = '/user/tokens';
     const expectedParams = {
       data: {
         type: 'user-token-requests',
@@ -87,22 +87,21 @@ describe('authService', () => {
         },
       },
     };
-    const mockApiService = class {
-      static getInstance = () => ({
-        post: jest.fn(
-          () => new Promise((resolve) => {
-            resolve(expectedResponse);
-          }),
-        ),
-      });
+    const mockApiService = {
+      post: jest.fn(
+        () => new Promise((resolve) => {
+          resolve(expectedResponse);
+        }),
+      ),
     };
+
     jest.mock('./ApiService', () => mockApiService);
     const AuthService = require('./AuthService').default;
     // Act
     const actualToken = await AuthService.fetchToken(expectedEmail, expectedPassword);
     // Assert
     expect(actualToken).toEqual(expectedToken);
-    expect(mockApiService.getInstance().post).toBeCalledWith(expectedPath, expectedParams);
+    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams);
   });
 
   test('fetchToken WrongEmail', async () => {
@@ -135,15 +134,14 @@ describe('authService', () => {
       status: expectedResponseStatus,
       data: expectedResponseData,
     };
-    const mockApiService = class {
-      static getInstance = () => ({
-        post: jest.fn(
-          () => new Promise((resolve, reject) => {
-            reject(expectedError);
-          }),
-        ),
-      });
+    const mockApiService = {
+      post: jest.fn(
+        () => new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
+      ),
     };
+
     jest.mock('./ApiService', () => mockApiService);
     const AuthService = require('./AuthService').default;
     let actualError;
@@ -154,7 +152,7 @@ describe('authService', () => {
       actualError = error;
     }
     // Assert
-    expect(mockApiService.getInstance().post).toBeCalledWith(expectedPath, expectedParams);
+    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams);
     expect(actualError).toEqual(expectedError);
   });
 

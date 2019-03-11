@@ -11,19 +11,17 @@ describe('ApiService', () => {
 
   test('getInstance', () => {
     // Arrange
-    const ApiService = require('./ApiService').default;
     // Act
-    const actualInstance = ApiService.getInstance();
+    const actualInstance = require('./ApiService').default;
     // Assert
     expect(actualInstance).toBe(mockInstance);
   });
 
   test('getInstance single instance', () => {
     // Arrange
-    const ApiService = require('./ApiService').default;
-    const expectedInstance = ApiService.getInstance();
+    const expectedInstance = require('./ApiService').default;
     // Act
-    const actualInstance = ApiService.getInstance();
+    const actualInstance = require('./ApiService').default;
     // Assert
     expect(actualInstance).toBe(expectedInstance);
   });

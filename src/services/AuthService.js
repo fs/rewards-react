@@ -1,7 +1,6 @@
-import ApiService from './ApiService';
+import api from './ApiService';
 
 const apiUrl = '/user/tokens';
-const api = ApiService.getInstance();
 
 export default class AuthService {
   static TOKEN_KEY = 'authToken';
