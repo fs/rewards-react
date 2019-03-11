@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
-import LoginForm from '../LoginForm';
+import LoginForm from '../pages/LoginPage';
 
 export default class LoginRouter extends Component {
   state = { loggedIn: false };

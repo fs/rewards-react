@@ -5,10 +5,10 @@ import {
   Switch,
 } from 'react-router-dom';
 import LoginRouter from '../LoginRouter';
-import Bonuses from '../Bonuses';
+import BonusesPage from '../pages/BonusesPage';
 
 const Index = () => <LoginRouter />;
-const Dashboard = () => <Bonuses />;
+const Dashboard = () => <BonusesPage />;
 
 const AppRouter = () => (
   <Router>
