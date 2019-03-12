@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   width: 100%;
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     left: 0;
@@ -43,6 +43,5 @@ const LoginTemplate = (props) => {
     </Wrapper>
   );
 };
-
 
 export default LoginTemplate;

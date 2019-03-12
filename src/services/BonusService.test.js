@@ -1,4 +1,4 @@
-describe('createBonusService', () => {
+describe('BonusService', () => {
   const expectedPath = '/user/bonuses';
 
   beforeEach(() => {
@@ -58,10 +58,10 @@ describe('createBonusService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const createBonus = require('./CreateBonusService').default;
+    const bonusService = require('./BonusService').default;
 
     // Act
-    const actualResponse = await createBonus(expectedToken, expectedBonusText);
+    const actualResponse = await bonusService.createBonus(expectedToken, expectedBonusText);
 
     // Assert
     expect(actualResponse).toEqual(expectedResponse);
@@ -107,12 +107,12 @@ describe('createBonusService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const createBonus = require('./CreateBonusService').default;
+    const bonusService = require('./BonusService').default;
 
     let actualError;
     try {
       // Act
-      await createBonus(expectedToken, expectedBonusText);
+      await bonusService.createBonus(expectedToken, expectedBonusText);
     } catch (error) {
       actualError = error;
     }
@@ -163,12 +163,12 @@ describe('createBonusService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const createBonus = require('./CreateBonusService').default;
+    const bonusService = require('./BonusService').default;
 
     let actualError;
     try {
       // Act
-      await createBonus(expectedToken, expectedBonusText);
+      await bonusService.createBonus(expectedToken, expectedBonusText);
     } catch (error) {
       actualError = error;
     }
@@ -237,12 +237,12 @@ describe('createBonusService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const createBonus = require('./CreateBonusService').default;
+    const bonusService = require('./BonusService').default;
 
     let actualError;
     try {
       // Act
-      await createBonus(expectedToken, expectedBonusText);
+      await bonusService.createBonus(expectedToken, expectedBonusText);
     } catch (error) {
       actualError = error;
     }
@@ -293,12 +293,12 @@ describe('createBonusService', () => {
       ),
     };
     jest.mock('axios', () => mockAxios);
-    const createBonus = require('./CreateBonusService').default;
+    const bonusService = require('./BonusService').default;
 
     let actualError;
     try {
       // Act
-      await createBonus(expectedToken, expectedBonusText);
+      await bonusService.createBonus(expectedToken, expectedBonusText);
     } catch (error) {
       actualError = error;
     }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from '../../atoms/Button';
-import createBonus from '../../../services/CreateBonusService';
+import bonusService from '../../../services/BonusService';
+import authService from '../../../services/AuthService';
 
 const Form = styled.form`
   width: 100%;
@@ -33,15 +34,22 @@ class SendBonusForm extends Component {
     this.setState({ bonusText: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
+    const { bonusText } = this.state;
+    const token = authService.getToken();
+    bonusService.createBonus(token, bonusText);
   };
 
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Textarea name='bonustext' onChange={this.handleChange} placeholder='+100 @person add description for #create_awesomness' />
-        <Button text='Give' />
+        <Textarea
+          name="bonustext"
+          onChange={this.handleChange}
+          placeholder="+100 @person add description for #create_awesomness"
+        />
+        <Button text="Give" />
       </Form>
     );
   }
