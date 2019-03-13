@@ -23,7 +23,7 @@ const Form = styled.form`
   max-width: 100%;
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0 1px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
   color: #000;
 `;
 
@@ -57,7 +57,7 @@ const Button = styled.button`
   outline: 0;
   border-radius: 100px;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   -webkit-transition: color 0.2s, background-color 0.2s;
   transition: color 0.2s, background-color 0.2s;
 `;
@@ -88,23 +88,13 @@ class LoginForm extends Component {
           })}
         >
           {/* eslint-disable */}
-          {(props) => {
-            const {
-              values,
-              touched,
-              errors,
-              isSubmitting,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-            } = props;
+          {props => {
+            const { values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit } = props;
             /* eslint-enable */
             return (
               <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                  <Label htmlFor="email">
-                    Email
-                  </Label>
+                  <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
                     name="email"
@@ -113,18 +103,13 @@ class LoginForm extends Component {
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={
-                      errors.email && touched.email ? 'text-input error' : 'text-input'
-                    }
+                    className={errors.email && touched.email ? 'text-input error' : 'text-input'}
                   />
-                  {errors.email
-                    && touched.email && <ErrorContainer>{errors.email}</ErrorContainer>}
+                  {errors.email && touched.email && <ErrorContainer>{errors.email}</ErrorContainer>}
                 </FormGroup>
 
                 <FormGroup>
-                  <Label htmlFor="password">
-                    Password
-                  </Label>
+                  <Label htmlFor="password">Password</Label>
                   <Input
                     id="password"
                     name="password"
@@ -133,13 +118,9 @@ class LoginForm extends Component {
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={
-                      errors.password && touched.password ? 'text-input error' : 'text-input'
-                    }
+                    className={errors.password && touched.password ? 'text-input error' : 'text-input'}
                   />
-                  {
-                    errors.password
-                    && touched.password && <ErrorContainer>{errors.password}</ErrorContainer>}
+                  {errors.password && touched.password && <ErrorContainer>{errors.password}</ErrorContainer>}
                 </FormGroup>
 
                 <div className="error-message">{errors.auth}</div>
@@ -151,7 +132,6 @@ class LoginForm extends Component {
             );
           }}
         </Formik>
-
       </LoginTemplate>
     );
   }

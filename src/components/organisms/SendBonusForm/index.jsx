@@ -28,17 +28,29 @@ const Textarea = styled.textarea`
 `;
 
 class SendBonusForm extends Component {
-  state = { bonusText: '' };
+  state = {
+    bonusText: '',
+    hasError: false,
+    errorMessage: '',
+  };
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ bonusText: event.target.value });
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
     const { bonusText } = this.state;
     const token = authService.getToken();
-    bonusService.createBonus(token, bonusText);
+    try {
+      await bonusService.createBonus(token, bonusText);
+    } catch (error) {
+      const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      this.setState({
+        hasError: true,
+        errorMessage,
+      });
+    }
   };
 
   render() {
@@ -49,6 +61,7 @@ class SendBonusForm extends Component {
           onChange={this.handleChange}
           placeholder="+100 @person add description for #create_awesomness"
         />
+        {this.state.hasError && <div className="error-message">{this.state.errorMessage}</div>}
         <Button text="Give" />
       </Form>
     );
