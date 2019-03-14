@@ -23,7 +23,7 @@ describe('BonusService', () => {
       },
     };
     const config = {
-      headers: { Authorization: `bearer ${expectedToken}` },
+      headers: { Authorization: `Bearer ${expectedToken}` },
     };
 
     const expectedResponse = {
@@ -50,14 +50,15 @@ describe('BonusService', () => {
       },
     };
 
-    const mockAxios = {
+    const mockApiService = {
       post: jest.fn(
         () => new Promise((resolve) => {
           resolve(expectedResponse);
         }),
       ),
     };
-    jest.mock('axios', () => mockAxios);
+
+    jest.mock('./ApiService', () => mockApiService);
     const bonusService = require('./BonusService').default;
 
     // Act
@@ -65,7 +66,7 @@ describe('BonusService', () => {
 
     // Assert
     expect(actualResponse).toEqual(expectedResponse);
-    expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus InvalidToken', async () => {
@@ -86,7 +87,7 @@ describe('BonusService', () => {
       },
     };
     const config = {
-      headers: { Authorization: `bearer ${expectedToken}` },
+      headers: { Authorization: `Bearer ${expectedToken}` },
     };
 
     const expectedError = new Error();
@@ -99,14 +100,15 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockAxios = {
+    const mockApiService = {
       post: jest.fn(
         () => new Promise((resolve, reject) => {
           reject(expectedError);
         }),
       ),
     };
-    jest.mock('axios', () => mockAxios);
+
+    jest.mock('./ApiService', () => mockApiService);
     const bonusService = require('./BonusService').default;
 
     let actualError;
@@ -119,7 +121,7 @@ describe('BonusService', () => {
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus NotEnoughBonuses', async () => {
@@ -140,7 +142,7 @@ describe('BonusService', () => {
       },
     };
     const config = {
-      headers: { Authorization: `bearer ${expectedToken}` },
+      headers: { Authorization: `Bearer ${expectedToken}` },
     };
 
     const expectedError = new Error();
@@ -155,14 +157,15 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockAxios = {
+    const mockApiService = {
       post: jest.fn(
         () => new Promise((resolve, reject) => {
           reject(expectedError);
         }),
       ),
     };
-    jest.mock('axios', () => mockAxios);
+
+    jest.mock('./ApiService', () => mockApiService);
     const bonusService = require('./BonusService').default;
 
     let actualError;
@@ -175,7 +178,7 @@ describe('BonusService', () => {
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus InvalidBonusText', async () => {
@@ -196,7 +199,7 @@ describe('BonusService', () => {
       },
     };
     const config = {
-      headers: { Authorization: `bearer ${expectedToken}` },
+      headers: { Authorization: `Bearer ${expectedToken}` },
     };
 
     const expectedError = new Error();
@@ -229,14 +232,15 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockAxios = {
+    const mockApiService = {
       post: jest.fn(
         () => new Promise((resolve, reject) => {
           reject(expectedError);
         }),
       ),
     };
-    jest.mock('axios', () => mockAxios);
+
+    jest.mock('./ApiService', () => mockApiService);
     const bonusService = require('./BonusService').default;
 
     let actualError;
@@ -249,7 +253,7 @@ describe('BonusService', () => {
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus SendBonusToYourself', async () => {
@@ -270,7 +274,7 @@ describe('BonusService', () => {
       },
     };
     const config = {
-      headers: { Authorization: `bearer ${expectedToken}` },
+      headers: { Authorization: `Bearer ${expectedToken}` },
     };
 
     const expectedError = new Error();
@@ -285,14 +289,15 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockAxios = {
+    const mockApiService = {
       post: jest.fn(
         () => new Promise((resolve, reject) => {
           reject(expectedError);
         }),
       ),
     };
-    jest.mock('axios', () => mockAxios);
+
+    jest.mock('./ApiService', () => mockApiService);
     const bonusService = require('./BonusService').default;
 
     let actualError;
@@ -305,6 +310,6 @@ describe('BonusService', () => {
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(mockAxios.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 });

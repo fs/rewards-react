@@ -1,11 +1,11 @@
-import axios from 'axios';
+import api from './ApiService';
 
 const apiUrl = '/user/bonuses';
 
 export default class BonusService {
   static async createBonus(token, text) {
     const config = {
-      headers: { Authorization: `bearer ${token}` },
+      headers: { Authorization: `Bearer ${token}` },
     };
 
     const bodyParameters = {
@@ -17,7 +17,7 @@ export default class BonusService {
       },
     };
 
-    const response = await axios.post(apiUrl, bodyParameters, config);
+    const response = await api.post(apiUrl, bodyParameters, config);
     return response;
   }
 }

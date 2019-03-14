@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import MainTemplate from '../../templates/MainTemplate';
 import SendBonusForm from '../../organisms/SendBonusForm';
+import BonusList from '../../organisms/BonusList';
 import TopReceivers from '../../molecules/TopReceivers';
 import MostGenerous from '../../molecules/MostGenerous';
 
@@ -16,9 +17,7 @@ const BonusContent = styled.div`
   margin-right: 2rem;
   padding: 1.25rem;
   flex: 1;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  background-color: #fff;
 `;
 
 const BonusRating = styled.div`
@@ -50,6 +49,7 @@ const Bonuses = () => (
       <BonusContent>
         <h2>Bonuses</h2>
         <SendBonusForm />
+        <BonusList />
       </BonusContent>
       <BonusRating>
         <TopReceivers />

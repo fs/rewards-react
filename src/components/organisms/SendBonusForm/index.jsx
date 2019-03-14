@@ -9,6 +9,7 @@ const Form = styled.form`
   background-color: #fff;
   border-radius: 5px;
   padding: 20px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 `;
 
 const Textarea = styled.textarea`
@@ -34,11 +35,15 @@ class SendBonusForm extends Component {
     errorMessage: '',
   };
 
-  handleChange = event => {
-    this.setState({ bonusText: event.target.value });
+  handleChange = (event) => {
+    this.setState({
+      bonusText: event.target.value,
+      hasError: false,
+      errorMessage: '',
+    });
   };
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     const { bonusText } = this.state;
     const token = authService.getToken();

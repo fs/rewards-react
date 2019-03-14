@@ -7,10 +7,9 @@ describe('SendBonusForm', () => {
     jest.resetModules();
   });
 
-  test('should call bonusService.createBonus on submit', async done => {
+  test('should call bonusService.createBonus on submit', async (done) => {
     // Arrange
-    const expectedToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
     const expectedBonusCount = '+1';
     const expectedReceiver = '@albert.fazullin';
     const expectedTag = '#create-awesomeness';
@@ -23,10 +22,9 @@ describe('SendBonusForm', () => {
 
     const mockBonusService = class {
       static createBonus = jest.fn(
-        () =>
-          new Promise(resolve => {
-            resolve();
-          }),
+        () => new Promise((resolve) => {
+          resolve();
+        }),
       );
     };
     jest.mock('../../../services/BonusService', () => mockBonusService);
@@ -45,10 +43,9 @@ describe('SendBonusForm', () => {
     }, 0);
   });
 
-  test('should call bonusService.createBonus on submit and show error message when not enough points', async done => {
+  test('should call bonusService.createBonus on submit and show error message when not enough points', async (done) => {
     // Arrange
-    const expectedToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
     const expectedBonusCount = '+10000000000';
     const expectedReceiver = '@albert.fazullin';
     const expectedTag = '#create-awesomeness';
@@ -65,10 +62,9 @@ describe('SendBonusForm', () => {
 
     const mockBonusService = class {
       static createBonus = jest.fn(
-        () =>
-          new Promise((resolve, reject) => {
-            reject(expectedError);
-          }),
+        () => new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
       );
     };
     jest.mock('../../../services/BonusService', () => mockBonusService);
