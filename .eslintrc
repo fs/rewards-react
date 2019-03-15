@@ -13,15 +13,15 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/prop-types": [2, { "ignore": ["children"] }],
+    "react/prop-types": 0,
     "global-require": "warn",
     "no-underscore-dangle": [2, { "allow": [ "__STORE__" ] }],
     "jsx-a11y/label-has-for": [ 1, {
       "components": [ "Label" ],
       "required": {
-          "every": [ "nesting", "id" ]
+          "some": [ "nesting", "id" ]
       },
-      "allowChildren": false
+      "allowChildren": false,
     }],
     "max-len": 0
   }

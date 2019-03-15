@@ -10,6 +10,6 @@ const BonusList = () => (
   <List>
     <Bonus />
   </List>
-)
+);
 
 export default BonusList;

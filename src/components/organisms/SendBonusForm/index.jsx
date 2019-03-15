@@ -59,6 +59,11 @@ class SendBonusForm extends Component {
   };
 
   render() {
+    const {
+      hasError,
+      errorMessage,
+    } = this.state;
+
     return (
       <Form onSubmit={this.handleSubmit}>
         <Textarea
@@ -66,7 +71,7 @@ class SendBonusForm extends Component {
           onChange={this.handleChange}
           placeholder="+100 @person add description for #create_awesomness"
         />
-        {this.state.hasError && <div className="error-message">{this.state.errorMessage}</div>}
+        {hasError && <div className="error-message">{errorMessage}</div>}
         <Button text="Give" />
       </Form>
     );
