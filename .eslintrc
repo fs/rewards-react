@@ -21,7 +21,7 @@
       "required": {
           "some": [ "nesting", "id" ]
       },
-      "allowChildren": false,
+      "allowChildren": false
     }],
     "max-len": 0
   }

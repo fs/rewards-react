@@ -1,34 +1,28 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Button from '../../atoms/Button';
+import SendBonusForm from './SendBonusForm';
+import BonusList from './BonusList';
 import bonusService from '../../../services/BonusService';
 import authService from '../../../services/AuthService';
 
-const Form = styled.form`
-  width: 100%;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+const BonusContentWrapper = styled.div`
+  position: relative;
+  margin-bottom: 1.25rem;
+  margin-right: 2rem;
+  flex: 1;
+  border-radius: 4px;
 `;
 
-const Textarea = styled.textarea`
-  display: block;
-  width: 100%;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.75rem;
-  color: #000;
-  border: none;
-  outline: none;
-  padding: 0;
-  height: 3.5rem;
-  margin: 0 0 30px 0;
-  resize: none;
-  box-shadow: none;
+const MyBonuses = styled.h2`
+  position: absolute;
+  top: -55px;
+  line-height: 1.625rem;
+  font-weight: 800;
+  font-size: 1.375rem;
+  color: #fff;
 `;
 
-class SendBonusForm extends Component {
+class BonusContent extends Component {
   state = {
     bonusText: '',
     hasError: false,
@@ -65,17 +59,18 @@ class SendBonusForm extends Component {
     } = this.state;
 
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Textarea
-          name="bonustext"
-          onChange={this.handleChange}
-          placeholder="+100 @person add description for #create_awesomness"
+      <BonusContentWrapper>
+        <MyBonuses>points to give away</MyBonuses>
+        <SendBonusForm
+          submit={this.handleSubmit}
+          change={this.handleChange}
+          hasError={hasError}
+          errorMessage={errorMessage}
         />
-        {hasError && <div className="error-message">{errorMessage}</div>}
-        <Button text="Give" />
-      </Form>
+        <BonusList />
+      </BonusContentWrapper>
     );
   }
 }
 
-export default SendBonusForm;
+export default BonusContent;
