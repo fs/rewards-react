@@ -20,4 +20,13 @@ export default class BonusService {
     const response = await api.post(apiUrl, bodyParameters, config);
     return response;
   }
+
+  static async updateBonusesList(token) {
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    const response = await api.get(apiUrl, config);
+    return response;
+  }
 }
