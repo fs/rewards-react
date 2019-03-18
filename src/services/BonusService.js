@@ -21,7 +21,7 @@ export default class BonusService {
     return response;
   }
 
-  static async updateBonusesList(token) {
+  static async fetchBonusesList(token) {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };

@@ -603,7 +603,7 @@ describe('BonusService', () => {
     const bonusService = require('./BonusService').default;
 
     // Act
-    const actualResponse = await bonusService.updateBonusesList(expectedToken);
+    const actualResponse = await bonusService.fetchBonusesList(expectedToken);
 
     // Assert
     expect(actualResponse).toEqual(expectedResponse);
@@ -643,7 +643,7 @@ describe('BonusService', () => {
     let actualError;
     try {
       // Act
-      await bonusService.updateBonusesList(expectedToken);
+      await bonusService.fetchBonusesList(expectedToken);
     } catch (error) {
       actualError = error;
     }

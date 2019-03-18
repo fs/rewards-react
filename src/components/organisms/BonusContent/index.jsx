@@ -29,6 +29,25 @@ class BonusContent extends Component {
     errorMessage: '',
   };
 
+  componentDidMount() {
+    this.updateBonusesList();
+  }
+
+  updateBonusesList = async () => {
+    const token = authService.getToken();
+    console.log(token);
+
+    try {
+      const data = await bonusService.fetchBonusesList(token);
+      const bonusListArray = data.data.data.map(item => item.type === 'bonuses');
+      console.log(bonusListArray);
+    } catch (error) {
+      console.log(error);
+
+      // const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+    }
+  };
+
   handleChange = (event) => {
     this.setState({
       bonusText: event.target.value,
