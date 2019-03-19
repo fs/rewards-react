@@ -27,6 +27,7 @@ class BonusContent extends Component {
     bonusText: '',
     hasError: false,
     errorMessage: '',
+    bonusList: [],
   };
 
   componentDidMount() {
@@ -35,12 +36,11 @@ class BonusContent extends Component {
 
   updateBonusesList = async () => {
     const token = authService.getToken();
-    console.log(token);
 
     try {
       const data = await bonusService.fetchBonusesList(token);
-      const bonusListArray = data.data.data.map(item => item.type === 'bonuses');
-      console.log(bonusListArray);
+      const bonusListArray = data.data.data;
+      this.setState({ bonusList: bonusListArray });
     } catch (error) {
       console.log(error);
 
@@ -62,6 +62,7 @@ class BonusContent extends Component {
     const token = authService.getToken();
     try {
       await bonusService.createBonus(token, bonusText);
+      this.updateBonusesList();
     } catch (error) {
       const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
       this.setState({
@@ -72,10 +73,7 @@ class BonusContent extends Component {
   };
 
   render() {
-    const {
-      hasError,
-      errorMessage,
-    } = this.state;
+    const { hasError, errorMessage, bonusList } = this.state;
 
     return (
       <BonusContentWrapper>
@@ -86,7 +84,7 @@ class BonusContent extends Component {
           hasError={hasError}
           errorMessage={errorMessage}
         />
-        <BonusList />
+        <BonusList bonusList={bonusList} />
       </BonusContentWrapper>
     );
   }
