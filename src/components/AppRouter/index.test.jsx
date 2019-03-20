@@ -54,7 +54,7 @@ describe('Router test', () => {
     // Assert
     setTimeout(() => {
       wrapper.update();
-      expect(wrapper.find('.h2')).toHaveLength(1);
+      expect(wrapper.find('SendBonusForm')).toHaveLength(1);
       done();
     }, 0);
   });
