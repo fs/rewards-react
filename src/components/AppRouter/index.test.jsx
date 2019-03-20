@@ -30,6 +30,8 @@ describe('Router test', () => {
             resolve(expectedToken);
           })
         ));
+
+        static getToken = jest.fn(() => expectedToken);
       }
     );
     jest.mock('../../services/AuthService', () => mockAuth);
@@ -46,14 +48,13 @@ describe('Router test', () => {
     inputEmail.simulate('change', { target: { value: expectedEmail, name: 'email' } });
     const inputPassword = wrapper.find('input#password');
     inputPassword.simulate('change', { target: { value: expectedPassword, name: 'password' } });
-
     // Act
     wrapper.find('form').simulate('submit');
 
     // Assert
     setTimeout(() => {
       wrapper.update();
-      expect(wrapper.find('h2')).toHaveLength(1);
+      expect(wrapper.find('.h2')).toHaveLength(1);
       done();
     }, 0);
   });
