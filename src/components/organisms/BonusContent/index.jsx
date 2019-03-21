@@ -24,23 +24,27 @@ const MyBonuses = styled.h2`
 
 class BonusContent extends Component {
   state = {
-    bonusText: '',
-    hasError: false,
-    errorMessage: '',
     bonusList: [],
+    isLoading: true,
   };
 
   componentDidMount() {
     this.updateBonusesList();
   }
 
+  onSuccess = () => {
+    this.updateBonusesList();
+  };
+
   updateBonusesList = async () => {
     const token = authService.getToken();
-
     try {
       const data = await bonusService.fetchBonusesList(token);
       const bonusListArray = data.data.data;
-      this.setState({ bonusList: bonusListArray });
+      this.setState({
+        bonusList: bonusListArray,
+        isLoading: false,
+      });
     } catch (error) {
       console.log(error);
 
@@ -48,43 +52,20 @@ class BonusContent extends Component {
     }
   };
 
-  handleChange = (event) => {
-    this.setState({
-      bonusText: event.target.value,
-      hasError: false,
-      errorMessage: '',
-    });
-  };
-
-  handleSubmit = async (event) => {
-    event.preventDefault();
-    const { bonusText } = this.state;
-    const token = authService.getToken();
-    try {
-      await bonusService.createBonus(token, bonusText);
-      this.updateBonusesList();
-    } catch (error) {
-      const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
-      this.setState({
-        hasError: true,
-        errorMessage,
-      });
-    }
-  };
-
   render() {
-    const { hasError, errorMessage, bonusList } = this.state;
-
+    const {
+      bonusList, isLoading,
+    } = this.state;
     return (
       <BonusContentWrapper>
         <MyBonuses>points to give away</MyBonuses>
         <SendBonusForm
-          submit={this.handleSubmit}
-          change={this.handleChange}
-          hasError={hasError}
-          errorMessage={errorMessage}
+          onSuccess={this.onSuccess}
         />
-        <BonusList bonusList={bonusList} />
+        <BonusList
+          bonusList={bonusList}
+          isLoading={isLoading}
+        />
       </BonusContentWrapper>
     );
   }

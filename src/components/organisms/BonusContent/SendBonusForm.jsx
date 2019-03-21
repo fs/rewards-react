@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from '../../atoms/Button';
+import authService from '../../../services/AuthService';
+import bonusService from '../../../services/BonusService';
 
 const Form = styled.form`
   width: 100%;
@@ -27,25 +29,56 @@ const Textarea = styled.textarea`
   box-shadow: none;
 `;
 
-const SendBonusForm = (props) => {
-  const {
-    submit,
-    change,
-    hasError,
-    errorMessage,
-  } = props;
+class SendBonusForm extends Component {
+  state = {
+    bonusText: '',
+    hasError: false,
+    errorMessage: '',
+  };
 
-  return (
-    <Form onSubmit={submit}>
-      <Textarea
-        name="bonustext"
-        onChange={change}
-        placeholder="+100 @person add description for #create_awesomness"
-      />
-      {hasError && <div className="error-message">{errorMessage}</div>}
-      <Button text="Give" />
-    </Form>
-  );
-};
+  handleChange = (event) => {
+    this.setState({
+      bonusText: event.target.value,
+      hasError: false,
+      errorMessage: '',
+    });
+  };
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    const { bonusText } = this.state;
+    const { onSuccess } = this.props;
+    const token = authService.getToken();
+    try {
+      await bonusService.createBonus(token, bonusText);
+      onSuccess();
+    } catch (error) {
+      const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      this.setState({
+        hasError: true,
+        errorMessage,
+      });
+    }
+  };
+
+  render() {
+    const {
+      hasError,
+      errorMessage,
+    } = this.state;
+
+    return (
+      <Form onSubmit={this.handleSubmit}>
+        <Textarea
+          name="bonustext"
+          onChange={this.handleChange}
+          placeholder="+100 @person add description for #create_awesomness"
+        />
+        {hasError && <div className="error-message">{errorMessage}</div>}
+        <Button text="Give" />
+      </Form>
+    );
+  }
+}
 
 export default SendBonusForm;

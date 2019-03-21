@@ -8,6 +8,7 @@ const BonusMainWrap = styled.div`
   margin: 80px auto 0;
   display: flex;
   width: 1100px;
+  align-items: flex-start;
 `;
 
 const BonusesPage = () => (
