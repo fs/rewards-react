@@ -7,7 +7,7 @@ export default class LoginRouter extends Component {
 
   onLogin = () => {
     this.setState({ loggedIn: true });
-  }
+  };
 
   render() {
     const { loggedIn } = this.state;

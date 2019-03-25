@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../atoms/Button';
 import authService from '../../../services/AuthService';
@@ -29,56 +29,42 @@ const Textarea = styled.textarea`
   box-shadow: none;
 `;
 
-class SendBonusForm extends Component {
-  state = {
-    bonusText: '',
-    hasError: false,
-    errorMessage: '',
+const SendBonusForm = (props) => {
+  const [bonusText, setBonusText] = useState('');
+  const [hasError, setHasError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (event) => {
+    setBonusText(event.target.value);
+    setHasError(false);
+    setErrorMessage('');
   };
 
-  handleChange = (event) => {
-    this.setState({
-      bonusText: event.target.value,
-      hasError: false,
-      errorMessage: '',
-    });
-  };
-
-  handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const { bonusText } = this.state;
-    const { onSuccess } = this.props;
+    const { onSuccess } = props;
     const token = authService.getToken();
     try {
       await bonusService.createBonus(token, bonusText);
       onSuccess();
     } catch (error) {
-      const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
-      this.setState({
-        hasError: true,
-        errorMessage,
-      });
+      const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      setHasError(true);
+      setErrorMessage(parsedErrorMessage);
     }
   };
 
-  render() {
-    const {
-      hasError,
-      errorMessage,
-    } = this.state;
-
-    return (
-      <Form onSubmit={this.handleSubmit}>
-        <Textarea
-          name="bonustext"
-          onChange={this.handleChange}
-          placeholder="+100 @person add description for #create_awesomness"
-        />
-        {hasError && <div className="error-message">{errorMessage}</div>}
-        <Button text="Give" />
-      </Form>
-    );
-  }
-}
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Textarea
+        name="bonustext"
+        onChange={handleChange}
+        placeholder="+100 @person add description for #create_awesomness"
+      />
+      {hasError && <div className="error-message">{errorMessage}</div>}
+      <Button text="Give" />
+    </Form>
+  );
+};
 
 export default SendBonusForm;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
@@ -62,11 +62,11 @@ const Button = styled.button`
   transition: color 0.2s, background-color 0.2s;
 `;
 
-class LoginForm extends Component {
-  handleSubmit = async (values, actions) => {
+const LoginForm = (props) => {
+  const handleSubmit = async (values, actions) => {
     try {
       await AuthService.authenticate(values.email, values.password);
-      const { onLogin } = this.props;
+      const { onLogin } = props;
       onLogin();
     } catch (error) {
       actions.setErrors({ auth: JSON.parse(error.response.request.response).errors[0].detail });
@@ -74,20 +74,19 @@ class LoginForm extends Component {
     }
   };
 
-  render() {
-    return (
-      <LoginTemplate>
-        <Formik
-          initialValues={{ email: '', password: '' }}
-          onSubmit={this.handleSubmit}
-          validationSchema={Yup.object().shape({
-            email: Yup.string()
-              .email()
-              .required('Email is required'),
-            password: Yup.string().required('Password is required'),
-          })}
-        >
-          {/* eslint-disable */}
+  return (
+    <LoginTemplate>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        onSubmit={handleSubmit}
+        validationSchema={Yup.object().shape({
+          email: Yup.string()
+            .email()
+            .required('Email is required'),
+          password: Yup.string().required('Password is required'),
+        })}
+      >
+        {/* eslint-disable */}
           {props => {
             const { values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit } = props;
             /* eslint-enable */
@@ -131,9 +130,9 @@ class LoginForm extends Component {
               </Form>
             );
           }}
-        </Formik>
-      </LoginTemplate>
-    );
-  }
-}
+      </Formik>
+    </LoginTemplate>
+  );
+};
+
 export default LoginForm;
