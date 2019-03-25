@@ -1,4 +1,4 @@
-import { mount } from 'enzyme/build';
+import { shallow } from 'enzyme/build';
 import React from 'react';
 
 describe('BonusList', () => {
@@ -222,12 +222,27 @@ describe('BonusList', () => {
         },
       },
     ];
+    const expectedIsLoading = false;
     // Act
-    const wrapper = mount(
-      <BonusList bonusList={expectedBonusList} />,
+    const wrapper = shallow(
+      <BonusList bonusList={expectedBonusList} isLoading={expectedIsLoading} />,
     );
 
     // Assert
     expect(wrapper.find('Bonus')).toHaveLength(10);
+  });
+
+  test('Should still loading if network error', async () => {
+    // Arrange
+    const BonusList = require('./BonusList').default;
+    const { Loader } = require('./BonusList');
+    const expectedBonusList = [];
+    const expectedIsLoading = true;
+    // Act
+    const wrapper = shallow(
+      <BonusList bonusList={expectedBonusList} isLoading={expectedIsLoading} />,
+    );
+    // Assert
+    expect(wrapper.find(Loader).exists()).toEqual(true);
   });
 });

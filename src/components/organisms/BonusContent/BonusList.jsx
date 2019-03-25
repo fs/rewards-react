@@ -4,7 +4,7 @@ import Bonus from '../../molecules/Bonus';
 
 const List = styled.div``;
 
-const Loader = styled.div``;
+export const Loader = styled.div``;
 
 const BonusList = (props) => {
   const { bonusList, isLoading } = props;
