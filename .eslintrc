@@ -11,6 +11,9 @@
     "navigator": true,
     "fetch": true
   },
+  "plugins": [
+    "react-hooks"
+  ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": 0,
@@ -23,6 +26,8 @@
       },
       "allowChildren": false
     }],
-    "max-len": 0
+    "max-len": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

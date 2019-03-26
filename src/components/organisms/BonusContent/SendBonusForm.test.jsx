@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-// import SendBonusForm from '.';
+import { render, fireEvent } from 'react-testing-library';
 
 describe('SendBonusForm', () => {
   beforeEach(() => {
@@ -30,12 +30,13 @@ describe('SendBonusForm', () => {
     jest.mock('../../../services/BonusService', () => mockBonusService);
     const SendBonusForm = require('./index').default;
 
-    const wrapper = mount(<SendBonusForm />);
-    const textArea = wrapper.find('textarea');
-    textArea.simulate('change', { target: { value: expectedBonusText, name: 'bonustext' } });
+    const { getByTestId } = render(<SendBonusForm />);
+    const textArea = getByTestId('test-textarea');
+    fireEvent.change(textArea, { target: { value: expectedBonusText }});
 
     // Act
-    wrapper.find('form').simulate('submit');
+    const form = getByTestId('test-form')
+    fireEvent.submit(form);
     // Assert
     setTimeout(() => {
       expect(mockBonusService.createBonus).toBeCalledWith(expectedToken, expectedBonusText);

@@ -62,7 +62,7 @@ const Button = styled.button`
   transition: color 0.2s, background-color 0.2s;
 `;
 
-const LoginForm = (props) => {
+const LoginPage = (props) => {
   const handleSubmit = async (values, actions) => {
     try {
       await AuthService.authenticate(values.email, values.password);
@@ -135,4 +135,4 @@ const LoginForm = (props) => {
   );
 };
 
-export default LoginForm;
+export default LoginPage;

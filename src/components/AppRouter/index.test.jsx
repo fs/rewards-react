@@ -44,6 +44,7 @@ describe('Router test', () => {
         <AppRouter />
       </MemoryRouter>,
     );
+    console.log('test');
     const inputEmail = wrapper.find('input#email');
     inputEmail.simulate('change', { target: { value: expectedEmail, name: 'email' } });
     const inputPassword = wrapper.find('input#password');

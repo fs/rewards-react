@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router';
-import LoginForm from '../pages/LoginPage';
+import LoginPage from '../pages/LoginPage';
 
-export default class LoginRouter extends Component {
-  state = { loggedIn: false };
+const LoginRouter = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  onLogin = () => {
-    this.setState({ loggedIn: true });
+  const onLogin = () => {
+    setLoggedIn(true);
   };
 
-  render() {
-    const { loggedIn } = this.state;
-    if (loggedIn) {
-      return (<Redirect to="/bonuses" />);
-    }
-
-    return (<LoginForm onLogin={this.onLogin} />);
+  if (loggedIn) {
+    return (<Redirect to="/bonuses" />);
   }
-}
+
+  return (<LoginPage onLogin={onLogin} />);
+};
+
+export default LoginRouter;

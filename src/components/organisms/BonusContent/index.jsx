@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import SendBonusForm from './SendBonusForm';
 import BonusList from './BonusList';
@@ -22,53 +22,43 @@ const MyBonuses = styled.h2`
   color: #fff;
 `;
 
-class BonusContent extends Component {
-  state = {
-    bonusList: [],
-    isLoading: true,
-  };
+const BonusContent = () => {
+  const [bonusList, setBonusList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  componentDidMount() {
-    this.updateBonusesList();
-  }
-
-  onSuccess = () => {
-    this.updateBonusesList();
-  };
-
-  updateBonusesList = async () => {
+  const updateBonusesList = async () => {
     const token = authService.getToken();
     try {
       const data = await bonusService.fetchBonusesList(token);
       const bonusListArray = data.data.data;
-      this.setState({
-        bonusList: bonusListArray,
-        isLoading: false,
-      });
+      setBonusList(bonusListArray);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
-
       // const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
     }
   };
 
-  render() {
-    const {
-      bonusList, isLoading,
-    } = this.state;
-    return (
-      <BonusContentWrapper>
-        <MyBonuses>points to give away</MyBonuses>
-        <SendBonusForm
-          onSuccess={this.onSuccess}
-        />
-        <BonusList
-          bonusList={bonusList}
-          isLoading={isLoading}
-        />
-      </BonusContentWrapper>
-    );
-  }
-}
+  useEffect(() => {
+    updateBonusesList();
+  });
+
+  const onSuccess = () => {
+    updateBonusesList();
+  };
+
+  return (
+    <BonusContentWrapper>
+      <MyBonuses>points to give away</MyBonuses>
+      <SendBonusForm
+        onSuccess={onSuccess}
+      />
+      <BonusList
+        bonusList={bonusList}
+        isLoading={isLoading}
+      />
+    </BonusContentWrapper>
+  );
+};
 
 export default BonusContent;
