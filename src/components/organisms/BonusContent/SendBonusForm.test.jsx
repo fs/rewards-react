@@ -3,6 +3,8 @@ import { mount } from 'enzyme';
 import { render, fireEvent, getByTestId } from 'react-testing-library';
 import SendBonusForm from './SendBonusForm';
 
+jest.mock('../../../services/AuthService');
+jest.mock('../../../services/BonusService');
 
 describe('SendBonusForm', () => {
   beforeEach(() => {
@@ -17,26 +19,16 @@ describe('SendBonusForm', () => {
     const expectedTag = '#create-awesomeness';
     const expectedBonusText = `${expectedBonusCount} ${expectedReceiver} ${expectedTag}`;
 
-    const mockAuthService = class {
-      static getToken = jest.fn(() => expectedToken);
-    };
-    jest.mock('../../../services/AuthService', () => mockAuthService);
+    const mockAuthService = jest.requireMock('../../../services/AuthService');
+    mockAuthService.getToken = () => expectedToken;
+    const mockBonusService = jest.requireMock('../../../services/BonusService');
 
-    const mockBonusService = class {
-      static createBonus = jest.fn(
-        () => new Promise((resolve) => {
-          resolve();
-        }),
-      );
-    };
-    jest.mock('../../../services/BonusService', () => mockBonusService);
-
-    const { container } = render(<SendBonusForm />);
+    const { container } = render(<SendBonusForm onSuccess={() => {}} />);
     const textArea = getByTestId(container, 'test-textarea');
-    fireEvent.change(textArea, { target: { value: expectedBonusText }});
+    fireEvent.change(textArea, { target: { value: expectedBonusText } });
 
     // Act
-    const form = getByTestId(container, 'test-form')
+    const form = getByTestId(container, 'test-form');
     fireEvent.submit(form);
     // Assert
     setTimeout(() => {
@@ -70,7 +62,6 @@ describe('SendBonusForm', () => {
       );
     };
     jest.mock('../../../services/BonusService', () => mockBonusService);
-    const SendBonusForm = require('./index').default;
 
     const wrapper = mount(<SendBonusForm />);
     const textArea = wrapper.find('textarea');
