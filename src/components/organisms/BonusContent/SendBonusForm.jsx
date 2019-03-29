@@ -27,8 +27,11 @@ const Textarea = styled.textarea`
   box-shadow: none;
 `;
 
-const SendBonusForm = (props, ) => {
+const ErrorContainer = styled.div`
+  color: #f00;
+`;
 
+const SendBonusForm = (props) => {
   const [bonusText, setBonusText] = useState('');
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -61,7 +64,11 @@ const SendBonusForm = (props, ) => {
         placeholder="+100 @person add description for #create_awesomness"
         data-testid="test-textarea"
       />
-      <div data-testid="test-error-container">{hasError && errorMessage}</div>
+      <div data-testid="test-error-container">
+        {hasError
+          && <ErrorContainer>{errorMessage}</ErrorContainer>
+        }
+      </div>
       <Button text="Give" data-testid="test-button" />
     </Form>
   );
