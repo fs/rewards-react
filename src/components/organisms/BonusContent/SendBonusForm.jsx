@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../atoms/Button';
-import authService from '../../../services/AuthService';
-import bonusService from '../../../services/BonusService';
 
 const Form = styled.form`
   width: 100%;
@@ -29,7 +27,8 @@ const Textarea = styled.textarea`
   box-shadow: none;
 `;
 
-const SendBonusForm = (props) => {
+const SendBonusForm = (props, ) => {
+
   const [bonusText, setBonusText] = useState('');
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -42,7 +41,8 @@ const SendBonusForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { onSuccess } = props;
+    const { onSuccess, authService, bonusService } = props;
+    console.log(authService, bonusService);
     const token = authService.getToken();
     try {
       await bonusService.createBonus(token, bonusText);

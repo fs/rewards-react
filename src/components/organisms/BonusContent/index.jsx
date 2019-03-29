@@ -52,10 +52,13 @@ const BonusContent = () => {
       <MyBonuses>points to give away</MyBonuses>
       <SendBonusForm
         onSuccess={onSuccess}
+        authService={authService}
+        bonusService={bonusService}
       />
       <BonusList
         bonusList={bonusList}
         isLoading={isLoading}
+        
       />
     </BonusContentWrapper>
   );
