@@ -58,7 +58,6 @@ const BonusContent = () => {
       <BonusList
         bonusList={bonusList}
         isLoading={isLoading}
-        
       />
     </BonusContentWrapper>
   );

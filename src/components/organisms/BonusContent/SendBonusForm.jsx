@@ -42,7 +42,6 @@ const SendBonusForm = (props, ) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { onSuccess, authService, bonusService } = props;
-    console.log(authService, bonusService);
     const token = authService.getToken();
     try {
       await bonusService.createBonus(token, bonusText);
@@ -62,7 +61,7 @@ const SendBonusForm = (props, ) => {
         placeholder="+100 @person add description for #create_awesomness"
         data-testid="test-textarea"
       />
-      {hasError && <div className="error-message">{errorMessage}</div>}
+      <div data-testid="test-error-container">{hasError && errorMessage}</div>
       <Button text="Give" data-testid="test-button" />
     </Form>
   );
