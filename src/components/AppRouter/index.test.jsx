@@ -1,6 +1,13 @@
+import 'jest-dom/extend-expect';
+import 'react-testing-library/cleanup-after-each';
+
 import React from 'react';
-import { mount } from 'enzyme';
+import {
+  render, wait,
+} from 'react-testing-library';
+
 import { MemoryRouter } from 'react-router';
+import AppRouter from './index';
 
 describe('Router test', () => {
   beforeEach(() => {
@@ -8,55 +15,32 @@ describe('Router test', () => {
   });
   test('should show LoginForm', () => {
     // Arrange
-    const AppRouter = require('./index').default;
+    const expectedInitialEntries = ['/'];
     // Act
-    const wrapper = mount(
-      <MemoryRouter initialEntries={['/']}>
+    const { getByTestId } = render(
+      <MemoryRouter initialEntries={expectedInitialEntries}>
         <AppRouter />
       </MemoryRouter>,
     );
 
+    const form = getByTestId('test-login-form');
     // Assert
-    expect(wrapper.find('form')).toHaveLength(1);
+    expect(form).toBeInTheDocument();
   });
 
-  test('should redirect after logged in', (done) => {
+  test('should redirect after logged in', async () => {
     // Arrange
-    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
-    const mockAuth = (
-      class {
-        static authenticate = jest.fn(() => (
-          new Promise((resolve) => {
-            resolve(expectedToken);
-          })
-        ));
-
-        static getToken = jest.fn(() => expectedToken);
-      }
-    );
-    jest.mock('../../services/AuthService', () => mockAuth);
-    const AppRouter = require('./index').default;
-
-    const expectedEmail = 'leyla.khamidullina@flatstack.com';
-    const expectedPassword = '123456';
-    const wrapper = mount(
-      <MemoryRouter initialEntries={['/']}>
+    const expectedInitialEntries = ['/bonuses'];
+    // Act
+    const { getByTestId } = render(
+      <MemoryRouter initialEntries={expectedInitialEntries}>
         <AppRouter />
       </MemoryRouter>,
     );
-    console.log('test');
-    const inputEmail = wrapper.find('input#email');
-    inputEmail.simulate('change', { target: { value: expectedEmail, name: 'email' } });
-    const inputPassword = wrapper.find('input#password');
-    inputPassword.simulate('change', { target: { value: expectedPassword, name: 'password' } });
-    // Act
-    wrapper.find('form').simulate('submit');
-
+    const form = getByTestId('test-form');
     // Assert
-    setTimeout(() => {
-      wrapper.update();
-      expect(wrapper.find('SendBonusForm')).toHaveLength(1);
-      done();
-    }, 0);
+    await wait(() => {
+      expect(form).toBeInTheDocument();
+    });
   });
 });

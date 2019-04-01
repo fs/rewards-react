@@ -91,7 +91,7 @@ const LoginPage = (props) => {
             const { values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit } = props;
             /* eslint-enable */
             return (
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmit} data-testid="test-login-form">
                 <FormGroup>
                   <Label htmlFor="email">Email</Label>
                   <Input
@@ -103,6 +103,7 @@ const LoginPage = (props) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     className={errors.email && touched.email ? 'text-input error' : 'text-input'}
+                    data-testid="test-email"
                   />
                   {errors.email && touched.email && <ErrorContainer>{errors.email}</ErrorContainer>}
                 </FormGroup>
@@ -118,13 +119,14 @@ const LoginPage = (props) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     className={errors.password && touched.password ? 'text-input error' : 'text-input'}
+                    data-testid="test-password"
                   />
                   {errors.password && touched.password && <ErrorContainer>{errors.password}</ErrorContainer>}
                 </FormGroup>
 
                 <div className="error-message">{errors.auth}</div>
 
-                <Button type="submit" disabled={isSubmitting}>
+                <Button type="submit" disabled={isSubmitting} data-testid="test-button">
                   Login
                 </Button>
               </Form>
