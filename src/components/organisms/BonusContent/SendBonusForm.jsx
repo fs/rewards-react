@@ -57,7 +57,7 @@ const SendBonusForm = (props) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} data-testid="test-form">
+    <Form onSubmit={handleSubmit} data-testid="test-bonus-form">
       <Textarea
         name="bonustext"
         onChange={handleChange}

@@ -39,7 +39,7 @@ describe('SendBonusForm', () => {
     const { getByTestId } = render(<SendBonusForm bonusService={mockBonusService} authService={mockAuthService} onSuccess={() => {}} />);
     const textArea = getByTestId('test-textarea');
     fireEvent.change(textArea, { target: { value: expectedBonusText } });
-    const form = getByTestId('test-form');
+    const form = getByTestId('test-bonus-form');
 
     // Act
     fireEvent.submit(form);
@@ -82,7 +82,7 @@ describe('SendBonusForm', () => {
 
     fireEvent.change(textArea, { target: { value: expectedBonusText } });
 
-    const form = getByTestId('test-form');
+    const form = getByTestId('test-bonus-form');
     const errorContainer = getByTestId('test-error-container');
 
     // Act
