@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
+import { Redirect } from 'react-router';
 import AuthService from '../../../services/AuthService';
 import LoginTemplate from '../../templates/LoginTemplate';
 
@@ -62,12 +63,13 @@ const Button = styled.button`
   transition: color 0.2s, background-color 0.2s;
 `;
 
-const LoginPage = (props) => {
+const LoginPage = () => {
+  const [redirectToReferrer, setRedirectToReferrer] = useState(false);
+
   const handleSubmit = async (values, actions) => {
     try {
       await AuthService.authenticate(values.email, values.password);
-      const { onLogin } = props;
-      onLogin();
+      setRedirectToReferrer(true);
     } catch (error) {
       actions.setErrors({ auth: JSON.parse(error.response.request.response).errors[0].detail });
       actions.setSubmitting(false);
@@ -75,65 +77,74 @@ const LoginPage = (props) => {
   };
 
   return (
-    <LoginTemplate>
-      <Formik
-        initialValues={{ email: '', password: '' }}
-        onSubmit={handleSubmit}
-        validationSchema={Yup.object().shape({
-          email: Yup.string()
-            .email()
-            .required('Email is required'),
-          password: Yup.string().required('Password is required'),
-        })}
-      >
-        {/* eslint-disable */}
-          {props => {
-            const { values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit } = props;
-            /* eslint-enable */
-            return (
-              <Form onSubmit={handleSubmit} data-testid="test-login-form">
-                <FormGroup>
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    type="text"
-                    value={values.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.email && touched.email ? 'text-input error' : 'text-input'}
-                    data-testid="test-email"
-                  />
-                  {errors.email && touched.email && <ErrorContainer>{errors.email}</ErrorContainer>}
-                </FormGroup>
+    <div>
+      { redirectToReferrer && <Redirect to="/bonuses" /> }
+    :
+      {
+        <LoginTemplate>
+          <Formik
+            initialValues={{ email: '', password: '' }}
+            onSubmit={handleSubmit}
+            validationSchema={Yup.object().shape({
+              email: Yup.string()
+                .email()
+                .required('Email is required'),
+              password: Yup.string().required('Password is required'),
+            })}
+          >
+            {/* eslint-disable */}
+            {props => {
+              const { values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit } = props;
+              /* eslint-enable */
+              return (
+                <Form onSubmit={handleSubmit} data-testid="test-login-form">
+                  <FormGroup>
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      placeholder="Enter your email"
+                      type="text"
+                      value={values.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={errors.email && touched.email ? 'text-input error' : 'text-input'}
+                      data-testid="test-email"
+                    />
+                    {errors.email && touched.email && <ErrorContainer>{errors.email}</ErrorContainer>}
+                  </FormGroup>
 
-                <FormGroup>
-                  <Label htmlFor="password">Password</Label>
-                  <Input
-                    id="password"
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    value={values.password}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.password && touched.password ? 'text-input error' : 'text-input'}
-                    data-testid="test-password"
-                  />
-                  {errors.password && touched.password && <ErrorContainer>{errors.password}</ErrorContainer>}
-                </FormGroup>
+                  <FormGroup>
+                    <Label htmlFor="password">Password</Label>
+                    <Input
+                      id="password"
+                      name="password"
+                      type="password"
+                      placeholder="Password"
+                      value={values.password}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={errors.password && touched.password ? 'text-input error' : 'text-input'}
+                      data-testid="test-password"
+                    />
+                    
+                    <ErrorContainer data-testid="test-error-container">
+                      { errors.email && touched.email && errors.email }
+                    </ErrorContainer>
+                  </FormGroup>
 
-                <div className="error-message">{errors.auth}</div>
+                  <div className="error-message">{errors.auth}</div>
 
-                <Button type="submit" disabled={isSubmitting} data-testid="test-button">
-                  Login
-                </Button>
-              </Form>
-            );
-          }}
-      </Formik>
-    </LoginTemplate>
+                  <Button type="submit" disabled={isSubmitting} data-testid="test-button">
+                    Login
+                  </Button>
+                </Form>
+              );
+            }}
+          </Formik>
+        </LoginTemplate>
+    }
+    </div>
   );
 };
 

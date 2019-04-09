@@ -1,81 +1,96 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import 'jest-dom/extend-expect';
+import 'react-testing-library/cleanup-after-each';
 
-describe('LoginForm test', () => {
+import React from 'react';
+import { Redirect as mockRedirect } from 'react-router';
+import {
+  render, fireEvent, wait, waitForElement, act
+} from 'react-testing-library';
+import AuthService from '../../../services/AuthService';
+
+import LoginPage from './index';
+
+
+jest.mock('react-router', () => ({
+  Redirect: jest.fn(() => null),
+}));
+
+jest.mock('../../../services/AuthService');
+
+describe('LoginPage test', () => {
   beforeEach(() => {
     jest.resetModules();
+    jest.clearAllMocks();
   });
 
-  test('should call authenticate onSubmit LoginForm', async (done) => {
+  test('should call authenticate onSubmit LoginPage', async () => {
     // Arrange
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
-    const mockAuth = (
-      class {
-        static authenticate = jest.fn(() => (
-          new Promise((resolve) => {
-            resolve(expectedToken);
-          })
-        ));
-      }
-    );
-    jest.mock('../../../services/AuthService', () => mockAuth);
-    const LoginForm = require('./index').default;
+    const mockAuthenticate = jest.fn(() => (
+      new Promise((resolve) => {
+        resolve(expectedToken);
+      })
+    ));
+    AuthService.authenticate.mockImplementation(mockAuthenticate);
 
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
     const expectedPassword = '123456';
 
-    const wrapper = mount(<LoginForm onLogin={() => {}} />);
-    const inputEmail = wrapper.find('input#email');
-    inputEmail.simulate('change', { target: { value: expectedEmail, name: 'email' } });
-    const inputPassword = wrapper.find('input#password');
-    inputPassword.simulate('change', { target: { value: expectedPassword, name: 'password' } });
+    const { getByTestId } = render(<LoginPage />);
+    const inputEmail = getByTestId('test-email');
+    fireEvent.change(inputEmail, { target: { value: expectedEmail } });
+    const inputPassword = getByTestId('test-password');
+    fireEvent.change(inputPassword, { target: { value: expectedPassword } });
+    const form = getByTestId('test-login-form');
 
     // Act
-    wrapper.find('form').simulate('submit');
+    fireEvent.submit(form);
 
     // Assert
-    setTimeout(() => {
-      expect(mockAuth.authenticate).toBeCalledWith(expectedEmail, expectedPassword);
-      done();
-    }, 0);
+    await wait(() => {
+      expect(AuthService.authenticate).toBeCalledWith(expectedEmail, expectedPassword);
+      expect(mockRedirect).toHaveBeenCalledTimes(1);
+      expect(mockRedirect).toHaveBeenCalledWith({ to: '/bonuses' }, {});
+    });
   });
 
-  test('should call authenticate onSubmit LoginForm and show Error Message', async (done) => {
+  test('should call authenticate onSubmit LoginForm and show Error Message', async () => {
     // Arrange
     const expectedErrorMessage = 'Invalid credentials.';
     const expectedResponse = `{"errors":[{"source":{"pointer":"/data/attributes/base"},"detail":"${expectedErrorMessage}"}]}`;
     const expectedError = { response: { request: { response: expectedResponse } } };
-    const mockAuth = (
-      class {
-        static authenticate = jest.fn(() => (
-          new Promise((resolve, reject) => {
-            reject(expectedError);
-          })
-        ));
-      }
-    );
-    jest.mock('../../../services/AuthService', () => mockAuth);
-    const LoginForm = require('./index').default;
+
+    const mockAuthenticate = jest.fn(() => (
+      new Promise((resolve, reject) => {
+        reject(expectedError);
+      })
+    ));
+    AuthService.authenticate.mockImplementation(mockAuthenticate);
 
     const expectedEmail = 'test@flatstack.com';
     const expectedPassword = '123456';
 
-    const wrapper = mount(<LoginForm />);
-    const inputEmail = wrapper.find('input#email');
-    inputEmail.simulate('change', { target: { value: expectedEmail, name: 'email' } });
-    const inputPassword = wrapper.find('input#password');
-    inputPassword.simulate('change', { target: { value: expectedPassword, name: 'password' } });
+    const { getByTestId } = render(<LoginPage />);
+    const inputEmail = getByTestId('test-email');
+    fireEvent.change(inputEmail, { target: { value: expectedEmail } });
+    const inputPassword = getByTestId('test-password');
+    fireEvent.change(inputPassword, { target: { value: expectedPassword } });
+    const form = getByTestId('test-login-form');
 
+    const button = getByTestId('test-button');
     // Act
-    wrapper.find('form').simulate('submit');
+    act(() => {
+      fireEvent.submit(form);
+    });
+
+    const errorContainer = await waitForElement(() => getByTestId('test-error-container'));
 
     // Assert
-    setTimeout(() => {
-      wrapper.update();
-      expect(mockAuth.authenticate).toBeCalledWith(expectedEmail, expectedPassword);
-      expect(wrapper.find('.error-message').text()).toEqual(expectedErrorMessage);
-      expect(wrapper.find('button').prop('disabled')).toBe(false);
-      done();
-    }, 0);
+    await wait(() => {
+      expect(AuthService.authenticate).toBeCalledWith(expectedEmail, expectedPassword);
+      expect(mockRedirect).toHaveBeenCalledTimes(0);
+      // expect(errorMessage).toBe(expectedErrorMessage);
+      expect(button).not.toBeDisabled();
+    });
   });
 });

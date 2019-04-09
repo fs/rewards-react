@@ -4,10 +4,10 @@ import 'react-testing-library/cleanup-after-each';
 import React from 'react';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
-import { render as rtlRender } from 'react-testing-library';
+import { render } from 'react-testing-library';
 import App from './App';
 
-function render(
+function renderWithRouter(
   ui,
   {
     route = '/',
@@ -16,7 +16,7 @@ function render(
   } = {},
 ) {
   return {
-    ...rtlRender(<Router history={history}>{ui}</Router>, options),
+    ...render(<Router history={history}>{ui}</Router>, options),
     history,
   };
 }
@@ -27,7 +27,7 @@ describe('App Router test', () => {
     const route = '/';
 
     // Act
-    const { getByTestId } = render(<App />, { route });
+    const { getByTestId } = renderWithRouter(<App />, { route });
     const loginForm = getByTestId('test-login-form');
 
     // Assert
@@ -39,7 +39,7 @@ describe('App Router test', () => {
     const route = '/bonuses';
 
     // Act
-    const { getByTestId } = render(<App />, { route });
+    const { getByTestId } = renderWithRouter(<App />, { route });
     const bonusForm = getByTestId('test-bonus-form');
 
     // Assert
