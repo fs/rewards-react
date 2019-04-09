@@ -127,7 +127,7 @@ const LoginPage = () => {
                       className={errors.password && touched.password ? 'text-input error' : 'text-input'}
                       data-testid="test-password"
                     />
-                    
+
                     <ErrorContainer data-testid="test-error-container">
                       { errors.email && touched.email && errors.email }
                     </ErrorContainer>
