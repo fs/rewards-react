@@ -3,7 +3,7 @@ import 'react-testing-library/cleanup-after-each';
 import React from 'react';
 import { Redirect as mockRedirect } from 'react-router';
 import {
-  render, fireEvent, wait, waitForElement, act,
+  render, fireEvent, wait, waitForElement,
 } from 'react-testing-library';
 import AuthService from '../../../services/AuthService';
 import LoginPage from './index';
