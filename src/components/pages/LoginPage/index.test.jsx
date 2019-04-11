@@ -76,9 +76,7 @@ describe('LoginPage test', () => {
 
     const button = getByTestId('test-button');
     // Act
-    act(() => {
-      fireEvent.submit(form);
-    });
+    fireEvent.submit(form);
 
     const errorContainer = await waitForElement(() => getByText(expectedErrorMessage));
 

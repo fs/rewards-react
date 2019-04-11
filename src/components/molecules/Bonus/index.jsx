@@ -93,7 +93,7 @@ const Bonus = (props) => {
   const { bonus } = props;
 
   return (
-    <BonusContainer>
+    <BonusContainer data-testid="test-bonus">
       <BonusHeader>
         <TotalPoints>
           +

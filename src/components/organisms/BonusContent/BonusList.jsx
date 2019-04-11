@@ -4,7 +4,7 @@ import Bonus from '../../molecules/Bonus';
 
 const List = styled.div``;
 
-export const Loader = styled.div``;
+const Loader = styled.div``;
 
 const BonusList = (props) => {
   const { bonusList, isLoading } = props;
@@ -13,12 +13,12 @@ const BonusList = (props) => {
     <div>
       { isLoading
         ? (
-          <Loader>
+          <Loader data-testid="test-loader">
             Content is loading
           </Loader>
         )
         : (
-          <List>
+          <List data-testid="test-bonus-list">
             {bonusList.map(bonus => <Bonus bonus={bonus} key={bonus.id} />)}
           </List>
         )
