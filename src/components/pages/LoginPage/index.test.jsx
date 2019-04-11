@@ -67,7 +67,7 @@ describe('LoginPage test', () => {
     const expectedEmail = 'test@flatstack.com';
     const expectedPassword = '123456';
 
-    const { getByTestId } = render(<LoginPage />);
+    const { getByTestId, getByText } = render(<LoginPage />);
     const inputEmail = getByTestId('test-email');
     fireEvent.change(inputEmail, { target: { value: expectedEmail } });
     const inputPassword = getByTestId('test-password');
@@ -80,13 +80,13 @@ describe('LoginPage test', () => {
       fireEvent.submit(form);
     });
 
-    const errorContainer = await waitForElement(() => getByTestId('test-error-container'));
-    console.log(errorContainer);
+    const errorContainer = await waitForElement(() => getByText(expectedErrorMessage));
+
     // Assert
     await wait(() => {
       expect(AuthService.authenticate).toBeCalledWith(expectedEmail, expectedPassword);
       expect(mockRedirect).toHaveBeenCalledTimes(0);
-      // expect(errorMessage).toBe(expectedErrorMessage);
+      expect(errorContainer).toHaveTextContent(expectedErrorMessage);
       expect(button).not.toBeDisabled();
     });
   });
