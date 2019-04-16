@@ -1,3 +1,8 @@
+import AuthService from './AuthService';
+import api from './ApiService';
+
+jest.mock('./ApiService');
+
 describe('authService', () => {
   beforeEach(() => {
     jest.resetModules();
@@ -10,19 +15,42 @@ describe('authService', () => {
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
     const expectedPassword = '123456';
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
+    const expectedResponse = {
+      data: {
+        data: {
+          attributes: {
+            token: expectedToken,
+          },
+        },
+      },
+    };
 
-    const mockFetchToken = jest.fn(
+    const expectedPath = '/user/tokens';
+    const expectedParams = {
+      data: {
+        type: 'user-token-requests',
+        attributes: {
+          email: expectedEmail,
+          password: expectedPassword,
+        },
+      },
+    };
+
+    const mockApiServicePost = jest.fn(
       () => new Promise((resolve) => {
-        resolve(expectedToken);
+        resolve(expectedResponse);
       }),
     );
-    const AuthService = require('./AuthService').default;
-    AuthService.fetchToken = mockFetchToken;
+
+    api.post.mockImplementation(mockApiServicePost);
+    const mockFetchToken = jest.spyOn(AuthService, 'fetchToken');
+
     // Act
     await AuthService.authenticate(expectedEmail, expectedPassword);
     // Assert
-    expect(mockFetchToken).toBeCalledWith(expectedEmail, expectedPassword);
+    expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams);
     expect(localStorage.setItem).toHaveBeenLastCalledWith(AuthService.TOKEN_KEY, expectedToken);
+    expect(mockFetchToken).toHaveBeenCalledWith(expectedEmail, expectedPassword);
 
     expect(localStorage.__STORE__[AuthService.TOKEN_KEY]).toBe(expectedToken);
     expect(Object.keys(localStorage.__STORE__).length).toBe(1);
@@ -43,13 +71,26 @@ describe('authService', () => {
       ],
     };
 
-    const mockFetchToken = jest.fn(
+    const expectedPath = '/user/tokens';
+    const expectedParams = {
+      data: {
+        type: 'user-token-requests',
+        attributes: {
+          email: expectedEmail,
+          password: expectedPassword,
+        },
+      },
+    };
+
+    const mockApiServicePost = jest.fn(
       () => new Promise((resolve, reject) => {
         reject(expectedResponse);
       }),
     );
-    const AuthService = require('./AuthService').default;
-    AuthService.fetchToken = mockFetchToken;
+
+    api.post.mockImplementation(mockApiServicePost);
+
+    const mockFetchToken = jest.spyOn(AuthService, 'fetchToken');
 
     // Act
     const actualAuthenticatePromise = AuthService.authenticate(expectedEmail, expectedPassword);
@@ -57,6 +98,7 @@ describe('authService', () => {
     // Assert
     await expect(actualAuthenticatePromise).rejects.toEqual(expectedResponse);
     expect(mockFetchToken).toBeCalledWith(expectedEmail, expectedPassword);
+    expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams);
     expect(localStorage.setItem).not.toHaveBeenLastCalledWith(expectedEmail, expectedPassword);
     expect(Object.keys(localStorage.__STORE__).length).toBe(0);
   });
@@ -87,21 +129,18 @@ describe('authService', () => {
         },
       },
     };
-    const mockApiService = {
-      post: jest.fn(
-        () => new Promise((resolve) => {
-          resolve(expectedResponse);
-        }),
-      ),
-    };
+    const mockApiServicePost = jest.fn(
+      () => new Promise((resolve) => {
+        resolve(expectedResponse);
+      }),
+    );
 
-    jest.mock('./ApiService', () => mockApiService);
-    const AuthService = require('./AuthService').default;
+    api.post.mockImplementation(mockApiServicePost);
     // Act
     const actualToken = await AuthService.fetchToken(expectedEmail, expectedPassword);
     // Assert
     expect(actualToken).toEqual(expectedToken);
-    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams);
+    expect(api.post).toBeCalledWith(expectedPath, expectedParams);
   });
 
   test('fetchToken WrongEmail', async () => {
@@ -134,16 +173,14 @@ describe('authService', () => {
       status: expectedResponseStatus,
       data: expectedResponseData,
     };
-    const mockApiService = {
-      post: jest.fn(
-        () => new Promise((resolve, reject) => {
-          reject(expectedError);
-        }),
-      ),
-    };
+    const mockApiServicePost = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedError);
+      }),
+    );
 
-    jest.mock('./ApiService', () => mockApiService);
-    const AuthService = require('./AuthService').default;
+    api.post.mockImplementation(mockApiServicePost);
+
     let actualError;
     try {
       // Act
@@ -152,14 +189,13 @@ describe('authService', () => {
       actualError = error;
     }
     // Assert
-    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams);
+    expect(api.post).toBeCalledWith(expectedPath, expectedParams);
     expect(actualError).toEqual(expectedError);
   });
 
   test('getToken HappyPath', async () => {
     // Arrange
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
-    const AuthService = require('./AuthService').default;
     localStorage.setItem(AuthService.TOKEN_KEY, expectedToken);
     // Act
     const actualToken = AuthService.getToken();
