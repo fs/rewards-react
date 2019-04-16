@@ -1,3 +1,9 @@
+import BonusService from './BonusService';
+import api from './ApiService';
+
+jest.mock('./ApiService');
+
+
 describe('BonusService', () => {
   const expectedPath = '/user/bonuses';
 
@@ -50,23 +56,21 @@ describe('BonusService', () => {
       },
     };
 
-    const mockApiService = {
-      post: jest.fn(
-        () => new Promise((resolve) => {
-          resolve(expectedResponse);
-        }),
-      ),
-    };
+    const mockApiServicePost = jest.fn(
+      () => new Promise((resolve) => {
+        resolve(expectedResponse);
+      }),
+    );
 
-    jest.mock('./ApiService', () => mockApiService);
-    const bonusService = require('./BonusService').default;
+
+    api.post.mockImplementation(mockApiServicePost);
 
     // Act
-    const actualResponse = await bonusService.createBonus(expectedToken, expectedBonusText);
+    const actualResponse = await BonusService.createBonus(expectedToken, expectedBonusText);
 
     // Assert
     expect(actualResponse).toEqual(expectedResponse);
-    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(api.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus InvalidToken', async () => {
@@ -100,28 +104,26 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockApiService = {
-      post: jest.fn(
-        () => new Promise((resolve, reject) => {
-          reject(expectedError);
-        }),
-      ),
-    };
 
-    jest.mock('./ApiService', () => mockApiService);
-    const bonusService = require('./BonusService').default;
+    const mockApiServicePost = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedError);
+      }),
+    );
+
+    api.post.mockImplementation(mockApiServicePost);
 
     let actualError;
     try {
       // Act
-      await bonusService.createBonus(expectedToken, expectedBonusText);
+      await BonusService.createBonus(expectedToken, expectedBonusText);
     } catch (error) {
       actualError = error;
     }
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(api.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus NotEnoughBonuses', async () => {
@@ -157,28 +159,25 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockApiService = {
-      post: jest.fn(
-        () => new Promise((resolve, reject) => {
-          reject(expectedError);
-        }),
-      ),
-    };
+    const mockApiServicePost = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedError);
+      }),
+    );
 
-    jest.mock('./ApiService', () => mockApiService);
-    const bonusService = require('./BonusService').default;
+    api.post.mockImplementation(mockApiServicePost);
 
     let actualError;
     try {
       // Act
-      await bonusService.createBonus(expectedToken, expectedBonusText);
+      await BonusService.createBonus(expectedToken, expectedBonusText);
     } catch (error) {
       actualError = error;
     }
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(api.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus InvalidBonusText', async () => {
@@ -232,28 +231,26 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockApiService = {
-      post: jest.fn(
-        () => new Promise((resolve, reject) => {
-          reject(expectedError);
-        }),
-      ),
-    };
+    const mockApiServicePost = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedError);
+      }),
+    );
 
-    jest.mock('./ApiService', () => mockApiService);
-    const bonusService = require('./BonusService').default;
+    api.post.mockImplementation(mockApiServicePost);
+
 
     let actualError;
     try {
       // Act
-      await bonusService.createBonus(expectedToken, expectedBonusText);
+      await BonusService.createBonus(expectedToken, expectedBonusText);
     } catch (error) {
       actualError = error;
     }
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(api.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus SendBonusToYourself', async () => {
@@ -289,28 +286,26 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockApiService = {
-      post: jest.fn(
-        () => new Promise((resolve, reject) => {
-          reject(expectedError);
-        }),
-      ),
-    };
+    const mockApiServicePost = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedError);
+      }),
+    );
 
-    jest.mock('./ApiService', () => mockApiService);
-    const bonusService = require('./BonusService').default;
+    api.post.mockImplementation(mockApiServicePost);
+
 
     let actualError;
     try {
       // Act
-      await bonusService.createBonus(expectedToken, expectedBonusText);
+      await BonusService.createBonus(expectedToken, expectedBonusText);
     } catch (error) {
       actualError = error;
     }
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(mockApiService.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(api.post).toBeCalledWith(expectedPath, expectedParams, config);
   });
 
   test('update BonusesList HappyPath', async () => {
@@ -591,23 +586,20 @@ describe('BonusService', () => {
       },
     };
 
-    const mockApiService = {
-      get: jest.fn(
-        () => new Promise((resolve) => {
-          resolve(expectedResponse);
-        }),
-      ),
-    };
+    const mockApiServiceGet = jest.fn(
+      () => new Promise((resolve) => {
+        resolve(expectedResponse);
+      }),
+    );
 
-    jest.mock('./ApiService', () => mockApiService);
-    const bonusService = require('./BonusService').default;
+    api.get.mockImplementation(mockApiServiceGet);
 
     // Act
-    const actualResponse = await bonusService.fetchBonusesList(expectedToken);
+    const actualResponse = await BonusService.fetchBonusesList(expectedToken);
 
     // Assert
     expect(actualResponse).toEqual(expectedResponse);
-    expect(mockApiService.get).toBeCalledWith(expectedPath, config);
+    expect(api.get).toBeCalledWith(expectedPath, config);
   });
 
   test('update BonusesList invalid credentials', async () => {
@@ -628,28 +620,26 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockApiService = {
-      get: jest.fn(
-        () => new Promise((resolve, reject) => {
-          reject(expectedError);
-        }),
-      ),
-    };
+    const mockApiServiceGet = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedError);
+      }),
+    );
 
-    jest.mock('./ApiService', () => mockApiService);
-    const bonusService = require('./BonusService').default;
+
+    api.get.mockImplementation(mockApiServiceGet);
 
     // Act
     let actualError;
     try {
       // Act
-      await bonusService.fetchBonusesList(expectedToken);
+      await BonusService.fetchBonusesList(expectedToken);
     } catch (error) {
       actualError = error;
     }
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(mockApiService.get).toBeCalledWith(expectedPath, config);
+    expect(api.get).toBeCalledWith(expectedPath, config);
   });
 });
