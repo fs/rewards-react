@@ -12,6 +12,7 @@ describe('BonusPosibilitiesService', () => {
     const expectedConfig = {
       headers: { Authorization: `Bearer ${expectedToken}` },
     };
+
     const expectedResponse = {
       data: {
         id: '39',
@@ -1104,7 +1105,7 @@ describe('BonusPosibilitiesService', () => {
     const mockApiServiceGet = jest.fn(
       () => new Promise((resolve) => {
         resolve(expectedResponse);
-      })
+      }),
     );
 
     api.get.mockImplementation(mockApiServiceGet);
@@ -1112,11 +1113,44 @@ describe('BonusPosibilitiesService', () => {
     // Act
     const actualResponse = await BonusPossibilitiesService.fetchPosibilities(expectedToken);
 
-    //Assert
+    // Assert
     expect(expectedResponse).toEqual(actualResponse);
-    expect(api.get).toHaveBeenCalledWith(expectedUrl, expectedConfig)
+    expect(api.get).toHaveBeenCalledWith(expectedUrl, expectedConfig);
+  });
+
+  test('BonusPossibilitiesService wrong token', async () => {
+    // Arrange
+    const expectedToken = '';
+    const expectedConfig = {
+      headers: { Authorization: `Bearer ${expectedToken}` },
+    };
+    const expectedError = {
+      errors: [
+        {
+          id: 'e240ff55-7f10-4efa-91dc-57aef63b1100',
+          title: 'Unauthorized',
+        },
+      ],
+    };
+
+    const mockApiServiceGet = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedError);
+      }),
+    );
+
+    api.get.mockImplementation(mockApiServiceGet);
+
+    let actualError;
+    try {
+      // Act
+      await BonusPossibilitiesService.fetchPosibilities(expectedToken);
+    } catch (error) {
+      actualError = error;
+    }
+
+    // Assert
+    expect(expectedError).toEqual(actualError);
+    expect(api.get).toHaveBeenCalledWith(expectedUrl, expectedConfig);
   });
 });
-
-
-
