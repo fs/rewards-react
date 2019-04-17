@@ -4,6 +4,7 @@ import SendBonusForm from './SendBonusForm';
 import BonusList from './BonusList';
 import bonusService from '../../../services/BonusService';
 import authService from '../../../services/AuthService';
+import BonusPossibilitiesService from '../../../services/BonusPossibilitiesService';
 
 const BonusContentWrapper = styled.div`
   position: relative;
@@ -31,6 +32,7 @@ const BonusContent = () => {
     try {
       const data = await bonusService.fetchBonusesList(token);
       const bonusListArray = data.data.data;
+      await BonusPossibilitiesService.savePossibilities(token);
       setBonusList(bonusListArray);
       setIsLoading(false);
     } catch (error) {
