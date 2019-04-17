@@ -6,7 +6,7 @@ jest.mock('./ApiService');
 const expectedUrl = '/user/bonus_possibilities';
 
 describe('BonusPosibilitiesService', () => {
-  test('BonusPosibilitiesService happy path', async () => {
+  test('fetchPosibilities happy path', async () => {
     // Arrange
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTU1NzMyMDAsInN1YiI6MzksInR5cGUiOiJhY2Nlc3MifQ.X8T7myYc-hagX-W0Y8HN8UkWOlcVbr4uwygD6zpnLsg';
     const expectedConfig = {
@@ -1118,7 +1118,7 @@ describe('BonusPosibilitiesService', () => {
     expect(api.get).toHaveBeenCalledWith(expectedUrl, expectedConfig);
   });
 
-  test('BonusPossibilitiesService wrong token', async () => {
+  test('fetchPosibilities wrong token', async () => {
     // Arrange
     const expectedToken = '';
     const expectedConfig = {

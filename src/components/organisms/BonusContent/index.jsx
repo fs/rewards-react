@@ -27,11 +27,54 @@ const BonusContent = () => {
   const [bonusList, setBonusList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const parseBonusText = (text) => {
+    const textArray = [];
+
+    text.split(' ').forEach((item) => {
+      let newItem;
+
+      if (item.startsWith('+')) {
+        newItem = {
+          type: 'count',
+          text: item,
+        };
+      } else if (item.startsWith('@')) {
+        newItem = {
+          type: 'receiver',
+          text: item,
+        };
+      } else if (item.startsWith('#')) {
+        newItem = {
+          type: 'tag',
+          text: item,
+        };
+      } else {
+        newItem = {
+          type: 'text',
+          text: item,
+        };
+      }
+      textArray.push(newItem);
+    });
+    return textArray;
+  };
+
+  const parseBonusList = data => data.data.data.map(item => ({
+    id: item.id,
+    'created-at': item.attributes['created-at'],
+    points: item.attributes.points,
+    text: parseBonusText(item.attributes.text),
+    'total-points': item.attributes['total-points'],
+    commnets: item.relationships.comments,
+    'sender-id': item.relationships.sender.data.id,
+    sender: bonusService.getUser(item.relationships.sender.data.id),
+  }));
+
   const updateBonusesList = async () => {
     const token = authService.getToken();
     try {
       const data = await bonusService.fetchBonusesList(token);
-      const bonusListArray = data.data.data;
+      const bonusListArray = parseBonusList(data);
       await BonusPossibilitiesService.savePossibilities(token);
       setBonusList(bonusListArray);
       setIsLoading(false);

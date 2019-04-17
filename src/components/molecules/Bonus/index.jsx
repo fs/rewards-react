@@ -27,6 +27,11 @@ const TotalPoints = styled.div`
   background-color: #fff;
   border: solid 2px rgba(99, 188, 54, 0.3);
   flex-shrink: 0;
+
+  &::before {
+    display: inline-block;
+    content: "+";
+  }
   `;
 
 const ReceiversList = styled.div`
@@ -66,6 +71,7 @@ const BonusBody = styled.div`
   `;
 
 const TextItem = styled.div`
+  margin: 10px 0 0;
   font-size: 1.25rem;
   color: #000;
   `;
@@ -74,20 +80,20 @@ const Sender = styled.span`
   font-weight: 600;
   `;
 
-// const BonusPoints = styled.span`
-//   font-size: 1.25rem;
-//   font-weight: bold;
-//   color: #63bc36;
-//   `;
-//
-// const ReceiverName = styled.span`
-//   color: #63bc36;
-//   font-weight: bold;
-//   `;
-//
-// const Tag = styled.span`
-//   color: #aaaaaa;
-//   `;
+const BonusPoints = styled.span`
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #63bc36;
+  `;
+
+const ReceiverName = styled.span`
+  color: #63bc36;
+  font-weight: bold;
+  `;
+
+const Tag = styled.span`
+  color: #aaaaaa;
+  `;
 
 const Bonus = (props) => {
   const { bonus } = props;
@@ -96,14 +102,13 @@ const Bonus = (props) => {
     <BonusContainer data-testid="test-bonus">
       <BonusHeader>
         <TotalPoints>
-          +
-          {bonus.attributes['total-points']}
+          {bonus['total-points']}
         </TotalPoints>
         <ReceiversList>
           <ReceiverItem>
             <img
-              src="https://d1wdbttshyuc5z.cloudfront.net/store/user/273/profile_image/avatar-6218a7b6c256e9b088fbea68ca9aeded.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIJWLCQQNSWJW7QQA%2F20190314%2Feu-central-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20190314T075507Z&amp;X-Amz-Expires=900&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=0ab417f6cae8b1a9764837d5ec3732d16c15ddebd71685fd08af83313ff83702"
-              alt="Avatar"
+              src={bonus.sender.avatar}
+              alt={bonus.sender.name}
             />
           </ReceiverItem>
         </ReceiversList>
@@ -113,9 +118,46 @@ const Bonus = (props) => {
       </BonusHeader>
       <BonusBody>
         <TextItem>
-          <Sender>Username: </Sender>
-          <div>{bonus.attributes.text}</div>
-          {/* <BonusPoints>+{bonus.attributes.points}</BonusPoints> <ReceiverName>@marat.galeev</ReceiverName> iOS quiz <Tag>#win-win-win</Tag> */}
+          <Sender>
+            {bonus.sender.name}
+            :
+            {' '}
+          </Sender>
+          <span>
+            {
+            bonus.text.map((item) => {
+              if (item.type === 'count') {
+                return (
+                  <BonusPoints>
+                    {item.text}
+                    {' '}
+                  </BonusPoints>
+                );
+              } if (item.type === 'receiver') {
+                return (
+                  <ReceiverName>
+                    {item.text}
+                    {' '}
+                  </ReceiverName>
+                );
+              } if (item.type === 'tag') {
+                return (
+                  <Tag>
+                    {item.text}
+                    {' '}
+                  </Tag>
+                );
+              }
+              return (
+                <span>
+                  {item.text}
+                  {' '}
+                </span>
+              );
+            })
+          }
+          </span>
+          {/* <BonusPoints>+{bonus.points}</BonusPoints> <ReceiverName>@marat.galeev</ReceiverName> iOS quiz <Tag>#win-win-win</Tag> */}
         </TextItem>
       </BonusBody>
     </BonusContainer>

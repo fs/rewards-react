@@ -4,11 +4,13 @@ import Bonus from '../../molecules/Bonus';
 
 const List = styled.div``;
 
-const Loader = styled.div``;
+const Loader = styled.div`
+  margin: 20px;
+  text-align: center;
+`;
 
 const BonusList = (props) => {
   const { bonusList, isLoading } = props;
-
   return (
     <div>
       { isLoading
