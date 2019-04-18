@@ -125,31 +125,31 @@ const Bonus = (props) => {
           </Sender>
           <span>
             {
-            bonus.text.map((item) => {
+            bonus.text.map((item, index) => {
               if (item.type === 'count') {
                 return (
-                  <BonusPoints>
+                  <BonusPoints key={index}>
                     {item.text}
                     {' '}
                   </BonusPoints>
                 );
               } if (item.type === 'receiver') {
                 return (
-                  <ReceiverName>
+                  <ReceiverName key={index}>
                     {item.text}
                     {' '}
                   </ReceiverName>
                 );
               } if (item.type === 'tag') {
                 return (
-                  <Tag>
+                  <Tag key={index}>
                     {item.text}
                     {' '}
                   </Tag>
                 );
               }
               return (
-                <span>
+                <span key={index}>
                   {item.text}
                   {' '}
                 </span>

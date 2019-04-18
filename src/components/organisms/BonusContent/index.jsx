@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import SendBonusForm from './SendBonusForm';
 import BonusList from './BonusList';
@@ -26,6 +26,7 @@ const MyBonuses = styled.h2`
 const BonusContent = () => {
   const [bonusList, setBonusList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [initialized, setInitialized] = useState(false);
 
   const parseBonusText = (text) => {
     const textArray = [];
@@ -70,7 +71,7 @@ const BonusContent = () => {
     sender: bonusService.getUser(item.relationships.sender.data.id),
   }));
 
-  const updateBonusesList = async () => {
+  const updateBonusesList = useCallback(async () => {
     const token = authService.getToken();
     try {
       const data = await bonusService.fetchBonusesList(token);
@@ -82,11 +83,15 @@ const BonusContent = () => {
       console.log(error);
       // const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
     }
-  };
+  });
 
   useEffect(() => {
-    updateBonusesList();
-  });
+    if (!initialized) {
+      updateBonusesList();
+
+      setInitialized(true);
+    }
+  }, [initialized, updateBonusesList]);
 
   const onSuccess = () => {
     updateBonusesList();
