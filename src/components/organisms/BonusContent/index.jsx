@@ -4,7 +4,6 @@ import SendBonusForm from './SendBonusForm';
 import BonusList from './BonusList';
 import bonusService from '../../../services/BonusService';
 import authService from '../../../services/AuthService';
-import BonusPossibilitiesService from '../../../services/BonusPossibilitiesService';
 
 const BonusContentWrapper = styled.div`
   position: relative;
@@ -66,7 +65,7 @@ const BonusContent = () => {
     points: item.attributes.points,
     text: parseBonusText(item.attributes.text),
     'total-points': item.attributes['total-points'],
-    commnets: item.relationships.comments,
+    comments: item.relationships.comments,
     'sender-id': item.relationships.sender.data.id,
     sender: bonusService.getUser(item.relationships.sender.data.id),
   }));
@@ -76,7 +75,6 @@ const BonusContent = () => {
     try {
       const data = await bonusService.fetchBonusesList(token);
       const bonusListArray = parseBonusList(data);
-      await BonusPossibilitiesService.savePossibilities(token);
       setBonusList(bonusListArray);
       setIsLoading(false);
     } catch (error) {

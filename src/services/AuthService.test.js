@@ -1,7 +1,9 @@
 import AuthService from './AuthService';
 import api from './ApiService';
+import BonusPossibilitiesService from './BonusPossibilitiesService';
 
 jest.mock('./ApiService');
+jest.mock('./BonusPossibilitiesService');
 
 describe('authService', () => {
   beforeEach(() => {
@@ -45,12 +47,16 @@ describe('authService', () => {
     api.post.mockImplementation(mockApiServicePost);
     const mockFetchToken = jest.spyOn(AuthService, 'fetchToken');
 
+    const mockSavePossibilities = jest.fn();
+    BonusPossibilitiesService.savePossibilities.mockImplementation(mockSavePossibilities);
+
     // Act
     await AuthService.authenticate(expectedEmail, expectedPassword);
     // Assert
     expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams);
     expect(localStorage.setItem).toHaveBeenLastCalledWith(AuthService.TOKEN_KEY, expectedToken);
     expect(mockFetchToken).toHaveBeenCalledWith(expectedEmail, expectedPassword);
+    expect(BonusPossibilitiesService.savePossibilities).toHaveBeenCalledWith(expectedToken);
 
     expect(localStorage.__STORE__[AuthService.TOKEN_KEY]).toBe(expectedToken);
     expect(Object.keys(localStorage.__STORE__).length).toBe(1);

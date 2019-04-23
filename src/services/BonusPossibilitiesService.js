@@ -1,13 +1,22 @@
 import api from './ApiService';
 
-const apiUrl = '/user/bonus_possibilities';
-const POINTS = 'points';
-const TAGS = 'tags';
-const USERS = 'users';
+export const apiUrl = '/user/bonus_possibilities';
+export const POINTS = 'points';
+export const TAGS = 'tags';
+export const USERS = 'users';
 
 export default class BonusPossibilitiesService {
+  static async fetchPossibilities(token) {
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    const response = await api.get(apiUrl, config);
+    return response;
+  }
+
   static async savePossibilities(token) {
-    const possibilities = await BonusPossibilitiesService.fetchPosibilities(token);
+    const possibilities = await BonusPossibilitiesService.fetchPossibilities(token);
 
     const points = possibilities.data.included
       .filter(item => item.type === POINTS)
@@ -38,14 +47,5 @@ export default class BonusPossibilitiesService {
     localStorage.setItem(POINTS, JSON.stringify(points));
     localStorage.setItem(TAGS, JSON.stringify(tags));
     localStorage.setItem(USERS, JSON.stringify(users));
-  }
-
-  static async fetchPosibilities(token) {
-    const config = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
-
-    const response = await api.get(apiUrl, config);
-    return response;
   }
 }

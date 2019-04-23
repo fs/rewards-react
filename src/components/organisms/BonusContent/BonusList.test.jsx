@@ -10,6 +10,7 @@ import BonusList from './BonusList';
 describe('BonusList', () => {
   test('Should show bonus list', async () => {
     // Arrange
+
     // const expectedBonusList = [
     //   {
     //     id: '245',
