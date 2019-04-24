@@ -117,4 +117,45 @@ describe('BonusPossibilitiesService', () => {
 
     expect(Object.keys(localStorage.__STORE__).length).toBe(3);
   });
+
+  test('savePossibilities wrong token', async () => {
+    const expectedToken = '';
+
+    const expectedError = {
+      errors: [
+        {
+          id: 'e240ff55-7f10-4efa-91dc-57aef63b1100',
+          title: 'Unauthorized',
+        },
+      ],
+    };
+
+    const mockFetchPossibilities = jest.spyOn(BonusPossibilitiesService, 'fetchPossibilities');
+
+    const mockApiServiceGet = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedError);
+      }),
+    );
+
+    api.get.mockImplementation(mockApiServiceGet);
+
+    let actualError;
+    try {
+      // Act
+      await BonusPossibilitiesService.savePossibilities(expectedToken);
+    } catch (error) {
+      actualError = error;
+    }
+
+    // Assert
+    expect(expectedError).toEqual(actualError);
+    expect(mockFetchPossibilities).toHaveBeenCalledWith(expectedToken);
+
+    expect(localStorage.setItem).not.toHaveBeenCalledWith(POINTS, '');
+    expect(localStorage.setItem).not.toHaveBeenCalledWith(TAGS, '');
+    expect(localStorage.setItem).not.toHaveBeenCalledWith(USERS, '');
+
+    expect(Object.keys(localStorage.__STORE__).length).toBe(0);
+  });
 });
