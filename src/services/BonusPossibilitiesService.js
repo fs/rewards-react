@@ -48,4 +48,9 @@ export default class BonusPossibilitiesService {
     localStorage.setItem(TAGS, JSON.stringify(tags));
     localStorage.setItem(USERS, JSON.stringify(users));
   }
+
+  static getPossibilities(key) {
+    const possibilities = JSON.parse(localStorage.getItem(key));
+    return possibilities;
+  }
 }

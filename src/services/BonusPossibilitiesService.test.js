@@ -158,4 +158,18 @@ describe('BonusPossibilitiesService', () => {
 
     expect(Object.keys(localStorage.__STORE__).length).toBe(0);
   });
+  test('getPossibilities happy path', () => {
+    // Arrange
+    const expectedPossibilitiesKey = POINTS;
+    const expectedPossibilitiesArray = points;
+
+    localStorage.setItem(expectedPossibilitiesKey, JSON.stringify(expectedPossibilitiesArray));
+
+    // Act
+    const actualPossibilitiesArray = BonusPossibilitiesService.getPossibilities(expectedPossibilitiesKey);
+
+    // Assert
+    expect(localStorage.getItem).toHaveBeenCalledWith(expectedPossibilitiesKey);
+    expect(expectedPossibilitiesArray).toEqual(actualPossibilitiesArray);
+  });
 });
