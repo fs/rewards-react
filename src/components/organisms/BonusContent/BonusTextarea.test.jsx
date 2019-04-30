@@ -2,17 +2,14 @@ import 'jest-dom/extend-expect';
 import 'react-testing-library/cleanup-after-each';
 import React from 'react';
 import {
-  bonusPossibilitiesResponse,
-  points,
-  users,
+  render, fireEvent, waitForElement,
+} from 'react-testing-library';
+import {
   tags,
 } from '../../../constants/bonusPossibilitiesResponse';
 import BonusPossibilitiesService, {
-  apiUrl, POINTS, TAGS, USERS,
+  TAGS,
 } from '../../../services/BonusPossibilitiesService';
-import {
-  render, fireEvent, wait, getByText, waitForElement
-} from 'react-testing-library';
 import BonusTextarea from './BonusTextarea';
 
 describe('BonusTextarea', () => {
@@ -27,13 +24,16 @@ describe('BonusTextarea', () => {
 
     const { getByTestId, getByText } = render(<BonusTextarea onChange={() => {}} />);
     const textArea = getByTestId('test-textarea');
-    
+    const mockGetPossibilities = jest.spyOn(BonusPossibilitiesService, 'getPossibilities');
+
     // Act
     fireEvent.change(textArea, { target: { value: expectedChar } });
     await waitForElement(() => getByText(expectedChar));
     const wrapper = getByTestId('test-textarea-wrapper');
-    
+
     // Assert
+    expect(mockGetPossibilities).toHaveBeenCalledWith(expectedTagsKey);
+
     expect(wrapper).toHaveTextContent(expectedTag);
   });
 });

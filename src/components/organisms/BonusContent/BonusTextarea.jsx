@@ -43,7 +43,7 @@ const BonusTextarea = (props) => {
         minChar="0"
       />
     </div>
-  )
-}
+  );
+};
 
 export default BonusTextarea;
