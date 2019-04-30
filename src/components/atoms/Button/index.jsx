@@ -10,12 +10,19 @@ const StyledButton = styled.button`
   padding: 0 20px;
   font-size: 16px;
   font-weight: bold;
+  border: none;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background-color:#4f962b;
+  }
 `;
 
 const Button = (props) => {
   const { text } = props;
   return (
-    <StyledButton>{ text }</StyledButton>
+    <StyledButton data-testid="test-button">{ text }</StyledButton>
   );
 };
 
