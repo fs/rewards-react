@@ -7,9 +7,9 @@ import BonusPossibilitiesService, {
 
 const BonusTextarea = (props) => {
   const { onChange } = props;
-  const pointItem = ({ entity: { id, value } }) => <div key={id}>{`+♥${value}`}</div>;
-  const userItem = ({ entity: { id, username } }) => <div key={id}>{`@${username}`}</div>;
-  const tagItem = ({ entity: { id, label } }) => <div key={id}>{`#${label}`}</div>;
+  const pointItem = ({ entity: { id, value } }) => <div data-testid="test-point-item" key={id}>{`+♥${value}`}</div>;
+  const userItem = ({ entity: { id, username } }) => <div data-testid="test-user-item" key={id}>{`@${username}`}</div>;
+  const tagItem = ({ entity: { id, label } }) => <div data-testid="test-tag-item" key={id}>{`#${label}`}</div>;
 
   const points = BonusPossibilitiesService.getPossibilities(POINTS);
   const users = BonusPossibilitiesService.getPossibilities(USERS);
@@ -23,6 +23,7 @@ const BonusTextarea = (props) => {
         placeholder="+100 @person add description for #create_awesomness"
         data-testid="test-textarea"
         loadingComponent={() => <span>Loading</span>}
+        name="bonus-text"
         trigger={{
           '+': {
             dataProvider: token => points.filter(point => point.id.includes(token)),

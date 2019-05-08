@@ -44,7 +44,7 @@ const SendBonusForm = (props) => {
   return (
     <Form onSubmit={handleSubmit} data-testid="test-bonus-form">
       <BonusTextarea onChange={handleChange} />
-      
+
       <div data-testid="test-error-container">
         {hasError
           && <ErrorContainer>{errorMessage}</ErrorContainer>
