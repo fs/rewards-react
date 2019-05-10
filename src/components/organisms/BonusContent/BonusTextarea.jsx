@@ -5,11 +5,13 @@ import BonusPossibilitiesService, {
   POINTS, TAGS, USERS,
 } from '../../../services/BonusPossibilitiesService';
 
+
+export const pointItem = ({ entity: { id, value } }) => <div data-testid="test-point-item" key={id}>{`+♥${value}`}</div>;
+export const userItem = ({ entity: { id, username } }) => <div data-testid="test-user-item" key={id}>{`@${username}`}</div>;
+export const tagItem = ({ entity: { id, label } }) => <div data-testid="test-tag-item" key={id}>{`#${label}`}</div>;
+
 const BonusTextarea = (props) => {
   const { onChange } = props;
-  const pointItem = ({ entity: { id, value } }) => <div data-testid="test-point-item" key={id}>{`+♥${value}`}</div>;
-  const userItem = ({ entity: { id, username } }) => <div data-testid="test-user-item" key={id}>{`@${username}`}</div>;
-  const tagItem = ({ entity: { id, label } }) => <div data-testid="test-tag-item" key={id}>{`#${label}`}</div>;
 
   const points = BonusPossibilitiesService.getPossibilities(POINTS);
   const users = BonusPossibilitiesService.getPossibilities(USERS);
