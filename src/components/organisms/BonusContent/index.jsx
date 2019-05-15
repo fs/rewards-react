@@ -25,7 +25,6 @@ const MyBonuses = styled.h2`
 const BonusContent = () => {
   const [bonusList, setBonusList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [initialized, setInitialized] = useState(false);
 
   const parseBonusText = (text) => {
     const textArray = [];
@@ -67,7 +66,7 @@ const BonusContent = () => {
     'total-points': item.attributes['total-points'],
     comments: item.relationships.comments,
     'sender-id': item.relationships.sender.data.id,
-    sender: bonusService.getUser(item.relationships.sender.data.id),
+    // sender: bonusService.getUser(item.relationships.sender.data.id),
   }));
 
   const updateBonusesList = useCallback(async () => {
@@ -75,21 +74,18 @@ const BonusContent = () => {
     try {
       const data = await bonusService.fetchBonusesList(token);
       const bonusListArray = parseBonusList(data);
+
       setBonusList(bonusListArray);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
       // const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
     }
-  });
+  }, [parseBonusList]);
 
   useEffect(() => {
-    if (!initialized) {
-      updateBonusesList();
-
-      setInitialized(true);
-    }
-  }, [initialized, updateBonusesList]);
+    updateBonusesList();
+  }, [updateBonusesList]);
 
   const onSuccess = () => {
     updateBonusesList();

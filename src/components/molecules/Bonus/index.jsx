@@ -106,10 +106,10 @@ const Bonus = (props) => {
         </TotalPoints>
         <ReceiversList>
           <ReceiverItem>
-            <img
+            {/* <img
               src={bonus.sender.avatar}
               alt={bonus.sender.name}
-            />
+            /> */}
           </ReceiverItem>
         </ReceiversList>
         <Timestamp>
@@ -119,7 +119,7 @@ const Bonus = (props) => {
       <BonusBody>
         <TextItem>
           <Sender>
-            {bonus.sender.name}
+            {/* {bonus.sender.name} */}
             :
             {' '}
           </Sender>
