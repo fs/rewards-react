@@ -113,16 +113,17 @@ describe('authService', () => {
     // Arrange
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
     const expectedPassword = '123456';
-    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
+    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTc4MTc2MDksInN1YiI6MzksInR5cGUiOiJhY2Nlc3MifQ.TvRjHkOh7oy7i9LFzI5kA2eN1vyGFAJaR6tJ2Qyf3qI';
     const expectedResponse = {
       data: {
-        data: {
-          id: expectedToken,
-          type: 'jwt-tokens',
-          attributes: {
-            token: expectedToken,
-          },
-        },
+          data: {
+            id: expectedToken,
+            type: 'paired-jwt-tokens',
+            attributes: {
+              token: expectedToken,
+              refresh: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjI5MTUyMDksInN1YiI6MzksInR5cGUiOiJyZWZyZXNoIiwiY2xpZW50X2lkIjpudWxsfQ.XWh8Af0KRZtJMkgG376laK6XdnIIxKX7lS4SL_be-DE'
+            }
+          }
       },
     };
     const expectedPath = '/user/tokens';
