@@ -25,6 +25,8 @@ const MyBonuses = styled.h2`
 const BonusContent = () => {
   const [bonusList, setBonusList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [initialized, setInitialized] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const parseBonusText = (text) => {
     const textArray = [];
@@ -70,22 +72,27 @@ const BonusContent = () => {
   }));
 
   const updateBonusesList = useCallback(async () => {
+    setHasError(false);
+    setIsLoading(true);
     const token = authService.getToken();
     try {
       const data = await bonusService.fetchBonusesList(token);
       const bonusListArray = parseBonusList(data);
-
       setBonusList(bonusListArray);
-      setIsLoading(false);
     } catch (error) {
+      setHasError(true);
       console.log(error);
       // const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
     }
-  }, [parseBonusList]);
+    setIsLoading(false);
+  });
 
   useEffect(() => {
-    updateBonusesList();
-  }, [updateBonusesList]);
+    if (!initialized) {
+      updateBonusesList();
+    }
+    setInitialized(true);
+  }, [initialized, updateBonusesList]);
 
   const onSuccess = () => {
     updateBonusesList();
@@ -101,6 +108,7 @@ const BonusContent = () => {
       />
       <BonusList
         bonusList={bonusList}
+        hasError={hasError}
         isLoading={isLoading}
       />
     </BonusContentWrapper>

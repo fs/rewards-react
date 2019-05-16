@@ -4,7 +4,7 @@ import 'react-testing-library/cleanup-after-each';
 import React from 'react';
 
 import {
-  render, wait, waitForElement,
+  render, waitForElement,
 } from 'react-testing-library';
 
 import BonusService from '../../../services/BonusService';
@@ -15,7 +15,13 @@ jest.mock('../../../services/BonusService');
 jest.mock('../../../services/AuthService');
 
 describe('BonusContent index', () => {
+  let expectedToken;
+
   beforeEach(() => {
+    expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const mockGetToken = jest.fn(() => expectedToken);
+    AuthService.getToken.mockImplementation(mockGetToken);
+    jest.clearAllMocks();
     jest.resetModules();
   });
 
@@ -27,9 +33,8 @@ describe('BonusContent index', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should call useEffect', async () => {
+  test('should render BonusList', async () => {
     // Arrange
-    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
     const expectedResponse = {
       data: {
         data: [
@@ -302,10 +307,6 @@ describe('BonusContent index', () => {
       },
     };
 
-    const mockGetToken = jest.fn(() => expectedToken);
-
-    AuthService.getToken.mockImplementation(mockGetToken);
-
     const mockFetchBonusesList = jest.fn(
       () => new Promise((resolve) => {
         resolve(expectedResponse);
@@ -320,10 +321,29 @@ describe('BonusContent index', () => {
     const bonusList = await waitForElement(() => getByTestId('test-bonus-list'));
 
     // Assert
-    await wait(() => {
-      expect(AuthService.getToken).toBeCalled();
-      expect(BonusService.fetchBonusesList).toBeCalledWith(expectedToken);
-      expect(bonusList).toBeInTheDocument();
-    });
+    expect(AuthService.getToken).toBeCalled();
+    expect(BonusService.fetchBonusesList).toBeCalledWith(expectedToken);
+    expect(bonusList).toBeInTheDocument();
+  });
+
+  test('should render error message if error', async () => {
+    // Arrange
+    const expectedError = new Error();
+
+    const mockFetchBonusesList = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedError);
+      }),
+    );
+
+    BonusService.fetchBonusesList.mockImplementation(mockFetchBonusesList);
+
+    // Act
+    const { getByTestId } = render(<BonusContent />);
+    const error = await waitForElement(() => getByTestId('test-error'));
+
+    // Assert
+    expect(error).toBeInTheDocument();
+    expect(BonusService.fetchBonusesList).toBeCalledWith(expectedToken);
   });
 });
