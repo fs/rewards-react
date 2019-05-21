@@ -4,6 +4,8 @@ import SendBonusForm from './SendBonusForm';
 import BonusList from './BonusList';
 import bonusService from '../../../services/BonusService';
 import authService from '../../../services/AuthService';
+import { bonusResponse } from '../../../mock_data/bonusResponse';
+import bonusParser from '../../../utils/bonusParser';
 
 const BonusContentWrapper = styled.div`
   position: relative;
@@ -28,62 +30,21 @@ const BonusContent = () => {
   const [initialized, setInitialized] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  const parseBonusText = (text) => {
-    const textArray = [];
-
-    text.split(' ').forEach((item) => {
-      let newItem;
-
-      if (item.startsWith('+')) {
-        newItem = {
-          type: 'count',
-          text: item,
-        };
-      } else if (item.startsWith('@')) {
-        newItem = {
-          type: 'receiver',
-          text: item,
-        };
-      } else if (item.startsWith('#')) {
-        newItem = {
-          type: 'tag',
-          text: item,
-        };
-      } else {
-        newItem = {
-          type: 'text',
-          text: item,
-        };
-      }
-      textArray.push(newItem);
-    });
-    return textArray;
-  };
-
-  const parseBonusList = data => data.data.data.map(item => ({
-    id: item.id,
-    'created-at': item.attributes['created-at'],
-    points: item.attributes.points,
-    text: parseBonusText(item.attributes.text),
-    'total-points': item.attributes['total-points'],
-    comments: item.relationships.comments,
-    'sender-id': item.relationships.sender.data.id,
-    // sender: bonusService.getUser(item.relationships.sender.data.id),
-  }));
-
   const updateBonusesList = useCallback(async () => {
     setHasError(false);
     setIsLoading(true);
     const token = authService.getToken();
     try {
       const data = await bonusService.fetchBonusesList(token);
-      const bonusListArray = parseBonusList(data);
-      setBonusList(bonusListArray);
+      //const bonusListArray = bonusParser(data);
+
+      //setBonusList(bonusListArray);
     } catch (error) {
       setHasError(true);
       console.log(error);
-      // const errorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+
     }
+    setBonusList(bonusParser(bonusResponse));
     setIsLoading(false);
   });
 

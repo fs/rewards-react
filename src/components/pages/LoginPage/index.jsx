@@ -43,6 +43,10 @@ const ErrorContainer = styled.div`
   margin-top: 5px;
   color: red;
   font-size: 12px;
+
+  &:first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 const Button = styled.button`
@@ -127,13 +131,12 @@ const LoginPage = () => {
                       className={errors.password && touched.password ? 'text-input error' : 'text-input'}
                       data-testid="test-password"
                     />
-
-                    <ErrorContainer data-testid="test-error-container">
-                      { errors.email && touched.email && errors.email }
-                    </ErrorContainer>
+                    {errors.password && touched.password && <ErrorContainer>{errors.password}</ErrorContainer>}
                   </FormGroup>
 
-                  <div className="error-message">{errors.auth}</div>
+                  <ErrorContainer>
+                    {errors.auth}
+                  </ErrorContainer>
 
                   <Button type="submit" disabled={isSubmitting} data-testid="test-button">
                     Login

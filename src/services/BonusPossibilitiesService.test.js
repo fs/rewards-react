@@ -7,7 +7,7 @@ import {
   points,
   users,
   tags,
-} from '../constants/bonusPossibilitiesResponse';
+} from '../mock_data/bonusPossibilitiesResponse';
 
 jest.mock('./ApiService');
 

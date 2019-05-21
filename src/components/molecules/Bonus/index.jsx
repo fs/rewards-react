@@ -119,42 +119,12 @@ const Bonus = (props) => {
       <BonusBody>
         <TextItem>
           <Sender>
-            {/* {bonus.sender.name} */}
+            { bonus.sender['full-name'] }
             :
             {' '}
           </Sender>
           <span>
-            {
-            bonus.text.map((item, index) => {
-              if (item.type === 'count') {
-                return (
-                  <BonusPoints key={index}>
-                    {item.text}
-                    {' '}
-                  </BonusPoints>
-                );
-              } if (item.type === 'receiver') {
-                return (
-                  <ReceiverName key={index}>
-                    {item.text}
-                    {' '}
-                  </ReceiverName>
-                );
-              } if (item.type === 'tag') {
-                return (
-                  <Tag key={index}>
-                    {item.text}
-                    {' '}
-                  </Tag>
-                );
-              }
-              return (
-                <span key={index}>
-                  {item.text}
-                  {' '}
-                </span>
-              );
-            })
+            { bonus.text }
           }
           </span>
           {/* <BonusPoints>+{bonus.points}</BonusPoints> <ReceiverName>@marat.galeev</ReceiverName> iOS quiz <Tag>#win-win-win</Tag> */}
