@@ -105,12 +105,11 @@ const Bonus = (props) => {
           {bonus['total-points']}
         </TotalPoints>
         <ReceiversList>
-          <ReceiverItem>
-            {/* <img
-              src={bonus.sender.avatar}
-              alt={bonus.sender.name}
-            /> */}
-          </ReceiverItem>
+          {bonus.receivers.map(receiver => (
+            <ReceiverItem key={receiver.email}>
+              <img src={receiver['profile-image-avatar-url']} alt={receiver['full-name']} />
+            </ReceiverItem>
+          ))}
         </ReceiversList>
         <Timestamp>
           <span title="">18 minutes ago</span>
@@ -119,13 +118,12 @@ const Bonus = (props) => {
       <BonusBody>
         <TextItem>
           <Sender>
-            { bonus.sender['full-name'] }
+            { bonus.sender }
             :
             {' '}
           </Sender>
           <span>
             { bonus.text }
-          }
           </span>
           {/* <BonusPoints>+{bonus.points}</BonusPoints> <ReceiverName>@marat.galeev</ReceiverName> iOS quiz <Tag>#win-win-win</Tag> */}
         </TextItem>

@@ -34,17 +34,17 @@ const BonusContent = () => {
     setHasError(false);
     setIsLoading(true);
     const token = authService.getToken();
+    // let data;
     try {
       const data = await bonusService.fetchBonusesList(token);
-      //const bonusListArray = bonusParser(data);
+      const bonusListArray = bonusParser(data.data);
 
-      //setBonusList(bonusListArray);
+      setBonusList(bonusListArray);
     } catch (error) {
       setHasError(true);
       console.log(error);
-
     }
-    setBonusList(bonusParser(bonusResponse));
+    // setBonusList(bonusParser(data));
     setIsLoading(false);
   });
 

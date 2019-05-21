@@ -1,32 +1,48 @@
 const bonusParser = (data) => {
-
   const bonuses = data.data;
+  const included = data.included;
 
-  const comments = data.included.filter(item => item.type === 'comments');
-  const users = data.included.filter(item => item.type === 'users');
-  const tags = data.included.filter(item => item.type === 'tags');
-  const bots = data.included.filter(item => item.type === 'bots');
-
-  // console.log(bonuses);
+  console.log(data);
   // console.log(comments);
   // console.log(users);
   // console.log(bots);
 
+  const getSender = (item) => {
+    const senderId = item.relationships.sender.data.id;
+    const senderType = item.relationships.sender.data.type;
+    const senderObj = included.find(includedItem => includedItem.id === senderId && includedItem.type === senderType);
 
-  const newbonuses =
-    bonuses.map(item => ({
-      id: item.id,
-      'created-at': item.attributes['created-at'],
-      points: item.attributes.points,
-      text: item.attributes.text,
-      'total-points': item.attributes['total-points'],
-      comments: item.relationships.comments,
-      'sender': users.filter(user => user.id === item.relationships.sender.data.id) || bots.filter(bot => bot.id === item.relationships.sender.data.id),
-    }));
+    if (senderObj.type === 'bots') {
+      return 'bot';
+    }
+    return senderObj.attributes['full-name'];
+  };
 
-    console.log(newbonuses)
+  const getReceivers = (item) => {
+    const receivers = item.relationships.receivers.data;
+    const newReceivers = receivers.map((receiver) => {
+      const newReceiver = included.find(includedItem => includedItem.id === receiver.id && includedItem.type === receiver.type);
+      return {
+        ...newReceiver.attributes,
+      };
+    });
+    return newReceivers;
+  };
 
-    return newbonuses;
+  const newbonuses = bonuses.map(item => ({
+    id: item.id,
+    'created-at': item.attributes['created-at'],
+    points: item.attributes.points,
+    text: item.attributes.text,
+    'total-points': item.attributes['total-points'],
+    comments: item.relationships.comments,
+    sender: getSender(item),
+    receivers: getReceivers(item),
+  }));
+
+  console.log(newbonuses);
+
+  return newbonuses;
 };
 
 export default bonusParser;
