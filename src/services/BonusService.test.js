@@ -1,6 +1,6 @@
 import BonusService from './BonusService';
 import api from './ApiService';
-import { bonusResponse } from '../mock_data/bonusResponse';
+import bonusResponse from '../mock_data/bonusResponse';
 
 jest.mock('./ApiService');
 

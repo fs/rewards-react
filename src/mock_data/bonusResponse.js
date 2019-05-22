@@ -1,4 +1,4 @@
-export const bonusResponse = {
+export default {
   data: [
     {
       id: '289',

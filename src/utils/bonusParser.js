@@ -1,11 +1,10 @@
 const bonusParser = (data) => {
   const bonuses = data.data;
-  const included = data.included;
+  const { included } = data;
 
-  console.log(data);
-  // console.log(comments);
-  // console.log(users);
-  // console.log(bots);
+  const userNames = included
+    .filter(includedElem => includedElem.type === 'users')
+    .map(user => user.attributes.username);
 
   const getSender = (item) => {
     const senderId = item.relationships.sender.data.id;
@@ -29,18 +28,35 @@ const bonusParser = (data) => {
     return newReceivers;
   };
 
+  const getParsedText = (text, points) => {
+    let pointFound = false;
+    return text
+      .split(' ')
+      .map((item) => {
+        if (!pointFound && item === `+${points}`) {
+          pointFound = true;
+          return { text: item, type: 'points' };
+        }
+        if (item.charAt(0) === '#') {
+          return { text: item, type: 'tags' };
+        }
+        if (item.charAt(0) === '@' && userNames.includes(item.slice(1))) {
+          return { text: item, type: 'users' };
+        }
+        return { text: item, type: 'text' };
+      });
+  };
+
   const newbonuses = bonuses.map(item => ({
     id: item.id,
     'created-at': item.attributes['created-at'],
     points: item.attributes.points,
-    text: item.attributes.text,
     'total-points': item.attributes['total-points'],
     comments: item.relationships.comments,
     sender: getSender(item),
     receivers: getReceivers(item),
+    text: getParsedText(item.attributes.text, item.attributes.points),
   }));
-
-  console.log(newbonuses);
 
   return newbonuses;
 };

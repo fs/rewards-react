@@ -4,7 +4,6 @@ import SendBonusForm from './SendBonusForm';
 import BonusList from './BonusList';
 import bonusService from '../../../services/BonusService';
 import authService from '../../../services/AuthService';
-import { bonusResponse } from '../../../mock_data/bonusResponse';
 import bonusParser from '../../../utils/bonusParser';
 
 const BonusContentWrapper = styled.div`
@@ -34,7 +33,6 @@ const BonusContent = () => {
     setHasError(false);
     setIsLoading(true);
     const token = authService.getToken();
-    // let data;
     try {
       const data = await bonusService.fetchBonusesList(token);
       const bonusListArray = bonusParser(data.data);
@@ -42,9 +40,7 @@ const BonusContent = () => {
       setBonusList(bonusListArray);
     } catch (error) {
       setHasError(true);
-      console.log(error);
     }
-    // setBonusList(bonusParser(data));
     setIsLoading(false);
   });
 
