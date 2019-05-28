@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import TimeAgo from 'timeago-react';
 
 const BonusContainer = styled.div`
   margin-bottom: 1.25rem;
@@ -7,13 +8,13 @@ const BonusContainer = styled.div`
   background-color: #fff;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   color: #000;
-  `;
+`;
 
 const BonusHeader = styled.div`
   display: flex;
   align-items: flex-start;
   padding: 1.25rem 1.25rem 0;
-  `;
+`;
 
 const TotalPoints = styled.div`
   padding: 0 1rem;
@@ -30,14 +31,14 @@ const TotalPoints = styled.div`
 
   &::before {
     display: inline-block;
-    content: "+";
+    content: '+';
   }
-  `;
+`;
 
 const ReceiversList = styled.div`
   padding: 0 0.3125rem;
   width: 100%;
-  `;
+`;
 
 const ReceiverItem = styled.div`
   display: inline-block;
@@ -47,11 +48,11 @@ const ReceiverItem = styled.div`
   border-radius: 100px;
   overflow: hidden;
   background-color: #f7f7f7;
-  
+
   img {
     width: 100%;
   }
-  `;
+`;
 
 const Timestamp = styled.div`
   font-size: 1rem;
@@ -60,40 +61,40 @@ const Timestamp = styled.div`
   text-align: right;
   width: auto;
   flex-shrink: 0;
-  
+
   span {
-    color: #cecece
+    color: #cecece;
   }
-  `;
+`;
 
 const BonusBody = styled.div`
   padding: 0 1.25rem 1.25rem;
-  `;
+`;
 
 const TextItem = styled.div`
   margin: 10px 0 0;
   font-size: 1.25rem;
   color: #000;
-  `;
+`;
 
 const Sender = styled.span`
   font-weight: 600;
-  `;
+`;
 
 const BonusPoints = styled.span`
   font-size: 1.25rem;
   font-weight: bold;
   color: #63bc36;
-  `;
+`;
 
 const ReceiverName = styled.span`
   color: #63bc36;
   font-weight: bold;
-  `;
+`;
 
 const Tag = styled.span`
   color: #aaaaaa;
-  `;
+`;
 
 const Bonus = (props) => {
   const { bonus } = props;
@@ -101,9 +102,7 @@ const Bonus = (props) => {
   return (
     <BonusContainer data-testid="test-bonus">
       <BonusHeader>
-        <TotalPoints>
-          {bonus['total-points']}
-        </TotalPoints>
+        <TotalPoints>{bonus['total-points']}</TotalPoints>
         <ReceiversList>
           {bonus.receivers.map(receiver => (
             <ReceiverItem key={receiver.email}>
@@ -112,49 +111,49 @@ const Bonus = (props) => {
           ))}
         </ReceiversList>
         <Timestamp>
-          <span title="">18 minutes ago</span>
+          <TimeAgo datetime={bonus['created-at']} locale="en_US" />
         </Timestamp>
       </BonusHeader>
       <BonusBody>
         <TextItem>
           <Sender>
-            { bonus.sender }
-            :
+            {bonus.sender}
+:
             {' '}
           </Sender>
           <span>
-            {
-              bonus.text.map((item, index) => {
-                if (item.type === 'points') {
-                  return (
-                    <BonusPoints key={index}>
-                      {item.text}
-                      {' '}
-                    </BonusPoints>
-                  );
-                } if (item.type === 'users') {
-                  return (
-                    <ReceiverName key={index}>
-                      {item.text}
-                      {' '}
-                    </ReceiverName>
-                  );
-                } if (item.type === 'tags') {
-                  return (
-                    <Tag key={index}>
-                      {item.text}
-                      {' '}
-                    </Tag>
-                  );
-                }
+            {bonus.text.map((item, index) => {
+              if (item.type === 'points') {
                 return (
-                  <span key={index}>
+                  <BonusPoints key={index}>
                     {item.text}
                     {' '}
-                  </span>
+                  </BonusPoints>
                 );
-              })
-            }
+              }
+              if (item.type === 'users') {
+                return (
+                  <ReceiverName key={index}>
+                    {item.text}
+                    {' '}
+                  </ReceiverName>
+                );
+              }
+              if (item.type === 'tags') {
+                return (
+                  <Tag key={index}>
+                    {item.text}
+                    {' '}
+                  </Tag>
+                );
+              }
+              return (
+                <span key={index}>
+                  {item.text}
+                  {' '}
+                </span>
+              );
+            })}
           </span>
         </TextItem>
       </BonusBody>

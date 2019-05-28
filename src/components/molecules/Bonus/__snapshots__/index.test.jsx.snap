@@ -6,22 +6,22 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdVaJa dnUXvi"
+        class="sc-bdVaJa cvaQFB"
         data-testid="test-bonus"
       >
         <div
-          class="sc-bwzfXH fBeYcB"
+          class="sc-bwzfXH lbYKDH"
         >
           <div
-            class="sc-htpNat iTgKVd"
+            class="sc-htpNat dJkehv"
           >
             1
           </div>
           <div
-            class="sc-bxivhb cvwYqb"
+            class="sc-bxivhb fCqOEz"
           >
             <div
-              class="sc-ifAKCX dRaTLr"
+              class="sc-ifAKCX IBpTv"
             >
               <img
                 alt="Ivan Ananev"
@@ -30,23 +30,25 @@ Object {
             </div>
           </div>
           <div
-            class="sc-EHOje dAJYjw"
+            class="sc-EHOje hoDcUL"
           >
-            <span
-              title=""
+            <time
+              class=""
+              datetime="2019-05-16T06:07:25.102Z"
+              timeago-tid="2"
             >
-              18 minutes ago
-            </span>
+              1 week ago
+            </time>
           </div>
         </div>
         <div
-          class="sc-bZQynM gPGzMx"
+          class="sc-bZQynM beBKFf"
         >
           <div
-            class="sc-gzVnrw kNfFdF"
+            class="sc-gzVnrw dMzyyw"
           >
             <span
-              class="sc-htoDjs dPDtEZ"
+              class="sc-htoDjs jjhAwG"
             >
               bot
               :
@@ -54,7 +56,7 @@ Object {
             </span>
             <span>
               <span
-                class="sc-dnqmqq cIATaO"
+                class="sc-dnqmqq iqPkxa"
               >
                 +1
                  
@@ -64,13 +66,13 @@ Object {
                  
               </span>
               <span
-                class="sc-iwsKbI hFOcHD"
+                class="sc-iwsKbI hJIPua"
               >
                 @ivan.ananev
                  
               </span>
               <span
-                class="sc-gZMcBi eWYZIW"
+                class="sc-gZMcBi eHGCQQ"
               >
                 #be-curious-never-stop-learning
                  
@@ -91,22 +93,22 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-bdVaJa dnUXvi"
+      class="sc-bdVaJa cvaQFB"
       data-testid="test-bonus"
     >
       <div
-        class="sc-bwzfXH fBeYcB"
+        class="sc-bwzfXH lbYKDH"
       >
         <div
-          class="sc-htpNat iTgKVd"
+          class="sc-htpNat dJkehv"
         >
           1
         </div>
         <div
-          class="sc-bxivhb cvwYqb"
+          class="sc-bxivhb fCqOEz"
         >
           <div
-            class="sc-ifAKCX dRaTLr"
+            class="sc-ifAKCX IBpTv"
           >
             <img
               alt="Ivan Ananev"
@@ -115,23 +117,25 @@ Object {
           </div>
         </div>
         <div
-          class="sc-EHOje dAJYjw"
+          class="sc-EHOje hoDcUL"
         >
-          <span
-            title=""
+          <time
+            class=""
+            datetime="2019-05-16T06:07:25.102Z"
+            timeago-tid="2"
           >
-            18 minutes ago
-          </span>
+            1 week ago
+          </time>
         </div>
       </div>
       <div
-        class="sc-bZQynM gPGzMx"
+        class="sc-bZQynM beBKFf"
       >
         <div
-          class="sc-gzVnrw kNfFdF"
+          class="sc-gzVnrw dMzyyw"
         >
           <span
-            class="sc-htoDjs dPDtEZ"
+            class="sc-htoDjs jjhAwG"
           >
             bot
             :
@@ -139,7 +143,7 @@ Object {
           </span>
           <span>
             <span
-              class="sc-dnqmqq cIATaO"
+              class="sc-dnqmqq iqPkxa"
             >
               +1
                
@@ -149,13 +153,13 @@ Object {
                
             </span>
             <span
-              class="sc-iwsKbI hFOcHD"
+              class="sc-iwsKbI hJIPua"
             >
               @ivan.ananev
                
             </span>
             <span
-              class="sc-gZMcBi eWYZIW"
+              class="sc-gZMcBi eHGCQQ"
             >
               #be-curious-never-stop-learning
                
