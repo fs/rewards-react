@@ -156,7 +156,6 @@ const Bonus = (props) => {
               })
             }
           </span>
-          {/* <BonusPoints>+{bonus.points}</BonusPoints> <ReceiverName>@marat.galeev</ReceiverName> iOS quiz <Tag>#win-win-win</Tag> */}
         </TextItem>
       </BonusBody>
     </BonusContainer>

@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bonus index render Bonus correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-bdVaJa dnUXvi"
+        data-testid="test-bonus"
+      >
+        <div
+          class="sc-bwzfXH fBeYcB"
+        >
+          <div
+            class="sc-htpNat iTgKVd"
+          >
+            1
+          </div>
+          <div
+            class="sc-bxivhb cvwYqb"
+          >
+            <div
+              class="sc-ifAKCX dRaTLr"
+            >
+              <img
+                alt="Olga Krasnova"
+                src="https://d14n4flg6h47l7.cloudfront.net/store/user/62/profile_image/avatar-9c17bcabdb06f23cc9c93a1d6994bc1a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIJWLCQQNSWJW7QQA%2F20190522%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20190522T082725Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=31db982a9259d275e2493bbc8a221e8d47cf5cfa6934f94c31851c107bc09d0e"
+              />
+            </div>
+          </div>
+          <div
+            class="sc-EHOje dAJYjw"
+          >
+            <span
+              title=""
+            >
+              18 minutes ago
+            </span>
+          </div>
+        </div>
+        <div
+          class="sc-bZQynM gPGzMx"
+        >
+          <div
+            class="sc-gzVnrw kNfFdF"
+          >
+            <span
+              class="sc-htoDjs dPDtEZ"
+            >
+              Nadezhda Kharchuk
+              :
+               
+            </span>
+            <span>
+              <span>
+                +cat
+                 
+              </span>
+              <span
+                class="sc-dnqmqq cIATaO"
+              >
+                +1
+                 
+              </span>
+              <span>
+                @blah
+                 
+              </span>
+              <span>
+                and
+                 
+              </span>
+              <span>
+                -20
+                 
+              </span>
+              <span>
+                @fake
+                 
+              </span>
+              <span>
+                hahahaha
+                 
+              </span>
+              <span
+                class="sc-gZMcBi eWYZIW"
+              >
+                #90
+                 
+              </span>
+              <span>
+                +1+345
+                 
+              </span>
+              <span
+                class="sc-gZMcBi eWYZIW"
+              >
+                #communicate-transparently-honestly
+                 
+              </span>
+              <span
+                class="sc-iwsKbI hFOcHD"
+              >
+                @krasnova-olga
+                 
+              </span>
+              <span>
+                
+                 
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-bdVaJa dnUXvi"
+      data-testid="test-bonus"
+    >
+      <div
+        class="sc-bwzfXH fBeYcB"
+      >
+        <div
+          class="sc-htpNat iTgKVd"
+        >
+          1
+        </div>
+        <div
+          class="sc-bxivhb cvwYqb"
+        >
+          <div
+            class="sc-ifAKCX dRaTLr"
+          >
+            <img
+              alt="Olga Krasnova"
+              src="https://d14n4flg6h47l7.cloudfront.net/store/user/62/profile_image/avatar-9c17bcabdb06f23cc9c93a1d6994bc1a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIJWLCQQNSWJW7QQA%2F20190522%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20190522T082725Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=31db982a9259d275e2493bbc8a221e8d47cf5cfa6934f94c31851c107bc09d0e"
+            />
+          </div>
+        </div>
+        <div
+          class="sc-EHOje dAJYjw"
+        >
+          <span
+            title=""
+          >
+            18 minutes ago
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bZQynM gPGzMx"
+      >
+        <div
+          class="sc-gzVnrw kNfFdF"
+        >
+          <span
+            class="sc-htoDjs dPDtEZ"
+          >
+            Nadezhda Kharchuk
+            :
+             
+          </span>
+          <span>
+            <span>
+              +cat
+               
+            </span>
+            <span
+              class="sc-dnqmqq cIATaO"
+            >
+              +1
+               
+            </span>
+            <span>
+              @blah
+               
+            </span>
+            <span>
+              and
+               
+            </span>
+            <span>
+              -20
+               
+            </span>
+            <span>
+              @fake
+               
+            </span>
+            <span>
+              hahahaha
+               
+            </span>
+            <span
+              class="sc-gZMcBi eWYZIW"
+            >
+              #90
+               
+            </span>
+            <span>
+              +1+345
+               
+            </span>
+            <span
+              class="sc-gZMcBi eWYZIW"
+            >
+              #communicate-transparently-honestly
+               
+            </span>
+            <span
+              class="sc-iwsKbI hFOcHD"
+            >
+              @krasnova-olga
+               
+            </span>
+            <span>
+              
+               
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
