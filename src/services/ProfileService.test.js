@@ -6,6 +6,8 @@ jest.mock('./ApiService');
 jest.mock('./AuthService');
 
 describe('ProfileService', () => {
+  const expectedUrl = '/user/profile';
+
   beforeEach(() => {
     jest.resetModules();
   });
@@ -13,7 +15,6 @@ describe('ProfileService', () => {
   test('fetchUser Happy path', async () => {
     // Arrange
     const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
-    const expectedUrl = '/user/profile';
     const expectedConfig = {
       headers: { Authorization: `Bearer ${expectedToken}` },
     };
@@ -29,7 +30,6 @@ describe('ProfileService', () => {
         'allowance-balance': 469,
       },
     };
-
 
     const mockGetToken = jest.fn(() => expectedToken);
 
@@ -49,5 +49,44 @@ describe('ProfileService', () => {
     expect(AuthService.getToken).toHaveBeenCalled();
     expect(api.get).toHaveBeenCalledWith(expectedUrl, expectedConfig);
     expect(actualResult).toEqual(expectedData);
+  });
+
+  test('fetchUser Wrong credentials', async () => {
+    // Arrange
+    const expectedToken = '';
+    const expectedConfig = {
+      headers: { Authorization: `Bearer ${expectedToken}` },
+    };
+    const expectedError = {
+      errors: [
+        {
+          id: 'bb120ac7-f407-4897-a2f3-f91fbb0a1b02',
+          title: 'Unauthorized',
+        },
+      ],
+    };
+
+    const mockGetToken = jest.fn(() => expectedToken);
+    AuthService.getToken.mockImplementation(mockGetToken);
+
+    const mockApiGet = jest.fn(
+      () => new Promise((resolve, reject) => {
+        reject(expectedError);
+      }),
+    );
+    api.get.mockImplementation(mockApiGet);
+
+    // Act
+    let actualError;
+    try {
+      await ProfileService.fetchUser();
+    } catch (error) {
+      actualError = error;
+    }
+
+    // Assert
+    expect(AuthService.getToken).toHaveBeenCalled();
+    expect(api.get).toHaveBeenCalledWith(expectedUrl, expectedConfig);
+    expect(actualError).toEqual(expectedError);
   });
 });

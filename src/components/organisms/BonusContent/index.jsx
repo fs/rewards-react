@@ -5,6 +5,7 @@ import BonusList from './BonusList';
 import bonusService from '../../../services/BonusService';
 import authService from '../../../services/AuthService';
 import bonusParser from '../../../utils/bonusParser';
+import profileService from '../../../services/ProfileService';
 
 const BonusContentWrapper = styled.div`
   position: relative;
@@ -28,16 +29,20 @@ const BonusContent = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [initialized, setInitialized] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [currentUser, setCurrentUser] = useState({ attributes: {} });
 
   const updateBonusesList = useCallback(async () => {
     setHasError(false);
     setIsLoading(true);
     const token = authService.getToken();
     try {
-      const data = await bonusService.fetchBonusesList(token);
-      const bonusListArray = bonusParser(data.data);
+      const bonusListObject = await bonusService.fetchBonusesList(token);
+      const bonusListArray = bonusParser(bonusListObject.data);
 
       setBonusList(bonusListArray);
+
+      const userData = await profileService.fetchUser();
+      setCurrentUser(userData.data);
     } catch (error) {
       setHasError(true);
     }
@@ -57,17 +62,13 @@ const BonusContent = () => {
 
   return (
     <BonusContentWrapper>
-      <MyBonuses>points to give away</MyBonuses>
-      <SendBonusForm
-        onSuccess={onSuccess}
-        authService={authService}
-        bonusService={bonusService}
-      />
-      <BonusList
-        bonusList={bonusList}
-        hasError={hasError}
-        isLoading={isLoading}
-      />
+      <MyBonuses>
+        {currentUser.attributes['allowance-balance']}
+        {' '}
+points to give away
+      </MyBonuses>
+      <SendBonusForm onSuccess={onSuccess} authService={authService} bonusService={bonusService} />
+      <BonusList bonusList={bonusList} hasError={hasError} isLoading={isLoading} />
     </BonusContentWrapper>
   );
 };

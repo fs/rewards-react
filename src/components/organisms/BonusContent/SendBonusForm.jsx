@@ -18,6 +18,7 @@ const ErrorContainer = styled.div`
 
 const SendBonusForm = (props) => {
   const [bonusText, setBonusText] = useState('');
+  const [bonusTextareaValue, setBonusTextareaValue] = useState('');
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -25,6 +26,7 @@ const SendBonusForm = (props) => {
     setBonusText(event.target.value);
     setHasError(false);
     setErrorMessage('');
+    setBonusTextareaValue(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -33,6 +35,7 @@ const SendBonusForm = (props) => {
     const token = authService.getToken();
     try {
       await bonusService.createBonus(token, bonusText);
+      setBonusTextareaValue('');
       onSuccess();
     } catch (error) {
       const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
@@ -43,7 +46,7 @@ const SendBonusForm = (props) => {
 
   return (
     <Form onSubmit={handleSubmit} data-testid="test-bonus-form">
-      <BonusTextarea onChange={handleChange} />
+      <BonusTextarea onChange={handleChange} textareaValue={bonusTextareaValue} />
 
       <div data-testid="test-error-container">
         {hasError

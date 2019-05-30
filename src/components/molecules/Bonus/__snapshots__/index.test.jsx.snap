@@ -37,7 +37,7 @@ Object {
               datetime="2019-05-16T06:07:25.102Z"
               timeago-tid="2"
             >
-              1 week ago
+              2 weeks ago
             </time>
           </div>
         </div>
@@ -124,7 +124,7 @@ Object {
             datetime="2019-05-16T06:07:25.102Z"
             timeago-tid="2"
           >
-            1 week ago
+            2 weeks ago
           </time>
         </div>
       </div>

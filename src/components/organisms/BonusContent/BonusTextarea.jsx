@@ -11,7 +11,7 @@ export const userItem = ({ entity: { id, username } }) => <div data-testid="test
 export const tagItem = ({ entity: { id, label } }) => <div data-testid="test-tag-item" key={id}>{`#${label}`}</div>;
 
 const BonusTextarea = (props) => {
-  const { onChange } = props;
+  const { onChange, textareaValue } = props;
 
   const points = BonusPossibilitiesService.getPossibilities(POINTS);
   const users = BonusPossibilitiesService.getPossibilities(USERS);
@@ -22,6 +22,7 @@ const BonusTextarea = (props) => {
       <ReactTextareaAutocomplete
         className="autocomplete-textarea"
         onChange={onChange}
+        value={textareaValue}
         placeholder="+100 @person add description for #create_awesomness"
         data-testid="test-textarea"
         loadingComponent={() => <span>Loading</span>}
