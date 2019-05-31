@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@webscopeio/react-textarea-autocomplete": "^4.3.5",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint-config-airbnb": "^17.1.0",
@@ -16,6 +16,7 @@
     "jest-dom": "^3.1.3",
     "jest-environment-enzyme": "^7.0.2",
     "jest-localstorage-mock": "^2.4.0",
+    "last": "^1.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router": "^4.3.1",
