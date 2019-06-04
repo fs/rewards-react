@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="28px" viewBox="0 0 24 28" version="1.1">
+    <g id="Updates" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Likes-2" transform="translate(-356.000000, -178.000000)" fill="#FFFFFF">
+            <g id="Group-9" transform="translate(278.000000, 150.000000)">
+                <g id="Group-6" transform="translate(70.000000, 20.000000)">
+                    <g id="i-user-copy" transform="translate(4.000000, 4.000000)">
+                        <g transform="translate(4.000000, 4.000000)" id="User_Icon">
+                            <path d="M15,14.5 C17.020295,12.1372027 18.0896123,9.10747046 18,6 C18,2.6862915 15.3137085,0 12,0 C8.6862915,0 6,2.6862915 6,6 C5.91188814,9.10542129 6.98111218,12.132751 9,14.494 C9,18.501 0,17.494 0,22.494 L0,24.6900024 C0,23.7701424 3.22705078,28.5224609 12,29 C20.7729492,28.5224609 24,23.7701424 24,24.6900024 L24,22.494 C24,17.5 15,18.5 15,14.5 Z"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

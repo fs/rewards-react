@@ -1,10 +1,38 @@
 import React from 'react';
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
 import '../../../styles/autocomplete.css';
+import styled from 'styled-components';
 import BonusPossibilitiesService, {
   POINTS, TAGS, USERS,
 } from '../../../services/BonusPossibilitiesService';
 
+const HelperIconsContainer = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+
+`;
+
+const ImageWrap = styled.div`
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #d8d8d8;
+  margin-right: 10px;
+  cursor: pointer;
+  
+  &:hover{
+    background-color: rgba(0,85,112,0.7);
+  }
+  
+  &:last-child {
+    margin-right: 0;
+  }
+`;
 
 export const pointItem = ({ entity: { id, value } }) => <div data-testid="test-point-item" key={id}>{`+♥${value}`}</div>;
 export const userItem = ({ entity: { id, username } }) => <div data-testid="test-user-item" key={id}>{`@${username}`}</div>;
@@ -19,6 +47,18 @@ const BonusTextarea = (props) => {
 
   return (
     <div data-testid="test-textarea-wrapper">
+      <HelperIconsContainer>
+        <ImageWrap>
+          <img src={require('../../../images/helper-icon-points.svg')} alt="User profile" />
+        </ImageWrap>
+        <ImageWrap>
+          <img src={require('../../../images/helper-icon-user.svg')} alt="User profile" />
+        </ImageWrap>
+        <ImageWrap>
+          <img src={require('../../../images/helper-icon-hashtag.svg')} alt="User profile" />
+        </ImageWrap>
+      </HelperIconsContainer>
+
       <ReactTextareaAutocomplete
         className="autocomplete-textarea"
         onChange={onChange}

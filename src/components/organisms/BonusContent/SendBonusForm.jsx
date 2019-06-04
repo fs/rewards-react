@@ -21,6 +21,7 @@ const SendBonusForm = (props) => {
   const [bonusTextareaValue, setBonusTextareaValue] = useState('');
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  // const [helperIconIsActive, setHelperIconIsActive] = useState(false);
 
   const handleChange = (event) => {
     setBonusText(event.target.value);
