@@ -8,7 +8,7 @@ FE app for AWESOME project called REWARDS
 
 ### Pre-requirements
 
-- NVM
+- NVM (https://github.com/nvm-sh/nvm#install--update-script)
 - Node 11
 
 ```bash
