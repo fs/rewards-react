@@ -21,13 +21,16 @@ const SendBonusForm = (props) => {
   const [bonusTextareaValue, setBonusTextareaValue] = useState('');
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  // const [helperIconIsActive, setHelperIconIsActive] = useState(false);
+  const [messagePointsIsValid, setMessagePointsIsValid] = useState(false);
+
+  const validatedPoints = points => points.match(/\+[1-9]\d?/);
 
   const handleChange = (event) => {
     setBonusText(event.target.value);
     setHasError(false);
     setErrorMessage('');
     setBonusTextareaValue(event.target.value);
+    setMessagePointsIsValid(validatedPoints(event.target.value));
   };
 
   const handleSubmit = async (event) => {
@@ -47,7 +50,7 @@ const SendBonusForm = (props) => {
 
   return (
     <Form onSubmit={handleSubmit} data-testid="test-bonus-form">
-      <BonusTextarea onChange={handleChange} textareaValue={bonusTextareaValue} />
+      <BonusTextarea onChange={handleChange} textareaValue={bonusTextareaValue} messagePointsIsActive={messagePointsIsValid} />
 
       <div data-testid="test-error-container">
         {hasError

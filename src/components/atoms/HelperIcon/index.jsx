@@ -14,8 +14,9 @@ const ImageWrap = styled.div`
   margin-right: 10px;
   cursor: pointer;
 
-  &:hover {
+  &:hover, &.active {
     background-color: rgba(0, 85, 112, 0.7);
+    
   }
 
   &:last-child {
