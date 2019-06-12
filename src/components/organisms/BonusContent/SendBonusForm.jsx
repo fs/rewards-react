@@ -16,24 +16,30 @@ const ErrorContainer = styled.div`
   color: #f00;
 `;
 
-const SendBonusForm = (props) => {
+const SendBonusForm = props => {
   const [bonusText, setBonusText] = useState('');
   const [bonusTextareaValue, setBonusTextareaValue] = useState('');
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [messagePointsIsValid, setMessagePointsIsValid] = useState(false);
+  const [messageUserNameIsValid, setMessageUserNameIsValid] = useState(false);
+  const [messageHashTagIsValid, setMessageHashTagIsValid] = useState(false);
 
-  const validatedPoints = points => points.match(/\+[1-9]\d?/);
+  const validatePoints = points => points.match(/\+[1-9]\d?/);
+  const validateUserName = userNames => userNames.match(/@\w+/);
+  const validateHashTag = hashTags => hashTags.match(/#\w+/);
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setBonusText(event.target.value);
     setHasError(false);
     setErrorMessage('');
     setBonusTextareaValue(event.target.value);
-    setMessagePointsIsValid(validatedPoints(event.target.value));
+    setMessagePointsIsValid(validatePoints(event.target.value));
+    setMessageUserNameIsValid(validateUserName(event.target.value));
+    setMessageHashTagIsValid(validateHashTag(event.target.value));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
     const { onSuccess, authService, bonusService } = props;
     const token = authService.getToken();
@@ -50,13 +56,15 @@ const SendBonusForm = (props) => {
 
   return (
     <Form onSubmit={handleSubmit} data-testid="test-bonus-form">
-      <BonusTextarea onChange={handleChange} textareaValue={bonusTextareaValue} messagePointsIsActive={messagePointsIsValid} />
+      <BonusTextarea
+        onChange={handleChange}
+        textareaValue={bonusTextareaValue}
+        messagePointsIsActive={messagePointsIsValid}
+        messageUserNamesIsActive={messageUserNameIsValid}
+        messageHashTagsIsActive={messageHashTagIsValid}
+      />
 
-      <div data-testid="test-error-container">
-        {hasError
-          && <ErrorContainer>{errorMessage}</ErrorContainer>
-        }
-      </div>
+      <div data-testid="test-error-container">{hasError && <ErrorContainer>{errorMessage}</ErrorContainer>}</div>
       <Button text="Give" />
     </Form>
   );
