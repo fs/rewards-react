@@ -1,240 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Bonus index render Bonus correctly 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="sc-bdVaJa cvaQFB"
-        data-testid="test-bonus"
-      >
-        <div
-          class="sc-bwzfXH lbYKDH"
-        >
-          <div
-            class="sc-htpNat dJkehv"
-          >
-            1
-          </div>
-          <div
-            class="sc-bxivhb fCqOEz"
-          >
-            <div
-              class="sc-ifAKCX IBpTv"
-            >
-              <img
-                alt="Ivan Ananev"
-                src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
-              />
-            </div>
-          </div>
-          <div
-            class="sc-EHOje hoDcUL"
-          >
-            <time
-              class=""
-              datetime="2019-05-16T06:07:25.102Z"
-              timeago-tid="2"
-            >
-              2 weeks ago
-            </time>
-          </div>
-        </div>
-        <div
-          class="sc-bZQynM beBKFf"
-        >
-          <div
-            class="sc-gzVnrw dMzyyw"
-          >
-            <span
-              class="sc-htoDjs jjhAwG"
-            >
-              bot
-              :
-               
-            </span>
-            <span>
-              <span
-                class="sc-dnqmqq iqPkxa"
-              >
-                +1
-                 
-              </span>
-              <span>
-                to
-                 
-              </span>
-              <span
-                class="sc-iwsKbI hJIPua"
-              >
-                @ivan.ananev
-                 
-              </span>
-              <span
-                class="sc-gZMcBi eHGCQQ"
-              >
-                #be-curious-never-stop-learning
-                 
-              </span>
-              <span>
-                for
-                 
-              </span>
-              <span>
-                move
-                 
-              </span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="sc-bdVaJa cvaQFB"
-      data-testid="test-bonus"
-    >
-      <div
-        class="sc-bwzfXH lbYKDH"
-      >
-        <div
-          class="sc-htpNat dJkehv"
-        >
-          1
-        </div>
-        <div
-          class="sc-bxivhb fCqOEz"
-        >
-          <div
-            class="sc-ifAKCX IBpTv"
-          >
-            <img
-              alt="Ivan Ananev"
-              src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
-            />
-          </div>
-        </div>
-        <div
-          class="sc-EHOje hoDcUL"
-        >
-          <time
-            class=""
-            datetime="2019-05-16T06:07:25.102Z"
-            timeago-tid="2"
-          >
-            2 weeks ago
-          </time>
-        </div>
-      </div>
-      <div
-        class="sc-bZQynM beBKFf"
-      >
-        <div
-          class="sc-gzVnrw dMzyyw"
-        >
-          <span
-            class="sc-htoDjs jjhAwG"
-          >
-            bot
-            :
-             
-          </span>
-          <span>
-            <span
-              class="sc-dnqmqq iqPkxa"
-            >
-              +1
-               
-            </span>
-            <span>
-              to
-               
-            </span>
-            <span
-              class="sc-iwsKbI hJIPua"
-            >
-              @ivan.ananev
-               
-            </span>
-            <span
-              class="sc-gZMcBi eHGCQQ"
-            >
-              #be-curious-never-stop-learning
-               
-            </span>
-            <span>
-              for
-               
-            </span>
-            <span>
-              move
-               
-            </span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllBySelectText": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getAllByValue": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getBySelectText": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "getByValue": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllBySelectText": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryAllByValue": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryBySelectText": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "queryByValue": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+<ForwardRef
+  data-testid="test-bonus"
+>
+  <ForwardRef>
+    <ForwardRef>
+      1
+    </ForwardRef>
+    <ForwardRef>
+      <ForwardRef>
+        <img
+          alt="Ivan Ananev"
+          src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+        />
+      </ForwardRef>
+    </ForwardRef>
+    <ForwardRef>
+      <TimeAgo
+        datetime="2019-05-16T06:07:25.102Z"
+        live={true}
+        locale="en_US"
+      />
+    </ForwardRef>
+  </ForwardRef>
+  <ForwardRef>
+    <ForwardRef>
+      <ForwardRef>
+        bot
+        :
+         
+      </ForwardRef>
+      <span>
+        <ForwardRef>
+          +1
+           
+        </ForwardRef>
+        <span>
+          to
+           
+        </span>
+        <ForwardRef>
+          @ivan.ananev
+           
+        </ForwardRef>
+        <ForwardRef>
+          #be-curious-never-stop-learning
+           
+        </ForwardRef>
+        <span>
+          for
+           
+        </span>
+        <span>
+          move
+           
+        </span>
+      </span>
+    </ForwardRef>
+  </ForwardRef>
+</ForwardRef>
 `;
