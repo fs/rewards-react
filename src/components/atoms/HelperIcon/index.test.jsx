@@ -4,8 +4,8 @@ import HelperIcon from '.';
 
 describe('HelperIcon', () => {
   const pointsIconPath = require('../../../images/helper-icon-points.svg');
-  const userNamesIconPath = require('../../../images/helper-icon-user.svg');
-  const hashTagsIconPath = require('../../../images/helper-icon-hashtag.svg');
+  // const userNamesIconPath = require('../../../images/helper-icon-user.svg');
+  // const hashTagsIconPath = require('../../../images/helper-icon-hashtag.svg');
   test('Should render points not active', () => {
     // Arrange
     const isActive = false;

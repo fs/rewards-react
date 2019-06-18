@@ -1,164 +1,171 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BonusContent index render BonusContent correctly 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="sc-kAzzGY cpmpNq"
-      >
-        <h2
-          class="sc-chPdSV bVFmRI"
-        >
-           
-          points to give away
-        </h2>
-        <form
-          class="sc-bwzfXH jlLYyM"
-          data-testid="test-bonus-form"
-        >
-          <div
-            data-testid="test-textarea-wrapper"
-          >
-            <div
-              class="rta  "
-            >
-              <textarea
-                class="rta__textarea autocomplete-textarea"
-                data-testid="test-textarea"
-                name="bonus-text"
-                placeholder="+100 @person add description for #create_awesomness"
-              />
-            </div>
-          </div>
-          <div
-            data-testid="test-error-container"
-          />
-          <button
-            class="sc-bdVaJa xcLnp"
-            data-testid="test-button"
-          >
-            Give
-          </button>
-        </form>
-        <div>
-          <div
-            class="sc-jzJRlG sfpRp"
-            data-testid="test-loader"
-          >
-            Content is loading
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="sc-kAzzGY cpmpNq"
-    >
-      <h2
-        class="sc-chPdSV bVFmRI"
-      >
-         
-        points to give away
-      </h2>
-      <form
-        class="sc-bwzfXH jlLYyM"
-        data-testid="test-bonus-form"
-      >
-        <div
-          data-testid="test-textarea-wrapper"
-        >
-          <div
-            class="rta  "
-          >
-            <textarea
-              class="rta__textarea autocomplete-textarea"
-              data-testid="test-textarea"
-              name="bonus-text"
-              placeholder="+100 @person add description for #create_awesomness"
-            />
-          </div>
-        </div>
-        <div
-          data-testid="test-error-container"
-        />
-        <button
-          class="sc-bdVaJa xcLnp"
-          data-testid="test-button"
-        >
-          Give
-        </button>
-      </form>
-      <div>
-        <div
-          class="sc-jzJRlG sfpRp"
-          data-testid="test-loader"
-        >
-          Content is loading
-        </div>
-      </div>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllBySelectText": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getAllByValue": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getBySelectText": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "getByValue": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllBySelectText": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryAllByValue": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryBySelectText": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "queryByValue": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
+.c4 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #d8d8d8;
+  margin-right: 10px;
+  cursor: pointer;
 }
+
+.c4:hover,
+.c4.active {
+  background-color: rgba(0,85,112,0.7);
+}
+
+.c4:last-child {
+  margin-right: 0;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.c5 {
+  background-color: #63bc36;
+  color: #fff;
+  border-radius: 100px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+}
+
+.c5:hover,
+.c5:focus {
+  outline: none;
+  background-color: #4f962b;
+}
+
+.c2 {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 0 0 20px;
+  padding: 20px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+}
+
+.c6 {
+  margin: 20px;
+  text-align: center;
+}
+
+.c0 {
+  position: relative;
+  margin-bottom: 1.25rem;
+  margin-right: 2rem;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 4px;
+}
+
+.c1 {
+  position: absolute;
+  top: -55px;
+  line-height: 1.625rem;
+  font-weight: 800;
+  font-size: 1.375rem;
+  color: #fff;
+}
+
+<div
+  class="c0"
+>
+  <h2
+    class="c1"
+  >
+     
+    points to give away
+  </h2>
+  <form
+    class="c2"
+    data-testid="test-bonus-form"
+  >
+    <div
+      data-testid="test-textarea-wrapper"
+    >
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <img
+            alt="Points"
+            src="[object Object]"
+          />
+        </div>
+        <div
+          class="c4"
+        >
+          <img
+            alt="User"
+            src="[object Object]"
+          />
+        </div>
+        <div
+          class="c4"
+        >
+          <img
+            alt="Hashtag"
+            src="[object Object]"
+          />
+        </div>
+      </div>
+      <div
+        class="rta  "
+      >
+        <textarea
+          class="rta__textarea autocomplete-textarea"
+          data-testid="test-textarea"
+          name="bonus-text"
+          placeholder="+100 @person add description for #create_awesomness"
+        />
+      </div>
+    </div>
+    <div
+      data-testid="test-error-container"
+    />
+    <button
+      class="c5"
+      data-testid="test-button"
+    >
+      Give
+    </button>
+  </form>
+  <div>
+    <div
+      class="c6"
+      data-testid="test-loader"
+    >
+      Content is loading
+    </div>
+  </div>
+</div>
 `;
