@@ -2,7 +2,10 @@
   "env": {
     "jest": true
   },
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
   "parser": "babel-eslint",
   "globals": {
     "document": true,
@@ -12,7 +15,8 @@
     "fetch": true
   },
   "plugins": [
-    "react-hooks"
+    "react-hooks",
+    "prettier"
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
