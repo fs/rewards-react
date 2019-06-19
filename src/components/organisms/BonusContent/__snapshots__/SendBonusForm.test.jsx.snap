@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SendBonusForm HelperIcon Should change the className on user change in textarea value 1`] = `
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #d8d8d8;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.c2:hover,
+.c2.active {
+  background-color: rgba(0,85,112,0.7);
+}
+
+.c2:last-child {
+  margin-right: 0;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.c3 {
+  background-color: #63bc36;
+  color: #fff;
+  border-radius: 100px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+}
+
+.c3:hover,
+.c3:focus {
+  outline: none;
+  background-color: #4f962b;
+}
+
+.c0 {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 0 0 20px;
+  padding: 20px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+}
+
+<form
+  class="c0"
+  data-testid="test-bonus-form"
+>
+  <div
+    data-testid="test-textarea-wrapper"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <img
+          alt="Points"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="c2"
+      >
+        <img
+          alt="User"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="active c2"
+      >
+        <img
+          alt="Hashtag"
+          src="[object Object]"
+        />
+      </div>
+    </div>
+    <div
+      class="rta  "
+    >
+      <textarea
+        class="rta__textarea autocomplete-textarea"
+        data-testid="test-textarea"
+        name="bonus-text"
+        placeholder="+100 @person add description for #create_awesomness"
+      >
+        #create-awesomeness
+      </textarea>
+    </div>
+  </div>
+  <div
+    data-testid="test-error-container"
+  />
+  <button
+    class="c3"
+    data-testid="test-button"
+  >
+    Give
+  </button>
+</form>
+`;

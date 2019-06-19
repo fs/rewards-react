@@ -1,11 +1,10 @@
 import 'jest-dom/extend-expect';
 import 'react-testing-library/cleanup-after-each';
+import 'jest-styled-components';
 
 import React from 'react';
 
-import {
-  render, fireEvent, wait,
-} from 'react-testing-library';
+import { render, fireEvent, wait, act } from 'react-testing-library';
 import AuthService from '../../../services/AuthService';
 import BonusService from '../../../services/BonusService';
 
@@ -20,7 +19,8 @@ describe('SendBonusForm', () => {
   beforeEach(() => {
     jest.resetModules();
     jest.clearAllMocks();
-    expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    expectedToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
 
     const mockGetToken = jest.fn(() => expectedToken);
     AuthService.getToken.mockImplementation(mockGetToken);
@@ -34,14 +34,17 @@ describe('SendBonusForm', () => {
     const expectedBonusText = `${expectedBonusCount} ${expectedReceiver} ${expectedTag}`;
 
     const mockCreateBonus = jest.fn(
-      () => new Promise((resolve) => {
-        resolve();
-      }),
+      () =>
+        new Promise(resolve => {
+          resolve();
+        }),
     );
 
     BonusService.createBonus.mockImplementation(mockCreateBonus);
 
-    const { getByTestId } = render(<SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />);
+    const { getByTestId } = render(
+      <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+    );
     const textArea = getByTestId('test-textarea');
     fireEvent.change(textArea, { target: { value: expectedBonusText } });
     const form = getByTestId('test-bonus-form');
@@ -68,13 +71,16 @@ describe('SendBonusForm', () => {
     const expectedError = { response: { request: { response: expectedResponse } } };
 
     const mockCreateBonus = jest.fn(
-      () => new Promise((resolve, reject) => {
-        reject(expectedError);
-      }),
+      () =>
+        new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
     );
     BonusService.createBonus.mockImplementation(mockCreateBonus);
 
-    const { getByTestId } = render(<SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />);
+    const { getByTestId } = render(
+      <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+    );
     const textArea = getByTestId('test-textarea');
 
     fireEvent.change(textArea, { target: { value: expectedBonusText } });
@@ -89,6 +95,23 @@ describe('SendBonusForm', () => {
     await wait(() => {
       expect(BonusService.createBonus).toBeCalledWith(expectedToken, expectedBonusText);
       expect(errorContainer).toHaveTextContent(expectedErrorMessage);
+    });
+  });
+  describe('HelperIcon', () => {
+    test('Should change the className on user change in textarea value', () => {
+      // Arrange
+      const { getByTestId } = render(
+        <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+      );
+      const textArea = getByTestId('test-textarea');
+      const expectedBonusText = '#create-awesomeness';
+      // Act
+      act(() => {
+        fireEvent.change(textArea, { target: { value: expectedBonusText } });
+      });
+      const bonusForm = getByTestId('test-bonus-form');
+      // Assert
+      expect(bonusForm).toMatchSnapshot();
     });
   });
 });
