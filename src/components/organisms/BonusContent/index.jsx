@@ -47,7 +47,7 @@ const BonusContent = () => {
       setHasError(true);
     }
     setIsLoading(false);
-  });
+  }, []);
 
   useEffect(() => {
     if (!initialized) {
@@ -62,11 +62,7 @@ const BonusContent = () => {
 
   return (
     <BonusContentWrapper>
-      <MyBonuses>
-        {currentUser.attributes['allowance-balance']}
-        {' '}
-points to give away
-      </MyBonuses>
+      <MyBonuses>{currentUser.attributes['allowance-balance']} points to give away</MyBonuses>
       <SendBonusForm onSuccess={onSuccess} authService={authService} bonusService={bonusService} />
       <BonusList bonusList={bonusList} hasError={hasError} isLoading={isLoading} />
     </BonusContentWrapper>

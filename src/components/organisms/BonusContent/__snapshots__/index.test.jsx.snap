@@ -100,8 +100,7 @@ exports[`BonusContent index render BonusContent correctly 1`] = `
   <h2
     class="c1"
   >
-     
-    points to give away
+     points to give away
   </h2>
   <form
     class="c2"
