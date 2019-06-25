@@ -1,53 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Bonus index render Bonus correctly 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   data-testid="test-bonus"
 >
-  <ForwardRef>
-    <ForwardRef>
+  <ForwardRef(styled.div)>
+    <ForwardRef(styled.div)>
       1
-    </ForwardRef>
-    <ForwardRef>
-      <ForwardRef>
+    </ForwardRef(styled.div)>
+    <ForwardRef(styled.div)>
+      <ForwardRef(styled.div)>
         <img
           alt="Ivan Ananev"
           src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
         />
-      </ForwardRef>
-    </ForwardRef>
-    <ForwardRef>
+      </ForwardRef(styled.div)>
+    </ForwardRef(styled.div)>
+    <ForwardRef(styled.div)>
       <TimeAgo
         datetime="2019-05-16T06:07:25.102Z"
         live={true}
         locale="en_US"
       />
-    </ForwardRef>
-  </ForwardRef>
-  <ForwardRef>
-    <ForwardRef>
-      <ForwardRef>
+    </ForwardRef(styled.div)>
+  </ForwardRef(styled.div)>
+  <ForwardRef(styled.div)>
+    <ForwardRef(styled.div)>
+      <ForwardRef(styled.span)>
         bot
         :
          
-      </ForwardRef>
+      </ForwardRef(styled.span)>
       <span>
-        <ForwardRef>
+        <ForwardRef(styled.span)>
           +1
            
-        </ForwardRef>
+        </ForwardRef(styled.span)>
         <span>
           to
            
         </span>
-        <ForwardRef>
+        <ForwardRef(styled.span)>
           @ivan.ananev
            
-        </ForwardRef>
-        <ForwardRef>
+        </ForwardRef(styled.span)>
+        <ForwardRef(styled.span)>
           #be-curious-never-stop-learning
            
-        </ForwardRef>
+        </ForwardRef(styled.span)>
         <span>
           for
            
@@ -57,7 +57,7 @@ exports[`Bonus index render Bonus correctly 1`] = `
            
         </span>
       </span>
-    </ForwardRef>
-  </ForwardRef>
-</ForwardRef>
+    </ForwardRef(styled.div)>
+  </ForwardRef(styled.div)>
+</ForwardRef(styled.div)>
 `;
