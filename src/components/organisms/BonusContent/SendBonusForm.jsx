@@ -16,7 +16,7 @@ const ErrorContainer = styled.div`
   color: #f00;
 `;
 
-const regex = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };
+const regexObj = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };
 
 const SendBonusForm = props => {
   const [bonusText, setBonusText] = useState('');
@@ -33,16 +33,16 @@ const SendBonusForm = props => {
     return !!res;
   };
 
-  const updateBonusButton = values => {
-    if (validate(values, regex.points) && validate(values, regex.userNames)) {
-      setBonusButtonText(getTotalPoints(values));
-    }
+  const getTotalPoints = values => {
+    const receiversCount = values.filter(value => value.match(regexObj.userNames)).length;
+    const points = values.find(value => value.match(regexObj.points)).slice(1);
+    return receiversCount && points ? `+ ${receiversCount * points} Give` : 'Give';
   };
 
-  const getTotalPoints = values => {
-    const receiversCount = values.filter(value => value.match(regex.userNames)).length;
-    const points = values.find(value => value.match(regex.points)).slice(1);
-    return receiversCount && points ? `+ ${receiversCount * points} Give` : 'Give';
+  const updateBonusButton = values => {
+    if (validate(values, regexObj.points) && validate(values, regexObj.userNames)) {
+      setBonusButtonText(getTotalPoints(values));
+    }
   };
 
   const handleChange = event => {
@@ -52,9 +52,9 @@ const SendBonusForm = props => {
     setHasError(false);
     setErrorMessage('');
     setBonusTextareaValue(event.target.value);
-    setMessagePointsIsValid(validate(values, regex.points));
-    setMessageUserNameIsValid(validate(values, regex.userNames));
-    setMessageHashTagIsValid(validate(values, regex.hashTags));
+    setMessagePointsIsValid(validate(values, regexObj.points));
+    setMessageUserNameIsValid(validate(values, regexObj.userNames));
+    setMessageHashTagIsValid(validate(values, regexObj.hashTags));
     updateBonusButton(values);
   };
 
