@@ -16,6 +16,8 @@ const ErrorContainer = styled.div`
   color: #f00;
 `;
 
+const regex = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };
+
 const SendBonusForm = props => {
   const [bonusText, setBonusText] = useState('');
   const [bonusTextareaValue, setBonusTextareaValue] = useState('');
@@ -26,32 +28,34 @@ const SendBonusForm = props => {
   const [messageHashTagIsValid, setMessageHashTagIsValid] = useState(false);
   const [bonusButtonText, setBonusButtonText] = useState('Give');
 
-  const validatePoints = points => points.match(/\+[1-9]\d*/);
-  const validateUserName = userNames => userNames.match(/@\w+/);
-  // const validateHashTag = hashTags => hashTags.match(/#\w+/);
   const validate = (values, regex) => {
     const res = values.find(value => value.match(regex));
     return !!res;
   };
-  const updateBonusButton = text => {
-    if (validatePoints(text) && validateUserName(text)) {
-      console.log(validatePoints(text));
+
+  const updateBonusButton = values => {
+    if (validate(values, regex.points) && validate(values, regex.userNames)) {
+      setBonusButtonText(getTotalPoints(values));
     }
   };
 
+  const getTotalPoints = values => {
+    const receiversCount = values.filter(value => value.match(regex.userNames)).length;
+    const points = values.find(value => value.match(regex.points)).slice(1);
+    return receiversCount && points ? `+ ${receiversCount * points} Give` : 'Give';
+  };
+
   const handleChange = event => {
-    console.log('Handling');
     const { value } = event.target;
     const values = value.split(' ');
-    console.log(values);
     setBonusText(value);
     setHasError(false);
     setErrorMessage('');
     setBonusTextareaValue(event.target.value);
-    setMessagePointsIsValid(validate(values, /\+[1-9]\d*$/));
-    setMessageUserNameIsValid(validate(values, /@\w+/));
-    setMessageHashTagIsValid(validate(values, /#\w+/));
-    updateBonusButton(value);
+    setMessagePointsIsValid(validate(values, regex.points));
+    setMessageUserNameIsValid(validate(values, regex.userNames));
+    setMessageHashTagIsValid(validate(values, regex.hashTags));
+    updateBonusButton(values);
   };
 
   const handleSubmit = async event => {
