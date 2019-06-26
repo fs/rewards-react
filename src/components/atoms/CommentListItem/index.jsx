@@ -9,24 +9,56 @@ const CommentItem = styled.div`
   color: #000;
 `;
 
-const CommentAuthor = styled.span``;
+const TextItem = styled.div`
+  font-size: 1.25rem;
+  color: #000;
+`;
 
-const BonusCount = styled.span`
+const Sender = styled.span``;
+
+const BonusPoints = styled.span`
   font-size: 1.25rem;
   font-weight: bold;
   color: #63bc36;
 `;
 
-const CommentTag = styled.span`
+const Tag = styled.span`
   color: #aaaaaa;
 `;
 
-const CommentListItem = () => (
-  <CommentItem>
-    <CommentAuthor />
-    <BonusCount />
-    <CommentTag />
-  </CommentItem>
-);
+const CommentListItem = () => {
+  const bonus = {
+    sender: 'LOl pop',
+    text: [
+      {
+        text: 'hello +1 #win',
+        type: 'tags',
+      },
+      {
+        text: 'hello',
+        type: 'text',
+      },
+    ],
+  };
+
+  return (
+    <CommentItem>
+      <TextItem>
+        <Sender>{bonus.sender}: </Sender>
+        <span>
+          {bonus.text.map((item, index) => {
+            if (item.type === 'points') {
+              return <BonusPoints key={index}>{item.text} </BonusPoints>;
+            }
+            if (item.type === 'tags') {
+              return <Tag key={index}>{item.text} </Tag>;
+            }
+            return <span key={index}>{item.text} </span>;
+          })}
+        </span>
+      </TextItem>
+    </CommentItem>
+  );
+};
 
 export default CommentListItem;

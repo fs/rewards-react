@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TimeAgo from 'timeago-react';
+import CommentList from '../CommentList';
 
 const BonusContainer = styled.div`
   margin-bottom: 1.25rem;
@@ -96,7 +97,7 @@ const Tag = styled.span`
   color: #aaaaaa;
 `;
 
-const Bonus = (props) => {
+const Bonus = props => {
   const { bonus } = props;
 
   return (
@@ -116,47 +117,24 @@ const Bonus = (props) => {
       </BonusHeader>
       <BonusBody>
         <TextItem>
-          <Sender>
-            {bonus.sender}
-:
-            {' '}
-          </Sender>
+          <Sender>{bonus.sender}: </Sender>
           <span>
             {bonus.text.map((item, index) => {
               if (item.type === 'points') {
-                return (
-                  <BonusPoints key={index}>
-                    {item.text}
-                    {' '}
-                  </BonusPoints>
-                );
+                return <BonusPoints key={index}>{item.text} </BonusPoints>;
               }
               if (item.type === 'users') {
-                return (
-                  <ReceiverName key={index}>
-                    {item.text}
-                    {' '}
-                  </ReceiverName>
-                );
+                return <ReceiverName key={index}>{item.text} </ReceiverName>;
               }
               if (item.type === 'tags') {
-                return (
-                  <Tag key={index}>
-                    {item.text}
-                    {' '}
-                  </Tag>
-                );
+                return <Tag key={index}>{item.text} </Tag>;
               }
-              return (
-                <span key={index}>
-                  {item.text}
-                  {' '}
-                </span>
-              );
+              return <span key={index}>{item.text} </span>;
             })}
           </span>
         </TextItem>
       </BonusBody>
+      <CommentList />
     </BonusContainer>
   );
 };
