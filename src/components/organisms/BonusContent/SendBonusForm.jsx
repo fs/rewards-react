@@ -51,7 +51,7 @@ const SendBonusForm = props => {
     setBonusText(value);
     setHasError(false);
     setErrorMessage('');
-    setBonusTextareaValue(event.target.value);
+    setBonusTextareaValue(value);
     setMessagePointsIsValid(validate(values, regexObj.points));
     setMessageUserNameIsValid(validate(values, regexObj.userNames));
     setMessageHashTagIsValid(validate(values, regexObj.hashTags));
