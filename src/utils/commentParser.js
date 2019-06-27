@@ -1,10 +1,10 @@
-const commentParser = (commentIdList, commentList) => {
-  console.log(commentIdList);
-  console.log(commentList);
+const commentParser = (bonusCommentsList, commentList) => {
+  // console.log(commentIdList);
+  // console.log(commentList);
 
-  const comments = {};
+  // console.log(comments);
 
-  return comments;
+  return {};
 };
 
 export default commentParser;

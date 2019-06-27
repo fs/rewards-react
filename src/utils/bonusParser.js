@@ -10,7 +10,17 @@ const bonusParser = data => {
 
   const commentList = included.filter(includedElem => includedElem.type === 'comments');
 
-  const commentIdList = bonuses.map(item => item.relationships.comments.data);
+  const commentIdList = bonuses
+    .map(bonus => bonus.relationships.comments.data)
+    .map(comments => {
+      if (comments.length === 0) {
+        return [];
+      }
+
+      return comments.map(item => item.id);
+    });
+
+  // console.log(commentIdList);
 
   const getSender = item => {
     const senderId = item.relationships.sender.data.id;
@@ -53,12 +63,12 @@ const bonusParser = data => {
     });
   };
 
-  const newbonuses = bonuses.map(item => ({
+  const newbonuses = bonuses.map((item, index) => ({
     id: item.id,
     'created-at': item.attributes['created-at'],
     points: item.attributes.points,
     'total-points': item.attributes['total-points'],
-    comments: commentParser(commentIdList, commentList),
+    comments: commentParser(commentIdList[index], commentList),
     sender: getSender(item),
     receivers: getReceivers(item),
     text: getParsedText(item.attributes.text, item.attributes.points),
