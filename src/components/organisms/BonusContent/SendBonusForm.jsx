@@ -42,6 +42,8 @@ const SendBonusForm = props => {
   const updateBonusButton = values => {
     if (validate(values, regexObj.points) && validate(values, regexObj.userNames)) {
       setBonusButtonText(getTotalPoints(values));
+    } else {
+      setBonusButtonText('Give');
     }
   };
 
