@@ -28,8 +28,7 @@ exports[`Bonus index render Bonus correctly 1`] = `
     <ForwardRef(styled.div)>
       <ForwardRef(styled.span)>
         bot
-        :
-         
+        : 
       </ForwardRef(styled.span)>
       <span>
         <ForwardRef(styled.span)>
@@ -59,5 +58,8 @@ exports[`Bonus index render Bonus correctly 1`] = `
       </span>
     </ForwardRef(styled.div)>
   </ForwardRef(styled.div)>
+  <ForwardRef(styled.div)
+    data-testid="test-comment-list"
+  />
 </ForwardRef(styled.div)>
 `;

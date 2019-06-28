@@ -1,8 +1,6 @@
 export default [
   {
-    comments: {
-      data: [],
-    },
+    comments: [],
     'created-at': '2019-05-16T06:07:25.102Z',
     id: '289',
     points: 1,
@@ -47,14 +45,22 @@ export default [
     'total-points': 1,
   },
   {
-    comments: {
-      data: [
-        {
-          id: '355',
-          type: 'comments',
-        },
-      ],
-    },
+    comments: [
+      {
+        id: '355',
+        sender: 'Nadezhda Kharchuk',
+        text: [
+          {
+            text: 'test',
+            type: 'text',
+          },
+          {
+            text: 'comment',
+            type: 'text',
+          },
+        ],
+      },
+    ],
     'created-at': '2019-04-30T10:45:31.860Z',
     id: '284',
     points: 1,
@@ -99,9 +105,7 @@ export default [
     'total-points': 1,
   },
   {
-    comments: {
-      data: [],
-    },
+    comments: [],
     'created-at': '2019-04-30T08:08:48.835Z',
     id: '283',
     points: 5,
@@ -138,9 +142,7 @@ export default [
     'total-points': 5,
   },
   {
-    comments: {
-      data: [],
-    },
+    comments: [],
     'created-at': '2019-04-29T14:45:01.136Z',
     id: '282',
     points: 1,
@@ -185,9 +187,7 @@ export default [
     'total-points': 1,
   },
   {
-    comments: {
-      data: [],
-    },
+    comments: [],
     'created-at': '2019-04-29T14:09:28.921Z',
     id: '281',
     points: 1,
@@ -232,9 +232,7 @@ export default [
     'total-points': 1,
   },
   {
-    comments: {
-      data: [],
-    },
+    comments: [],
     'created-at': '2019-04-29T14:09:03.831Z',
     id: '280',
     points: 1,
@@ -279,9 +277,7 @@ export default [
     'total-points': 1,
   },
   {
-    comments: {
-      data: [],
-    },
+    comments: [],
     'created-at': '2019-04-29T13:41:07.396Z',
     id: '279',
     points: 1,
@@ -326,9 +322,7 @@ export default [
     'total-points': 1,
   },
   {
-    comments: {
-      data: [],
-    },
+    comments: [],
     'created-at': '2019-04-24T10:23:19.956Z',
     id: '277',
     points: 5,
@@ -365,9 +359,7 @@ export default [
     'total-points': 5,
   },
   {
-    comments: {
-      data: [],
-    },
+    comments: [],
     'created-at': '2019-04-18T11:04:51.123Z',
     id: '276',
     points: 1,
@@ -412,9 +404,7 @@ export default [
     'total-points': 1,
   },
   {
-    comments: {
-      data: [],
-    },
+    comments: [],
     'created-at': '2019-04-17T16:06:47.974Z',
     id: '274',
     points: 1,
