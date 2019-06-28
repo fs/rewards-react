@@ -16,7 +16,7 @@ const TextItem = styled.div`
 
 const Sender = styled.span``;
 
-const BonusPoints = styled.span`
+const CommentPoints = styled.span`
   font-size: 1.25rem;
   font-weight: bold;
   color: #63bc36;
@@ -26,29 +26,17 @@ const Tag = styled.span`
   color: #aaaaaa;
 `;
 
-const CommentListItem = () => {
-  const bonus = {
-    sender: 'LOl pop',
-    text: [
-      {
-        text: 'hello +1 #win',
-        type: 'tags',
-      },
-      {
-        text: 'hello',
-        type: 'text',
-      },
-    ],
-  };
+const CommentListItem = props => {
+  const { comment } = props;
 
   return (
     <CommentItem>
       <TextItem>
-        <Sender>{bonus.sender}: </Sender>
+        <Sender>{comment.sender}: </Sender>
         <span>
-          {bonus.text.map((item, index) => {
+          {comment.text.map((item, index) => {
             if (item.type === 'points') {
-              return <BonusPoints key={index}>{item.text} </BonusPoints>;
+              return <CommentPoints key={index}>{item.text} </CommentPoints>;
             }
             if (item.type === 'tags') {
               return <Tag key={index}>{item.text} </Tag>;

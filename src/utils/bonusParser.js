@@ -1,5 +1,3 @@
-import commentParser from './commentParser';
-
 const bonusParser = data => {
   const bonuses = data.data;
   const { included } = data;
@@ -46,7 +44,7 @@ const bonusParser = data => {
     return newReceivers;
   };
 
-  const getParsedText = (text, points) => {
+  const getParsedText = (text, points = 0) => {
     let pointFound = false;
     return text.split(' ').map(item => {
       if (!pointFound && item === `+${points}`) {
@@ -63,6 +61,27 @@ const bonusParser = data => {
     });
   };
 
+  const commentParser = (bonusCommentsList, list) => {
+    const a = [];
+    list.forEach(comment => {
+      if (bonusCommentsList.includes(comment.id)) {
+        a.push(comment);
+      }
+    });
+
+    const b = [];
+    if (a.length > 0) {
+      a.map(comment => {
+        b.push({
+          id: comment.id,
+          text: getParsedText(comment.attributes.text),
+          sender: getSender(comment),
+        });
+      });
+    }
+    return b;
+  };
+
   const newbonuses = bonuses.map((item, index) => ({
     id: item.id,
     'created-at': item.attributes['created-at'],
@@ -73,7 +92,7 @@ const bonusParser = data => {
     receivers: getReceivers(item),
     text: getParsedText(item.attributes.text, item.attributes.points),
   }));
-
+  console.log(newbonuses);
   return newbonuses;
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TimeAgo from 'timeago-react';
-import CommentList from '../CommentList';
+import CommentListItem from '../../atoms/CommentListItem';
 
 const BonusContainer = styled.div`
   margin-bottom: 1.25rem;
@@ -97,6 +97,8 @@ const Tag = styled.span`
   color: #aaaaaa;
 `;
 
+const CommentList = styled.div``;
+
 const Bonus = props => {
   const { bonus } = props;
 
@@ -134,7 +136,11 @@ const Bonus = props => {
           </span>
         </TextItem>
       </BonusBody>
-      <CommentList />
+      <CommentList data-testid="test-comment-list">
+        {bonus.comments.map(item => (
+          <CommentListItem comment={item} key={item.id} />
+        ))}
+      </CommentList>
     </BonusContainer>
   );
 };
