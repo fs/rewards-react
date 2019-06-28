@@ -16,6 +16,8 @@ const ErrorContainer = styled.div`
   color: #f00;
 `;
 
+const regexObj = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };
+
 const SendBonusForm = props => {
   const [bonusText, setBonusText] = useState('');
   const [bonusTextareaValue, setBonusTextareaValue] = useState('');
@@ -24,19 +26,38 @@ const SendBonusForm = props => {
   const [messagePointsIsValid, setMessagePointsIsValid] = useState(false);
   const [messageUserNameIsValid, setMessageUserNameIsValid] = useState(false);
   const [messageHashTagIsValid, setMessageHashTagIsValid] = useState(false);
+  const [bonusButtonText, setBonusButtonText] = useState('Give');
 
-  const validatePoints = points => points.match(/\+[1-9]\d?/);
-  const validateUserName = userNames => userNames.match(/@\w+/);
-  const validateHashTag = hashTags => hashTags.match(/#\w+/);
+  const validate = (values, regex) => {
+    const res = values.find(value => value.match(regex));
+    return !!res;
+  };
+
+  const getTotalPoints = values => {
+    const receiversCount = values.filter(value => value.match(regexObj.userNames)).length;
+    const points = values.find(value => value.match(regexObj.points)).slice(1);
+    return receiversCount && points ? `+ ${receiversCount * points} Give` : 'Give';
+  };
+
+  const updateBonusButton = values => {
+    if (validate(values, regexObj.points) && validate(values, regexObj.userNames)) {
+      setBonusButtonText(getTotalPoints(values));
+    } else {
+      setBonusButtonText('Give');
+    }
+  };
 
   const handleChange = event => {
-    setBonusText(event.target.value);
+    const { value } = event.target;
+    const values = value.split(' ');
+    setBonusText(value);
     setHasError(false);
     setErrorMessage('');
-    setBonusTextareaValue(event.target.value);
-    setMessagePointsIsValid(validatePoints(event.target.value));
-    setMessageUserNameIsValid(validateUserName(event.target.value));
-    setMessageHashTagIsValid(validateHashTag(event.target.value));
+    setBonusTextareaValue(value);
+    setMessagePointsIsValid(validate(values, regexObj.points));
+    setMessageUserNameIsValid(validate(values, regexObj.userNames));
+    setMessageHashTagIsValid(validate(values, regexObj.hashTags));
+    updateBonusButton(values);
   };
 
   const handleSubmit = async event => {
@@ -65,7 +86,7 @@ const SendBonusForm = props => {
       />
 
       <div data-testid="test-error-container">{hasError && <ErrorContainer>{errorMessage}</ErrorContainer>}</div>
-      <Button text="Give" />
+      <Button text={bonusButtonText} />
     </Form>
   );
 };

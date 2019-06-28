@@ -39,7 +39,8 @@
     "test:ci": "CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint ./src --ext .js,.jsx",
-    "lint:css": "stylelint './src/*.js'"
+    "lint:css": "stylelint './src/*.js'",
+    "test:all": "yarn lint && yarn lint:css && yarn test:ci"
   },
   "eslintConfig": {
     "extends": "react-app"
