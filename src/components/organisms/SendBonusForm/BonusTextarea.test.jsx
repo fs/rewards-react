@@ -18,9 +18,18 @@ describe('BonusTextarea', () => {
     // Act
     const wrapper = shallow(<BonusTextarea onChange={() => {}} />);
 
-    const actualPointTrigger = Object.getOwnPropertyDescriptor(wrapper.find(ReactTextareaAutocomplete).props().trigger, expectedPointChar);
-    const actualUserTrigger = Object.getOwnPropertyDescriptor(wrapper.find(ReactTextareaAutocomplete).props().trigger, expectedUserChar);
-    const actualTagTrigger = Object.getOwnPropertyDescriptor(wrapper.find(ReactTextareaAutocomplete).props().trigger, expectedTagChar);
+    const actualPointTrigger = Object.getOwnPropertyDescriptor(
+      wrapper.find(ReactTextareaAutocomplete).props().trigger,
+      expectedPointChar,
+    );
+    const actualUserTrigger = Object.getOwnPropertyDescriptor(
+      wrapper.find(ReactTextareaAutocomplete).props().trigger,
+      expectedUserChar,
+    );
+    const actualTagTrigger = Object.getOwnPropertyDescriptor(
+      wrapper.find(ReactTextareaAutocomplete).props().trigger,
+      expectedTagChar,
+    );
 
     // Assert
     expect(wrapper.find(ReactTextareaAutocomplete)).toHaveLength(1);

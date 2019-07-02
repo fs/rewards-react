@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TimeAgo from 'timeago-react';
 import CommentListItem from '../../atoms/CommentListItem';
+import SendCommentForm from '../SendCommentForm';
 
 const BonusContainer = styled.div`
   margin-bottom: 1.25rem;
@@ -102,6 +103,8 @@ const CommentList = styled.div``;
 const Bonus = props => {
   const { bonus } = props;
 
+  const onSuccess = () => {};
+
   return (
     <BonusContainer data-testid="test-bonus">
       <BonusHeader>
@@ -141,6 +144,7 @@ const Bonus = props => {
           <CommentListItem comment={item} key={item.id} />
         ))}
       </CommentList>
+      <SendCommentForm onSuccess={onSuccess} />
     </BonusContainer>
   );
 };

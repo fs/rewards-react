@@ -8,7 +8,7 @@ import { render, fireEvent, wait, act } from 'react-testing-library';
 import AuthService from '../../../services/AuthService';
 import BonusService from '../../../services/BonusService';
 
-import SendBonusForm from './SendBonusForm';
+import SendBonusForm from '.';
 
 jest.mock('../../../services/AuthService');
 jest.mock('../../../services/BonusService');
