@@ -18,7 +18,7 @@ const BonusTextarea = props => {
   return (
     <div data-testid="test-textarea-wrapper">
       <ReactTextareaAutocomplete
-        className="autocomplete-textarea"
+        className="autocomplete-textarea autocomplete-textarea--comment"
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}

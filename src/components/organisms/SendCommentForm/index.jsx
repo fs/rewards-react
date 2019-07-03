@@ -6,10 +6,10 @@ import HelperIcon from '../../atoms/HelperIcon';
 
 const Form = styled.form`
   width: 100%;
-  background-color: #fff;
+  background-color: #f7f7f7;
   border-radius: 5px;
   margin: 0 0 20px;
-  padding: 20px;
+  padding: 12px 20px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 `;
 
@@ -19,19 +19,20 @@ const ErrorContainer = styled.div`
 
 const HelperIconsContainer = styled.div`
   display: flex;
-  margin-bottom: 20px;
 `;
 
 const Controls = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   overflow: hidden;
   height: 55px;
-  ${({ isControlsShowing }) =>
-    isControlsShowing &&
-    `
+  transition: height 500ms
+    ${({ isControlsShowing }) =>
+      isControlsShowing &&
+      `
     height: 0;
-  `}
+  `};
 `;
 
 const regexObj = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };
