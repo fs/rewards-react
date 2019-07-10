@@ -26,12 +26,12 @@ const Controls = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   overflow: hidden;
-  height: 55px;
-  transition: height 500ms
-    ${({ isControlsShowing }) =>
-      isControlsShowing &&
-      `
-    height: 0;
+  height: 0;
+  transition: height 500ms;
+  ${({ isControlsShowing }) =>
+    isControlsShowing &&
+    `
+    height: 55px;
   `};
 `;
 
@@ -93,19 +93,18 @@ const Index = props => {
     }
   };
 
-  const toggleControlsVisibility = () => {
-    setIsControlsShowing(!isControlsShowing);
-  };
-
   return (
-    <Form onSubmit={handleSubmit} data-testid="test-bonus-form">
+    <Form
+      onFocus={() => setIsControlsShowing(true)}
+      onBlur={() => setIsControlsShowing(false)}
+      onSubmit={handleSubmit}
+      data-testid="test-bonus-form"
+    >
       <CommentTextarea
         onChange={handleChange}
         textareaValue={bonusTextareaValue}
         messagePointsIsActive={messagePointsIsValid}
         messageHashTagsIsActive={messageHashTagIsValid}
-        onFocus={toggleControlsVisibility}
-        onBlur={toggleControlsVisibility}
       />
       <Controls isControlsShowing={isControlsShowing}>
         <Button text={bonusButtonText} />

@@ -10,7 +10,7 @@ export const pointItem = ({ entity: { id, value } }) => (
 export const tagItem = ({ entity: { id, label } }) => <div data-testid="test-tag-item" key={id}>{`#${label}`}</div>;
 
 const BonusTextarea = props => {
-  const { onChange, textareaValue, onFocus, onBlur } = props;
+  const { onChange, textareaValue } = props;
 
   const points = BonusPossibilitiesService.getPossibilities(POINTS);
   const tags = BonusPossibilitiesService.getPossibilities(TAGS);
@@ -20,8 +20,6 @@ const BonusTextarea = props => {
       <ReactTextareaAutocomplete
         className="autocomplete-textarea autocomplete-textarea--comment"
         onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
         value={textareaValue}
         placeholder="Add a comment"
         data-testid="test-textarea"
