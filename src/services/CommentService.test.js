@@ -285,4 +285,64 @@ describe('CommentService', () => {
     expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams, config);
     expect(AuthService.getToken).toHaveBeenCalled();
   });
+
+  test('createComment InvalidBonusId', async () => {
+    // Arrange
+    const expectedToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+
+    const expectedCommentCount = '+1';
+    const expectedTag = '#create-awesomeness';
+    const expectedCommentText = `${expectedCommentCount} ${expectedTag}`;
+
+    const expectedInvalidBonusId = -1;
+    const expectedInvalidPath = `/user/bonuses/${expectedInvalidBonusId}/comments`;
+
+    const expectedError = {
+      errors: [
+        {
+          id: 'accff156-61df-43ec-aae6-b0bfb96e9b25',
+          title: 'Not Found',
+          detail: "Couldn't find Bonus with 'id'=-1",
+        },
+      ],
+    };
+
+    const expectedParams = {
+      data: {
+        type: 'comment-texts',
+        attributes: {
+          text: expectedCommentText,
+        },
+      },
+    };
+    const config = {
+      headers: { Authorization: `Bearer ${expectedToken}` },
+    };
+
+    const mockApiServicePost = jest.fn(
+      () =>
+        new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
+    );
+
+    api.post.mockImplementation(mockApiServicePost);
+
+    const mockGetToken = jest.fn(() => expectedToken);
+
+    AuthService.getToken.mockImplementation(mockGetToken);
+
+    // Act
+    let actualError;
+    try {
+      await CommentService.createComment(expectedCommentText, expectedInvalidBonusId);
+    } catch (error) {
+      actualError = error;
+    }
+    // Assert
+    expect(actualError).toEqual(expectedError);
+    expect(api.post).toHaveBeenCalledWith(expectedInvalidPath, expectedParams, config);
+    expect(AuthService.getToken).toHaveBeenCalled();
+  });
 });
