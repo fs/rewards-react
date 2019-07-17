@@ -36,8 +36,6 @@ const Controls = styled.div`
   `};
 `;
 
-const commentTextarea = React.createRef();
-
 const regexObj = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };
 
 const Index = props => {

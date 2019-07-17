@@ -9,7 +9,7 @@ export const pointItem = ({ entity: { id, value } }) => (
 
 export const tagItem = ({ entity: { id, label } }) => <div data-testid="test-tag-item" key={id}>{`#${label}`}</div>;
 
-const BonusTextarea = props => {
+const CommentTextarea = props => {
   const { onChange, textareaValue } = props;
 
   const points = BonusPossibilitiesService.getPossibilities(POINTS);
@@ -43,4 +43,4 @@ const BonusTextarea = props => {
   );
 };
 
-export default BonusTextarea;
+export default CommentTextarea;

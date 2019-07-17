@@ -24,11 +24,19 @@ exports[`SendBonusForm HelperIcon Should change the className on user change in 
   background-color: #d8d8d8;
   margin-right: 10px;
   cursor: pointer;
+  -webkit-transition: box-shadow 0.08s linear;
+  transition: box-shadow 0.08s linear;
+  outline: none;
+  border: 0;
 }
 
 .c2:hover,
 .c2.active {
   background-color: rgba(0,85,112,0.7);
+}
+
+.c2:focus {
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302),0 4px 8px 3px rgba(60,64,67,0.149);
 }
 
 .c2:last-child {
@@ -80,30 +88,33 @@ exports[`SendBonusForm HelperIcon Should change the className on user change in 
     <div
       class="c1"
     >
-      <div
+      <button
         class="c2"
+        type="button"
       >
         <img
           alt="Points"
           src="[object Object]"
         />
-      </div>
-      <div
+      </button>
+      <button
         class="c2"
+        type="button"
       >
         <img
           alt="User"
           src="[object Object]"
         />
-      </div>
-      <div
+      </button>
+      <button
         class="active c2"
+        type="button"
       >
         <img
           alt="Hashtag"
           src="[object Object]"
         />
-      </div>
+      </button>
     </div>
     <div
       class="rta  "
