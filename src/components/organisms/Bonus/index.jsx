@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TimeAgo from 'timeago-react';
+import commentService from '../../../services/CommentService';
 import CommentListItem from '../../atoms/CommentListItem';
 import SendCommentForm from '../SendCommentForm';
 
@@ -144,7 +145,7 @@ const Bonus = props => {
           <CommentListItem comment={item} key={item.id} />
         ))}
       </CommentList>
-      <SendCommentForm onSuccess={onSuccess} />
+      <SendCommentForm onSuccess={onSuccess} commentService={commentService} bonusId={bonus.id} />
     </BonusContainer>
   );
 };

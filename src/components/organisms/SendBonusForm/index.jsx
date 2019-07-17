@@ -18,7 +18,7 @@ const ErrorContainer = styled.div`
 
 const regexObj = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };
 
-const Index = props => {
+const SendBonusForm = props => {
   const [bonusText, setBonusText] = useState('');
   const [bonusTextareaValue, setBonusTextareaValue] = useState('');
   const [hasError, setHasError] = useState(false);
@@ -91,4 +91,4 @@ const Index = props => {
   );
 };
 
-export default Index;
+export default SendBonusForm;

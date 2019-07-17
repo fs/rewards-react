@@ -38,14 +38,13 @@ const Controls = styled.div`
 
 const regexObj = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };
 
-const Index = props => {
-  const [bonusText, setBonusText] = useState('');
+const SendCommentForm = props => {
   const [commentTextareaValue, setCommentTextareaValue] = useState('');
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [messagePointsIsValid, setMessagePointsIsValid] = useState(false);
   const [messageHashTagIsValid, setMessageHashTagIsValid] = useState(false);
-  const [bonusButtonText, setBonusButtonText] = useState('Add');
+  const [commentButtonText, setCommentButtonText] = useState('Add');
   const [isControlsShowing, setIsControlsShowing] = useState(false);
 
   const validate = (values, regex) => {
@@ -59,32 +58,31 @@ const Index = props => {
     return receiversCount && points ? `+ ${receiversCount * points} Add` : 'Add';
   };
 
-  const updateBonusButton = values => {
+  const updateCommentButton = values => {
     if (validate(values, regexObj.points) && validate(values, regexObj.userNames)) {
-      setBonusButtonText(getTotalPoints(values));
+      setCommentButtonText(getTotalPoints(values));
     } else {
-      setBonusButtonText('Add');
+      setCommentButtonText('Add');
     }
   };
 
   const handleChange = event => {
     const { value } = event.target;
     const values = value.split(' ');
-    setBonusText(value);
     setHasError(false);
     setErrorMessage('');
     setCommentTextareaValue(value);
     setMessagePointsIsValid(validate(values, regexObj.points));
     setMessageHashTagIsValid(validate(values, regexObj.hashTags));
-    updateBonusButton(values);
+    updateCommentButton(values);
   };
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const { onSuccess, authService, bonusService } = props;
-    const token = authService.getToken();
+    const { onSuccess, commentService, bonusId } = props;
+
     try {
-      await bonusService.createBonus(token, bonusText);
+      await commentService.createComment(commentTextareaValue, bonusId);
       setCommentTextareaValue('');
       onSuccess();
     } catch (error) {
@@ -114,7 +112,7 @@ const Index = props => {
         messageHashTagsIsActive={messageHashTagIsValid}
       />
       <Controls isControlsShowing={isControlsShowing}>
-        <Button text={bonusButtonText} />
+        <Button text={commentButtonText} />
 
         <HelperIconsContainer>
           <HelperIcon
@@ -137,4 +135,4 @@ const Index = props => {
   );
 };
 
-export default Index;
+export default SendCommentForm;

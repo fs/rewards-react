@@ -61,7 +61,9 @@ exports[`Bonus index render Bonus correctly 1`] = `
   <ForwardRef(styled.div)
     data-testid="test-comment-list"
   />
-  <Index
+  <SendCommentForm
+    bonusId="289"
+    commentService={[Function]}
     onSuccess={[Function]}
   />
 </ForwardRef(styled.div)>
