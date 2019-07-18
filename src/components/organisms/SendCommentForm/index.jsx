@@ -14,8 +14,13 @@ const Form = styled.form`
   outline: none;
 `;
 
-const ErrorContainer = styled.div`
-  color: #f00;
+const ErrorContainer = styled.small`
+  display: block;
+  padding: 5px 10px;
+  background-color: #ffe0e0;
+  color: #df1616;
+  font-weight: bold;
+  margin-top: 5px;
 `;
 
 const HelperIconsContainer = styled.div`
@@ -111,6 +116,9 @@ const SendCommentForm = props => {
         messagePointsIsActive={messagePointsIsValid}
         messageHashTagsIsActive={messageHashTagIsValid}
       />
+
+      <div data-testid="test-error-container">{hasError && <ErrorContainer>{errorMessage}</ErrorContainer>}</div>
+
       <Controls isControlsShowing={isControlsShowing}>
         <Button text={commentButtonText} />
 
@@ -130,7 +138,6 @@ const SendCommentForm = props => {
           />
         </HelperIconsContainer>
       </Controls>
-      <div data-testid="test-error-container">{hasError && <ErrorContainer>{errorMessage}</ErrorContainer>}</div>
     </Form>
   );
 };

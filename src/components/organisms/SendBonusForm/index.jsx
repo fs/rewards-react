@@ -13,7 +13,15 @@ const Form = styled.form`
 `;
 
 const ErrorContainer = styled.div`
-  color: #f00;
+  display: block;
+  color: #dc0000;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #ffe0e0;
+  font-size: 15px;
+  line-height: 1.375rem;
+  font-weight: 600;
 `;
 
 const regexObj = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };

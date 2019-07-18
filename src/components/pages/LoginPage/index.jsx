@@ -65,6 +65,10 @@ const Button = styled.button`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   -webkit-transition: color 0.2s, background-color 0.2s;
   transition: color 0.2s, background-color 0.2s;
+
+  :disabled {
+    background-color: #ddd;
+  }
 `;
 
 const LoginPage = () => {
@@ -82,8 +86,7 @@ const LoginPage = () => {
 
   return (
     <div>
-      { redirectToReferrer && <Redirect to="/bonuses" /> }
-    :
+      {redirectToReferrer && <Redirect to="/bonuses" />}:
       {
         <LoginTemplate>
           <Formik
@@ -134,9 +137,7 @@ const LoginPage = () => {
                     {errors.password && touched.password && <ErrorContainer>{errors.password}</ErrorContainer>}
                   </FormGroup>
 
-                  <ErrorContainer>
-                    {errors.auth}
-                  </ErrorContainer>
+                  <ErrorContainer>{errors.auth}</ErrorContainer>
 
                   <Button type="submit" disabled={isSubmitting} data-testid="test-button">
                     Login
@@ -146,7 +147,7 @@ const LoginPage = () => {
             }}
           </Formik>
         </LoginTemplate>
-    }
+      }
     </div>
   );
 };
