@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import autosize from 'autosize';
 import SendBonusForm from '../SendBonusForm';
 import BonusList from './BonusList';
+import Context from '../../pages/BonusesPage/Context';
 import bonusService from '../../../services/BonusService';
 import authService from '../../../services/AuthService';
 import bonusParser from '../../../utils/bonusParser';
@@ -51,17 +52,20 @@ const BonusContent = () => {
     autosize(document.querySelectorAll('textarea'));
   };
 
+  const { state, dispatch } = useContext(Context);
+
   useEffect(() => {
     updateBonusesList();
   }, []);
 
   const onSuccess = () => {
-    updateBonusesList();
+    // updateBonusesList();
+    dispatch({ type: 'UPDATE_POINTS', payload: 20 });
   };
 
   return (
     <BonusContentWrapper>
-      <MyBonuses>{currentUser.attributes['allowance-balance']} points to give away</MyBonuses>
+      <MyBonuses>{state.pointsLeft} points to give away</MyBonuses>
       <SendBonusForm onSuccess={onSuccess} authService={authService} bonusService={bonusService} />
       <BonusList bonusList={bonusList} hasError={hasError} isLoading={isLoading} />
     </BonusContentWrapper>
