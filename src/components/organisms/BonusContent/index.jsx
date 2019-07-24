@@ -53,13 +53,11 @@ const BonusContent = () => {
     autosize(document.querySelectorAll('textarea'));
   };
 
-  let currentUser;
-
   const updateCurrentUser = async () => {
     try {
       const userData = await profileService.fetchUser();
 
-      currentUser = {
+      return {
         id: userData.data.id,
         ...userData.data.attributes,
       };
@@ -68,16 +66,16 @@ const BonusContent = () => {
     }
   };
 
+  const user = updateCurrentUser();
+
   useEffect(() => {
     updateBonusesList();
-    updateCurrentUser();
-    dispatch({ type: 'UPDATE_POINTS', payload: currentUser });
   }, []);
 
   const onSuccess = () => {
     updateBonusesList();
-    updateCurrentUser();
-    dispatch({ type: 'UPDATE_POINTS', payload: currentUser });
+
+    dispatch({ type: 'UPDATE_POINTS', payload: user });
   };
 
   return (

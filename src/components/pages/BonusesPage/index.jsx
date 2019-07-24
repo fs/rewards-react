@@ -19,12 +19,10 @@ const BonusesPage = () => {
     try {
       const userData = await profileService.fetchUser();
 
-      const user = {
+      return {
         id: userData.data.id,
         ...userData.data.attributes,
       };
-      console.log(user);
-      return user;
     } catch (error) {
       console.log(error);
     }
