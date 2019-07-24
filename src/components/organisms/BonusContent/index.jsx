@@ -30,7 +30,8 @@ const BonusContent = () => {
   const [bonusList, setBonusList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [currentUser, setCurrentUser] = useState({ attributes: {} });
+
+  const { state, dispatch } = useContext(Context);
 
   const updateBonusesList = async () => {
     setHasError(false);
@@ -42,8 +43,8 @@ const BonusContent = () => {
 
       setBonusList(bonusListArray);
 
-      const userData = await profileService.fetchUser();
-      setCurrentUser(userData.data);
+      // const userData = await profileService.fetchUser();
+      // setCurrentUser(userData.data);
     } catch (error) {
       setHasError(true);
     }
@@ -52,20 +53,36 @@ const BonusContent = () => {
     autosize(document.querySelectorAll('textarea'));
   };
 
-  const { state, dispatch } = useContext(Context);
+  let currentUser;
+
+  const updateCurrentUser = async () => {
+    try {
+      const userData = await profileService.fetchUser();
+
+      currentUser = {
+        id: userData.data.id,
+        ...userData.data.attributes,
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     updateBonusesList();
+    updateCurrentUser();
+    dispatch({ type: 'UPDATE_POINTS', payload: currentUser });
   }, []);
 
   const onSuccess = () => {
-    // updateBonusesList();
-    dispatch({ type: 'UPDATE_POINTS', payload: 20 });
+    updateBonusesList();
+    updateCurrentUser();
+    dispatch({ type: 'UPDATE_POINTS', payload: currentUser });
   };
 
   return (
     <BonusContentWrapper>
-      <MyBonuses>{state.pointsLeft} points to give away</MyBonuses>
+      <MyBonuses>{state.currentUser['allowance-balance']} points to give away</MyBonuses>
       <SendBonusForm onSuccess={onSuccess} authService={authService} bonusService={bonusService} />
       <BonusList bonusList={bonusList} hasError={hasError} isLoading={isLoading} />
     </BonusContentWrapper>

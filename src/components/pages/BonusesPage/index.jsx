@@ -1,9 +1,11 @@
-import React, { useReducer } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import styled from 'styled-components';
 import { ContextProvider } from './Context';
 import MainTemplate from '../../templates/MainTemplate';
 import BonusContent from '../../organisms/BonusContent';
 import BonusRating from '../../organisms/BonusRating';
+import profileService from '../../../services/ProfileService';
+import reducer from '../../../model/reducer';
 
 const BonusMainWrap = styled.div`
   margin: 80px auto 0;
@@ -13,16 +15,22 @@ const BonusMainWrap = styled.div`
 `;
 
 const BonusesPage = () => {
-  const initialState = {
-    pointsLeft: 9000,
-  };
-  const reducer = (state, action) => {
-    if (action.type === 'UPDATE_POINTS') {
-      return { pointsLeft: action.payload };
+  const updateCurrentUser = async () => {
+    try {
+      const userData = await profileService.fetchUser();
+
+      const user = {
+        id: userData.data.id,
+        ...userData.data.attributes,
+      };
+      console.log(user);
+      return user;
+    } catch (error) {
+      console.log(error);
     }
-    return state;
   };
-  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [state, dispatch] = useReducer(reducer, { currentUser: updateCurrentUser() });
 
   return (
     <ContextProvider value={{ state, dispatch }}>
