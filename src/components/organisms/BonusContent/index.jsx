@@ -27,6 +27,7 @@ const MyBonuses = styled.h2`
 `;
 
 const BonusContent = () => {
+  const { state, dispatch } = useContext(Context);
   const [bonusList, setBonusList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -44,6 +45,10 @@ const BonusContent = () => {
 
       const userData = await profileService.fetchUser();
       setCurrentUser(userData.data);
+
+      const user = bonusListObject.data.included.find(item => item.type === 'users' && item.id === state.userId);
+      const totalPoints = user.attributes['allowance-balance'];
+      console.log(totalPoints);
     } catch (error) {
       setHasError(true);
     }
@@ -52,15 +57,12 @@ const BonusContent = () => {
     autosize(document.querySelectorAll('textarea'));
   };
 
-  const { state, dispatch } = useContext(Context);
-
   useEffect(() => {
     updateBonusesList();
   }, []);
 
   const onSuccess = () => {
-    // updateBonusesList();
-    dispatch({ type: 'UPDATE_POINTS', payload: 20 });
+    updateBonusesList();
   };
 
   return (

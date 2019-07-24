@@ -1,6 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import styled from 'styled-components';
 import { ContextProvider } from './Context';
+import reducer from '../../../models/reducer';
+import ProfileService from '../../../services/ProfileService';
 import MainTemplate from '../../templates/MainTemplate';
 import BonusContent from '../../organisms/BonusContent';
 import BonusRating from '../../organisms/BonusRating';
@@ -14,15 +16,29 @@ const BonusMainWrap = styled.div`
 
 const BonusesPage = () => {
   const initialState = {
-    pointsLeft: 9000,
+    pointsLeft: 0,
+    userId: '',
   };
-  const reducer = (state, action) => {
-    if (action.type === 'UPDATE_POINTS') {
-      return { pointsLeft: action.payload };
-    }
-    return state;
-  };
+
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await ProfileService.fetchUser();
+        const payload = {
+          id: result.data.id,
+          ...result.data.attributes,
+        };
+        dispatch({ type: 'UPDATE_POINTS', payload: payload['allowance-balance'] });
+        dispatch({ type: 'SAVE_USER_ID', payload: payload.id });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <ContextProvider value={{ state, dispatch }}>
