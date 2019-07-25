@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import BonusTextarea from './BonusTextarea';
 import Button from '../../atoms/Button';
+import Context from '../../context/Context';
+import BonusService from '../../../services/BonusService';
 
 const Form = styled.form`
   width: 100%;
@@ -26,7 +28,9 @@ const ErrorContainer = styled.div`
 
 const regexObj = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };
 
-const SendBonusForm = props => {
+const SendBonusForm = () => {
+  const { state, dispatch } = useContext(Context);
+
   const [bonusText, setBonusText] = useState('');
   const [bonusTextareaValue, setBonusTextareaValue] = useState('');
   const [hasError, setHasError] = useState(false);
@@ -70,12 +74,10 @@ const SendBonusForm = props => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const { onSuccess, authService, bonusService } = props;
-    const token = authService.getToken();
     try {
-      await bonusService.createBonus(token, bonusText);
+      await BonusService.createBonus(bonusText);
+
       setBonusTextareaValue('');
-      onSuccess();
     } catch (error) {
       const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
       setHasError(true);
