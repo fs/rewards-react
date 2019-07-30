@@ -6,6 +6,32 @@ import ProfileService from '../../services/ProfileService';
 import bonusService from '../../services/BonusService';
 import bonusParser from '../../utils/bonusParser';
 
+export const fetchUserData = async dispatch => {
+  dispatch({ type: types.UPDATE_USER_LOADING });
+  try {
+    const result = await ProfileService.fetchUser();
+    const user = {
+      id: result.data.id,
+      pointsLeft: result.data.attributes['allowance-balance'],
+      name: result.data.attributes['full-name'],
+    };
+    dispatch({ type: types.UPDATE_USER_SUCCESS, payload: user });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchBonuses = async dispatch => {
+  dispatch({ type: types.UPDATE_BONUS_LIST_LOADING });
+  try {
+    const bonusListObject = await bonusService.fetchBonusesList();
+    const bonusListArray = bonusParser(bonusListObject.data);
+    dispatch({ type: types.UPDATE_BONUS_LIST_SUCCESS, payload: bonusListArray });
+  } catch (error) {
+    dispatch({ type: types.UPDATE_BONUS_LIST_ERROR, payload: true });
+  }
+};
+
 const DataProvider = ({ children }) => {
   const initialState = {
     user: {
@@ -21,35 +47,8 @@ const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await ProfileService.fetchUser();
-        const user = {
-          id: result.data.id,
-          pointsLeft: result.data.attributes['allowance-balance'],
-          name: result.data.attributes['full-name'],
-        };
-
-        dispatch({ type: types.UPDATE_USER, payload: user });
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const fetchBonuses = async () => {
-      dispatch({ type: types.UPDATE_BONUS_LIST_LOADING, payload: true });
-      try {
-        const bonusListObject = await bonusService.fetchBonusesList();
-        const bonusListArray = bonusParser(bonusListObject.data);
-        dispatch({ type: types.UPDATE_USER, payload: bonusListArray });
-        dispatch({ type: types.UPDATE_BONUS_LIST_LOADING, payload: false });
-      } catch (error) {
-        dispatch({ type: types.UPDATE_BONUS_LIST_ERROR, payload: true });
-      }
-    };
-
-    fetchData();
-    fetchBonuses();
+    fetchUserData(dispatch);
+    fetchBonuses(dispatch);
   }, []);
 
   return <ContextProvider value={{ state, dispatch }}>{children}</ContextProvider>;

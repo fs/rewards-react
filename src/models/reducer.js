@@ -1,24 +1,27 @@
+import * as types from './actionTypes';
+
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'UPDATE_USER':
+    case types.UPDATE_USER_SUCCESS:
       return {
         ...state,
         user: action.payload,
       };
-    case 'UPDATE_BONUS_LIST':
+    case types.UPDATE_BONUS_LIST_SUCCESS:
       return {
         ...state,
         bonusList: action.payload,
+        isLoading: false,
       };
-    case 'UPDATE_BONUS_LIST_ERROR':
+    case types.UPDATE_BONUS_LIST_ERROR:
       return {
         ...state,
         hasError: action.payload,
       };
-    case 'UPDATE_BONUS_LIST_LOADING':
+    case types.UPDATE_BONUS_LIST_LOADING:
       return {
         ...state,
-        isLoading: action.payload,
+        isLoading: true,
       };
     default:
       return state;
