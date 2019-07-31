@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import BonusTextarea from './BonusTextarea';
 import Button from '../../atoms/Button';
-import Context from '../../context/Context';
+// import Context from '../../context/Context';
 import BonusService from '../../../services/BonusService';
 
 const Form = styled.form`
@@ -29,8 +29,6 @@ const ErrorContainer = styled.div`
 const regexObj = { points: /\+[1-9]\d*/, userNames: /@\w+/, hashTags: /#\w+/ };
 
 const SendBonusForm = () => {
-  const { state, dispatch } = useContext(Context);
-
   const [bonusText, setBonusText] = useState('');
   const [bonusTextareaValue, setBonusTextareaValue] = useState('');
   const [hasError, setHasError] = useState(false);

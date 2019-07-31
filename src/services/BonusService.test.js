@@ -1,9 +1,10 @@
 import BonusService from './BonusService';
 import api from './ApiService';
+import AuthService from './AuthService';
 import bonusResponse from '../mock_data/bonusResponse';
 
 jest.mock('./ApiService');
-
+jest.mock('./AuthService');
 
 describe('BonusService', () => {
   const expectedPath = '/user/bonuses';
@@ -14,7 +15,8 @@ describe('BonusService', () => {
 
   test('createBonus HappyPath', async () => {
     // Arrange
-    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
 
     const expectedBonusCount = '+1';
     const expectedReceiver = '@albert.fazullin';
@@ -57,20 +59,24 @@ describe('BonusService', () => {
       },
     };
 
-    const mockApiServicePost = jest.fn(
-      () => new Promise((resolve) => {
-        resolve(expectedResponse);
-      }),
-    );
+    const mockGetToken = jest.fn(() => expectedToken);
+    AuthService.getToken.mockImplementation(mockGetToken);
 
+    const mockApiServicePost = jest.fn(
+      () =>
+        new Promise(resolve => {
+          resolve(expectedResponse);
+        }),
+    );
     api.post.mockImplementation(mockApiServicePost);
 
     // Act
-    const actualResponse = await BonusService.createBonus(expectedToken, expectedBonusText);
+    const actualResponse = await BonusService.createBonus(expectedBonusText);
 
     // Assert
     expect(actualResponse).toEqual(expectedResponse);
-    expect(api.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(AuthService.getToken).toHaveBeenCalled();
+    expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus InvalidToken', async () => {
@@ -104,30 +110,35 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockApiServicePost = jest.fn(
-      () => new Promise((resolve, reject) => {
-        reject(expectedError);
-      }),
-    );
+    const mockGetToken = jest.fn(() => expectedToken);
+    AuthService.getToken.mockImplementation(mockGetToken);
 
+    const mockApiServicePost = jest.fn(
+      () =>
+        new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
+    );
     api.post.mockImplementation(mockApiServicePost);
 
     let actualError;
     try {
       // Act
-      await BonusService.createBonus(expectedToken, expectedBonusText);
+      await BonusService.createBonus(expectedBonusText);
     } catch (error) {
       actualError = error;
     }
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(api.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(AuthService.getToken).toHaveBeenCalled();
+    expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus NotEnoughBonuses', async () => {
     // Arrange
-    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
 
     const expectedBonusCount = '+1000000';
     const expectedReceiver = '@albert.fazullin';
@@ -158,30 +169,35 @@ describe('BonusService', () => {
       ],
     };
 
-    const mockApiServicePost = jest.fn(
-      () => new Promise((resolve, reject) => {
-        reject(expectedError);
-      }),
-    );
+    const mockGetToken = jest.fn(() => expectedToken);
+    AuthService.getToken.mockImplementation(mockGetToken);
 
+    const mockApiServicePost = jest.fn(
+      () =>
+        new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
+    );
     api.post.mockImplementation(mockApiServicePost);
 
     let actualError;
     try {
       // Act
-      await BonusService.createBonus(expectedToken, expectedBonusText);
+      await BonusService.createBonus(expectedBonusText);
     } catch (error) {
       actualError = error;
     }
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(api.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(AuthService.getToken).toHaveBeenCalled();
+    expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus InvalidBonusText', async () => {
     // Arrange
-    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
 
     const expectedBonusCount = '';
     const expectedReceiver = '';
@@ -230,31 +246,35 @@ describe('BonusService', () => {
       ],
     };
 
+    const mockGetToken = jest.fn(() => expectedToken);
+    AuthService.getToken.mockImplementation(mockGetToken);
+
     const mockApiServicePost = jest.fn(
-      () => new Promise((resolve, reject) => {
-        reject(expectedError);
-      }),
+      () =>
+        new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
     );
-
     api.post.mockImplementation(mockApiServicePost);
-
 
     let actualError;
     try {
       // Act
-      await BonusService.createBonus(expectedToken, expectedBonusText);
+      await BonusService.createBonus(expectedBonusText);
     } catch (error) {
       actualError = error;
     }
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(api.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(AuthService.getToken).toHaveBeenCalled();
+    expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams, config);
   });
 
   test('createBonus SendBonusToYourself', async () => {
     // Arrange
-    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
 
     const expectedBonusCount = '+1';
     const expectedMyEmail = 'nadezhda.kharchuk@flatstack.com';
@@ -285,31 +305,35 @@ describe('BonusService', () => {
       ],
     };
 
+    const mockGetToken = jest.fn(() => expectedToken);
+    AuthService.getToken.mockImplementation(mockGetToken);
+
     const mockApiServicePost = jest.fn(
-      () => new Promise((resolve, reject) => {
-        reject(expectedError);
-      }),
+      () =>
+        new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
     );
-
     api.post.mockImplementation(mockApiServicePost);
-
 
     let actualError;
     try {
       // Act
-      await BonusService.createBonus(expectedToken, expectedBonusText);
+      await BonusService.createBonus(expectedBonusText);
     } catch (error) {
       actualError = error;
     }
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(api.post).toBeCalledWith(expectedPath, expectedParams, config);
+    expect(AuthService.getToken).toHaveBeenCalled();
+    expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams, config);
   });
 
   test('update BonusesList HappyPath', async () => {
     // Arrange
-    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
 
     const config = {
       headers: { Authorization: `Bearer ${expectedToken}` },
@@ -317,12 +341,15 @@ describe('BonusService', () => {
 
     const expectedResponse = bonusResponse;
 
-    const mockApiServiceGet = jest.fn(
-      () => new Promise((resolve) => {
-        resolve(expectedResponse);
-      }),
-    );
+    const mockGetToken = jest.fn(() => expectedToken);
+    AuthService.getToken.mockImplementation(mockGetToken);
 
+    const mockApiServiceGet = jest.fn(
+      () =>
+        new Promise(resolve => {
+          resolve(expectedResponse);
+        }),
+    );
     api.get.mockImplementation(mockApiServiceGet);
 
     // Act
@@ -330,12 +357,14 @@ describe('BonusService', () => {
 
     // Assert
     expect(actualResponse).toEqual(expectedResponse);
-    expect(api.get).toBeCalledWith(expectedPath, config);
+    expect(AuthService.getToken).toHaveBeenCalled();
+    expect(api.get).toHaveBeenCalledWith(expectedPath, config);
   });
 
   test('update BonusesList invalid credentials', async () => {
     // Arrange
-    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
+    const expectedToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
 
     const config = {
       headers: { Authorization: `Bearer ${expectedToken}` },
@@ -351,13 +380,15 @@ describe('BonusService', () => {
       ],
     };
 
+    const mockGetToken = jest.fn(() => expectedToken);
+    AuthService.getToken.mockImplementation(mockGetToken);
+
     const mockApiServiceGet = jest.fn(
-      () => new Promise((resolve, reject) => {
-        reject(expectedError);
-      }),
+      () =>
+        new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
     );
-
-
     api.get.mockImplementation(mockApiServiceGet);
 
     // Act
@@ -371,6 +402,7 @@ describe('BonusService', () => {
 
     // Assert
     expect(actualError).toEqual(expectedError);
-    expect(api.get).toBeCalledWith(expectedPath, config);
+    expect(AuthService.getToken).toHaveBeenCalled();
+    expect(api.get).toHaveBeenCalledWith(expectedPath, config);
   });
 });

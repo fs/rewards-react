@@ -2,9 +2,7 @@ import 'jest-dom/extend-expect';
 import 'react-testing-library/cleanup-after-each';
 import React from 'react';
 import { Redirect as mockRedirect } from 'react-router';
-import {
-  render, fireEvent, wait, waitForElement,
-} from 'react-testing-library';
+import { render, fireEvent, wait, waitForElement } from 'react-testing-library';
 import AuthService from '../../../services/AuthService';
 import LoginPage from './index';
 
@@ -22,12 +20,14 @@ describe('LoginPage test', () => {
 
   test('should call authenticate onSubmit LoginPage', async () => {
     // Arrange
-    const expectedToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
-    const mockAuthenticate = jest.fn(() => (
-      new Promise((resolve) => {
-        resolve(expectedToken);
-      })
-    ));
+    const expectedToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDY5MzYwODEsInN1YiI6MTg5fQ.WmEzvkjo1UpHRfWzr5Vv_hbBIJtYiT5_0bsPD0DAXEQ';
+    const mockAuthenticate = jest.fn(
+      () =>
+        new Promise(resolve => {
+          resolve(expectedToken);
+        }),
+    );
     AuthService.authenticate.mockImplementation(mockAuthenticate);
 
     const expectedEmail = 'leyla.khamidullina@flatstack.com';
@@ -45,7 +45,7 @@ describe('LoginPage test', () => {
 
     // Assert
     await wait(() => {
-      expect(AuthService.authenticate).toBeCalledWith(expectedEmail, expectedPassword);
+      expect(AuthService.authenticate).toHaveBeenCalledWith(expectedEmail, expectedPassword);
       expect(mockRedirect).toHaveBeenCalledTimes(1);
       expect(mockRedirect).toHaveBeenCalledWith({ to: '/bonuses' }, {});
     });
@@ -57,11 +57,12 @@ describe('LoginPage test', () => {
     const expectedResponse = `{"errors":[{"source":{"pointer":"/data/attributes/base"},"detail":"${expectedErrorMessage}"}]}`;
     const expectedError = { response: { request: { response: expectedResponse } } };
 
-    const mockAuthenticate = jest.fn(() => (
-      new Promise((resolve, reject) => {
-        reject(expectedError);
-      })
-    ));
+    const mockAuthenticate = jest.fn(
+      () =>
+        new Promise((resolve, reject) => {
+          reject(expectedError);
+        }),
+    );
     AuthService.authenticate.mockImplementation(mockAuthenticate);
 
     const expectedEmail = 'test@flatstack.com';
@@ -82,7 +83,7 @@ describe('LoginPage test', () => {
 
     // Assert
     await wait(() => {
-      expect(AuthService.authenticate).toBeCalledWith(expectedEmail, expectedPassword);
+      expect(AuthService.authenticate).toHaveBeenCalledWith(expectedEmail, expectedPassword);
       expect(mockRedirect).toHaveBeenCalledTimes(0);
       expect(errorContainer).toHaveTextContent(expectedErrorMessage);
       expect(button).not.toBeDisabled();

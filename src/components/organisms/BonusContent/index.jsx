@@ -23,7 +23,7 @@ const MyBonuses = styled.h2`
 `;
 
 const BonusContent = () => {
-  const { state, dispatch } = useContext(Context);
+  const { state } = useContext(Context);
 
   useEffect(() => {
     autosize(document.querySelectorAll('textarea'));

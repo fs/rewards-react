@@ -14,16 +14,9 @@ jest.mock('../../../services/AuthService');
 jest.mock('../../../services/BonusService');
 
 describe('SendBonusForm', () => {
-  let expectedToken;
-
   beforeEach(() => {
     jest.resetModules();
     jest.clearAllMocks();
-    expectedToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTA3MzcwNjIsInN1YiI6MzczLCJ0eXBlIjoiYWNjZXNzIn0.JyTOZ8boBYlq0U3Iz3oVs7Tf-eeBLmD_Kl9ml2TO4YA';
-
-    const mockGetToken = jest.fn(() => expectedToken);
-    AuthService.getToken.mockImplementation(mockGetToken);
   });
 
   test('should call bonusService.createBonus on submit', async () => {
@@ -54,8 +47,7 @@ describe('SendBonusForm', () => {
 
     // Assert
     await wait(() => {
-      expect(AuthService.getToken).toHaveBeenCalledTimes(1);
-      expect(BonusService.createBonus).toBeCalledWith(expectedToken, expectedBonusText);
+      expect(BonusService.createBonus).toHaveBeenCalledWith(expectedBonusText);
     });
   });
 
@@ -93,7 +85,7 @@ describe('SendBonusForm', () => {
 
     // Assert
     await wait(() => {
-      expect(BonusService.createBonus).toBeCalledWith(expectedToken, expectedBonusText);
+      expect(BonusService.createBonus).toHaveBeenCalledWith(expectedBonusText);
       expect(errorContainer).toHaveTextContent(expectedErrorMessage);
     });
   });
