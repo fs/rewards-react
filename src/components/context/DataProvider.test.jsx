@@ -1,8 +1,10 @@
 import {
   UPDATE_USER_LOADING,
   UPDATE_USER_SUCCESS,
+  UPDATE_USER_ERROR,
   UPDATE_BONUS_LIST_SUCCESS,
   UPDATE_BONUS_LIST_LOADING,
+  UPDATE_BONUS_LIST_ERROR,
 } from '../../models/actionTypes';
 import expectedBonusResponse from '../../mock_data/bonusResponse';
 import expectedBonusList from '../../mock_data/bonusList';
@@ -60,10 +62,27 @@ describe('DataProvider', () => {
       expect(mockDispatch).toHaveBeenLastCalledWith(expectedSucceedRequestAction);
     });
 
-    test('error occurred', () => {
+    test('error occurred', async () => {
       // Arrange
+      const expectedStartRequestAction = { type: UPDATE_USER_LOADING };
+      const expectedErrorRequestAction = { type: UPDATE_USER_ERROR };
+      const mockDispatch = jest.fn();
+
+      const mockFetchUser = jest.fn(
+        () =>
+          new Promise((resolve, reject) => {
+            reject();
+          }),
+      );
+
+      mockProfileService.fetchUser.mockImplementation(mockFetchUser);
+
       // Act
+      await fetchUserData(mockDispatch);
+
       // Assert
+      expect(mockDispatch).toHaveBeenNthCalledWith(1, expectedStartRequestAction);
+      expect(mockDispatch).toHaveBeenLastCalledWith(expectedErrorRequestAction);
     });
   });
 
@@ -87,6 +106,27 @@ describe('DataProvider', () => {
       // Assert
       expect(mockDispatch).toHaveBeenNthCalledWith(1, expectedStartRequestAction);
       expect(mockDispatch).toHaveBeenLastCalledWith(expectedSucceedRequestAction);
+    });
+
+    test('error occurred', async () => {
+      // Arrange
+      const expectedStartRequestAction = { type: UPDATE_BONUS_LIST_LOADING };
+      const expectedErrorRequestAction = { type: UPDATE_BONUS_LIST_ERROR };
+
+      const mockDispatch = jest.fn();
+      mockBonusService.fetchBonusesList.mockImplementation(
+        () =>
+          new Promise((resolve, reject) => {
+            reject();
+          }),
+      );
+
+      // Act
+      await fetchBonuses(mockDispatch);
+
+      // Assert
+      expect(mockDispatch).toHaveBeenNthCalledWith(1, expectedStartRequestAction);
+      expect(mockDispatch).toHaveBeenLastCalledWith(expectedErrorRequestAction);
     });
   });
 });

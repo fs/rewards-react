@@ -6,22 +6,39 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
+        isUserLoading: false,
+        hasUserError: false,
+      };
+    case types.UPDATE_USER_LOADING:
+      return {
+        ...state,
+        isUserLoading: true,
+        hasUserError: false,
+      };
+    case types.UPDATE_USER_ERROR:
+      return {
+        ...state,
+        isUserLoading: false,
+        hasUserError: true,
       };
     case types.UPDATE_BONUS_LIST_SUCCESS:
       return {
         ...state,
         bonusList: action.payload,
-        isLoading: false,
+        isBonusListLoading: false,
+        hasBonusListError: false,
       };
     case types.UPDATE_BONUS_LIST_ERROR:
       return {
         ...state,
-        hasError: action.payload,
+        hasBonusListError: true,
+        isBonusListLoading: false,
       };
     case types.UPDATE_BONUS_LIST_LOADING:
       return {
         ...state,
-        isLoading: true,
+        isBonusListLoading: true,
+        hasBonusListError: false,
       };
     default:
       return state;

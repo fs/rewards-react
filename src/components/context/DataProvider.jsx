@@ -17,7 +17,7 @@ export const fetchUserData = async dispatch => {
     };
     dispatch({ type: types.UPDATE_USER_SUCCESS, payload: user });
   } catch (error) {
-    console.log(error);
+    dispatch({ type: types.UPDATE_USER_ERROR });
   }
 };
 
@@ -28,7 +28,7 @@ export const fetchBonuses = async dispatch => {
     const bonusListArray = bonusParser(bonusListObject.data);
     dispatch({ type: types.UPDATE_BONUS_LIST_SUCCESS, payload: bonusListArray });
   } catch (error) {
-    dispatch({ type: types.UPDATE_BONUS_LIST_ERROR, payload: true });
+    dispatch({ type: types.UPDATE_BONUS_LIST_ERROR });
   }
 };
 
@@ -40,8 +40,10 @@ const DataProvider = ({ children }) => {
       name: '',
     },
     bonusList: [],
-    isLoading: false,
-    hasError: false,
+    isBonusListLoading: false,
+    hasBonusListError: false,
+    isUserLoading: false,
+    hasUserError: false,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);

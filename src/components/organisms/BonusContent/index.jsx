@@ -33,7 +33,7 @@ const BonusContent = () => {
     <BonusContentWrapper>
       <MyBonuses>{state.user.pointsLeft} points to give away</MyBonuses>
       <SendBonusForm />
-      <BonusList bonusList={state.bonusList} hasError={state.hasError} isLoading={state.isLoading} />
+      <BonusList bonusList={state.bonusList} hasError={state.hasBonusListError} isLoading={state.isBonusListLoading} />
     </BonusContentWrapper>
   );
 };

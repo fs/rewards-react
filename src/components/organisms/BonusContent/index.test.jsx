@@ -11,8 +11,8 @@ import mockBonusList from '../../../mock_data/bonusList';
 import Context from '../../context/Context';
 
 describe('BonusContent index', () => {
-  let isLoading;
-  let hasError;
+  let isBonusListLoading;
+  let hasBonusListError;
   let bonusList;
   const user = {
     id: '39',
@@ -21,8 +21,8 @@ describe('BonusContent index', () => {
   };
 
   beforeEach(() => {
-    isLoading = false;
-    hasError = false;
+    isBonusListLoading = false;
+    hasBonusListError = false;
     bonusList = [];
 
     jest.clearAllMocks();
@@ -31,12 +31,12 @@ describe('BonusContent index', () => {
 
   test('render BonusContent while loading', () => {
     // Arrange
-    isLoading = true;
+    isBonusListLoading = true;
     const state = {
       user,
       bonusList,
-      isLoading,
-      hasError,
+      isBonusListLoading,
+      hasBonusListError,
     };
 
     // Act
@@ -58,8 +58,8 @@ describe('BonusContent index', () => {
     const state = {
       user,
       bonusList,
-      isLoading,
-      hasError,
+      isBonusListLoading,
+      hasBonusListError,
     };
 
     // Act
@@ -77,13 +77,13 @@ describe('BonusContent index', () => {
 
   test('should render error message if error', () => {
     // Arrange
-    hasError = true;
+    hasBonusListError = true;
 
     const state = {
       user,
       bonusList,
-      isLoading,
-      hasError,
+      isBonusListLoading,
+      hasBonusListError,
     };
 
     // Act
