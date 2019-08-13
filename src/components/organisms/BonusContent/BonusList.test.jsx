@@ -1,9 +1,5 @@
 import React from 'react';
-import 'jest-dom/extend-expect';
-import 'react-testing-library/cleanup-after-each';
-import {
-  render,
-} from 'react-testing-library';
+import { render } from '@testing-library/react';
 import mockBonusList from '../../../mock_data/bonusList';
 
 import BonusList from './BonusList';
@@ -18,15 +14,12 @@ describe('BonusList', () => {
     // Act
     const { getByTestId } = render(<BonusList bonusList={expectedBonusList} isLoading={expectedIsLoading} />);
     const bonusList = getByTestId('test-bonus-list');
-    const bonus = getByTestId('test-bonus');
 
     // Assert
-    expect(bonusList).toBeInTheDocument();
-    expect(bonusList.children.length).toBe(10);
-    expect(bonus).toBeDefined();
+    expect(bonusList).toMatchSnapshot();
   });
 
-  test('Should still loading if network error', async () => {
+  test('If loading', async () => {
     // Arrange
     const expectedBonusList = [];
     const expectedIsLoading = true;
@@ -36,6 +29,19 @@ describe('BonusList', () => {
     const loader = getByTestId('test-loader');
 
     // Assert
-    expect(loader).toBeInTheDocument();
+    expect(loader).toMatchSnapshot();
+  });
+
+  test('If error', async () => {
+    // Arrange
+    const expectedBonusList = [];
+    const expectedHasError = true;
+
+    // Act
+    const { getByTestId } = render(<BonusList bonusList={expectedBonusList} hasError={expectedHasError} />);
+    const error = getByTestId('test-error');
+
+    // Assert
+    expect(error).toMatchSnapshot();
   });
 });

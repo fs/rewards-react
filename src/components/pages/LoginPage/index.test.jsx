@@ -1,8 +1,8 @@
-import 'jest-dom/extend-expect';
-import 'react-testing-library/cleanup-after-each';
+import '@testing-library/jest-dom/extend-expect';
+
 import React from 'react';
 import { Redirect as mockRedirect } from 'react-router';
-import { render, fireEvent, wait, waitForElement } from 'react-testing-library';
+import { render, fireEvent, wait, waitForElement } from '@testing-library/react';
 import AuthService from '../../../services/AuthService';
 import LoginPage from './index';
 

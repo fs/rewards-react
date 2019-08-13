@@ -1,0 +1,1480 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BonusList If error 1`] = `
+<div
+  class="sc-eNQAEJ bEJVBI"
+  data-testid="test-error"
+>
+  Something went wrong
+</div>
+`;
+
+exports[`BonusList If loading 1`] = `
+<div
+  class="sc-jKJlTe iWORUN"
+  data-testid="test-loader"
+>
+  Content is loading
+</div>
+`;
+
+exports[`BonusList Should show bonus list 1`] = `
+<div
+  class="sc-ckVGcZ foYhJp"
+  data-testid="test-bonus-list"
+>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Ivan Ananev"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      >
+        <time
+          class=""
+          datetime="2019-05-16T06:07:25.102Z"
+          timeago-tid="2"
+        >
+          2 months ago
+        </time>
+      </div>
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          bot
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span>
+            to
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @ivan.ananev
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+          <span>
+            for
+             
+          </span>
+          <span>
+            move
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Almaz Karimullin"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      >
+        <time
+          class=""
+          datetime="2019-04-30T10:45:31.860Z"
+          timeago-tid="3"
+        >
+          3 months ago
+        </time>
+      </div>
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          Mariya Valeeva
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #test
+             
+          </span>
+          <span>
+            
+             
+          </span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span>
+            
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @almaz.karimullin
+             
+          </span>
+          <span>
+            
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    >
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              test
+               
+            </span>
+            <span>
+              comment
+               
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        5
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Albert Fazullin"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      >
+        <time
+          class=""
+          datetime="2019-04-30T08:08:48.835Z"
+          timeago-tid="4"
+        >
+          3 months ago
+        </time>
+      </div>
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          Nadezhda Kharchuk
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @albert.fazullin
+             
+          </span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +5
+             
+          </span>
+          <span>
+            test
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Ivan Ananev"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      >
+        <time
+          class=""
+          datetime="2019-04-29T14:45:01.136Z"
+          timeago-tid="5"
+        >
+          3 months ago
+        </time>
+      </div>
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          bot
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span>
+            to
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @ivan.ananev
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+          <span>
+            for
+             
+          </span>
+          <span>
+            move
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Ivan Ananev"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      >
+        <time
+          class=""
+          datetime="2019-04-29T14:09:28.921Z"
+          timeago-tid="6"
+        >
+          3 months ago
+        </time>
+      </div>
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          bot
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span>
+            to
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @ivan.ananev
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+          <span>
+            for
+             
+          </span>
+          <span>
+            move
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Ivan Ananev"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      >
+        <time
+          class=""
+          datetime="2019-04-29T14:09:03.831Z"
+          timeago-tid="7"
+        >
+          3 months ago
+        </time>
+      </div>
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          bot
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span>
+            to
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @ivan.ananev
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+          <span>
+            for
+             
+          </span>
+          <span>
+            excercise
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Ivan Ananev"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      >
+        <time
+          class=""
+          datetime="2019-04-29T13:41:07.396Z"
+          timeago-tid="8"
+        >
+          3 months ago
+        </time>
+      </div>
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          bot
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span>
+            to
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @ivan.ananev
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+          <span>
+            for
+             
+          </span>
+          <span>
+            stand
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        5
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Albert Fazullin"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      >
+        <time
+          class=""
+          datetime="2019-04-24T10:23:19.956Z"
+          timeago-tid="9"
+        >
+          3 months ago
+        </time>
+      </div>
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          Timur Vafin
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +5
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @albert.fazullin
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+          <span>
+            test
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Ivan Ananev"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      >
+        <time
+          class=""
+          datetime="2019-04-18T11:04:51.123Z"
+          timeago-tid="10"
+        >
+          3 months ago
+        </time>
+      </div>
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          bot
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span>
+            to
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @ivan.ananev
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+          <span>
+            Hey
+             
+          </span>
+          <span>
+            Ho!!!
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Leyla Khamidullina"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Albert Fazullin"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      >
+        <time
+          class=""
+          datetime="2019-04-17T16:06:47.974Z"
+          timeago-tid="11"
+        >
+          3 months ago
+        </time>
+      </div>
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          Nadezhda Kharchuk
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span>
+            @olga.krasnova
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @albert.fazullin
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @leyla.khamidullina
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+          <span>
+            test
+             
+          </span>
+          <span>
+            react
+             
+          </span>
+          <span>
+            rewards
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #create-awesomeness
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
