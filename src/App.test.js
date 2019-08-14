@@ -1,19 +1,12 @@
-import 'jest-dom/extend-expect';
-import 'react-testing-library/cleanup-after-each';
-
 import React from 'react';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 import App from './App';
 
 function renderWithRouter(
   ui,
-  {
-    route = '/',
-    history = createMemoryHistory({ initialEntries: [route] }),
-    ...options
-  } = {},
+  { route = '/', history = createMemoryHistory({ initialEntries: [route] }), ...options } = {},
 ) {
   return {
     ...render(<Router history={history}>{ui}</Router>, options),
@@ -31,7 +24,7 @@ describe('App Router test', () => {
     const loginForm = getByTestId('test-login-form');
 
     // Assert
-    expect(loginForm).toBeInTheDocument();
+    expect(loginForm).toMatchSnapshot();
   });
 
   test('should show BonusPage on /bonuses', () => {
@@ -43,6 +36,6 @@ describe('App Router test', () => {
     const bonusForm = getByTestId('test-bonus-form');
 
     // Assert
-    expect(bonusForm).toBeInTheDocument();
+    expect(bonusForm).toMatchSnapshot();
   });
 });

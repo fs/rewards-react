@@ -1,10 +1,10 @@
-import 'jest-dom/extend-expect';
-import 'react-testing-library/cleanup-after-each';
+import '@testing-library/jest-dom/extend-expect';
+
 import 'jest-styled-components';
 
 import React from 'react';
 
-import { render, fireEvent, wait, act } from 'react-testing-library';
+import { render, fireEvent, wait, act } from '@testing-library/react';
 import AuthService from '../../../services/AuthService';
 import BonusService from '../../../services/BonusService';
 

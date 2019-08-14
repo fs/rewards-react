@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Router test should show BonusPage on /bonuses 1`] = `
+<form
+  class="sc-jzJRlG ijijlk"
+  data-testid="test-bonus-form"
+>
+  <div
+    data-testid="test-textarea-wrapper"
+  >
+    <div
+      class="sc-jTzLTM epWzcG"
+    >
+      <button
+        class="sc-VigVT htKYpd"
+        type="button"
+      >
+        <img
+          alt="Points"
+          src="[object Object]"
+        />
+      </button>
+      <button
+        class="sc-VigVT htKYpd"
+        type="button"
+      >
+        <img
+          alt="User"
+          src="[object Object]"
+        />
+      </button>
+      <button
+        class="sc-VigVT htKYpd"
+        type="button"
+      >
+        <img
+          alt="Hashtag"
+          src="[object Object]"
+        />
+      </button>
+    </div>
+    <div
+      class="rta  "
+    >
+      <textarea
+        class="rta__textarea autocomplete-textarea"
+        data-testid="test-textarea"
+        name="bonus-text"
+        placeholder="+100 @person add description for #create_awesomness"
+        style="overflow-x: hidden; word-wrap: break-word; overflow-y: hidden;"
+      />
+    </div>
+  </div>
+  <div
+    data-testid="test-error-container"
+  />
+  <button
+    class="sc-fjdhpX bTUXGv"
+    data-testid="test-button"
+  >
+    Give
+  </button>
+</form>
+`;
+
+exports[`App Router test should show LoginPage on main page 1`] = `
+<form
+  class="sc-bZQynM XNbBq"
+  data-testid="test-login-form"
+>
+  <div
+    class="sc-gzVnrw diHvOH"
+  >
+    <label
+      class="sc-EHOje fYypYD"
+      for="email"
+    >
+      Email
+    </label>
+    <input
+      class="text-input sc-htoDjs dYNcVz"
+      data-testid="test-email"
+      id="email"
+      name="email"
+      placeholder="Enter your email"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="sc-gzVnrw diHvOH"
+  >
+    <label
+      class="sc-EHOje fYypYD"
+      for="password"
+    >
+      Password
+    </label>
+    <input
+      class="text-input sc-htoDjs dYNcVz"
+      data-testid="test-password"
+      id="password"
+      name="password"
+      placeholder="Password"
+      type="password"
+      value=""
+    />
+  </div>
+  <div
+    class="sc-dnqmqq dSTNcU"
+  />
+  <button
+    class="sc-iwsKbI cqSQyr"
+    data-testid="test-button"
+    type="submit"
+  >
+    Login
+  </button>
+</form>
+`;

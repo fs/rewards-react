@@ -22,7 +22,7 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": 0,
-    "react/no-array-index-key": false,
+    "react/no-array-index-key": 0,
     "global-require": "warn",
     "no-underscore-dangle": [2, { "allow": [ "__STORE__" ] }],
     "jsx-a11y/label-has-for": [ 1, {
