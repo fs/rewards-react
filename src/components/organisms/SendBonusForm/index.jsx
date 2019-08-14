@@ -4,6 +4,8 @@ import BonusTextarea from './BonusTextarea';
 import Button from '../../atoms/Button';
 // import Context from '../../context/Context';
 import BonusService from '../../../services/BonusService';
+import bonusParser from '../../../utils/bonusParser';
+import * as types from '../../../models/actionTypes';
 
 const Form = styled.form`
   width: 100%;
@@ -70,59 +72,21 @@ const SendBonusForm = () => {
     updateBonusButton(values);
   };
 
-  const bonusTextParser = text => {
-    return text.split(' ').map(item => {
-      let type = 'text';
-      if (item.match(regexObj.points)) {
-        type = 'points';
-      }
-      if (item.match(regexObj.userNames)) {
-        type = 'users';
-      }
-      if (item.match(regexObj.hashTags)) {
-        type = 'tags';
-      }
-      return {
-        text: item,
-        type,
-      };
-    });
-  };
-
-  const bonusItemAdapter = bonus => {
-    return {
-      comments: [],
-      'created-at': bonus.data.attributes['created-at'],
-      id: bonus.data.id,
-      points: bonus.data.attributes.points,
-      receivers: [
-        {
-          'allowance-balance': 500,
-          'bonus-balance': 6,
-          email: 'ivan.ananev@flatstack.com',
-          'full-name': 'Ivan Ananev',
-          'profile-image-avatar-url':
-            'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
-          username: 'ivan.ananev',
-        },
-      ],
-      sender: bonus.data.relationships.sender.data.type,
-      text: bonusTextParser(bonus.data.attributes.text),
-      'total-points': bonus.data.attributes['total-points'],
-    };
-  };
-
   const handleSubmit = async event => {
     event.preventDefault();
     try {
       const createdBonus = await BonusService.createBonus(bonusText);
-      bonusItemAdapter(createdBonus);
+
+      const bonusListArray = bonusParser(createdBonus.data);
+      console.log(bonusListArray);
+      // dispatch({ type: types.UPDATE_BONUS_LIST_SUCCESS, payload: bonusListArray });
 
       setBonusTextareaValue('');
     } catch (error) {
-      const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      // const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
       setHasError(true);
-      setErrorMessage(parsedErrorMessage);
+      // setErrorMessage(parsedErrorMessage);
+      console.log(error);
     }
   };
 

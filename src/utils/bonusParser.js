@@ -1,6 +1,5 @@
-const bonusParser = data => {
-  const bonuses = data.data;
-  const { included } = data;
+const bonusParser = ({ data, included }) => {
+  const bonuses = Array.isArray(data) ? data : [data];
 
   const userNames = included
     .filter(includedElem => includedElem.type === 'users')
