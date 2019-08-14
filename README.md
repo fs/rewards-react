@@ -1,4 +1,4 @@
-# rewards-react
+# rewards-react-app
 
 [![Build Status](https://travis-ci.org/fs/rewards-react.svg?branch=master)](https://travis-ci.org/fs/rewards-react)
 
