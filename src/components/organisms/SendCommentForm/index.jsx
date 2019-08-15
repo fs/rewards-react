@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
+import Context from '../../context/Context';
 import CommentTextarea from './CommentTextarea';
 import Button from '../../atoms/Button';
 import HelperIcon from '../../atoms/HelperIcon';
+import { UPDATE_BONUS_LIST_SUCCESS } from '../../../models/actionTypes';
+import bonusParser from '../../../utils/bonusParser';
 
 const Form = styled.form`
   width: 100%;
@@ -51,6 +54,7 @@ const SendCommentForm = props => {
   const [messageHashTagIsValid, setMessageHashTagIsValid] = useState(false);
   const [commentButtonText, setCommentButtonText] = useState('Add');
   const [isControlsShowing, setIsControlsShowing] = useState(false);
+  const { state, dispatch } = useContext(Context);
 
   const validate = (values, regex) => {
     const res = values.find(value => value.match(regex));
@@ -87,11 +91,28 @@ const SendCommentForm = props => {
     const { onSuccess, commentService, bonusId } = props;
 
     try {
-      await commentService.createComment(commentTextareaValue, bonusId);
+      const response = await commentService.createComment(commentTextareaValue, bonusId);
+      const newBonus = bonusParser(response.data);
+      const { bonusList } = state;
+
+      const newBonusList = bonusList.map(item => {
+        if (item.id === newBonus[0].id) {
+          return newBonus[0];
+        }
+        return item;
+      });
+
       setCommentTextareaValue('');
       onSuccess();
+      dispatch({ type: UPDATE_BONUS_LIST_SUCCESS, payload: newBonusList });
     } catch (error) {
-      const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      let parsedErrorMessage;
+      if (error.response && error.response.request && error.response.request.response) {
+        parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      } else {
+        console.error(error);
+        parsedErrorMessage = 'Error occurred';
+      }
       setHasError(true);
       setErrorMessage(parsedErrorMessage);
     }

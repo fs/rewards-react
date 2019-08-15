@@ -1,6 +1,5 @@
-const bonusParser = data => {
-  const bonuses = data.data;
-  const { included } = data;
+const bonusParser = ({ data, included }) => {
+  const bonuses = Array.isArray(data) ? data : [data];
 
   const userNames = included
     .filter(includedElem => includedElem.type === 'users')
@@ -12,7 +11,6 @@ const bonusParser = data => {
     const senderId = item.relationships.sender.data.id;
     const senderType = item.relationships.sender.data.type;
     const senderObj = included.find(includedItem => includedItem.id === senderId && includedItem.type === senderType);
-
     if (senderObj.type === 'bots') {
       return 'bot';
     }
@@ -51,7 +49,6 @@ const bonusParser = data => {
 
   const commentParser = (bonusId, list) => {
     const comments = list.filter(comment => bonusId === comment.relationships.bonus.data.id);
-
     return comments.map(comment => {
       return {
         id: comment.id,
