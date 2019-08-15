@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import styled from 'styled-components';
 import BonusTextarea from './BonusTextarea';
 import Button from '../../atoms/Button';
@@ -6,6 +6,7 @@ import Button from '../../atoms/Button';
 import BonusService from '../../../services/BonusService';
 import bonusParser from '../../../utils/bonusParser';
 import * as types from '../../../models/actionTypes';
+import reducer from '../../../models/reducer';
 
 const Form = styled.form`
   width: 100%;
@@ -39,6 +40,7 @@ const SendBonusForm = () => {
   const [messageUserNameIsValid, setMessageUserNameIsValid] = useState(false);
   const [messageHashTagIsValid, setMessageHashTagIsValid] = useState(false);
   const [bonusButtonText, setBonusButtonText] = useState('Give');
+  const [dispatch] = useReducer(reducer);
 
   const validate = (values, regex) => {
     const res = values.find(value => value.match(regex));
@@ -79,7 +81,7 @@ const SendBonusForm = () => {
 
       const bonusListArray = bonusParser(createdBonus.data);
       console.log(bonusListArray);
-      // dispatch({ type: types.UPDATE_BONUS_LIST_SUCCESS, payload: bonusListArray });
+      dispatch({ type: types.UPDATE_BONUS_LIST_SUCCESS, payload: bonusListArray });
 
       setBonusTextareaValue('');
     } catch (error) {
