@@ -40,13 +40,16 @@ const reducer = (state, action) => {
         isBonusListLoading: true,
         hasBonusListError: false,
       };
-    case types.ADD_TO_BONUS_LIST:
+    case types.ADD_TO_BONUS_LIST: {
+      const bonusListReduced = state.bonusList.length >= 10 ? state.bonusList.slice(0, -1) : state.bonusList;
+
       return {
         ...state,
-        bonusList: [...action.payload, ...state.bonusList.slice(0, -1)],
+        bonusList: [action.payload, ...bonusListReduced],
         isBonusListLoading: false,
         hasBonusListError: false,
       };
+    }
     default:
       return state;
   }
