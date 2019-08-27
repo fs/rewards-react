@@ -55,7 +55,7 @@ exports[`BonusList Should show bonus list 1`] = `
           datetime="2019-05-16T06:07:25.102Z"
           timeago-tid="2"
         >
-          2 months ago
+          3 months ago
         </time>
       </div>
     </div>
@@ -1066,7 +1066,7 @@ exports[`BonusList Should show bonus list 1`] = `
           datetime="2019-04-24T10:23:19.956Z"
           timeago-tid="9"
         >
-          3 months ago
+          4 months ago
         </time>
       </div>
     </div>
@@ -1200,7 +1200,7 @@ exports[`BonusList Should show bonus list 1`] = `
           datetime="2019-04-18T11:04:51.123Z"
           timeago-tid="10"
         >
-          3 months ago
+          4 months ago
         </time>
       </div>
     </div>
@@ -1350,7 +1350,7 @@ exports[`BonusList Should show bonus list 1`] = `
           datetime="2019-04-17T16:06:47.974Z"
           timeago-tid="11"
         >
-          3 months ago
+          4 months ago
         </time>
       </div>
     </div>

@@ -89,21 +89,22 @@ describe('SendBonusForm', () => {
       expect(errorContainer).toHaveTextContent(expectedErrorMessage);
     });
   });
-  describe('HelperIcon', () => {
-    test('Should change the className on user change in textarea value', () => {
-      // Arrange
-      const { getByTestId } = render(
-        <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
-      );
-      const textArea = getByTestId('test-textarea');
-      const expectedBonusText = '#create-awesomeness';
-      // Act
-      act(() => {
-        fireEvent.change(textArea, { target: { value: expectedBonusText } });
-      });
-      const bonusForm = getByTestId('test-bonus-form');
-      // Assert
-      expect(bonusForm).toMatchSnapshot();
+});
+
+describe('HelperIcon', () => {
+  test('Should change the className on user change in textarea value', () => {
+    // Arrange
+    const { getByTestId } = render(
+      <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+    );
+    const textArea = getByTestId('test-textarea');
+    const expectedBonusText = '#create-awesomeness';
+    // Act
+    act(() => {
+      fireEvent.change(textArea, { target: { value: expectedBonusText } });
     });
+    const bonusForm = getByTestId('test-bonus-form');
+    // Assert
+    expect(bonusForm).toMatchSnapshot();
   });
 });

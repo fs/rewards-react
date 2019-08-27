@@ -16,6 +16,7 @@ const Error = styled.div`
 
 const BonusList = props => {
   const { bonusList, isLoading, hasError } = props;
+  console.log(bonusList);
 
   return (
     <div>

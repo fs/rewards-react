@@ -1,8 +1,8 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import BonusTextarea from './BonusTextarea';
 import Button from '../../atoms/Button';
-// import Context from '../../context/Context';
+import Context from '../../context/Context';
 import BonusService from '../../../services/BonusService';
 import bonusParser from '../../../utils/bonusParser';
 import * as types from '../../../models/actionTypes';
@@ -40,7 +40,7 @@ const SendBonusForm = () => {
   const [messageUserNameIsValid, setMessageUserNameIsValid] = useState(false);
   const [messageHashTagIsValid, setMessageHashTagIsValid] = useState(false);
   const [bonusButtonText, setBonusButtonText] = useState('Give');
-  const [dispatch] = useReducer(reducer);
+  const { dispatch } = useContext(Context);
 
   const validate = (values, regex) => {
     const res = values.find(value => value.match(regex));
@@ -79,16 +79,14 @@ const SendBonusForm = () => {
     try {
       const createdBonus = await BonusService.createBonus(bonusText);
 
-      const bonusListArray = bonusParser(createdBonus.data);
-      console.log(bonusListArray);
-      dispatch({ type: types.UPDATE_BONUS_LIST_SUCCESS, payload: bonusListArray });
+      const bonus = bonusParser(createdBonus.data);
+      dispatch({ type: types.ADD_TO_BONUS_LIST, payload: bonus[0] });
 
       setBonusTextareaValue('');
     } catch (error) {
       // const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
       setHasError(true);
       // setErrorMessage(parsedErrorMessage);
-      console.log(error);
     }
   };
 
