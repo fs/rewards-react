@@ -4,8 +4,7 @@ import Context from '../../context/Context';
 import CommentTextarea from './CommentTextarea';
 import Button from '../../atoms/Button';
 import HelperIcon from '../../atoms/HelperIcon';
-import { UPDATE_BONUS_LIST_SUCCESS } from '../../../models/actionTypes';
-import bonusParser from '../../../utils/bonusParser';
+import { UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS } from '../../../models/actionTypes';
 
 const Form = styled.form`
   width: 100%;
@@ -54,7 +53,7 @@ const SendCommentForm = props => {
   const [messageHashTagIsValid, setMessageHashTagIsValid] = useState(false);
   const [commentButtonText, setCommentButtonText] = useState('Add');
   const [isControlsShowing, setIsControlsShowing] = useState(false);
-  const { state, dispatch } = useContext(Context);
+  const { dispatch } = useContext(Context);
 
   const validate = (values, regex) => {
     const res = values.find(value => value.match(regex));
@@ -92,19 +91,10 @@ const SendCommentForm = props => {
 
     try {
       const response = await commentService.createComment(commentTextareaValue, bonusId);
-      const newBonus = bonusParser(response.data);
-      const { bonusList } = state;
-
-      const newBonusList = bonusList.map(item => {
-        if (item.id === newBonus[0].id) {
-          return newBonus[0];
-        }
-        return item;
-      });
 
       setCommentTextareaValue('');
       onSuccess();
-      dispatch({ type: UPDATE_BONUS_LIST_SUCCESS, payload: newBonusList });
+      dispatch({ type: UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS, payload: response.data });
     } catch (error) {
       let parsedErrorMessage;
       if (error.response && error.response.request && error.response.request.response) {

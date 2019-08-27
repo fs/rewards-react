@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import bonusParser from '../utils/bonusParser';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -40,6 +41,24 @@ const reducer = (state, action) => {
         isBonusListLoading: true,
         hasBonusListError: false,
       };
+    case types.UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS: {
+      const newBonus = bonusParser(action.payload);
+      const { bonusList } = state;
+
+      const updatedBonusList = bonusList.map(item => {
+        if (item.id === newBonus[0].id) {
+          return newBonus[0];
+        }
+        return item;
+      });
+
+      console.log('action', updatedBonusList);
+
+      return {
+        ...state,
+        bonusList: updatedBonusList,
+      };
+    }
     default:
       return state;
   }
