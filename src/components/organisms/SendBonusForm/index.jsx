@@ -6,7 +6,6 @@ import Context from '../../context/Context';
 import BonusService from '../../../services/BonusService';
 import bonusParser from '../../../utils/bonusParser';
 import * as types from '../../../models/actionTypes';
-import reducer from '../../../models/reducer';
 
 const Form = styled.form`
   width: 100%;
@@ -84,9 +83,9 @@ const SendBonusForm = () => {
 
       setBonusTextareaValue('');
     } catch (error) {
-      // const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
       setHasError(true);
-      // setErrorMessage(parsedErrorMessage);
+      setErrorMessage(parsedErrorMessage);
     }
   };
 

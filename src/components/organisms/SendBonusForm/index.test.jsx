@@ -7,6 +7,9 @@ import React from 'react';
 import { render, fireEvent, wait, act } from '@testing-library/react';
 import AuthService from '../../../services/AuthService';
 import BonusService from '../../../services/BonusService';
+import Context from '../../context/Context';
+
+import bonusResponse from '../../../mock_data/bonusResponse';
 
 import SendBonusForm from '.';
 
@@ -14,6 +17,8 @@ jest.mock('../../../services/AuthService');
 jest.mock('../../../services/BonusService');
 
 describe('SendBonusForm', () => {
+  const dispatch = jest.fn();
+
   beforeEach(() => {
     jest.resetModules();
     jest.clearAllMocks();
@@ -26,17 +31,18 @@ describe('SendBonusForm', () => {
     const expectedTag = '#create-awesomeness';
     const expectedBonusText = `${expectedBonusCount} ${expectedReceiver} ${expectedTag}`;
 
-    const mockCreateBonus = jest.fn(
-      () =>
-        new Promise(resolve => {
-          resolve();
-        }),
+    const mockCreateBonus = jest.fn(() =>
+      Promise.resolve({
+        data: bonusResponse,
+      }),
     );
 
     BonusService.createBonus.mockImplementation(mockCreateBonus);
 
     const { getByTestId } = render(
-      <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+      <Context.Provider value={{ dispatch }}>
+        <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+      </Context.Provider>,
     );
     const textArea = getByTestId('test-textarea');
     fireEvent.change(textArea, { target: { value: expectedBonusText } });
@@ -48,6 +54,7 @@ describe('SendBonusForm', () => {
     // Assert
     await wait(() => {
       expect(BonusService.createBonus).toHaveBeenCalledWith(expectedBonusText);
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 
@@ -71,7 +78,9 @@ describe('SendBonusForm', () => {
     BonusService.createBonus.mockImplementation(mockCreateBonus);
 
     const { getByTestId } = render(
-      <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+      <Context.Provider value={{ dispatch }}>
+        <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+      </Context.Provider>,
     );
     const textArea = getByTestId('test-textarea');
 
@@ -92,10 +101,14 @@ describe('SendBonusForm', () => {
 });
 
 describe('HelperIcon', () => {
+  const dispatch = jest.fn();
+
   test('Should change the className on user change in textarea value', () => {
     // Arrange
     const { getByTestId } = render(
-      <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+      <Context.Provider value={{ dispatch }}>
+        <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+      </Context.Provider>,
     );
     const textArea = getByTestId('test-textarea');
     const expectedBonusText = '#create-awesomeness';
