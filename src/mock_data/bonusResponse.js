@@ -342,7 +342,8 @@ export default {
       id: '274',
       type: 'bonuses',
       attributes: {
-        text: '+1 @olga.krasnova @albert.fazullin @leyla.khamidullina #be-curious-never-stop-learning test react rewards #create-awesomeness',
+        text:
+          '+1 @olga.krasnova @albert.fazullin @leyla.khamidullina #be-curious-never-stop-learning test react rewards #create-awesomeness',
         points: 1,
         'total-points': 1,
         'created-at': '2019-04-17T16:06:47.974Z',
@@ -406,7 +407,8 @@ export default {
         email: 'ivan.ananev@flatstack.com',
         'full-name': 'Ivan Ananev',
         username: 'ivan.ananev',
-        'profile-image-avatar-url': 'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
+        'profile-image-avatar-url':
+          'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
         'bonus-balance': 6,
         'allowance-balance': 500,
       },
@@ -418,7 +420,8 @@ export default {
         email: 'mariya.valeeva@flatstack.com',
         'full-name': 'Mariya Valeeva',
         username: 'mariya-valeeva',
-        'profile-image-avatar-url': 'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
+        'profile-image-avatar-url':
+          'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
         'bonus-balance': 8479,
         'allowance-balance': 828,
       },
@@ -462,7 +465,8 @@ export default {
         email: 'nadezhda.kharchuk@flatstack.com',
         'full-name': 'Nadezhda Kharchuk',
         username: 'nadezhda.kharchuk',
-        'profile-image-avatar-url': 'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
+        'profile-image-avatar-url':
+          'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
         'bonus-balance': 78,
         'allowance-balance': 491,
       },
@@ -474,7 +478,8 @@ export default {
         email: 'almaz.karimullin@flatstack.com',
         'full-name': 'Almaz Karimullin',
         username: 'almaz.karimullin',
-        'profile-image-avatar-url': 'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
+        'profile-image-avatar-url':
+          'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
         'bonus-balance': 176,
         'allowance-balance': 500,
       },
@@ -486,7 +491,8 @@ export default {
         email: 'albert.fazullin@flatstack.com',
         'full-name': 'Albert Fazullin',
         username: 'albert.fazullin',
-        'profile-image-avatar-url': 'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
+        'profile-image-avatar-url':
+          'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
         'bonus-balance': 57,
         'allowance-balance': 500,
       },
@@ -498,7 +504,8 @@ export default {
         email: 'timur.vafin@flatstack.com',
         'full-name': 'Timur Vafin',
         username: 'timur.vafin',
-        'profile-image-avatar-url': 'https://d14n4flg6h47l7.cloudfront.net/store/user/4/profile_image/avatar-e648f6ad68c82a09355e7b3928d8f010.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIJWLCQQNSWJW7QQA%2F20190515%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20190515T073433Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=ffc60d53a480b2483bf456946eb68d3991a10421ed4fba8ef165633e379f0282',
+        'profile-image-avatar-url':
+          'https://d14n4flg6h47l7.cloudfront.net/store/user/4/profile_image/avatar-e648f6ad68c82a09355e7b3928d8f010.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIJWLCQQNSWJW7QQA%2F20190515%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20190515T073433Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=ffc60d53a480b2483bf456946eb68d3991a10421ed4fba8ef165633e379f0282',
         'bonus-balance': 4934,
         'allowance-balance': 495,
       },
@@ -517,7 +524,8 @@ export default {
         email: 'leyla.khamidullina@flatstack.com',
         'full-name': 'Leyla Khamidullina',
         username: 'leyla.khamidullina',
-        'profile-image-avatar-url': 'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
+        'profile-image-avatar-url':
+          'http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png',
         'bonus-balance': 50079,
         'allowance-balance': 500,
       },
@@ -529,5 +537,29 @@ export default {
     prev: null,
     next: 'http://rewards-staging.flatstack.com/api/v1/user/bonuses?page%5Bnumber%5D=2&page%5Bsize%5D=10',
     last: 'http://rewards-staging.flatstack.com/api/v1/user/bonuses?page%5Bnumber%5D=22&page%5Bsize%5D=10',
+  },
+};
+
+export const createBonusResponse = {
+  data: {
+    id: '4492',
+    type: 'bonuses',
+    attributes: {
+      text: 'text',
+      points: 1,
+      'total-points': 1,
+      'created-at': '2019-02-20T08:41:03.710Z',
+    },
+    relationships: {
+      sender: {
+        data: {
+          id: '373',
+          type: 'users',
+        },
+      },
+      comments: {
+        data: [],
+      },
+    },
   },
 };

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SendBonusForm HelperIcon Should change the className on user change in textarea value 1`] = `
+exports[`HelperIcon Should change the className on user change in textarea value 1`] = `
 .c2 {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;

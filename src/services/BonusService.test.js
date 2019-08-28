@@ -1,7 +1,7 @@
 import BonusService from './BonusService';
 import api from './ApiService';
 import AuthService from './AuthService';
-import bonusResponse from '../mock_data/bonusResponse';
+import bonusResponse, { createBonusResponse } from '../mock_data/bonusResponse';
 
 jest.mock('./ApiService');
 jest.mock('./AuthService');
@@ -35,29 +35,7 @@ describe('BonusService', () => {
       headers: { Authorization: `Bearer ${expectedToken}` },
     };
 
-    const expectedResponse = {
-      data: {
-        id: '4492',
-        type: 'bonuses',
-        attributes: {
-          text: expectedBonusText,
-          points: 1,
-          'total-points': 1,
-          'created-at': '2019-02-20T08:41:03.710Z',
-        },
-        relationships: {
-          sender: {
-            data: {
-              id: '373',
-              type: 'users',
-            },
-          },
-          comments: {
-            data: [],
-          },
-        },
-      },
-    };
+    const expectedResponse = createBonusResponse;
 
     const mockGetToken = jest.fn(() => expectedToken);
     AuthService.getToken.mockImplementation(mockGetToken);
