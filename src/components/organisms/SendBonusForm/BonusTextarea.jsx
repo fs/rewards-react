@@ -10,17 +10,23 @@ const HelperIconsContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-export const pointItem = ({ entity: { id } }) => (
+export const pointItem = ({ entity: { id, value } }) => (
   <div data-testid="test-point-item" key={id}>
-    missing test
+    {`+♥${value}`}
   </div>
 );
-export const userItem = ({ entity: { id } }) => (
+
+export const userItem = ({ entity: { id, username } }) => (
   <div data-testid="test-user-item" key={id}>
-    kek lol
+    {`@${username}`}
   </div>
 );
-export const tagItem = ({ entity: { id, label } }) => <div data-testid="test-tag-item" key={id}>{`#${label}`}</div>;
+
+export const tagItem = ({ entity: { id, label } }) => (
+  <div data-testid="test-tag-item" key={id}>
+    {`#${label}`}
+  </div>
+);
 
 const BonusTextarea = props => {
   const { onChange, textareaValue, messagePointsIsActive, messageUserNamesIsActive, messageHashTagsIsActive } = props;
