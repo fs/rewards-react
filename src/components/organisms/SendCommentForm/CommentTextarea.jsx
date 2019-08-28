@@ -2,12 +2,7 @@ import React from 'react';
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
 import '../../../styles/autocomplete.css';
 import BonusPossibilitiesService, { POINTS, TAGS } from '../../../services/BonusPossibilitiesService';
-
-export const pointItem = ({ entity: { id, value } }) => (
-  <div data-testid="test-point-item" key={id}>{`+♥${value}`}</div>
-);
-
-export const tagItem = ({ entity: { id, label } }) => <div data-testid="test-tag-item" key={id}>{`#${label}`}</div>;
+import { pointItem, tagItem } from '../SendBonusForm/BonusTextarea';
 
 const CommentTextarea = props => {
   const { onChange, textareaValue } = props;

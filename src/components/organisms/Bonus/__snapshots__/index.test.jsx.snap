@@ -6,22 +6,22 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-gZMcBi iRXrkI"
+        class="sc-gqjmRU eEpkQf"
         data-testid="test-bonus"
       >
         <div
-          class="sc-gqjmRU eiKwRT"
+          class="sc-VigVT iJovGt"
         >
           <div
-            class="sc-VigVT iAALtE"
+            class="sc-jTzLTM etcJqc"
           >
             1
           </div>
           <div
-            class="sc-jTzLTM golyQb"
+            class="sc-fjdhpX bFKZVQ"
           >
             <div
-              class="sc-fjdhpX jRhsDE"
+              class="sc-jzJRlG iuBUMe"
             >
               <img
                 alt="Albert Fazullin"
@@ -30,36 +30,36 @@ Object {
             </div>
           </div>
           <div
-            class="sc-jzJRlG EtLpg"
+            class="sc-cSHVUG gIXSSp"
           />
         </div>
         <div
-          class="sc-cSHVUG jUUdoM"
+          class="sc-kAzzGY kDOYTW"
         >
           <div
-            class="sc-kAzzGY fMvBW"
+            class="sc-chPdSV dQajgp"
           >
             <span
-              class="sc-chPdSV flxTt"
+              class="sc-kgoBCf hocDLT"
             >
               Nadezhda Kharchuk
               : 
             </span>
             <span>
               <span
-                class="sc-kgoBCf wUPVw"
+                class="sc-kGXeez ecDZfZ"
               >
                 +1
                  
               </span>
               <span
-                class="sc-kGXeez dKGuCC"
+                class="sc-kpOJdX iEEifL"
               >
                 @albert.fazullin
                  
               </span>
               <span
-                class="sc-kpOJdX eAfyei"
+                class="sc-dxgOiQ drWUmt"
               >
                 #be-curious-never-stop-learning
                  
@@ -68,11 +68,11 @@ Object {
           </div>
         </div>
         <div
-          class="sc-dxgOiQ hTjMfW"
+          class="sc-ckVGcZ foYhJp"
           data-testid="test-comment-list"
         />
         <form
-          class="sc-gzVnrw pJiTn"
+          class="sc-htoDjs eNmKLv"
           data-testid="test-bonus-form"
           tabindex="0"
         >
@@ -94,19 +94,19 @@ Object {
             data-testid="test-error-container"
           />
           <div
-            class="sc-iwsKbI guaXQX"
+            class="sc-gZMcBi fxMDLl"
           >
             <button
-              class="sc-EHOje jlYtND"
+              class="sc-gzVnrw yxkmh"
               data-testid="test-button"
             >
               Add
             </button>
             <div
-              class="sc-dnqmqq iFsitv"
+              class="sc-iwsKbI cslhIm"
             >
               <button
-                class="sc-bZQynM hzcfhx"
+                class="sc-EHOje fjXIZF"
                 type="button"
               >
                 <img
@@ -115,7 +115,7 @@ Object {
                 />
               </button>
               <button
-                class="sc-bZQynM hzcfhx"
+                class="sc-EHOje fjXIZF"
                 type="button"
               >
                 <img
@@ -131,22 +131,22 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-gZMcBi iRXrkI"
+      class="sc-gqjmRU eEpkQf"
       data-testid="test-bonus"
     >
       <div
-        class="sc-gqjmRU eiKwRT"
+        class="sc-VigVT iJovGt"
       >
         <div
-          class="sc-VigVT iAALtE"
+          class="sc-jTzLTM etcJqc"
         >
           1
         </div>
         <div
-          class="sc-jTzLTM golyQb"
+          class="sc-fjdhpX bFKZVQ"
         >
           <div
-            class="sc-fjdhpX jRhsDE"
+            class="sc-jzJRlG iuBUMe"
           >
             <img
               alt="Albert Fazullin"
@@ -155,36 +155,36 @@ Object {
           </div>
         </div>
         <div
-          class="sc-jzJRlG EtLpg"
+          class="sc-cSHVUG gIXSSp"
         />
       </div>
       <div
-        class="sc-cSHVUG jUUdoM"
+        class="sc-kAzzGY kDOYTW"
       >
         <div
-          class="sc-kAzzGY fMvBW"
+          class="sc-chPdSV dQajgp"
         >
           <span
-            class="sc-chPdSV flxTt"
+            class="sc-kgoBCf hocDLT"
           >
             Nadezhda Kharchuk
             : 
           </span>
           <span>
             <span
-              class="sc-kgoBCf wUPVw"
+              class="sc-kGXeez ecDZfZ"
             >
               +1
                
             </span>
             <span
-              class="sc-kGXeez dKGuCC"
+              class="sc-kpOJdX iEEifL"
             >
               @albert.fazullin
                
             </span>
             <span
-              class="sc-kpOJdX eAfyei"
+              class="sc-dxgOiQ drWUmt"
             >
               #be-curious-never-stop-learning
                
@@ -193,11 +193,11 @@ Object {
         </div>
       </div>
       <div
-        class="sc-dxgOiQ hTjMfW"
+        class="sc-ckVGcZ foYhJp"
         data-testid="test-comment-list"
       />
       <form
-        class="sc-gzVnrw pJiTn"
+        class="sc-htoDjs eNmKLv"
         data-testid="test-bonus-form"
         tabindex="0"
       >
@@ -219,19 +219,19 @@ Object {
           data-testid="test-error-container"
         />
         <div
-          class="sc-iwsKbI guaXQX"
+          class="sc-gZMcBi fxMDLl"
         >
           <button
-            class="sc-EHOje jlYtND"
+            class="sc-gzVnrw yxkmh"
             data-testid="test-button"
           >
             Add
           </button>
           <div
-            class="sc-dnqmqq iFsitv"
+            class="sc-iwsKbI cslhIm"
           >
             <button
-              class="sc-bZQynM hzcfhx"
+              class="sc-EHOje fjXIZF"
               type="button"
             >
               <img
@@ -240,7 +240,7 @@ Object {
               />
             </button>
             <button
-              class="sc-bZQynM hzcfhx"
+              class="sc-EHOje fjXIZF"
               type="button"
             >
               <img
