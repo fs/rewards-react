@@ -1,70 +1,308 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Bonus index render Bonus correctly 1`] = `
-<ForwardRef(styled.div)
-  data-testid="test-bonus"
->
-  <ForwardRef(styled.div)>
-    <ForwardRef(styled.div)>
-      1
-    </ForwardRef(styled.div)>
-    <ForwardRef(styled.div)>
-      <ForwardRef(styled.div)>
-        <img
-          alt="Ivan Ananev"
-          src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-gZMcBi iRXrkI"
+        data-testid="test-bonus"
+      >
+        <div
+          class="sc-gqjmRU eiKwRT"
+        >
+          <div
+            class="sc-VigVT iAALtE"
+          >
+            1
+          </div>
+          <div
+            class="sc-jTzLTM golyQb"
+          >
+            <div
+              class="sc-fjdhpX jRhsDE"
+            >
+              <img
+                alt="Albert Fazullin"
+                src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+              />
+            </div>
+          </div>
+          <div
+            class="sc-jzJRlG EtLpg"
+          />
+        </div>
+        <div
+          class="sc-cSHVUG jUUdoM"
+        >
+          <div
+            class="sc-kAzzGY fMvBW"
+          >
+            <span
+              class="sc-chPdSV flxTt"
+            >
+              Nadezhda Kharchuk
+              : 
+            </span>
+            <span>
+              <span
+                class="sc-kgoBCf wUPVw"
+              >
+                +1
+                 
+              </span>
+              <span
+                class="sc-kGXeez dKGuCC"
+              >
+                @albert.fazullin
+                 
+              </span>
+              <span
+                class="sc-kpOJdX eAfyei"
+              >
+                #be-curious-never-stop-learning
+                 
+              </span>
+            </span>
+          </div>
+        </div>
+        <div
+          class="sc-dxgOiQ hTjMfW"
+          data-testid="test-comment-list"
         />
-      </ForwardRef(styled.div)>
-    </ForwardRef(styled.div)>
-    <ForwardRef(styled.div)>
-      <TimeAgo
-        datetime="2019-05-16T06:07:25.102Z"
-        live={true}
-        locale="en_US"
+        <form
+          class="sc-gzVnrw pJiTn"
+          data-testid="test-bonus-form"
+          tabindex="0"
+        >
+          <div
+            data-testid="test-textarea-wrapper"
+          >
+            <div
+              class="rta  "
+            >
+              <textarea
+                class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+                data-testid="test-textarea"
+                name="bonus-text"
+                placeholder="Add a comment"
+              />
+            </div>
+          </div>
+          <div
+            data-testid="test-error-container"
+          />
+          <div
+            class="sc-iwsKbI guaXQX"
+          >
+            <button
+              class="sc-EHOje jlYtND"
+              data-testid="test-button"
+            >
+              Add
+            </button>
+            <div
+              class="sc-dnqmqq iFsitv"
+            >
+              <button
+                class="sc-bZQynM hzcfhx"
+                type="button"
+              >
+                <img
+                  alt="Points"
+                  src="[object Object]"
+                />
+              </button>
+              <button
+                class="sc-bZQynM hzcfhx"
+                type="button"
+              >
+                <img
+                  alt="Hashtag"
+                  src="[object Object]"
+                />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-gZMcBi iRXrkI"
+      data-testid="test-bonus"
+    >
+      <div
+        class="sc-gqjmRU eiKwRT"
+      >
+        <div
+          class="sc-VigVT iAALtE"
+        >
+          1
+        </div>
+        <div
+          class="sc-jTzLTM golyQb"
+        >
+          <div
+            class="sc-fjdhpX jRhsDE"
+          >
+            <img
+              alt="Albert Fazullin"
+              src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+            />
+          </div>
+        </div>
+        <div
+          class="sc-jzJRlG EtLpg"
+        />
+      </div>
+      <div
+        class="sc-cSHVUG jUUdoM"
+      >
+        <div
+          class="sc-kAzzGY fMvBW"
+        >
+          <span
+            class="sc-chPdSV flxTt"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span
+              class="sc-kgoBCf wUPVw"
+            >
+              +1
+               
+            </span>
+            <span
+              class="sc-kGXeez dKGuCC"
+            >
+              @albert.fazullin
+               
+            </span>
+            <span
+              class="sc-kpOJdX eAfyei"
+            >
+              #be-curious-never-stop-learning
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-dxgOiQ hTjMfW"
+        data-testid="test-comment-list"
       />
-    </ForwardRef(styled.div)>
-  </ForwardRef(styled.div)>
-  <ForwardRef(styled.div)>
-    <ForwardRef(styled.div)>
-      <ForwardRef(styled.span)>
-        bot
-        : 
-      </ForwardRef(styled.span)>
-      <span>
-        <ForwardRef(styled.span)>
-          +1
-           
-        </ForwardRef(styled.span)>
-        <span>
-          to
-           
-        </span>
-        <ForwardRef(styled.span)>
-          @ivan.ananev
-           
-        </ForwardRef(styled.span)>
-        <ForwardRef(styled.span)>
-          #be-curious-never-stop-learning
-           
-        </ForwardRef(styled.span)>
-        <span>
-          for
-           
-        </span>
-        <span>
-          move
-           
-        </span>
-      </span>
-    </ForwardRef(styled.div)>
-  </ForwardRef(styled.div)>
-  <ForwardRef(styled.div)
-    data-testid="test-comment-list"
-  />
-  <SendCommentForm
-    bonusId="289"
-    commentService={[Function]}
-    onSuccess={[Function]}
-  />
-</ForwardRef(styled.div)>
+      <form
+        class="sc-gzVnrw pJiTn"
+        data-testid="test-bonus-form"
+        tabindex="0"
+      >
+        <div
+          data-testid="test-textarea-wrapper"
+        >
+          <div
+            class="rta  "
+          >
+            <textarea
+              class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+              data-testid="test-textarea"
+              name="bonus-text"
+              placeholder="Add a comment"
+            />
+          </div>
+        </div>
+        <div
+          data-testid="test-error-container"
+        />
+        <div
+          class="sc-iwsKbI guaXQX"
+        >
+          <button
+            class="sc-EHOje jlYtND"
+            data-testid="test-button"
+          >
+            Add
+          </button>
+          <div
+            class="sc-dnqmqq iFsitv"
+          >
+            <button
+              class="sc-bZQynM hzcfhx"
+              type="button"
+            >
+              <img
+                alt="Points"
+                src="[object Object]"
+              />
+            </button>
+            <button
+              class="sc-bZQynM hzcfhx"
+              type="button"
+            >
+              <img
+                alt="Hashtag"
+                src="[object Object]"
+              />
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

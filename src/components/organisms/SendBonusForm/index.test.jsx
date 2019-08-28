@@ -9,7 +9,7 @@ import AuthService from '../../../services/AuthService';
 import BonusService from '../../../services/BonusService';
 import Context from '../../context/Context';
 
-import bonusResponse from '../../../mock_data/bonusResponse';
+import { mockFetchBonusesResponse } from '../../../mock_data/bonusServiseResponses';
 
 import SendBonusForm from '.';
 
@@ -33,7 +33,7 @@ describe('SendBonusForm', () => {
 
     const mockCreateBonus = jest.fn(() =>
       Promise.resolve({
-        data: bonusResponse,
+        data: mockFetchBonusesResponse,
       }),
     );
 

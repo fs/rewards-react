@@ -4,7 +4,6 @@ import BonusTextarea from './BonusTextarea';
 import Button from '../../atoms/Button';
 import Context from '../../context/Context';
 import BonusService from '../../../services/BonusService';
-import bonusParser from '../../../utils/bonusParser';
 import * as types from '../../../models/actionTypes';
 
 const Form = styled.form`
@@ -76,10 +75,9 @@ const SendBonusForm = () => {
   const handleSubmit = async event => {
     event.preventDefault();
     try {
-      const createdBonus = await BonusService.createBonus(bonusText);
+      const bonus = await BonusService.createBonus(bonusText);
 
-      const bonus = bonusParser(createdBonus.data);
-      dispatch({ type: types.ADD_TO_BONUS_LIST, payload: bonus[0] });
+      dispatch({ type: types.ADD_TO_BONUS_LIST, payload: bonus });
 
       setBonusTextareaValue('');
     } catch (error) {

@@ -1,9 +1,8 @@
 import api from './ApiService';
 import AuthService from './AuthService';
+import bonusAdapter from '../adapters/bonusAdapter';
 
 const apiUrl = '/user/bonuses';
-const USERS = 'users';
-
 export default class BonusService {
   static async createBonus(text) {
     const token = AuthService.getToken();
@@ -21,7 +20,9 @@ export default class BonusService {
     };
 
     const response = await api.post(apiUrl, bodyParameters, config);
-    return response;
+    const bonus = bonusAdapter(response.data);
+
+    return bonus[0];
   }
 
   static async fetchBonusesList() {
@@ -31,18 +32,8 @@ export default class BonusService {
     };
 
     const response = await api.get(apiUrl, config);
-    return response;
-  }
+    const bonusList = bonusAdapter(response.data);
 
-  static getUser(id) {
-    const user = JSON.parse(localStorage.getItem(USERS)).filter(item => item.id === id);
-
-    return {
-      email: user[0] ? user[0].email : 'my.email@test.com',
-      name: user[0] ? user[0]['full-name'] : 'My Name',
-      avatar: user[0]
-        ? user[0]['profile-image-avatar-url']
-        : 'https://emojis.slackmojis.com/emojis/images/1473950148/1161/react.png?1473950148',
-    };
+    return bonusList;
   }
 }

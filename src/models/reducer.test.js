@@ -1,6 +1,6 @@
 import * as types from './actionTypes';
 import reducer from './reducer';
-import expectedBonusList from '../mock_data/bonusList';
+import mockBonusList from '../mock_data/mockBonusList';
 
 describe('reducer', () => {
   const expectedInitialState = {
@@ -113,7 +113,7 @@ describe('reducer', () => {
 
     const expectedAction = {
       type: types.UPDATE_BONUS_LIST_SUCCESS,
-      payload: expectedBonusList,
+      payload: mockBonusList,
     };
 
     const expectedState = {
@@ -122,7 +122,7 @@ describe('reducer', () => {
         pointsLeft: 0,
         name: '',
       },
-      bonusList: expectedBonusList,
+      bonusList: mockBonusList,
       isUserLoading: false,
       hasUserError: false,
       isBonusListLoading: expectedIsBonusListLoading,

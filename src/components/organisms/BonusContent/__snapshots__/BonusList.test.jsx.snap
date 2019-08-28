@@ -42,22 +42,1010 @@ exports[`BonusList Should show bonus list 1`] = `
           class="sc-fjdhpX jRhsDE"
         >
           <img
-            alt="Ivan Ananev"
+            alt="Albert Fazullin"
             src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
           />
         </div>
       </div>
       <div
         class="sc-jzJRlG EtLpg"
+      />
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
       >
-        <time
-          class=""
-          datetime="2019-05-16T06:07:25.102Z"
-          timeago-tid="2"
+        <span
+          class="sc-chPdSV flxTt"
         >
-          3 months ago
-        </time>
+          Nadezhda Kharchuk
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @albert.fazullin
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+        </span>
       </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Albert Fazullin"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      />
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          Nadezhda Kharchuk
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @albert.fazullin
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    >
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              1
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              1
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              1
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              2
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              1
+               
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Albert Fazullin"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      />
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          Nadezhda Kharchuk
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +1
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @albert.fazullin
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
+             
+          </span>
+          <span>
+            
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        13
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Anton Chaynikov"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      />
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          bot
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +5
+             
+          </span>
+          <span>
+            to
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @anton.chaynikov
+             
+          </span>
+          <span>
+            For
+             
+          </span>
+          <span>
+            showing
+             
+          </span>
+          <span>
+            up
+             
+          </span>
+          <span>
+            in
+             
+          </span>
+          <span>
+            our
+             
+          </span>
+          <span>
+            Kazan/Warsaw
+             
+          </span>
+          <span>
+            locations
+             
+          </span>
+          <span>
+            on
+             
+          </span>
+          <span>
+            time
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #work-hard-play-hard
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    >
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              +1
+               
+            </span>
+            <span
+              class="sc-ifAKCX fFcNUP"
+            >
+              #win-win-win
+               
+            </span>
+            <span>
+              
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              +1
+               
+            </span>
+            <span
+              class="sc-ifAKCX fFcNUP"
+            >
+              #work-hard-play-hard
+               
+            </span>
+            <span>
+              
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              1
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              +1
+               
+            </span>
+            <span>
+              
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              +1
+               
+            </span>
+            <span>
+              
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              +2
+               
+            </span>
+            <span>
+              
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              +1
+               
+            </span>
+            <span>
+              
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              +1
+               
+            </span>
+            <span>
+              
+               
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        5
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Anton Chaynikov"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      />
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          bot
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +5
+             
+          </span>
+          <span>
+            to
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @anton.chaynikov
+             
+          </span>
+          <span>
+            For
+             
+          </span>
+          <span>
+            showing
+             
+          </span>
+          <span>
+            up
+             
+          </span>
+          <span>
+            in
+             
+          </span>
+          <span>
+            our
+             
+          </span>
+          <span>
+            Kazan/Warsaw
+             
+          </span>
+          <span>
+            locations
+             
+          </span>
+          <span>
+            on
+             
+          </span>
+          <span>
+            time
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #work-hard-play-hard
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    />
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Anton Chaynikov"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      />
     </div>
     <div
       class="sc-cSHVUG jUUdoM"
@@ -85,7 +1073,7 @@ exports[`BonusList Should show bonus list 1`] = `
           <span
             class="sc-kGXeez dKGuCC"
           >
-            @ivan.ananev
+            @anton.chaynikov
              
           </span>
           <span
@@ -175,7 +1163,7 @@ exports[`BonusList Should show bonus list 1`] = `
       <div
         class="sc-VigVT iAALtE"
       >
-        1
+        67
       </div>
       <div
         class="sc-jTzLTM golyQb"
@@ -184,22 +1172,14 @@ exports[`BonusList Should show bonus list 1`] = `
           class="sc-fjdhpX jRhsDE"
         >
           <img
-            alt="Almaz Karimullin"
+            alt="Anton Chaynikov"
             src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
           />
         </div>
       </div>
       <div
         class="sc-jzJRlG EtLpg"
-      >
-        <time
-          class=""
-          datetime="2019-04-30T10:45:31.860Z"
-          timeago-tid="3"
-        >
-          3 months ago
-        </time>
-      </div>
+      />
     </div>
     <div
       class="sc-cSHVUG jUUdoM"
@@ -210,34 +1190,1217 @@ exports[`BonusList Should show bonus list 1`] = `
         <span
           class="sc-chPdSV flxTt"
         >
-          Mariya Valeeva
+          bot
           : 
         </span>
         <span>
-          <span
-            class="sc-kpOJdX eAfyei"
-          >
-            #test
+          <span>
+            Granting
              
           </span>
           <span>
-            
+            bonus
              
           </span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +5
+             
+          </span>
+          <span>
+            to
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @anton.chaynikov
+             
+          </span>
+          <span>
+            For
+             
+          </span>
+          <span>
+            showing
+             
+          </span>
+          <span>
+            up
+             
+          </span>
+          <span>
+            in
+             
+          </span>
+          <span>
+            the
+             
+          </span>
+          <span>
+            office
+             
+          </span>
+          <span>
+            on
+             
+          </span>
+          <span>
+            time
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #work-hard-play-hard
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    >
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Anton Chaynikov
+            : 
+          </span>
+          <span>
+            <span>
+              For
+               
+            </span>
+            <span>
+              showing
+               
+            </span>
+            <span>
+              up
+               
+            </span>
+            <span>
+              in
+               
+            </span>
+            <span>
+              the
+               
+            </span>
+            <span>
+              office
+               
+            </span>
+            <span>
+              on
+               
+            </span>
+            <span>
+              time
+               
+            </span>
+            <span
+              class="sc-ifAKCX fFcNUP"
+            >
+              #work-hard-play-hard
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              1
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              2
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              3
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              4
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              5
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              6
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              7
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              8
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              9
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              10
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              11
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              12
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              13
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              14
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              15
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              16
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              17
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              18
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              19
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              20
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              21
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              22
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              23
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              23
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              24
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              25
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              26
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              27
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              +62
+               
+            </span>
+            <span>
+              Voluptas
+               
+            </span>
+            <span>
+              accusamus
+               
+            </span>
+            <span>
+              repudiandae
+               
+            </span>
+            <span>
+              quibusdam
+               
+            </span>
+            <span>
+              aut
+               
+            </span>
+            <span>
+              temporibus.
+               
+            </span>
+            <span
+              class="sc-ifAKCX fFcNUP"
+            >
+              #consequatur-qui-magni
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              28
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              29
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              30
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              31
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              32
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              33
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              34
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              35
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              36
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              37
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              38
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              39
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              40
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              41
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              42
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              43
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              44
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              45
+               
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        1
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Albert Fazullin"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      />
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          Nadezhda Kharchuk
+          : 
+        </span>
+        <span>
           <span
             class="sc-kgoBCf wUPVw"
           >
             +1
              
           </span>
-          <span>
-            
-             
-          </span>
           <span
             class="sc-kGXeez dKGuCC"
           >
-            @almaz.karimullin
+            @albert.fazullin
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #be-curious-never-stop-learning
              
           </span>
           <span>
@@ -265,7 +2428,7 @@ exports[`BonusList Should show bonus list 1`] = `
           </span>
           <span>
             <span>
-              test
+              new
                
             </span>
             <span>
@@ -275,6 +2438,484 @@ exports[`BonusList Should show bonus list 1`] = `
           </span>
         </div>
       </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              test
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              new
+               
+            </span>
+            <span>
+              test
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              hey
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              test
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              new
+               
+            </span>
+            <span>
+              test
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              test
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              test
+
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              test
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              test
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              test
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              1
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              2
+               
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <form
+      class="sc-gzVnrw pJiTn"
+      data-testid="test-bonus-form"
+      tabindex="0"
+    >
+      <div
+        data-testid="test-textarea-wrapper"
+      >
+        <div
+          class="rta  "
+        >
+          <textarea
+            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
+            data-testid="test-textarea"
+            name="bonus-text"
+            placeholder="Add a comment"
+          />
+        </div>
+      </div>
+      <div
+        data-testid="test-error-container"
+      />
+      <div
+        class="sc-iwsKbI guaXQX"
+      >
+        <button
+          class="sc-EHOje jlYtND"
+          data-testid="test-button"
+        >
+          Add
+        </button>
+        <div
+          class="sc-dnqmqq iFsitv"
+        >
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Points"
+              src="[object Object]"
+            />
+          </button>
+          <button
+            class="sc-bZQynM hzcfhx"
+            type="button"
+          >
+            <img
+              alt="Hashtag"
+              src="[object Object]"
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="sc-gZMcBi iRXrkI"
+    data-testid="test-bonus"
+  >
+    <div
+      class="sc-gqjmRU eiKwRT"
+    >
+      <div
+        class="sc-VigVT iAALtE"
+      >
+        67
+      </div>
+      <div
+        class="sc-jTzLTM golyQb"
+      >
+        <div
+          class="sc-fjdhpX jRhsDE"
+        >
+          <img
+            alt="Anton Chaynikov"
+            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-jzJRlG EtLpg"
+      />
+    </div>
+    <div
+      class="sc-cSHVUG jUUdoM"
+    >
+      <div
+        class="sc-kAzzGY fMvBW"
+      >
+        <span
+          class="sc-chPdSV flxTt"
+        >
+          bot
+          : 
+        </span>
+        <span>
+          <span
+            class="sc-kgoBCf wUPVw"
+          >
+            +5
+             
+          </span>
+          <span>
+            to
+             
+          </span>
+          <span
+            class="sc-kGXeez dKGuCC"
+          >
+            @anton.chaynikov
+             
+          </span>
+          <span>
+            For
+             
+          </span>
+          <span>
+            showing
+             
+          </span>
+          <span>
+            up
+             
+          </span>
+          <span>
+            in
+             
+          </span>
+          <span>
+            the
+             
+          </span>
+          <span>
+            office
+             
+          </span>
+          <span>
+            on
+             
+          </span>
+          <span>
+            time
+             
+          </span>
+          <span
+            class="sc-kpOJdX eAfyei"
+          >
+            #work-hard-play-hard
+             
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ hTjMfW"
+      data-testid="test-comment-list"
+    >
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              @nadezhda.kharchuk
+               
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-bdVaJa hehWfG"
+      >
+        <div
+          class="sc-bwzfXH kyGrum"
+        >
+          <span
+            class="sc-htpNat KtFsv"
+          >
+            Nadezhda Kharchuk
+            : 
+          </span>
+          <span>
+            <span>
+              +62
+               
+            </span>
+            <span>
+              Voluptas
+               
+            </span>
+            <span>
+              accusamus
+               
+            </span>
+            <span>
+              repudiandae
+               
+            </span>
+            <span>
+              quibusdam
+               
+            </span>
+            <span>
+              aut
+               
+            </span>
+            <span>
+              temporibus.
+               
+            </span>
+            <span
+              class="sc-ifAKCX fFcNUP"
+            >
+              #consequatur-qui-magni
+               
+            </span>
+          </span>
+        </div>
+      </div>
     </div>
     <form
       class="sc-gzVnrw pJiTn"
@@ -351,22 +2992,14 @@ exports[`BonusList Should show bonus list 1`] = `
           class="sc-fjdhpX jRhsDE"
         >
           <img
-            alt="Albert Fazullin"
+            alt="Anton Chaynikov"
             src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
           />
         </div>
       </div>
       <div
         class="sc-jzJRlG EtLpg"
-      >
-        <time
-          class=""
-          datetime="2019-04-30T08:08:48.835Z"
-          timeago-tid="4"
-        >
-          3 months ago
-        </time>
-      </div>
+      />
     </div>
     <div
       class="sc-cSHVUG jUUdoM"
@@ -377,20 +3010,16 @@ exports[`BonusList Should show bonus list 1`] = `
         <span
           class="sc-chPdSV flxTt"
         >
-          Nadezhda Kharchuk
+          bot
           : 
         </span>
         <span>
-          <span
-            class="sc-kpOJdX eAfyei"
-          >
-            #be-curious-never-stop-learning
+          <span>
+            Granting
              
           </span>
-          <span
-            class="sc-kGXeez dKGuCC"
-          >
-            @albert.fazullin
+          <span>
+            bonus
              
           </span>
           <span
@@ -400,1017 +3029,51 @@ exports[`BonusList Should show bonus list 1`] = `
              
           </span>
           <span>
-            test
-             
-          </span>
-        </span>
-      </div>
-    </div>
-    <div
-      class="sc-dxgOiQ hTjMfW"
-      data-testid="test-comment-list"
-    />
-    <form
-      class="sc-gzVnrw pJiTn"
-      data-testid="test-bonus-form"
-      tabindex="0"
-    >
-      <div
-        data-testid="test-textarea-wrapper"
-      >
-        <div
-          class="rta  "
-        >
-          <textarea
-            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
-            data-testid="test-textarea"
-            name="bonus-text"
-            placeholder="Add a comment"
-          />
-        </div>
-      </div>
-      <div
-        data-testid="test-error-container"
-      />
-      <div
-        class="sc-iwsKbI guaXQX"
-      >
-        <button
-          class="sc-EHOje jlYtND"
-          data-testid="test-button"
-        >
-          Add
-        </button>
-        <div
-          class="sc-dnqmqq iFsitv"
-        >
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Points"
-              src="[object Object]"
-            />
-          </button>
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Hashtag"
-              src="[object Object]"
-            />
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div
-    class="sc-gZMcBi iRXrkI"
-    data-testid="test-bonus"
-  >
-    <div
-      class="sc-gqjmRU eiKwRT"
-    >
-      <div
-        class="sc-VigVT iAALtE"
-      >
-        1
-      </div>
-      <div
-        class="sc-jTzLTM golyQb"
-      >
-        <div
-          class="sc-fjdhpX jRhsDE"
-        >
-          <img
-            alt="Ivan Ananev"
-            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
-          />
-        </div>
-      </div>
-      <div
-        class="sc-jzJRlG EtLpg"
-      >
-        <time
-          class=""
-          datetime="2019-04-29T14:45:01.136Z"
-          timeago-tid="5"
-        >
-          3 months ago
-        </time>
-      </div>
-    </div>
-    <div
-      class="sc-cSHVUG jUUdoM"
-    >
-      <div
-        class="sc-kAzzGY fMvBW"
-      >
-        <span
-          class="sc-chPdSV flxTt"
-        >
-          bot
-          : 
-        </span>
-        <span>
-          <span
-            class="sc-kgoBCf wUPVw"
-          >
-            +1
-             
-          </span>
-          <span>
             to
              
           </span>
           <span
             class="sc-kGXeez dKGuCC"
           >
-            @ivan.ananev
+            @anton.chaynikov
+             
+          </span>
+          <span>
+            For
+             
+          </span>
+          <span>
+            showing
+             
+          </span>
+          <span>
+            up
+             
+          </span>
+          <span>
+            in
+             
+          </span>
+          <span>
+            the
+             
+          </span>
+          <span>
+            office
+             
+          </span>
+          <span>
+            on
+             
+          </span>
+          <span>
+            time
              
           </span>
           <span
             class="sc-kpOJdX eAfyei"
           >
-            #be-curious-never-stop-learning
-             
-          </span>
-          <span>
-            for
-             
-          </span>
-          <span>
-            move
-             
-          </span>
-        </span>
-      </div>
-    </div>
-    <div
-      class="sc-dxgOiQ hTjMfW"
-      data-testid="test-comment-list"
-    />
-    <form
-      class="sc-gzVnrw pJiTn"
-      data-testid="test-bonus-form"
-      tabindex="0"
-    >
-      <div
-        data-testid="test-textarea-wrapper"
-      >
-        <div
-          class="rta  "
-        >
-          <textarea
-            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
-            data-testid="test-textarea"
-            name="bonus-text"
-            placeholder="Add a comment"
-          />
-        </div>
-      </div>
-      <div
-        data-testid="test-error-container"
-      />
-      <div
-        class="sc-iwsKbI guaXQX"
-      >
-        <button
-          class="sc-EHOje jlYtND"
-          data-testid="test-button"
-        >
-          Add
-        </button>
-        <div
-          class="sc-dnqmqq iFsitv"
-        >
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Points"
-              src="[object Object]"
-            />
-          </button>
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Hashtag"
-              src="[object Object]"
-            />
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div
-    class="sc-gZMcBi iRXrkI"
-    data-testid="test-bonus"
-  >
-    <div
-      class="sc-gqjmRU eiKwRT"
-    >
-      <div
-        class="sc-VigVT iAALtE"
-      >
-        1
-      </div>
-      <div
-        class="sc-jTzLTM golyQb"
-      >
-        <div
-          class="sc-fjdhpX jRhsDE"
-        >
-          <img
-            alt="Ivan Ananev"
-            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
-          />
-        </div>
-      </div>
-      <div
-        class="sc-jzJRlG EtLpg"
-      >
-        <time
-          class=""
-          datetime="2019-04-29T14:09:28.921Z"
-          timeago-tid="6"
-        >
-          3 months ago
-        </time>
-      </div>
-    </div>
-    <div
-      class="sc-cSHVUG jUUdoM"
-    >
-      <div
-        class="sc-kAzzGY fMvBW"
-      >
-        <span
-          class="sc-chPdSV flxTt"
-        >
-          bot
-          : 
-        </span>
-        <span>
-          <span
-            class="sc-kgoBCf wUPVw"
-          >
-            +1
-             
-          </span>
-          <span>
-            to
-             
-          </span>
-          <span
-            class="sc-kGXeez dKGuCC"
-          >
-            @ivan.ananev
-             
-          </span>
-          <span
-            class="sc-kpOJdX eAfyei"
-          >
-            #be-curious-never-stop-learning
-             
-          </span>
-          <span>
-            for
-             
-          </span>
-          <span>
-            move
-             
-          </span>
-        </span>
-      </div>
-    </div>
-    <div
-      class="sc-dxgOiQ hTjMfW"
-      data-testid="test-comment-list"
-    />
-    <form
-      class="sc-gzVnrw pJiTn"
-      data-testid="test-bonus-form"
-      tabindex="0"
-    >
-      <div
-        data-testid="test-textarea-wrapper"
-      >
-        <div
-          class="rta  "
-        >
-          <textarea
-            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
-            data-testid="test-textarea"
-            name="bonus-text"
-            placeholder="Add a comment"
-          />
-        </div>
-      </div>
-      <div
-        data-testid="test-error-container"
-      />
-      <div
-        class="sc-iwsKbI guaXQX"
-      >
-        <button
-          class="sc-EHOje jlYtND"
-          data-testid="test-button"
-        >
-          Add
-        </button>
-        <div
-          class="sc-dnqmqq iFsitv"
-        >
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Points"
-              src="[object Object]"
-            />
-          </button>
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Hashtag"
-              src="[object Object]"
-            />
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div
-    class="sc-gZMcBi iRXrkI"
-    data-testid="test-bonus"
-  >
-    <div
-      class="sc-gqjmRU eiKwRT"
-    >
-      <div
-        class="sc-VigVT iAALtE"
-      >
-        1
-      </div>
-      <div
-        class="sc-jTzLTM golyQb"
-      >
-        <div
-          class="sc-fjdhpX jRhsDE"
-        >
-          <img
-            alt="Ivan Ananev"
-            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
-          />
-        </div>
-      </div>
-      <div
-        class="sc-jzJRlG EtLpg"
-      >
-        <time
-          class=""
-          datetime="2019-04-29T14:09:03.831Z"
-          timeago-tid="7"
-        >
-          3 months ago
-        </time>
-      </div>
-    </div>
-    <div
-      class="sc-cSHVUG jUUdoM"
-    >
-      <div
-        class="sc-kAzzGY fMvBW"
-      >
-        <span
-          class="sc-chPdSV flxTt"
-        >
-          bot
-          : 
-        </span>
-        <span>
-          <span
-            class="sc-kgoBCf wUPVw"
-          >
-            +1
-             
-          </span>
-          <span>
-            to
-             
-          </span>
-          <span
-            class="sc-kGXeez dKGuCC"
-          >
-            @ivan.ananev
-             
-          </span>
-          <span
-            class="sc-kpOJdX eAfyei"
-          >
-            #be-curious-never-stop-learning
-             
-          </span>
-          <span>
-            for
-             
-          </span>
-          <span>
-            excercise
-             
-          </span>
-        </span>
-      </div>
-    </div>
-    <div
-      class="sc-dxgOiQ hTjMfW"
-      data-testid="test-comment-list"
-    />
-    <form
-      class="sc-gzVnrw pJiTn"
-      data-testid="test-bonus-form"
-      tabindex="0"
-    >
-      <div
-        data-testid="test-textarea-wrapper"
-      >
-        <div
-          class="rta  "
-        >
-          <textarea
-            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
-            data-testid="test-textarea"
-            name="bonus-text"
-            placeholder="Add a comment"
-          />
-        </div>
-      </div>
-      <div
-        data-testid="test-error-container"
-      />
-      <div
-        class="sc-iwsKbI guaXQX"
-      >
-        <button
-          class="sc-EHOje jlYtND"
-          data-testid="test-button"
-        >
-          Add
-        </button>
-        <div
-          class="sc-dnqmqq iFsitv"
-        >
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Points"
-              src="[object Object]"
-            />
-          </button>
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Hashtag"
-              src="[object Object]"
-            />
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div
-    class="sc-gZMcBi iRXrkI"
-    data-testid="test-bonus"
-  >
-    <div
-      class="sc-gqjmRU eiKwRT"
-    >
-      <div
-        class="sc-VigVT iAALtE"
-      >
-        1
-      </div>
-      <div
-        class="sc-jTzLTM golyQb"
-      >
-        <div
-          class="sc-fjdhpX jRhsDE"
-        >
-          <img
-            alt="Ivan Ananev"
-            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
-          />
-        </div>
-      </div>
-      <div
-        class="sc-jzJRlG EtLpg"
-      >
-        <time
-          class=""
-          datetime="2019-04-29T13:41:07.396Z"
-          timeago-tid="8"
-        >
-          3 months ago
-        </time>
-      </div>
-    </div>
-    <div
-      class="sc-cSHVUG jUUdoM"
-    >
-      <div
-        class="sc-kAzzGY fMvBW"
-      >
-        <span
-          class="sc-chPdSV flxTt"
-        >
-          bot
-          : 
-        </span>
-        <span>
-          <span
-            class="sc-kgoBCf wUPVw"
-          >
-            +1
-             
-          </span>
-          <span>
-            to
-             
-          </span>
-          <span
-            class="sc-kGXeez dKGuCC"
-          >
-            @ivan.ananev
-             
-          </span>
-          <span
-            class="sc-kpOJdX eAfyei"
-          >
-            #be-curious-never-stop-learning
-             
-          </span>
-          <span>
-            for
-             
-          </span>
-          <span>
-            stand
-             
-          </span>
-        </span>
-      </div>
-    </div>
-    <div
-      class="sc-dxgOiQ hTjMfW"
-      data-testid="test-comment-list"
-    />
-    <form
-      class="sc-gzVnrw pJiTn"
-      data-testid="test-bonus-form"
-      tabindex="0"
-    >
-      <div
-        data-testid="test-textarea-wrapper"
-      >
-        <div
-          class="rta  "
-        >
-          <textarea
-            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
-            data-testid="test-textarea"
-            name="bonus-text"
-            placeholder="Add a comment"
-          />
-        </div>
-      </div>
-      <div
-        data-testid="test-error-container"
-      />
-      <div
-        class="sc-iwsKbI guaXQX"
-      >
-        <button
-          class="sc-EHOje jlYtND"
-          data-testid="test-button"
-        >
-          Add
-        </button>
-        <div
-          class="sc-dnqmqq iFsitv"
-        >
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Points"
-              src="[object Object]"
-            />
-          </button>
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Hashtag"
-              src="[object Object]"
-            />
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div
-    class="sc-gZMcBi iRXrkI"
-    data-testid="test-bonus"
-  >
-    <div
-      class="sc-gqjmRU eiKwRT"
-    >
-      <div
-        class="sc-VigVT iAALtE"
-      >
-        5
-      </div>
-      <div
-        class="sc-jTzLTM golyQb"
-      >
-        <div
-          class="sc-fjdhpX jRhsDE"
-        >
-          <img
-            alt="Albert Fazullin"
-            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
-          />
-        </div>
-      </div>
-      <div
-        class="sc-jzJRlG EtLpg"
-      >
-        <time
-          class=""
-          datetime="2019-04-24T10:23:19.956Z"
-          timeago-tid="9"
-        >
-          4 months ago
-        </time>
-      </div>
-    </div>
-    <div
-      class="sc-cSHVUG jUUdoM"
-    >
-      <div
-        class="sc-kAzzGY fMvBW"
-      >
-        <span
-          class="sc-chPdSV flxTt"
-        >
-          Timur Vafin
-          : 
-        </span>
-        <span>
-          <span
-            class="sc-kgoBCf wUPVw"
-          >
-            +5
-             
-          </span>
-          <span
-            class="sc-kGXeez dKGuCC"
-          >
-            @albert.fazullin
-             
-          </span>
-          <span
-            class="sc-kpOJdX eAfyei"
-          >
-            #be-curious-never-stop-learning
-             
-          </span>
-          <span>
-            test
-             
-          </span>
-        </span>
-      </div>
-    </div>
-    <div
-      class="sc-dxgOiQ hTjMfW"
-      data-testid="test-comment-list"
-    />
-    <form
-      class="sc-gzVnrw pJiTn"
-      data-testid="test-bonus-form"
-      tabindex="0"
-    >
-      <div
-        data-testid="test-textarea-wrapper"
-      >
-        <div
-          class="rta  "
-        >
-          <textarea
-            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
-            data-testid="test-textarea"
-            name="bonus-text"
-            placeholder="Add a comment"
-          />
-        </div>
-      </div>
-      <div
-        data-testid="test-error-container"
-      />
-      <div
-        class="sc-iwsKbI guaXQX"
-      >
-        <button
-          class="sc-EHOje jlYtND"
-          data-testid="test-button"
-        >
-          Add
-        </button>
-        <div
-          class="sc-dnqmqq iFsitv"
-        >
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Points"
-              src="[object Object]"
-            />
-          </button>
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Hashtag"
-              src="[object Object]"
-            />
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div
-    class="sc-gZMcBi iRXrkI"
-    data-testid="test-bonus"
-  >
-    <div
-      class="sc-gqjmRU eiKwRT"
-    >
-      <div
-        class="sc-VigVT iAALtE"
-      >
-        1
-      </div>
-      <div
-        class="sc-jTzLTM golyQb"
-      >
-        <div
-          class="sc-fjdhpX jRhsDE"
-        >
-          <img
-            alt="Ivan Ananev"
-            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
-          />
-        </div>
-      </div>
-      <div
-        class="sc-jzJRlG EtLpg"
-      >
-        <time
-          class=""
-          datetime="2019-04-18T11:04:51.123Z"
-          timeago-tid="10"
-        >
-          4 months ago
-        </time>
-      </div>
-    </div>
-    <div
-      class="sc-cSHVUG jUUdoM"
-    >
-      <div
-        class="sc-kAzzGY fMvBW"
-      >
-        <span
-          class="sc-chPdSV flxTt"
-        >
-          bot
-          : 
-        </span>
-        <span>
-          <span
-            class="sc-kgoBCf wUPVw"
-          >
-            +1
-             
-          </span>
-          <span>
-            to
-             
-          </span>
-          <span
-            class="sc-kGXeez dKGuCC"
-          >
-            @ivan.ananev
-             
-          </span>
-          <span
-            class="sc-kpOJdX eAfyei"
-          >
-            #be-curious-never-stop-learning
-             
-          </span>
-          <span>
-            Hey
-             
-          </span>
-          <span>
-            Ho!!!
-             
-          </span>
-        </span>
-      </div>
-    </div>
-    <div
-      class="sc-dxgOiQ hTjMfW"
-      data-testid="test-comment-list"
-    />
-    <form
-      class="sc-gzVnrw pJiTn"
-      data-testid="test-bonus-form"
-      tabindex="0"
-    >
-      <div
-        data-testid="test-textarea-wrapper"
-      >
-        <div
-          class="rta  "
-        >
-          <textarea
-            class="rta__textarea autocomplete-textarea autocomplete-textarea--comment"
-            data-testid="test-textarea"
-            name="bonus-text"
-            placeholder="Add a comment"
-          />
-        </div>
-      </div>
-      <div
-        data-testid="test-error-container"
-      />
-      <div
-        class="sc-iwsKbI guaXQX"
-      >
-        <button
-          class="sc-EHOje jlYtND"
-          data-testid="test-button"
-        >
-          Add
-        </button>
-        <div
-          class="sc-dnqmqq iFsitv"
-        >
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Points"
-              src="[object Object]"
-            />
-          </button>
-          <button
-            class="sc-bZQynM hzcfhx"
-            type="button"
-          >
-            <img
-              alt="Hashtag"
-              src="[object Object]"
-            />
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div
-    class="sc-gZMcBi iRXrkI"
-    data-testid="test-bonus"
-  >
-    <div
-      class="sc-gqjmRU eiKwRT"
-    >
-      <div
-        class="sc-VigVT iAALtE"
-      >
-        1
-      </div>
-      <div
-        class="sc-jTzLTM golyQb"
-      >
-        <div
-          class="sc-fjdhpX jRhsDE"
-        >
-          <img
-            alt="Leyla Khamidullina"
-            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
-          />
-        </div>
-        <div
-          class="sc-fjdhpX jRhsDE"
-        >
-          <img
-            alt="Albert Fazullin"
-            src="http://doypx5fd26upp.cloudfront.net/assets/default-user-profile_image-b50dbea6a3e28a1ae62538d4b0115b18558fac3ff7dbbee7da800b5216f97070.png"
-          />
-        </div>
-      </div>
-      <div
-        class="sc-jzJRlG EtLpg"
-      >
-        <time
-          class=""
-          datetime="2019-04-17T16:06:47.974Z"
-          timeago-tid="11"
-        >
-          4 months ago
-        </time>
-      </div>
-    </div>
-    <div
-      class="sc-cSHVUG jUUdoM"
-    >
-      <div
-        class="sc-kAzzGY fMvBW"
-      >
-        <span
-          class="sc-chPdSV flxTt"
-        >
-          Nadezhda Kharchuk
-          : 
-        </span>
-        <span>
-          <span
-            class="sc-kgoBCf wUPVw"
-          >
-            +1
-             
-          </span>
-          <span>
-            @olga.krasnova
-             
-          </span>
-          <span
-            class="sc-kGXeez dKGuCC"
-          >
-            @albert.fazullin
-             
-          </span>
-          <span
-            class="sc-kGXeez dKGuCC"
-          >
-            @leyla.khamidullina
-             
-          </span>
-          <span
-            class="sc-kpOJdX eAfyei"
-          >
-            #be-curious-never-stop-learning
-             
-          </span>
-          <span>
-            test
-             
-          </span>
-          <span>
-            react
-             
-          </span>
-          <span>
-            rewards
-             
-          </span>
-          <span
-            class="sc-kpOJdX eAfyei"
-          >
-            #create-awesomeness
+            #work-hard-play-hard
              
           </span>
         </span>

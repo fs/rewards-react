@@ -1,17 +1,18 @@
-import ShallowRenderer from 'react-test-renderer/shallow';
 import React from 'react';
+import { render } from '@testing-library/react';
+
 import Bonus from '.';
-import bonusList from '../../../mock_data/bonusList';
+import mockBonusList from '../../../mock_data/mockBonusList';
+
+jest.mock('timeago-react');
 
 describe('Bonus index', () => {
   test('render Bonus correctly', () => {
     // Arrange
-    const renderer = new ShallowRenderer();
-    renderer.render(<Bonus bonus={bonusList[0]} />);
     // Act
-    const result = renderer.getRenderOutput();
+    const container = render(<Bonus bonus={mockBonusList[0]} />);
 
     // Assert
-    expect(result).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

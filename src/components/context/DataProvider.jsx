@@ -4,7 +4,6 @@ import reducer from '../../models/reducer';
 import * as types from '../../models/actionTypes';
 import ProfileService from '../../services/ProfileService';
 import bonusService from '../../services/BonusService';
-import bonusParser from '../../utils/bonusParser';
 
 export const fetchUserData = async dispatch => {
   dispatch({ type: types.UPDATE_USER_LOADING });
@@ -24,9 +23,9 @@ export const fetchUserData = async dispatch => {
 export const fetchBonuses = async dispatch => {
   dispatch({ type: types.UPDATE_BONUS_LIST_LOADING });
   try {
-    const bonusListObject = await bonusService.fetchBonusesList();
-    const bonusListArray = bonusParser(bonusListObject.data);
-    dispatch({ type: types.UPDATE_BONUS_LIST_SUCCESS, payload: bonusListArray });
+    const bonusList = await bonusService.fetchBonusesList();
+
+    dispatch({ type: types.UPDATE_BONUS_LIST_SUCCESS, payload: bonusList });
   } catch (error) {
     dispatch({ type: types.UPDATE_BONUS_LIST_ERROR });
   }
