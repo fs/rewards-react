@@ -1,9 +1,6 @@
 import * as types from './actionTypes';
 import reducer from './reducer';
 
-import expectedBonusList from '../mock_data/bonusList';
-import expectedBonusListAfterAddComment from '../mock_data/bonusListAfterAddComment';
-import commentResponse from '../mock_data/commentResponse';
 import mockBonusList from '../mock_data/mockBonusList';
 
 describe('reducer', () => {
@@ -19,6 +16,19 @@ describe('reducer', () => {
     isUserLoading: false,
     hasUserError: false,
   };
+
+  test('Action type: undefined', () => {
+    // Arrange
+    const expectedAction = {
+      type: undefined,
+    };
+
+    // Act
+    const actualState = reducer(expectedInitialState, expectedAction);
+
+    // Assert
+    expect(actualState).toBe(expectedInitialState);
+  });
 
   test('Action type: UPDATE_USER_SUCCESS', () => {
     // Arrange
@@ -201,28 +211,26 @@ describe('reducer', () => {
     expect(actualState).not.toBe(expectedInitialState);
   });
 
-  test('Action type: undefined', () => {
-    // Arrange
-    const expectedAction = {
-      type: undefined,
-    };
-
-    // Act
-    const actualState = reducer(expectedInitialState, expectedAction);
-
-    // Assert
-    expect(actualState).toBe(expectedInitialState);
-  });
   test('Action type: UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS', () => {
     // Arrange
-
     const expectedInitialStateWithBonusList = {
       user: {
         id: '1',
         pointsLeft: 0,
         name: 'Test User',
       },
-      bonusList: expectedBonusList,
+      bonusList: [
+        { id: 2, text: 'text 1' },
+        { id: 2, text: 'text 2' },
+        { id: 3, text: 'text 3' },
+        { id: 4, text: 'text 4' },
+        { id: 5, text: 'text 5' },
+        { id: 6, text: 'text 6' },
+        { id: 7, text: 'text 7' },
+        { id: 8, text: 'text 8' },
+        { id: 9, text: 'text 9' },
+        { id: 10, text: 'text 10' },
+      ],
       isBonusListLoading: false,
       hasBonusListError: false,
       isUserLoading: false,
@@ -231,7 +239,7 @@ describe('reducer', () => {
 
     const expectedAction = {
       type: types.UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS,
-      payload: commentResponse,
+      payload: { id: 3, text: 'updated text 3' },
     };
 
     const expectedState = {
@@ -240,7 +248,18 @@ describe('reducer', () => {
         pointsLeft: 0,
         name: 'Test User',
       },
-      bonusList: expectedBonusListAfterAddComment,
+      bonusList: [
+        { id: 2, text: 'text 1' },
+        { id: 2, text: 'text 2' },
+        { id: 3, text: 'updated text 3' },
+        { id: 4, text: 'text 4' },
+        { id: 5, text: 'text 5' },
+        { id: 6, text: 'text 6' },
+        { id: 7, text: 'text 7' },
+        { id: 8, text: 'text 8' },
+        { id: 9, text: 'text 9' },
+        { id: 10, text: 'text 10' },
+      ],
       isUserLoading: false,
       hasUserError: false,
       isBonusListLoading: false,

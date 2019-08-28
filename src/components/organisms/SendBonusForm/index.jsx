@@ -81,7 +81,15 @@ const SendBonusForm = () => {
 
       setBonusTextareaValue('');
     } catch (error) {
-      const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      let parsedErrorMessage;
+
+      if (error.response && error.response.request && error.response.request.response) {
+        parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      } else {
+        console.error(error);
+        parsedErrorMessage = 'Error occurred';
+      }
+
       setHasError(true);
       setErrorMessage(parsedErrorMessage);
     }

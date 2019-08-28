@@ -90,19 +90,21 @@ const SendCommentForm = props => {
     const { onSuccess, commentService, bonusId } = props;
 
     try {
-      const response = await commentService.createComment(commentTextareaValue, bonusId);
+      const bonusWithComment = await commentService.createComment(commentTextareaValue, bonusId);
 
       setCommentTextareaValue('');
       onSuccess();
-      dispatch({ type: UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS, payload: response.data });
+      dispatch({ type: UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS, payload: bonusWithComment });
     } catch (error) {
       let parsedErrorMessage;
+
       if (error.response && error.response.request && error.response.request.response) {
         parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
       } else {
         console.error(error);
         parsedErrorMessage = 'Error occurred';
       }
+
       setHasError(true);
       setErrorMessage(parsedErrorMessage);
     }

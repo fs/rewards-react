@@ -1,5 +1,4 @@
 import * as types from './actionTypes';
-import bonusAdapter from '../adapters/bonusAdapter';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -42,14 +41,13 @@ const reducer = (state, action) => {
         hasBonusListError: false,
       };
     case types.UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS: {
-      const newBonus = bonusAdapter(action.payload);
-      const { bonusList } = state;
+      const newBonus = action.payload;
 
-      const updatedBonusList = bonusList.map(item => {
-        if (item.id === newBonus[0].id) {
-          return newBonus[0];
+      const updatedBonusList = state.bonusList.map(bonus => {
+        if (bonus.id === newBonus.id) {
+          return newBonus;
         }
-        return item;
+        return bonus;
       });
 
       return {
