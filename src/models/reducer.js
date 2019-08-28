@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import bonusParser from '../utils/bonusParser';
+import bonusAdapter from '../adapters/bonusAdapter';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -42,7 +42,7 @@ const reducer = (state, action) => {
         hasBonusListError: false,
       };
     case types.UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS: {
-      const newBonus = bonusParser(action.payload);
+      const newBonus = bonusAdapter(action.payload);
       const { bonusList } = state;
 
       const updatedBonusList = bonusList.map(item => {
@@ -55,6 +55,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         bonusList: updatedBonusList,
+      };
+    }
+    case types.ADD_TO_BONUS_LIST: {
+      const bonusListReduced = state.bonusList.length >= 10 ? state.bonusList.slice(0, -1) : state.bonusList;
+
+      return {
+        ...state,
+        bonusList: [action.payload, ...bonusListReduced],
+        isBonusListLoading: false,
+        hasBonusListError: false,
       };
     }
     default:

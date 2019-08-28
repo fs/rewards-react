@@ -1,13 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import mockBonusList from '../../../mock_data/bonusList';
+import mockBonusList from '../../../mock_data/mockBonusList';
 
 import BonusList from './BonusList';
+
+jest.mock('timeago-react');
 
 describe('BonusList', () => {
   test('Should show bonus list', async () => {
     // Arrange
-
     const expectedBonusList = mockBonusList;
     const expectedIsLoading = false;
 

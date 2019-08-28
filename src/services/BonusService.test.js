@@ -1,7 +1,9 @@
 import BonusService from './BonusService';
 import api from './ApiService';
 import AuthService from './AuthService';
-import bonusResponse from '../mock_data/bonusResponse';
+import { mockFetchBonusesResponse, mockCreateBonusResponse } from '../mock_data/bonusServiseResponses';
+import mockBonusList from '../mock_data/mockBonusList';
+import mockBonus from '../mock_data/mockBonus';
 
 jest.mock('./ApiService');
 jest.mock('./AuthService');
@@ -35,37 +37,13 @@ describe('BonusService', () => {
       headers: { Authorization: `Bearer ${expectedToken}` },
     };
 
-    const expectedResponse = {
-      data: {
-        id: '4492',
-        type: 'bonuses',
-        attributes: {
-          text: expectedBonusText,
-          points: 1,
-          'total-points': 1,
-          'created-at': '2019-02-20T08:41:03.710Z',
-        },
-        relationships: {
-          sender: {
-            data: {
-              id: '373',
-              type: 'users',
-            },
-          },
-          comments: {
-            data: [],
-          },
-        },
-      },
-    };
-
     const mockGetToken = jest.fn(() => expectedToken);
     AuthService.getToken.mockImplementation(mockGetToken);
 
     const mockApiServicePost = jest.fn(
       () =>
         new Promise(resolve => {
-          resolve(expectedResponse);
+          resolve({ data: mockCreateBonusResponse });
         }),
     );
     api.post.mockImplementation(mockApiServicePost);
@@ -74,7 +52,7 @@ describe('BonusService', () => {
     const actualResponse = await BonusService.createBonus(expectedBonusText);
 
     // Assert
-    expect(actualResponse).toEqual(expectedResponse);
+    expect(actualResponse).toEqual(mockBonus);
     expect(AuthService.getToken).toHaveBeenCalled();
     expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams, config);
   });
@@ -339,15 +317,13 @@ describe('BonusService', () => {
       headers: { Authorization: `Bearer ${expectedToken}` },
     };
 
-    const expectedResponse = bonusResponse;
-
     const mockGetToken = jest.fn(() => expectedToken);
     AuthService.getToken.mockImplementation(mockGetToken);
 
     const mockApiServiceGet = jest.fn(
       () =>
         new Promise(resolve => {
-          resolve(expectedResponse);
+          resolve({ data: mockFetchBonusesResponse });
         }),
     );
     api.get.mockImplementation(mockApiServiceGet);
@@ -356,7 +332,7 @@ describe('BonusService', () => {
     const actualResponse = await BonusService.fetchBonusesList(expectedToken);
 
     // Assert
-    expect(actualResponse).toEqual(expectedResponse);
+    expect(actualResponse).toEqual(mockBonusList);
     expect(AuthService.getToken).toHaveBeenCalled();
     expect(api.get).toHaveBeenCalledWith(expectedPath, config);
   });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
-import { render } from '@testing-library/react';
+import { render, wait } from '@testing-library/react';
 import App from './App';
 
 function renderWithRouter(
@@ -15,25 +15,33 @@ function renderWithRouter(
 }
 
 describe('App Router test', () => {
-  test('should show LoginPage on main page', () => {
+  test('should show LoginPage on main page', async () => {
     // Arrange
     const route = '/';
 
     // Act
-    const { getByTestId } = renderWithRouter(<App />, { route });
-    const loginForm = getByTestId('test-login-form');
+    let loginForm;
+
+    await wait(() => {
+      const { getByTestId } = renderWithRouter(<App />, { route });
+      loginForm = getByTestId('test-login-form');
+    });
 
     // Assert
     expect(loginForm).toMatchSnapshot();
   });
 
-  test('should show BonusPage on /bonuses', () => {
+  test('should show BonusPage on /bonuses', async () => {
     // Arrange
     const route = '/bonuses';
 
     // Act
-    const { getByTestId } = renderWithRouter(<App />, { route });
-    const bonusForm = getByTestId('test-bonus-form');
+    let bonusForm;
+
+    await wait(() => {
+      const { getByTestId } = renderWithRouter(<App />, { route });
+      bonusForm = getByTestId('test-bonus-form');
+    });
 
     // Assert
     expect(bonusForm).toMatchSnapshot();

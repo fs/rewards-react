@@ -1,8 +1,10 @@
 import * as types from './actionTypes';
 import reducer from './reducer';
+
 import expectedBonusList from '../mock_data/bonusList';
 import expectedBonusListAfterAddComment from '../mock_data/bonusListAfterAddComment';
 import commentResponse from '../mock_data/commentResponse';
+import mockBonusList from '../mock_data/mockBonusList';
 
 describe('reducer', () => {
   const expectedInitialState = {
@@ -115,7 +117,7 @@ describe('reducer', () => {
 
     const expectedAction = {
       type: types.UPDATE_BONUS_LIST_SUCCESS,
-      payload: expectedBonusList,
+      payload: mockBonusList,
     };
 
     const expectedState = {
@@ -124,7 +126,7 @@ describe('reducer', () => {
         pointsLeft: 0,
         name: '',
       },
-      bonusList: expectedBonusList,
+      bonusList: mockBonusList,
       isUserLoading: false,
       hasUserError: false,
       isBonusListLoading: expectedIsBonusListLoading,
@@ -211,7 +213,6 @@ describe('reducer', () => {
     // Assert
     expect(actualState).toBe(expectedInitialState);
   });
-
   test('Action type: UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS', () => {
     // Arrange
 
@@ -252,5 +253,158 @@ describe('reducer', () => {
     // Assert
     expect(actualState).toStrictEqual(expectedState);
     expect(actualState).not.toBe(expectedInitialState);
+  });
+
+  describe('Action type: ADD_TO_BONUS_LIST', () => {
+    test('Empty bonus list', () => {
+      // Arrange
+      const expectedInitialStateBonuses = {
+        user: {
+          id: '',
+          pointsLeft: 0,
+          name: '',
+        },
+        bonusList: [],
+        isBonusListLoading: false,
+        hasBonusListError: false,
+        isUserLoading: false,
+        hasUserError: false,
+      };
+
+      const expectedNewBonus = {
+        id: 1,
+      };
+
+      const expectedAction = {
+        type: types.ADD_TO_BONUS_LIST,
+        payload: expectedNewBonus,
+      };
+
+      const expectedState = {
+        user: {
+          id: '',
+          pointsLeft: 0,
+          name: '',
+        },
+        bonusList: [expectedNewBonus],
+        isBonusListLoading: false,
+        hasBonusListError: false,
+        isUserLoading: false,
+        hasUserError: false,
+      };
+      // Act
+      const actualState = reducer(expectedInitialStateBonuses, expectedAction);
+      // Assert
+      expect(actualState).toEqual(expectedState);
+      expect(actualState).not.toBe(expectedInitialStateBonuses);
+    });
+
+    test('Bonus list has length < 10', () => {
+      // Arrange
+      const expectedInitialStateBonuses = {
+        user: {
+          id: '',
+          pointsLeft: 0,
+          name: '',
+        },
+        bonusList: [{ id: 2 }, { id: 3 }],
+        isBonusListLoading: false,
+        hasBonusListError: false,
+        isUserLoading: false,
+        hasUserError: false,
+      };
+
+      const expectedNewBonus = {
+        id: 1,
+      };
+
+      const expectedAction = {
+        type: types.ADD_TO_BONUS_LIST,
+        payload: expectedNewBonus,
+      };
+
+      const expectedState = {
+        user: {
+          id: '',
+          pointsLeft: 0,
+          name: '',
+        },
+        bonusList: [expectedNewBonus, { id: 2 }, { id: 3 }],
+        isBonusListLoading: false,
+        hasBonusListError: false,
+        isUserLoading: false,
+        hasUserError: false,
+      };
+      // Act
+      const actualState = reducer(expectedInitialStateBonuses, expectedAction);
+      // Assert
+      expect(actualState).toEqual(expectedState);
+      expect(actualState).not.toBe(expectedInitialStateBonuses);
+    });
+
+    test('Bonus list has length 10', () => {
+      // Arrange
+      const expectedInitialStateBonuses = {
+        user: {
+          id: '',
+          pointsLeft: 0,
+          name: '',
+        },
+        bonusList: [
+          { id: 2 },
+          { id: 3 },
+          { id: 4 },
+          { id: 5 },
+          { id: 6 },
+          { id: 7 },
+          { id: 8 },
+          { id: 9 },
+          { id: 10 },
+          { id: 11 },
+        ],
+        isBonusListLoading: false,
+        hasBonusListError: false,
+        isUserLoading: false,
+        hasUserError: false,
+      };
+
+      const expectedNewBonus = {
+        id: 1,
+      };
+
+      const expectedAction = {
+        type: types.ADD_TO_BONUS_LIST,
+        payload: expectedNewBonus,
+      };
+
+      const expectedState = {
+        user: {
+          id: '',
+          pointsLeft: 0,
+          name: '',
+        },
+        bonusList: [
+          expectedNewBonus,
+          { id: 2 },
+          { id: 3 },
+          { id: 4 },
+          { id: 5 },
+          { id: 6 },
+          { id: 7 },
+          { id: 8 },
+          { id: 9 },
+          { id: 10 },
+        ],
+        isBonusListLoading: false,
+        hasBonusListError: false,
+        isUserLoading: false,
+        hasUserError: false,
+      };
+      // Act
+      const actualState = reducer(expectedInitialStateBonuses, expectedAction);
+      // Assert
+      expect(actualState).toEqual(expectedState);
+      expect(actualState).not.toBe(expectedInitialStateBonuses);
+    });
   });
 });

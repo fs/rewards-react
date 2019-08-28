@@ -1,4 +1,4 @@
-const bonusParser = ({ data, included }) => {
+export default ({ data, included }) => {
   const bonuses = Array.isArray(data) ? data : [data];
 
   const userNames = included
@@ -71,5 +71,3 @@ const bonusParser = ({ data, included }) => {
 
   return newbonuses;
 };
-
-export default bonusParser;

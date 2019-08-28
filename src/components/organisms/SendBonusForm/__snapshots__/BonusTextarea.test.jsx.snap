@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BonusTextarea Autocomplete Items pointItem 1`] = `
+<div
+  data-testid="test-point-item"
+>
+  +♥25
+</div>
+`;
+
+exports[`BonusTextarea Autocomplete Items tagItem 1`] = `
+<div
+  data-testid="test-tag-item"
+>
+  #win-win-win
+</div>
+`;
+
+exports[`BonusTextarea Autocomplete Items userItem 1`] = `
+<div
+  data-testid="test-user-item"
+>
+  @albert.fazullin
+</div>
+`;

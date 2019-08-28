@@ -1,3 +1,8 @@
+import mockProfileService from '../../services/ProfileService';
+import mockBonusService from '../../services/BonusService';
+
+import { fetchUserData, fetchBonuses } from './DataProvider';
+
 import {
   UPDATE_USER_LOADING,
   UPDATE_USER_SUCCESS,
@@ -6,13 +11,8 @@ import {
   UPDATE_BONUS_LIST_LOADING,
   UPDATE_BONUS_LIST_ERROR,
 } from '../../models/actionTypes';
-import expectedBonusResponse from '../../mock_data/bonusResponse';
-import expectedBonusList from '../../mock_data/bonusList';
 
-import mockProfileService from '../../services/ProfileService';
-import mockBonusService from '../../services/BonusService';
-
-import { fetchUserData, fetchBonuses } from './DataProvider';
+import mockBonusList from '../../mock_data/mockBonusList';
 
 jest.mock('../../services/ProfileService');
 jest.mock('../../services/BonusService');
@@ -47,6 +47,7 @@ describe('DataProvider', () => {
       const expectedStartRequestAction = { type: UPDATE_USER_LOADING };
       const expectedSucceedRequestAction = { type: UPDATE_USER_SUCCESS, payload: expectedPayload };
       const mockDispatch = jest.fn();
+
       mockProfileService.fetchUser.mockImplementation(
         () =>
           new Promise(resolve => {
@@ -89,14 +90,14 @@ describe('DataProvider', () => {
   describe('fetchBonuses', () => {
     test('happy path', async () => {
       // Arrange
-      const expectedSucceedRequestAction = { type: UPDATE_BONUS_LIST_SUCCESS, payload: expectedBonusList };
+      const expectedSucceedRequestAction = { type: UPDATE_BONUS_LIST_SUCCESS, payload: mockBonusList };
       const expectedStartRequestAction = { type: UPDATE_BONUS_LIST_LOADING };
 
       const mockDispatch = jest.fn();
       mockBonusService.fetchBonusesList.mockImplementation(
         () =>
           new Promise(resolve => {
-            resolve({ data: expectedBonusResponse });
+            resolve(mockBonusList);
           }),
       );
 

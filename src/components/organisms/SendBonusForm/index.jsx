@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import BonusTextarea from './BonusTextarea';
 import Button from '../../atoms/Button';
-// import Context from '../../context/Context';
+import Context from '../../context/Context';
 import BonusService from '../../../services/BonusService';
+import * as types from '../../../models/actionTypes';
 
 const Form = styled.form`
   width: 100%;
@@ -37,6 +38,7 @@ const SendBonusForm = () => {
   const [messageUserNameIsValid, setMessageUserNameIsValid] = useState(false);
   const [messageHashTagIsValid, setMessageHashTagIsValid] = useState(false);
   const [bonusButtonText, setBonusButtonText] = useState('Give');
+  const { dispatch } = useContext(Context);
 
   const validate = (values, regex) => {
     const res = values.find(value => value.match(regex));
@@ -73,7 +75,9 @@ const SendBonusForm = () => {
   const handleSubmit = async event => {
     event.preventDefault();
     try {
-      await BonusService.createBonus(bonusText);
+      const bonus = await BonusService.createBonus(bonusText);
+
+      dispatch({ type: types.ADD_TO_BONUS_LIST, payload: bonus });
 
       setBonusTextareaValue('');
     } catch (error) {
