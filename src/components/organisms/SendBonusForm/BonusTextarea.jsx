@@ -10,11 +10,15 @@ const HelperIconsContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-export const pointItem = ({ entity: { id, value } }) => (
-  <div data-testid="test-point-item" key={id}>{`+♥${value}`}</div>
+export const pointItem = ({ entity: { id } }) => (
+  <div data-testid="test-point-item" key={id}>
+    missing test
+  </div>
 );
-export const userItem = ({ entity: { id, username } }) => (
-  <div data-testid="test-user-item" key={id}>{`@${username}`}</div>
+export const userItem = ({ entity: { id } }) => (
+  <div data-testid="test-user-item" key={id}>
+    kek lol
+  </div>
 );
 export const tagItem = ({ entity: { id, label } }) => <div data-testid="test-tag-item" key={id}>{`#${label}`}</div>;
 
