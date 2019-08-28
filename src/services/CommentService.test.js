@@ -1,7 +1,8 @@
 import CommentService from './CommentService';
 import api from './ApiService';
 import AuthService from './AuthService';
-import expectedResponse from '../mock_data/commentResponse';
+import commentServiceResponse from '../mock_data/commentServiceResponse';
+import mockBonusWithNewComment from '../mock_data/mockBonusWithNewComment';
 
 jest.mock('./ApiService');
 jest.mock('./AuthService');
@@ -38,7 +39,7 @@ describe('CommentService', () => {
     const mockApiServicePost = jest.fn(
       () =>
         new Promise(resolve => {
-          resolve(expectedResponse);
+          resolve({ data: commentServiceResponse });
         }),
     );
 
@@ -52,7 +53,7 @@ describe('CommentService', () => {
     const actualResponse = await CommentService.createComment(expectedCommentText, expectedBonusId);
 
     // Assert
-    expect(actualResponse).toEqual(expectedResponse);
+    expect(actualResponse).toEqual(mockBonusWithNewComment);
     expect(api.post).toHaveBeenCalledWith(expectedPath, expectedParams, config);
     expect(AuthService.getToken).toHaveBeenCalled();
   });

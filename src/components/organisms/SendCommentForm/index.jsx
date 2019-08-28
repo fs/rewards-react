@@ -91,10 +91,10 @@ const SendCommentForm = props => {
 
     try {
       const bonusWithComment = await commentService.createComment(commentTextareaValue, bonusId);
+      dispatch({ type: UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS, payload: bonusWithComment });
 
       setCommentTextareaValue('');
       onSuccess();
-      dispatch({ type: UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS, payload: bonusWithComment });
     } catch (error) {
       let parsedErrorMessage;
 
