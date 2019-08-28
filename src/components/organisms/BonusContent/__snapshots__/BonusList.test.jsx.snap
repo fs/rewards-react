@@ -91,7 +91,7 @@ exports[`BonusList Should show bonus list 1`] = `
     />
     <form
       class="sc-htoDjs eNmKLv"
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
       tabindex="0"
     >
       <div
@@ -314,7 +314,7 @@ exports[`BonusList Should show bonus list 1`] = `
     </div>
     <form
       class="sc-htoDjs eNmKLv"
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
       tabindex="0"
     >
       <div
@@ -440,7 +440,7 @@ exports[`BonusList Should show bonus list 1`] = `
     />
     <form
       class="sc-htoDjs eNmKLv"
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
       tabindex="0"
     >
       <div
@@ -803,7 +803,7 @@ exports[`BonusList Should show bonus list 1`] = `
     </div>
     <form
       class="sc-htoDjs eNmKLv"
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
       tabindex="0"
     >
       <div
@@ -965,7 +965,7 @@ exports[`BonusList Should show bonus list 1`] = `
     />
     <form
       class="sc-htoDjs eNmKLv"
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
       tabindex="0"
     >
       <div
@@ -1099,7 +1099,7 @@ exports[`BonusList Should show bonus list 1`] = `
     />
     <form
       class="sc-htoDjs eNmKLv"
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
       tabindex="0"
     >
       <div
@@ -2290,7 +2290,7 @@ exports[`BonusList Should show bonus list 1`] = `
     </div>
     <form
       class="sc-htoDjs eNmKLv"
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
       tabindex="0"
     >
       <div
@@ -2690,7 +2690,7 @@ exports[`BonusList Should show bonus list 1`] = `
     </div>
     <form
       class="sc-htoDjs eNmKLv"
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
       tabindex="0"
     >
       <div
@@ -2919,7 +2919,7 @@ exports[`BonusList Should show bonus list 1`] = `
     </div>
     <form
       class="sc-htoDjs eNmKLv"
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
       tabindex="0"
     >
       <div
@@ -3085,7 +3085,7 @@ exports[`BonusList Should show bonus list 1`] = `
     />
     <form
       class="sc-htoDjs eNmKLv"
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
       tabindex="0"
     >
       <div

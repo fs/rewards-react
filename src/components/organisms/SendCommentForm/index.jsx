@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
+
+import commentService from '../../../services/CommentService';
 import Context from '../../context/Context';
 import CommentTextarea from './CommentTextarea';
 import Button from '../../atoms/Button';
@@ -87,7 +89,7 @@ const SendCommentForm = props => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const { onSuccess, commentService, bonusId } = props;
+    const { onSuccess, bonusId } = props;
 
     try {
       const bonusWithComment = await commentService.createComment(commentTextareaValue, bonusId);
@@ -121,7 +123,7 @@ const SendCommentForm = props => {
       onFocus={() => setIsControlsShowing(true)}
       onBlur={() => setIsControlsShowing(false)}
       onSubmit={handleSubmit}
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
     >
       <CommentTextarea
         onChange={handleChange}
