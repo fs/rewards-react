@@ -52,8 +52,6 @@ const reducer = (state, action) => {
         return item;
       });
 
-      console.log('action', updatedBonusList);
-
       return {
         ...state,
         bonusList: updatedBonusList,

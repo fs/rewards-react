@@ -250,7 +250,7 @@ describe('reducer', () => {
     const actualState = reducer(expectedInitialStateWithBonusList, expectedAction);
 
     // Assert
-    expect(actualState).toBe(expectedState);
+    expect(actualState).toStrictEqual(expectedState);
     expect(actualState).not.toBe(expectedInitialState);
   });
 });
