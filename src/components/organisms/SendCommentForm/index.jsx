@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
+
+import commentService from '../../../services/CommentService';
+import Context from '../../context/Context';
 import CommentTextarea from './CommentTextarea';
 import Button from '../../atoms/Button';
 import HelperIcon from '../../atoms/HelperIcon';
+import { UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS } from '../../../models/actionTypes';
 
 const Form = styled.form`
   width: 100%;
@@ -51,6 +55,7 @@ const SendCommentForm = props => {
   const [messageHashTagIsValid, setMessageHashTagIsValid] = useState(false);
   const [commentButtonText, setCommentButtonText] = useState('Add');
   const [isControlsShowing, setIsControlsShowing] = useState(false);
+  const { dispatch } = useContext(Context);
 
   const validate = (values, regex) => {
     const res = values.find(value => value.match(regex));
@@ -84,14 +89,24 @@ const SendCommentForm = props => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const { onSuccess, commentService, bonusId } = props;
+    const { onSuccess, bonusId } = props;
 
     try {
-      await commentService.createComment(commentTextareaValue, bonusId);
+      const bonusWithComment = await commentService.createComment(commentTextareaValue, bonusId);
+      dispatch({ type: UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS, payload: bonusWithComment });
+
       setCommentTextareaValue('');
       onSuccess();
     } catch (error) {
-      const parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      let parsedErrorMessage;
+
+      if (error.response && error.response.request && error.response.request.response) {
+        parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
+      } else {
+        console.error(error);
+        parsedErrorMessage = 'Error occurred';
+      }
+
       setHasError(true);
       setErrorMessage(parsedErrorMessage);
     }
@@ -108,7 +123,7 @@ const SendCommentForm = props => {
       onFocus={() => setIsControlsShowing(true)}
       onBlur={() => setIsControlsShowing(false)}
       onSubmit={handleSubmit}
-      data-testid="test-bonus-form"
+      data-testid="test-comment-form"
     >
       <CommentTextarea
         onChange={handleChange}

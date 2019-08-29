@@ -11,7 +11,6 @@ export default ({ data, included }) => {
     const senderId = item.relationships.sender.data.id;
     const senderType = item.relationships.sender.data.type;
     const senderObj = included.find(includedItem => includedItem.id === senderId && includedItem.type === senderType);
-
     if (senderObj.type === 'bots') {
       return 'bot';
     }
@@ -50,7 +49,6 @@ export default ({ data, included }) => {
 
   const commentParser = (bonusId, list) => {
     const comments = list.filter(comment => bonusId === comment.relationships.bonus.data.id);
-
     return comments.map(comment => {
       return {
         id: comment.id,

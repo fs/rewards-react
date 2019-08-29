@@ -1,19 +1,14 @@
 import '@testing-library/jest-dom/extend-expect';
-
 import 'jest-styled-components';
-
 import React from 'react';
+import { render, fireEvent, wait } from '@testing-library/react';
 
-import { render, fireEvent, wait, act } from '@testing-library/react';
-import AuthService from '../../../services/AuthService';
 import BonusService from '../../../services/BonusService';
 import Context from '../../context/Context';
+import SendBonusForm from '.';
 
 import { mockFetchBonusesResponse } from '../../../mock_data/bonusServiseResponses';
 
-import SendBonusForm from '.';
-
-jest.mock('../../../services/AuthService');
 jest.mock('../../../services/BonusService');
 
 describe('SendBonusForm', () => {
@@ -24,7 +19,7 @@ describe('SendBonusForm', () => {
     jest.clearAllMocks();
   });
 
-  test('should call bonusService.createBonus on submit', async () => {
+  test('should call BonusService.createBonus on submit', async () => {
     // Arrange
     const expectedBonusCount = '+1';
     const expectedReceiver = '@albert.fazullin';
@@ -41,7 +36,7 @@ describe('SendBonusForm', () => {
 
     const { getByTestId } = render(
       <Context.Provider value={{ dispatch }}>
-        <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+        <SendBonusForm />,
       </Context.Provider>,
     );
     const textArea = getByTestId('test-textarea');
@@ -79,7 +74,7 @@ describe('SendBonusForm', () => {
 
     const { getByTestId } = render(
       <Context.Provider value={{ dispatch }}>
-        <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+        <SendBonusForm />,
       </Context.Provider>,
     );
     const textArea = getByTestId('test-textarea');
@@ -107,15 +102,15 @@ describe('HelperIcon', () => {
     // Arrange
     const { getByTestId } = render(
       <Context.Provider value={{ dispatch }}>
-        <SendBonusForm bonusService={BonusService} authService={AuthService} onSuccess={() => {}} />,
+        <SendBonusForm />,
       </Context.Provider>,
     );
     const textArea = getByTestId('test-textarea');
     const expectedBonusText = '#create-awesomeness';
+
     // Act
-    act(() => {
-      fireEvent.change(textArea, { target: { value: expectedBonusText } });
-    });
+    fireEvent.change(textArea, { target: { value: expectedBonusText } });
+
     const bonusForm = getByTestId('test-bonus-form');
     // Assert
     expect(bonusForm).toMatchSnapshot();

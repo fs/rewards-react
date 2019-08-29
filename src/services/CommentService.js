@@ -1,5 +1,6 @@
 import api from './ApiService';
 import AuthService from './AuthService';
+import bonusAdapter from '../adapters/bonusAdapter';
 
 export default class CommentService {
   static async createComment(text, bonusId) {
@@ -19,6 +20,8 @@ export default class CommentService {
     };
 
     const response = await api.post(apiUrl, bodyParameters, config);
-    return response;
+    const bonusWithComment = bonusAdapter(response.data);
+
+    return bonusWithComment[0];
   }
 }
