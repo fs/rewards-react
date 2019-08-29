@@ -122,7 +122,7 @@ const Bonus = props => {
       </BonusHeader>
       <BonusBody>
         <TextItem>
-          <Sender>{bonus.sender}: </Sender>
+          <Sender>{bonus.sender.name}: </Sender>
           <span>
             {bonus.text.map((item, index) => {
               if (item.type === 'points') {

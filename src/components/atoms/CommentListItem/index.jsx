@@ -32,7 +32,7 @@ const CommentListItem = props => {
   return (
     <CommentItem>
       <TextItem>
-        <Sender>{comment.sender}: </Sender>
+        <Sender>{comment.sender.name}: </Sender>
         <span>
           {comment.text.map((item, index) => {
             if (item.type === 'points') {

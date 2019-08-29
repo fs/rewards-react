@@ -12,9 +12,15 @@ export default ({ data, included }) => {
     const senderType = item.relationships.sender.data.type;
     const senderObj = included.find(includedItem => includedItem.id === senderId && includedItem.type === senderType);
     if (senderObj.type === 'bots') {
-      return 'bot';
+      return {
+        name: 'bot',
+        'allowance-balance': 0,
+      };
     }
-    return senderObj.attributes['full-name'];
+    return {
+      name: senderObj.attributes['full-name'],
+      'allowance-balance': senderObj.attributes['allowance-balance'],
+    };
   };
 
   const getReceivers = item => {

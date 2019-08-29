@@ -14,7 +14,10 @@ export default {
       username: 'albert.fazullin',
     },
   ],
-  sender: 'Nadezhda Kharchuk',
+  sender: {
+    name: 'Nadezhda Kharchuk',
+    'allowance-balance': 154,
+  },
   text: [
     {
       text: '+1',

@@ -5,7 +5,10 @@ export default [
     points: 1,
     'total-points': 1,
     comments: [],
-    sender: 'Nadezhda Kharchuk',
+    sender: {
+      name: 'Nadezhda Kharchuk',
+      'allowance-balance': 155,
+    },
     receivers: [
       {
         email: 'albert.fazullin@flatstack.com',
@@ -46,7 +49,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '599',
@@ -56,7 +62,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '600',
@@ -66,7 +75,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '601',
@@ -76,7 +88,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '602',
@@ -86,10 +101,16 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
     ],
-    sender: 'Nadezhda Kharchuk',
+    sender: {
+      name: 'Nadezhda Kharchuk',
+      'allowance-balance': 155,
+    },
     receivers: [
       {
         email: 'albert.fazullin@flatstack.com',
@@ -122,7 +143,10 @@ export default [
     points: 1,
     'total-points': 1,
     comments: [],
-    sender: 'Nadezhda Kharchuk',
+    sender: {
+      name: 'Nadezhda Kharchuk',
+      'allowance-balance': 155,
+    },
     receivers: [
       {
         email: 'albert.fazullin@flatstack.com',
@@ -175,7 +199,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '591',
@@ -193,7 +220,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '592',
@@ -203,7 +233,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '593',
@@ -217,7 +250,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '594',
@@ -231,7 +267,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '595',
@@ -245,7 +284,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '596',
@@ -259,7 +301,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '597',
@@ -273,10 +318,16 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
     ],
-    sender: 'bot',
+    sender: {
+      name: 'bot',
+      'allowance-balance': 0,
+    },
     receivers: [
       {
         email: 'anton.chaynikov@flatstack.com',
@@ -349,7 +400,10 @@ export default [
     points: 5,
     'total-points': 5,
     comments: [],
-    sender: 'bot',
+    sender: {
+      name: 'bot',
+      'allowance-balance': 0,
+    },
     receivers: [
       {
         email: 'anton.chaynikov@flatstack.com',
@@ -422,7 +476,10 @@ export default [
     points: 1,
     'total-points': 1,
     comments: [],
-    sender: 'bot',
+    sender: {
+      name: 'bot',
+      'allowance-balance': 0,
+    },
     receivers: [
       {
         email: 'anton.chaynikov@flatstack.com',
@@ -507,7 +564,10 @@ export default [
             type: 'tags',
           },
         ],
-        sender: 'Anton Chaynikov',
+        sender: {
+          name: 'Anton Chaynikov',
+          'allowance-balance': 300,
+        },
       },
       {
         id: '542',
@@ -517,7 +577,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '543',
@@ -527,7 +590,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '544',
@@ -537,7 +603,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '545',
@@ -547,7 +616,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '546',
@@ -557,7 +629,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '547',
@@ -567,7 +642,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '548',
@@ -577,7 +655,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '549',
@@ -587,7 +668,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '550',
@@ -597,7 +681,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '551',
@@ -607,7 +694,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '552',
@@ -617,7 +707,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '553',
@@ -627,7 +720,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '554',
@@ -637,7 +733,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '555',
@@ -647,7 +746,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '556',
@@ -657,7 +759,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '557',
@@ -667,7 +772,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '558',
@@ -677,7 +785,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '559',
@@ -687,7 +798,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '560',
@@ -697,7 +811,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '561',
@@ -707,7 +824,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '562',
@@ -717,7 +837,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '563',
@@ -727,7 +850,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '564',
@@ -737,7 +863,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '565',
@@ -747,7 +876,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '566',
@@ -757,7 +889,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '567',
@@ -767,7 +902,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '568',
@@ -777,7 +915,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '569',
@@ -787,7 +928,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '571',
@@ -825,7 +969,10 @@ export default [
             type: 'tags',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '572',
@@ -835,7 +982,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '573',
@@ -845,7 +995,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '574',
@@ -855,7 +1008,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '575',
@@ -865,7 +1021,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '576',
@@ -875,7 +1034,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '577',
@@ -885,7 +1047,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '578',
@@ -895,7 +1060,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '579',
@@ -905,7 +1073,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '580',
@@ -915,7 +1086,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '581',
@@ -925,7 +1099,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '582',
@@ -935,7 +1112,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '583',
@@ -945,7 +1125,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '584',
@@ -955,7 +1138,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '585',
@@ -965,7 +1151,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '586',
@@ -975,7 +1164,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '587',
@@ -985,7 +1177,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '588',
@@ -995,7 +1190,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '589',
@@ -1005,10 +1203,16 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
     ],
-    sender: 'bot',
+    sender: {
+      name: 'bot',
+      'allowance-balance': 0,
+    },
     receivers: [
       {
         email: 'anton.chaynikov@flatstack.com',
@@ -1097,7 +1301,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '528',
@@ -1107,7 +1314,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '529',
@@ -1121,7 +1331,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '531',
@@ -1131,7 +1344,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '532',
@@ -1141,7 +1357,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '533',
@@ -1155,7 +1374,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '534',
@@ -1165,7 +1387,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '535',
@@ -1175,7 +1400,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '536',
@@ -1185,7 +1413,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '537',
@@ -1195,7 +1426,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '538',
@@ -1205,7 +1439,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '539',
@@ -1215,7 +1452,10 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '540',
@@ -1225,10 +1465,16 @@ export default [
             type: 'text',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
     ],
-    sender: 'Nadezhda Kharchuk',
+    sender: {
+      name: 'Nadezhda Kharchuk',
+      'allowance-balance': 155,
+    },
     receivers: [
       {
         email: 'albert.fazullin@flatstack.com',
@@ -1273,7 +1519,10 @@ export default [
             type: 'users',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
       {
         id: '570',
@@ -1311,10 +1560,16 @@ export default [
             type: 'tags',
           },
         ],
-        sender: 'Nadezhda Kharchuk',
+        sender: {
+          name: 'Nadezhda Kharchuk',
+          'allowance-balance': 155,
+        },
       },
     ],
-    sender: 'bot',
+    sender: {
+      name: 'bot',
+      'allowance-balance': 0,
+    },
     receivers: [
       {
         email: 'anton.chaynikov@flatstack.com',
@@ -1383,7 +1638,10 @@ export default [
     points: 5,
     'total-points': 5,
     comments: [],
-    sender: 'bot',
+    sender: {
+      name: 'bot',
+      'allowance-balance': 0,
+    },
     receivers: [
       {
         email: 'anton.chaynikov@flatstack.com',

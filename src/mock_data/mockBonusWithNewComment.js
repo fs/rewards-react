@@ -2,7 +2,10 @@ export default {
   comments: [
     {
       id: '610',
-      sender: 'Nadezhda Kharchuk',
+      sender: {
+        name: 'Nadezhda Kharchuk',
+        'allowance-balance': 141,
+      },
       text: [
         {
           text: '+1',
@@ -29,7 +32,10 @@ export default {
       username: 'albert.fazullin',
     },
   ],
-  sender: 'Nadezhda Kharchuk',
+  sender: {
+    name: 'Nadezhda Kharchuk',
+    'allowance-balance': 141,
+  },
   text: [
     {
       text: '+1',
