@@ -55,7 +55,7 @@ const reducer = (state, action) => {
         bonusList: updatedBonusList,
       };
     }
-    case types.ADD_TO_BONUS_LIST: {
+    case types.UPDATE_BONUS_LIST_AFTER_ADD_BONUS_SUCCESS: {
       const bonusListReduced = state.bonusList.length >= 10 ? state.bonusList.slice(0, -1) : state.bonusList;
 
       return {
@@ -65,6 +65,14 @@ const reducer = (state, action) => {
         hasBonusListError: false,
       };
     }
+    case types.UPDATE_ALLOWANCE_BALANCE:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          pointsLeft: action.payload,
+        },
+      };
     default:
       return state;
   }

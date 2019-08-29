@@ -77,7 +77,7 @@ const SendBonusForm = () => {
     try {
       const bonus = await BonusService.createBonus(bonusText);
 
-      dispatch({ type: types.ADD_TO_BONUS_LIST, payload: bonus });
+      dispatch({ type: types.UPDATE_BONUS_LIST_AFTER_ADD_BONUS_SUCCESS, payload: bonus });
 
       setBonusTextareaValue('');
     } catch (error) {

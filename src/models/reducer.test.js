@@ -220,7 +220,7 @@ describe('reducer', () => {
         name: 'Test User',
       },
       bonusList: [
-        { id: 2, text: 'text 1' },
+        { id: 1, text: 'text 1' },
         { id: 2, text: 'text 2' },
         { id: 3, text: 'text 3' },
         { id: 4, text: 'text 4' },
@@ -249,7 +249,7 @@ describe('reducer', () => {
         name: 'Test User',
       },
       bonusList: [
-        { id: 2, text: 'text 1' },
+        { id: 1, text: 'text 1' },
         { id: 2, text: 'text 2' },
         { id: 3, text: 'updated text 3' },
         { id: 4, text: 'text 4' },
@@ -274,7 +274,7 @@ describe('reducer', () => {
     expect(actualState).not.toBe(expectedInitialState);
   });
 
-  describe('Action type: ADD_TO_BONUS_LIST', () => {
+  describe('Action type: UPDATE_BONUS_LIST_AFTER_ADD_BONUS_SUCCESS', () => {
     test('Empty bonus list', () => {
       // Arrange
       const expectedInitialStateBonuses = {
@@ -295,7 +295,7 @@ describe('reducer', () => {
       };
 
       const expectedAction = {
-        type: types.ADD_TO_BONUS_LIST,
+        type: types.UPDATE_BONUS_LIST_AFTER_ADD_BONUS_SUCCESS,
         payload: expectedNewBonus,
       };
 
@@ -338,7 +338,7 @@ describe('reducer', () => {
       };
 
       const expectedAction = {
-        type: types.ADD_TO_BONUS_LIST,
+        type: types.UPDATE_BONUS_LIST_AFTER_ADD_BONUS_SUCCESS,
         payload: expectedNewBonus,
       };
 
@@ -392,7 +392,7 @@ describe('reducer', () => {
       };
 
       const expectedAction = {
-        type: types.ADD_TO_BONUS_LIST,
+        type: types.UPDATE_BONUS_LIST_AFTER_ADD_BONUS_SUCCESS,
         payload: expectedNewBonus,
       };
 
@@ -425,5 +425,48 @@ describe('reducer', () => {
       expect(actualState).toEqual(expectedState);
       expect(actualState).not.toBe(expectedInitialStateBonuses);
     });
+  });
+
+  test('Action type: UPDATE_ALLOWANCE_BALANCE', () => {
+    // Arrange
+    const expectedCurrentState = {
+      user: {
+        id: '18',
+        pointsLeft: 0,
+        name: 'Lol lol',
+      },
+      bonusList: [],
+      isBonusListLoading: false,
+      hasBonusListError: false,
+      isUserLoading: false,
+      hasUserError: false,
+    };
+
+    const expectedAllowanceBalance = 200;
+
+    const expectedAction = {
+      type: types.UPDATE_ALLOWANCE_BALANCE,
+      payload: expectedAllowanceBalance,
+    };
+
+    const expectedState = {
+      user: {
+        id: '18',
+        pointsLeft: expectedAllowanceBalance,
+        name: 'Lol lol',
+      },
+      bonusList: [],
+      isBonusListLoading: false,
+      hasBonusListError: false,
+      isUserLoading: false,
+      hasUserError: false,
+    };
+
+    // Act
+    const actualState = reducer(expectedCurrentState, expectedAction);
+
+    // Assert
+    expect(actualState).toEqual(expectedState);
+    expect(actualState).not.toBe(expectedCurrentState);
   });
 });
