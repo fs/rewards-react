@@ -103,8 +103,6 @@ const CommentList = styled.div``;
 const Bonus = props => {
   const { bonus } = props;
 
-  const onSuccess = () => {};
-
   return (
     <BonusContainer data-testid="test-bonus">
       <BonusHeader>
@@ -144,7 +142,7 @@ const Bonus = props => {
           <CommentListItem comment={item} key={item.id} />
         ))}
       </CommentList>
-      <SendCommentForm onSuccess={onSuccess} bonusId={bonus.id} />
+      <SendCommentForm bonusId={bonus.id} />
     </BonusContainer>
   );
 };

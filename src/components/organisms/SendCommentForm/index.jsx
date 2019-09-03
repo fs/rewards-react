@@ -89,7 +89,7 @@ const SendCommentForm = props => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const { onSuccess, bonusId } = props;
+    const { bonusId } = props;
 
     try {
       const bonusWithComment = await commentService.createComment(commentTextareaValue, bonusId);
@@ -98,7 +98,6 @@ const SendCommentForm = props => {
       dispatch({ type: UPDATE_ALLOWANCE_BALANCE, payload: bonusWithComment.sender['allowance-balance'] });
 
       setCommentTextareaValue('');
-      onSuccess();
     } catch (error) {
       let parsedErrorMessage;
 

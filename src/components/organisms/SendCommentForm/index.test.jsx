@@ -46,7 +46,7 @@ describe('SendCommentForm', () => {
 
     const { getByTestId } = render(
       <Context.Provider value={{ dispatch }}>
-        <SendCommentForm onSuccess={() => {}} bonusId={expectedBonusId} />,
+        <SendCommentForm bonusId={expectedBonusId} />,
       </Context.Provider>,
     );
     const textArea = getByTestId('test-textarea');
@@ -85,7 +85,7 @@ describe('SendCommentForm', () => {
 
     const { getByTestId } = render(
       <Context.Provider value={{ dispatch }}>
-        <SendCommentForm onSuccess={() => {}} bonusId={expectedBonusId} />,
+        <SendCommentForm bonusId={expectedBonusId} />,
       </Context.Provider>,
     );
     const textArea = getByTestId('test-textarea');
@@ -114,7 +114,7 @@ describe('HelperIcon', () => {
     // Arrange
     const { getByTestId } = render(
       <Context.Provider value={{ dispatch }}>
-        <SendCommentForm onSuccess={() => {}} bonusId={expectedBonusId} />,
+        <SendCommentForm bonusId={expectedBonusId} />,
       </Context.Provider>,
     );
     const textArea = getByTestId('test-textarea');
