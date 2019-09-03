@@ -6,7 +6,7 @@ import Context from '../../context/Context';
 import CommentTextarea from './CommentTextarea';
 import Button from '../../atoms/Button';
 import HelperIcon from '../../atoms/HelperIcon';
-import { UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS } from '../../../models/actionTypes';
+import { UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS, UPDATE_ALLOWANCE_BALANCE } from '../../../models/actionTypes';
 
 const Form = styled.form`
   width: 100%;
@@ -93,7 +93,9 @@ const SendCommentForm = props => {
 
     try {
       const bonusWithComment = await commentService.createComment(commentTextareaValue, bonusId);
+
       dispatch({ type: UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS, payload: bonusWithComment });
+      dispatch({ type: UPDATE_ALLOWANCE_BALANCE, payload: bonusWithComment.sender['allowance-balance'] });
 
       setCommentTextareaValue('');
       onSuccess();
@@ -103,7 +105,7 @@ const SendCommentForm = props => {
       if (error.response && error.response.request && error.response.request.response) {
         parsedErrorMessage = JSON.parse(error.response.request.response).errors[0].detail;
       } else {
-        console.error(error);
+        console.log(error);
         parsedErrorMessage = 'Error occurred';
       }
 
@@ -117,11 +119,21 @@ const SendCommentForm = props => {
     setCommentTextareaValue(commentTextareaValue + text);
   };
 
+  const showControls = () => {
+    setIsControlsShowing(true);
+  };
+
+  const hideControls = () => {
+    setIsControlsShowing(false);
+    setHasError(false);
+    setErrorMessage('');
+  };
+
   return (
     <Form
       tabIndex={0}
-      onFocus={() => setIsControlsShowing(true)}
-      onBlur={() => setIsControlsShowing(false)}
+      onFocus={showControls}
+      onBlur={hideControls}
       onSubmit={handleSubmit}
       data-testid="test-comment-form"
     >

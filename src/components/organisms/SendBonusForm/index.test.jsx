@@ -6,8 +6,9 @@ import { render, fireEvent, wait } from '@testing-library/react';
 import BonusService from '../../../services/BonusService';
 import Context from '../../context/Context';
 import SendBonusForm from '.';
+import * as types from '../../../models/actionTypes';
 
-import { mockFetchBonusesResponse } from '../../../mock_data/bonusServiseResponses';
+import mockBonus from '../../../mock_data/mockBonus';
 
 jest.mock('../../../services/BonusService');
 
@@ -26,11 +27,17 @@ describe('SendBonusForm', () => {
     const expectedTag = '#create-awesomeness';
     const expectedBonusText = `${expectedBonusCount} ${expectedReceiver} ${expectedTag}`;
 
-    const mockCreateBonus = jest.fn(() =>
-      Promise.resolve({
-        data: mockFetchBonusesResponse,
-      }),
-    );
+    const expectedNewBonusAction = {
+      type: types.UPDATE_BONUS_LIST_AFTER_ADD_BONUS_SUCCESS,
+      payload: mockBonus,
+    };
+
+    const expectedAllowanceBalanceAction = {
+      type: types.UPDATE_ALLOWANCE_BALANCE,
+      payload: mockBonus.sender['allowance-balance'],
+    };
+
+    const mockCreateBonus = jest.fn(() => Promise.resolve(mockBonus));
 
     BonusService.createBonus.mockImplementation(mockCreateBonus);
 
@@ -49,8 +56,10 @@ describe('SendBonusForm', () => {
     // Assert
     await wait(() => {
       expect(BonusService.createBonus).toHaveBeenCalledWith(expectedBonusText);
-      expect(dispatch).toHaveBeenCalled();
     });
+
+    expect(dispatch).toHaveBeenNthCalledWith(1, expectedNewBonusAction);
+    expect(dispatch).toHaveBeenNthCalledWith(2, expectedAllowanceBalanceAction);
   });
 
   test('should call bonusService.createBonus on submit and show error message when not enough points', async () => {

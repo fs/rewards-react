@@ -7,6 +7,8 @@ import CommentService from '../../../services/CommentService';
 import Context from '../../context/Context';
 import SendCommentForm from '.';
 
+import * as types from '../../../models/actionTypes';
+
 import mockBonusWithNewComment from '../../../mock_data/mockBonusWithNewComment';
 
 jest.mock('../../../services/CommentService');
@@ -18,6 +20,8 @@ describe('SendCommentForm', () => {
   beforeEach(() => {
     jest.resetModules();
     jest.clearAllMocks();
+
+    CommentService.createComment.mockClear();
   });
 
   test('should call CommentService.createComment on submit', async () => {
@@ -26,7 +30,17 @@ describe('SendCommentForm', () => {
     const expectedTag = '#create-awesomeness';
     const expectedCommentText = `${expectedCommentCount} ${expectedTag}`;
 
-    const mockCreateComment = jest.fn(() => Promise.resolve([mockBonusWithNewComment]));
+    const expectedNewBonusAction = {
+      type: types.UPDATE_BONUS_LIST_AFTER_ADD_COMMENT_SUCCESS,
+      payload: mockBonusWithNewComment,
+    };
+
+    const expectedAllowanceBalanceAction = {
+      type: types.UPDATE_ALLOWANCE_BALANCE,
+      payload: mockBonusWithNewComment.sender['allowance-balance'],
+    };
+
+    const mockCreateComment = jest.fn(() => Promise.resolve(mockBonusWithNewComment));
 
     CommentService.createComment.mockImplementation(mockCreateComment);
 
@@ -45,8 +59,10 @@ describe('SendCommentForm', () => {
     // Assert
     await wait(() => {
       expect(CommentService.createComment).toHaveBeenCalledWith(expectedCommentText, expectedBonusId);
-      expect(dispatch).toHaveBeenCalled();
     });
+
+    expect(dispatch).toHaveBeenNthCalledWith(1, expectedNewBonusAction);
+    expect(dispatch).toHaveBeenNthCalledWith(2, expectedAllowanceBalanceAction);
   });
 
   test('should call CommentService.createComment on submit and show error message when not enough points', async () => {
